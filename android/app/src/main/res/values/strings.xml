@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">सुनहरे गीत</string>
+    <string name="title_activity_main">सुनहरे गीत</string>
+    <string name="package_name">com.sunehregeet.app</string>
+    <string name="custom_url_scheme">com.sunehregeet.app</string>
+</resources>
