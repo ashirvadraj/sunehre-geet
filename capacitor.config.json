@@ -2,8 +2,12 @@
   "appId": "com.sunehregeet.app",
   "appName": "सुनहरे गीत",
   "webDir": "dist",
-  "bundledWebRuntime": false,
   "android": {
     "allowMixedContent": true
+  },
+  "ios": {
+    "contentInset": "always",
+    "allowsLinkPreview": false,
+    "scrollEnabled": true
   }
 }
