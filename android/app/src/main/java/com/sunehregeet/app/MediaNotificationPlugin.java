@@ -46,7 +46,9 @@ import java.net.URLEncoder;
 public class MediaNotificationPlugin extends Plugin {
 
     private static final String CHANNEL_ID = "sunehre_geet_media_channel";
+    private static final String RECOMMENDATION_CHANNEL_ID = "sunehre_geet_recommendations";
     private static final int NOTIFICATION_ID = 1001;
+    private static final int RECOMMENDATION_NOTIFICATION_ID = 2002;
 
     public static final String ACTION_PLAY = "com.sunehregeet.app.ACTION_PLAY";
     public static final String ACTION_PAUSE = "com.sunehregeet.app.ACTION_PAUSE";
@@ -185,8 +187,19 @@ public class MediaNotificationPlugin extends Plugin {
             channel.setDescription("Shows media controls on lock screen and notification shade");
             channel.setShowBadge(false);
             channel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+
+            NotificationChannel recChannel = new NotificationChannel(
+                RECOMMENDATION_CHANNEL_ID,
+                "दैनिक गीत सिफ़ारिशें (Song Recommendations)",
+                NotificationManager.IMPORTANCE_DEFAULT
+            );
+            recChannel.setDescription("Shows delightful nostalgic song recommendations and classical melodies");
+            recChannel.setShowBadge(true);
+            recChannel.enableVibration(true);
+
             if (notificationManager != null) {
                 notificationManager.createNotificationChannel(channel);
+                notificationManager.createNotificationChannel(recChannel);
             }
         }
     }
@@ -489,6 +502,85 @@ public class MediaNotificationPlugin extends Plugin {
                 JSObject ret = new JSObject();
                 ret.put("content", "");
                 call.resolve(ret);
+            }
+        }).start();
+    }
+
+    @PluginMethod
+    public void sendSongRecommendation(PluginCall call) {
+        String phrase = call.getString("phrase", "मौसम है सुहाना, सुनिए यह सदाबहार तराना 🎶");
+        String songTitle = call.getString("songTitle", "Sunehre Geet");
+        String songArtist = call.getString("songArtist", "Evergreen Melody");
+        String songId = call.getString("songId", "");
+        String coverUrl = call.getString("coverUrl", "");
+
+        Context context = getContext();
+        if (context == null || notificationManager == null) {
+            call.reject("Context unavailable");
+            return;
+        }
+
+        new Thread(() -> {
+            try {
+                Bitmap bitmap = null;
+                if (coverUrl != null && !coverUrl.isEmpty()) {
+                    try {
+                        URL url = new URL(coverUrl);
+                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                        conn.setDoInput(true);
+                        conn.setConnectTimeout(3000);
+                        conn.setReadTimeout(3000);
+                        conn.connect();
+                        InputStream input = conn.getInputStream();
+                        bitmap = BitmapFactory.decodeStream(input);
+                    } catch (Exception ignored) {}
+                }
+
+                if (bitmap == null) {
+                    try {
+                        bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.splash);
+                    } catch (Exception ignored) {}
+                }
+
+                Intent intent = new Intent(context, MainActivity.class);
+                intent.putExtra("recommendationSongId", songId);
+                intent.putExtra("autoPlay", true);
+                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                int flags = PendingIntent.FLAG_UPDATE_CURRENT;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    flags |= PendingIntent.FLAG_IMMUTABLE;
+                }
+                PendingIntent pendingIntent = PendingIntent.getActivity(context, (int) System.currentTimeMillis(), intent, flags);
+
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(context, RECOMMENDATION_CHANNEL_ID)
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setContentTitle(phrase)
+                    .setContentText(songTitle + " • " + songArtist)
+                    .setContentIntent(pendingIntent)
+                    .setAutoCancel(true)
+                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .setDefaults(Notification.DEFAULT_ALL)
+                    .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+
+                if (bitmap != null) {
+                    builder.setLargeIcon(bitmap);
+                    builder.setStyle(new NotificationCompat.BigPictureStyle()
+                        .bigPicture(bitmap)
+                        .setBigContentTitle(phrase)
+                        .setSummaryText(songTitle + " — " + songArtist));
+                } else {
+                    builder.setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(songTitle + "\nगायक: " + songArtist + "\n\nक्लिक करें और सुनिए यह ख़ास नगमा!"));
+                }
+
+                notificationManager.notify(RECOMMENDATION_NOTIFICATION_ID, builder.build());
+
+                JSObject ret = new JSObject();
+                ret.put("success", true);
+                call.resolve(ret);
+            } catch (Exception e) {
+                call.reject("Failed: " + e.getMessage());
             }
         }).start();
     }

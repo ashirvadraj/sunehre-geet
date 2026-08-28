@@ -20,6 +20,8 @@ import { SearchView } from './views/SearchView';
 import { LibraryView } from './views/LibraryView';
 import { Artist, Decade } from './types';
 import { Disc3 } from 'lucide-react';
+import { RecommendationService } from './services/recommendationService';
+import { SONGS } from './data/songs';
 
 export const MainApp: React.FC = () => {
   const [activeTab, setActiveTab] = useState<NavTab>('home');
@@ -34,8 +36,30 @@ export const MainApp: React.FC = () => {
   const [showExitToast, setShowExitToast] = useState(false);
   const lastBackPressRef = useRef<number>(0);
 
-  const { isFullPlayerOpen, setIsFullPlayerOpen, pause } = useAudio();
+  const { isFullPlayerOpen, setIsFullPlayerOpen, pause, playSong } = useAudio();
   const { isAccountModalOpen, setIsAccountModalOpen } = useAuth();
+
+  // Start periodic smart song recommendation notifications (with different nostalgic phrases)
+  useEffect(() => {
+    const cleanup = RecommendationService.startScheduler();
+    return () => cleanup();
+  }, []);
+
+  // Listen for song recommendation notification clicks to autoplay target song
+  useEffect(() => {
+    const handlePlayRecommended = (e: any) => {
+      const songId = e?.detail?.songId;
+      if (songId) {
+        const target = SONGS.find((s) => s.id === songId);
+        if (target) {
+          playSong(target, SONGS);
+          setIsFullPlayerOpen(true);
+        }
+      }
+    };
+    window.addEventListener('playRecommendedSong', handlePlayRecommended);
+    return () => window.removeEventListener('playRecommendedSong', handlePlayRecommended);
+  }, [playSong, setIsFullPlayerOpen]);
 
   // Auto-dismiss Exit Toast after exactly 4 seconds
   useEffect(() => {

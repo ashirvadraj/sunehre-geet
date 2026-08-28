@@ -37,11 +37,37 @@ public class MainActivity extends BridgeActivity {
             settings.setAllowContentAccess(true);
             webView.clearCache(true);
         }
+
+        handleRecommendationIntent(getIntent());
+    }
+
+    @Override
+    public void onNewIntent(android.content.Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        handleRecommendationIntent(intent);
+    }
+
+    private void handleRecommendationIntent(android.content.Intent intent) {
+        if (intent != null && intent.hasExtra("recommendationSongId")) {
+            String songId = intent.getStringExtra("recommendationSongId");
+            if (songId != null && !songId.isEmpty()) {
+                if (getBridge() != null && getBridge().getWebView() != null) {
+                    getBridge().getWebView().postDelayed(() -> {
+                        getBridge().getWebView().evaluateJavascript(
+                            "window.dispatchEvent(new CustomEvent('playRecommendedSong', { detail: { songId: '" + songId + "' } }));",
+                            null
+                        );
+                    }, 500);
+                }
+            }
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        handleRecommendationIntent(getIntent());
         if (getBridge() != null && getBridge().getWebView() != null) {
             WebView webView = getBridge().getWebView();
             WebSettings settings = webView.getSettings();
