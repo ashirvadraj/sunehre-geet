@@ -123,24 +123,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
             </div>
           </div>
 
-          <div className="flex items-center gap-1.5">
-            <button
-              onClick={() => RecommendationService.sendRecommendation()}
-              className="flex items-center gap-1 text-[11px] text-retro-cream hover:text-amber-300 font-semibold px-2.5 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 hover:border-amber-400/50 transition-all active:scale-95 shadow-sm"
-              title="Send a Random Song Recommendation Notification"
-            >
-              <Sparkles className="w-3 h-3 text-amber-300 animate-pulse" />
-              <span>ख़ास नगमा (Surprise)</span>
-            </button>
-            <button
-              onClick={refreshRandomSuggestions}
-              className="flex items-center gap-1 text-xs text-retro-gold hover:text-amber-300 font-semibold px-2.5 py-1 rounded-full bg-white/5 border border-white/10 hover:border-retro-gold/30 transition-all active:scale-95"
-              title="Shuffle New Masterpieces"
-            >
-              <Shuffle className="w-3.5 h-3.5" />
-              <span>बदलें (New)</span>
-            </button>
-          </div>
+          <button
+            onClick={refreshRandomSuggestions}
+            className="flex items-center gap-1 text-xs text-retro-gold hover:text-amber-300 font-semibold px-2.5 py-1 rounded-full bg-white/5 border border-white/10 hover:border-retro-gold/30 transition-all active:scale-95"
+            title="Shuffle New Masterpieces"
+          >
+            <Shuffle className="w-3.5 h-3.5" />
+            <span>बदलें (New)</span>
+          </button>
         </div>
 
         {/* Horizontal Scroll Cards */}
