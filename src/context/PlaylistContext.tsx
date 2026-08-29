@@ -281,6 +281,26 @@ export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
     setLikedSongIds(prev => {
       const next = prev.includes(songId) ? prev.filter(id => id !== songId) : [...prev, songId];
+      // Immediate sync to native storage
+      setTimeout(() => {
+        const userProfile = user || {
+          email: 'local_user@sunehregeet.app',
+          name: 'Local User',
+          picture: '',
+          sub: 'local_default',
+          provider: 'google' as const,
+          lastLoginAt: Date.now(),
+        };
+        const allSongs = Array.from(
+          new Map([...Object.values(likedSongsMap), ...(song ? [song] : []), ...favorites].map(s => [s.id, s])).values()
+        );
+        CloudSyncService.syncToGoogleCloud(userProfile, {
+          likedSongIds: next,
+          playlists,
+          recentSongIds,
+          likedSongs: allSongs,
+        });
+      }, 50);
       return next;
     });
   };
