@@ -2,23 +2,63 @@
 import { SONGS } from '../data/songs';
 import { Song } from '../types';
 
-const NOTIFICATION_PHRASES = [
-  'मौसम है सुहाना, सुनिए यह सदाबहार तराना 🎶',
-  'पुरानी यादें ताज़ा करने का वक़्त... सुनिए यह ख़ास गीत ✨',
-  'दिल को छू लेने वाली एक सुरीली धुन आपके लिए 📻',
+// Time of Day Phrases
+const MORNING_PHRASES = [
+  'सुहानी सुबह, गुनगुनी धूप और यह ताज़ा तराना 🌅',
+  'सुबह की शुरुआत कीजिए इस सुरीले सदाबहार नगमे के संग ☕',
+  'आज के दिन को बनाइए और भी हसीन... सुनिए यह मधुर गीत 🌸',
+  'प्रभात की बेला में कानों में रस घोलती एक प्यारी धुन 🕊️',
+  'चाय की पहली चुस्की और लता जी की मीठी आवाज़... शुभ प्रभात! ☕',
+  'एक नई सुबह, एक नया अहसास... सुनिए यह अमर क्लासिक 🌻',
+];
+
+const AFTERNOON_PHRASES = [
+  'दोपहर के सुकून भरे पलों में सुनिए यह अमर क्लासिक 🎶',
+  'दिन की इस खूबसूरत दोपहर में एक दिलकश नगमा आपके लिए ☀️',
+  'सुकून भरी दोपहर और पुरानी यादों का प्यारा सफ़र 📻',
+  'काम के बीच थोड़ा सुकून... गुनगुनाइए यह सदाबहार गीत 🌼',
+  'दिन के इस पहर को बनाइए और भी सुरीला... सुनिए यह ख़ास नगमा 🎧',
+  'मोहम्मद रफ़ी और किशोर दा का यह सदाबहार तराना सुना क्या? 🎵',
+];
+
+const EVENING_PHRASES = [
   'शाम की चाय और यह दिलकश नगमा... क्या बात है! ☕',
-  'मोहम्मद रफ़ी और किशोर दा का यह अमर गीत सुना क्या? 🎵',
-  'आज के दिन को बनाइए और भी यादगार इस क्लासिक के साथ 🌸',
-  'सदाबहार यादों का सफ़र... एक खूबसूरत गीत आपके नाम 🎼',
-  'सुकून भरे कुछ पल... सुनिए यह रूहानी धुन 🕊️',
-  'गुनगुनाइए यह प्यारा सा नगमा... दिल खुश हो जाएगा! 💛',
-  'मौसम के मिज़ाज के साथ एक अनमोल क्लासिक धुन 🌧️',
+  'ढलती शाम और सुरों की यह हसीन महफ़िल 🌇',
+  'मौसम है सुहाना, सुनिए यह सदाबहार तराना 🎶',
+  'शाम के इस हसीन वक़्त में एक सदाबहार गीत आपके नाम 🎻',
+  'पुरानी यादें ताज़ा करने का वक़्त... सुनिए यह ख़ास गीत ✨',
+  'दिन ढलने के साथ दिल को छू लेने वाली एक सुरीली धुन 🌆',
+];
+
+const NIGHT_PHRASES = [
   'रात की ख़ामोशी और यह सदाबहार संगीत... सुनिए अभी 🌙',
-  'सुरों की महफ़िल सजाइए इस सदाबहार क्लासिक के संग 🎻',
+  'सोने से पहले सुनिए यह रूहानी धुन, मीठे सपनों के नाम 🌌',
+  'चांदनी रात और किशोर दा-रफ़ी साहब का यह अमर गीत 🌠',
+  'रात के इस शांत पहर में एक बेहद सुकून भरा नगमा 🎧',
+  'ख़ामोश रात और सुरों का यह जादू... सुनिए और खो जाइए 💤',
+  'सदाबहार यादों का सफ़र... एक खूबसूरत गीत आपके नाम 🎼',
+];
+
+// Weather / Season Specific Phrases
+const MONSOON_RAIN_PHRASES = [
+  'रिमझिम बारिश की बूंदें और यह सदाबहार तराना 🌧️',
+  'बरसात का मौसम और यह रूमानी नगमा... सुनिए अभी ☔',
+  'भीगी-भीगी फुहारें और चाय के साथ एक अमर क्लासिक धुन ☕🌧️',
+  'बादलों की छांव और सुरों की यह मस्तानी बरसात 🌩️🎵',
+];
+
+const WINTER_PHRASES = [
+  'सर्द मौसम, गुनगुनी धूप और यह दिलकश सदाबहार नगमा ❄️☕',
+  'हल्की ठंड की इस महकती फिज़ा में सुनिए यह प्यारा गीत 🧣',
+  'सर्दियों की इस शाम में दिल को गर्माहट देता एक सुरीला नगमा ☕🔥',
+];
+
+const GENERAL_SWEET_PHRASES = [
+  'मौसम का मिज़ाज है मस्ताना... सुनिए यह सदाबहार तराना 🍃🌸',
+  'दिल को छू लेने वाली एक सुरीली धुन आपके लिए 📻',
   'एक प्यारा सा गीत, जो आपके चेहरे पर मुस्कान ला दे 😊',
   'सुनहरे दौर का वो अमर गीत जो आज भी दिल धड़काता है 💖',
   'लता जी और मुकेश जी की आवाज़ का यह जादू कभी पुराना नहीं होता 🌹',
-  'दिल की गहराइयों को छूने वाला सुरीला संगीत 🎧',
 ];
 
 const STORAGE_KEY_LAST_NOTIF = 'sunehre_geet_last_recommendation_time';
@@ -53,12 +93,47 @@ export const RecommendationService = {
   },
 
   /**
-   * Pick a random poetic phrase different from the previous one
+   * Pick a context-aware phrase based on current Time of Day and Season/Weather
    */
-  pickRandomPhrase(): string {
+  pickContextualPhrase(): string {
+    const now = new Date();
+    const hour = now.getHours();
+    const month = now.getMonth() + 1; // 1-12
+
+    let timePool: string[] = [];
+
+    // 1. Time of Day Classification (Accurate local clock)
+    if (hour >= 5 && hour < 12) {
+      // 5:00 AM - 11:59 AM : Morning
+      timePool = MORNING_PHRASES;
+    } else if (hour >= 12 && hour < 17) {
+      // 12:00 PM - 4:59 PM : Noon / Afternoon
+      timePool = AFTERNOON_PHRASES;
+    } else if (hour >= 17 && hour < 21) {
+      // 5:00 PM - 8:59 PM : Evening
+      timePool = EVENING_PHRASES;
+    } else {
+      // 9:00 PM - 4:59 AM : Night / Late Night
+      timePool = NIGHT_PHRASES;
+    }
+
+    // 2. Weather & Season Mix-in
+    let seasonalPool: string[] = [];
+    if (month >= 6 && month <= 9) {
+      // Monsoon / Rainy Months in India (June-September)
+      seasonalPool = MONSOON_RAIN_PHRASES;
+    } else if (month === 11 || month === 12 || month === 1 || month === 2) {
+      // Winter Months (November-February)
+      seasonalPool = WINTER_PHRASES;
+    }
+
+    // Combine pool: 60% time-specific, 25% seasonal/weather, 15% evergreen sweet
+    const candidatePool = [...timePool, ...timePool, ...seasonalPool, ...GENERAL_SWEET_PHRASES];
+
     const lastPhrase = localStorage.getItem(STORAGE_KEY_LAST_PHRASE) || '';
-    const candidates = NOTIFICATION_PHRASES.filter((p) => p !== lastPhrase);
-    const pool = candidates.length > 0 ? candidates : NOTIFICATION_PHRASES;
+    const filtered = candidatePool.filter((p) => p !== lastPhrase);
+    const pool = filtered.length > 0 ? filtered : candidatePool;
+
     const selected = pool[Math.floor(Math.random() * pool.length)];
     try {
       localStorage.setItem(STORAGE_KEY_LAST_PHRASE, selected);
@@ -72,7 +147,7 @@ export const RecommendationService = {
   async sendRecommendation(customSong?: Song): Promise<boolean> {
     try {
       const song = customSong || this.pickRandomMasterpiece();
-      const phrase = this.pickRandomPhrase();
+      const phrase = this.pickContextualPhrase();
 
       const cap = (window as any).Capacitor;
       if (cap?.Plugins?.MediaNotificationPlugin?.sendSongRecommendation) {
