@@ -651,7 +651,9 @@ public class MediaNotificationPlugin extends Plugin {
                     String[] projection = { MediaStore.MediaColumns._ID, MediaStore.MediaColumns.DISPLAY_NAME };
                     Cursor cursor = resolver.query(
                         MediaStore.Downloads.EXTERNAL_CONTENT_URI, projection,
-                        MediaStore.MediaColumns.DISPLAY_NAME + " LIKE 'backup_%'", null,
+                        MediaStore.MediaColumns.DISPLAY_NAME + " LIKE '%backup%' OR " +
+                        MediaStore.MediaColumns.DISPLAY_NAME + " LIKE '%sunehre%' OR " +
+                        MediaStore.MediaColumns.DISPLAY_NAME + " LIKE '%.json%'", null,
                         MediaStore.MediaColumns.DATE_MODIFIED + " DESC"
                     );
                     if (cursor != null) {
@@ -689,7 +691,9 @@ public class MediaNotificationPlugin extends Plugin {
                     String[] projection = { MediaStore.Audio.Media._ID, MediaStore.Audio.Media.DISPLAY_NAME };
                     Cursor cursor = resolver.query(
                         MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, projection,
-                        MediaStore.Audio.Media.DISPLAY_NAME + " LIKE 'backup_%'", null,
+                        MediaStore.Audio.Media.DISPLAY_NAME + " LIKE '%backup%' OR " +
+                        MediaStore.Audio.Media.DISPLAY_NAME + " LIKE '%sunehre%' OR " +
+                        MediaStore.Audio.Media.DISPLAY_NAME + " LIKE '%.json%'", null,
                         MediaStore.Audio.Media.DATE_MODIFIED + " DESC"
                     );
                     if (cursor != null) {
@@ -744,8 +748,11 @@ public class MediaNotificationPlugin extends Plugin {
 
             searchDirs.add(new File("/sdcard/SunehreGeet"));
             searchDirs.add(new File("/sdcard/Download/SunehreGeet"));
+            searchDirs.add(new File("/sdcard/Download"));
             searchDirs.add(new File("/sdcard/Documents/SunehreGeet"));
+            searchDirs.add(new File("/sdcard/Documents"));
             searchDirs.add(new File("/sdcard/Music/SunehreGeet"));
+            searchDirs.add(new File("/sdcard/Music"));
 
             if (ctx != null) {
                 try {
@@ -760,7 +767,11 @@ public class MediaNotificationPlugin extends Plugin {
 
             for (File dir : searchDirs) {
                 if (dir == null || !dir.exists() || !dir.isDirectory()) continue;
-                File[] files = dir.listFiles((d, name) -> name.startsWith("backup_") || name.endsWith(".json"));
+                File[] files = dir.listFiles((d, name) -> {
+                    if (name == null) return false;
+                    String lower = name.toLowerCase();
+                    return lower.contains("backup") || lower.contains("sunehre") || lower.endsWith(".json") || lower.endsWith(".jason");
+                });
                 if (files == null) continue;
 
                 for (File f : files) {

@@ -52,28 +52,66 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onOpenCreatePlaylist }
     setTimeout(() => setRestoreMsg(null), 4000);
   };
 
+  const handleFileImport = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      try {
+        const text = event.target?.result as string;
+        const json = JSON.parse(text);
+        if (json) {
+          restoreUserData(json.likedSongIds, json.playlists, json.recentSongIds, json.likedSongs);
+          const count = json.likedSongIds?.length || json.likedSongs?.length || 0;
+          setRestoreMsg({ text: `✅ फ़ाइल से ${count} गीत सफलतापूर्वक लोड हुए!`, success: true });
+        }
+      } catch (err) {
+        setRestoreMsg({ text: '❌ अमान्य बैकअप फ़ाइल', success: false });
+      }
+      setTimeout(() => setRestoreMsg(null), 4000);
+    };
+    reader.readAsText(file);
+  };
+
   return (
     <div className="pb-48 pt-3 px-4 space-y-6 max-w-lg mx-auto animate-fade-in">
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h2 className="font-serif font-bold text-2xl text-retro-cream">
+      <div className="flex items-center justify-between gap-2">
+        <div className="min-w-0 flex-1">
+          <h2 className="font-serif font-bold text-2xl text-retro-cream truncate">
             Your Library
           </h2>
-          <p className="text-xs text-white/50">
-            Liked songs, custom playlists, and recently played history
+          <p className="text-xs text-white/50 truncate">
+            Liked songs, playlists & history
           </p>
         </div>
 
-        {/* Manual Restore Button */}
-        <button
-          onClick={handleRestorePersonalBackup}
-          className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-retro-gold/15 hover:bg-retro-gold/30 border border-retro-gold/40 text-retro-gold text-xs font-bold transition-all active:scale-95 shadow-sm"
-          title="Restore your personal backup"
-        >
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>रीस्टोर (Restore)</span>
-        </button>
+        <div className="flex items-center gap-1.5 flex-shrink-0">
+          {/* Manual File Pick Button */}
+          <label
+            className="cursor-pointer flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white/80 text-xs font-medium transition-all active:scale-95 shadow-sm"
+            title="Select a backup file from Downloads"
+          >
+            <Download className="w-3.5 h-3.5 text-retro-gold" />
+            <span>फ़ाइल चुनें</span>
+            <input
+              type="file"
+              accept=".json,application/json,text/plain"
+              className="hidden"
+              onChange={handleFileImport}
+            />
+          </label>
+
+          {/* Auto Restore Button */}
+          <button
+            onClick={handleRestorePersonalBackup}
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-retro-gold/20 hover:bg-retro-gold/30 border border-retro-gold/40 text-retro-gold text-xs font-bold transition-all active:scale-95 shadow-sm"
+            title="Auto-scan phone storage for backups"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>रीस्टोर</span>
+          </button>
+        </div>
       </div>
 
       {/* Restore Status Toast */}
