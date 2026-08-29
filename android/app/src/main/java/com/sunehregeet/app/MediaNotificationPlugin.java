@@ -17,6 +17,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Environment;
 import android.os.PowerManager;
+import android.speech.RecognizerIntent;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
 
@@ -375,6 +376,42 @@ public class MediaNotificationPlugin extends Plugin {
         JSObject ret = new JSObject();
         ret.put("success", false);
         ret.put("error", "Google Account selection cancelled.");
+        call.resolve(ret);
+    }
+
+    @PluginMethod
+    public void startSpeechRecognition(PluginCall call) {
+        try {
+            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "hi-IN");
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE, "hi-IN");
+            intent.putExtra(RecognizerIntent.EXTRA_ONLY_RETURN_LANGUAGE_PREFERENCE, false);
+            intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "गाने का नाम या गायक बोलिए... (Speak song or singer)");
+            startActivityForResult(call, intent, "handleSpeechResult");
+        } catch (Exception e) {
+            JSObject ret = new JSObject();
+            ret.put("success", false);
+            ret.put("error", "Speech recognition unavailable: " + e.getMessage());
+            call.resolve(ret);
+        }
+    }
+
+    @ActivityCallback
+    private void handleSpeechResult(PluginCall call, ActivityResult result) {
+        if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+            java.util.ArrayList<String> matches = result.getData().getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            if (matches != null && !matches.isEmpty()) {
+                JSObject ret = new JSObject();
+                ret.put("success", true);
+                ret.put("text", matches.get(0));
+                call.resolve(ret);
+                return;
+            }
+        }
+        JSObject ret = new JSObject();
+        ret.put("success", false);
+        ret.put("error", "No speech recognized");
         call.resolve(ret);
     }
 

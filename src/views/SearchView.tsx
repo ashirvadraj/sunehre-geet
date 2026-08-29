@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, Sparkles, Disc, Music, User, Flame, History, X, Loader2, Globe } from 'lucide-react';
+import { Search, Sparkles, Disc, Music, User, Flame, History, X, Loader2, Globe, Mic, MicOff } from 'lucide-react';
 import { SONGS } from '../data/songs';
 import { ARTISTS } from '../data/artists';
 import { Song, Artist } from '../types';
@@ -196,6 +196,69 @@ export const SearchView: React.FC<SearchViewProps> = ({ onOpenCreatePlaylist, on
     performOnlineSearch(term);
   };
 
+  const [isListening, setIsListening] = useState(false);
+
+  const handleVoiceSearch = async () => {
+    // 1. Try Native Android Speech Recognition via MediaNotificationPlugin
+    try {
+      const cap = (window as any).Capacitor;
+      if (cap?.Plugins?.MediaNotificationPlugin?.startSpeechRecognition) {
+        setIsListening(true);
+        const res = await cap.Plugins.MediaNotificationPlugin.startSpeechRecognition();
+        setIsListening(false);
+        if (res?.success && res.text) {
+          const spokenText = res.text.trim();
+          if (spokenText) {
+            handleSearchSubmit(spokenText);
+          }
+        }
+        return;
+      }
+    } catch (e) {
+      console.warn('Native speech error:', e);
+      setIsListening(false);
+    }
+
+    // 2. Web Speech API fallback
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    if (SpeechRecognition) {
+      try {
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'hi-IN';
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        recognition.onstart = () => {
+          setIsListening(true);
+        };
+
+        recognition.onresult = (event: any) => {
+          setIsListening(false);
+          const transcript = event.results[0]?.[0]?.transcript;
+          if (transcript && transcript.trim()) {
+            handleSearchSubmit(transcript.trim());
+          }
+        };
+
+        recognition.onerror = (event: any) => {
+          setIsListening(false);
+          console.warn('Speech recognition error:', event.error);
+        };
+
+        recognition.onend = () => {
+          setIsListening(false);
+        };
+
+        recognition.start();
+      } catch (err) {
+        setIsListening(false);
+        console.warn('Web speech failed:', err);
+      }
+    } else {
+      alert('Voice search is not supported on this device/browser.');
+    }
+  };
+
   // Local matching songs
   const trimmed = query.trim().toLowerCase();
   const localMatchingSongs = trimmed
@@ -226,35 +289,61 @@ export const SearchView: React.FC<SearchViewProps> = ({ onOpenCreatePlaylist, on
 
   return (
     <div className="pb-36 pt-3 px-4 space-y-6 max-w-lg mx-auto animate-fade-in">
-      {/* Search Input Bar */}
-      <div className="relative">
-        <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-retro-gold">
-          {isSearchingOnline ? (
-            <Loader2 className="w-5 h-5 animate-spin" />
-          ) : (
-            <Search className="w-5 h-5" />
-          )}
-        </div>
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => handleQueryChange(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') handleSearchSubmit(query);
-          }}
-          placeholder="Search any song, singer, movie (e.g. Pehli Nazar Mein, Rafi, DDLJ)..."
-          className="w-full pl-11 pr-10 py-3.5 rounded-2xl bg-[#18112b] border border-retro-gold/30 text-retro-cream placeholder-white/40 text-sm focus:outline-none focus:border-retro-gold focus:ring-1 focus:ring-retro-gold transition-all shadow-inner"
-        />
-        {query && (
-          <button
-            onClick={() => {
-              setQuery('');
-              setOnlineResults([]);
+      {/* Search Input Bar with Mic */}
+      <div className="space-y-2">
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-retro-gold">
+            {isSearchingOnline ? (
+              <Loader2 className="w-5 h-5 animate-spin" />
+            ) : (
+              <Search className="w-5 h-5" />
+            )}
+          </div>
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => handleQueryChange(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') handleSearchSubmit(query);
             }}
-            className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-white/40 hover:text-white"
-          >
-            <X className="w-5 h-5" />
-          </button>
+            placeholder="Search any song, singer, movie (e.g. Pehli Nazar Mein, Rafi, DDLJ)..."
+            className="w-full pl-11 pr-24 py-3.5 rounded-2xl bg-[#18112b] border border-retro-gold/30 text-retro-cream placeholder-white/40 text-sm focus:outline-none focus:border-retro-gold focus:ring-1 focus:ring-retro-gold transition-all shadow-inner"
+          />
+          <div className="absolute inset-y-0 right-0 pr-2.5 flex items-center gap-1.5">
+            {query && (
+              <button
+                onClick={() => {
+                  setQuery('');
+                  setOnlineResults([]);
+                }}
+                className="p-1.5 text-white/40 hover:text-white transition-colors"
+                title="Clear"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+            {/* Mic / Voice Search Button */}
+            <button
+              type="button"
+              onClick={handleVoiceSearch}
+              className={`p-2 rounded-xl transition-all ${
+                isListening
+                  ? 'bg-red-500 text-white shadow-lg shadow-red-500/50 animate-pulse scale-105'
+                  : 'text-retro-gold hover:text-amber-300 hover:bg-white/10 active:scale-95'
+              }`}
+              title="बोलकर खोजें (Voice Search)"
+            >
+              <Mic className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+
+        {/* Listening Voice Indicator */}
+        {isListening && (
+          <div className="flex items-center justify-center gap-2 p-2.5 rounded-2xl bg-red-500/15 border border-red-500/30 text-red-200 text-xs font-semibold animate-pulse">
+            <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
+            <span>🎙️ सुन रहे हैं... गाने या गायक का नाम बोलिए (Listening...)</span>
+          </div>
         )}
       </div>
 
