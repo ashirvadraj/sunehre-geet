@@ -69,7 +69,7 @@ export const CloudSyncService = {
       localStorage.setItem('sunehre_last_backup', jsonStr);
     } catch {}
 
-    // 2. TRUE ONLINE GOOGLE CLOUD SYNC (Accessible from ANY phone / device)
+    // 2. TRUE ONLINE GOOGLE CLOUD SYNC (Isolated per Google Account)
     try {
       const cleanEmail = (user.email || 'default').toLowerCase().trim();
       const fileKey = 'backup_' + cleanEmail.replace(/[^a-zA-Z0-9]/g, '_') + '.json';
@@ -77,9 +77,6 @@ export const CloudSyncService = {
       const gistBody = JSON.stringify({
         files: {
           [fileKey]: {
-            content: JSON.stringify(payloadToSave),
-          },
-          'backup_latest.json': {
             content: JSON.stringify(payloadToSave),
           },
         },
@@ -123,7 +120,7 @@ export const CloudSyncService = {
     let nativeBackup: BackupData | null = null;
     let localBackup: BackupData | null = null;
 
-    // 1. Fetch from True Online Cloud Storage
+    // 1. Fetch from True Online Cloud Storage for this specific account
     try {
       const fileKey = 'backup_' + cleanEmail.replace(/[^a-zA-Z0-9]/g, '_') + '.json';
       const res = await fetch(`https://api.github.com/gists/${CLOUD_GIST_ID}`, {
@@ -134,8 +131,8 @@ export const CloudSyncService = {
       });
       if (res.ok) {
         const gist = await res.json();
-        if (gist && gist.files) {
-          const fileObj = gist.files[fileKey] || gist.files['backup_latest.json'];
+        if (gist && gist.files && gist.files[fileKey]) {
+          const fileObj = gist.files[fileKey];
           if (fileObj && fileObj.content) {
             const parsed = JSON.parse(fileObj.content);
             if (parsed && Array.isArray(parsed.likedSongIds) && parsed.likedSongIds.length > 0) {
