@@ -20,6 +20,7 @@ interface PlaylistContextType {
   addToRecent: (songId: string) => void;
   getSongById: (id: string) => Song | undefined;
   restoreUserData: (likedIds?: string[], restoredPlaylists?: Playlist[], recentIds?: string[], restoredSongs?: Song[]) => void;
+  restoreFromCloud: (customEmail?: string) => Promise<{ success: boolean; count: number }>;
 }
 
 const PlaylistContext = createContext<PlaylistContextType | undefined>(undefined);
@@ -46,6 +47,7 @@ const DEFAULT_PLAYLISTS: Playlist[] = [
 export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user, syncNow } = useAuth();
   const syncTimeoutRef = useRef<any>(null);
+  const hasInitialRestoreAttempted = useRef<boolean>(false);
 
   const [likedSongIds, setLikedSongIds] = useState<string[]>(() => {
     try {
@@ -99,28 +101,45 @@ export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     localStorage.setItem(STORAGE_KEYS.RECENT, JSON.stringify(recentSongIds));
   }, [recentSongIds]);
 
+  const restoreFromCloud = async (customEmail?: string): Promise<{ success: boolean; count: number }> => {
+    const emailToUse = customEmail || user?.email || 'default';
+    const backup = await CloudSyncService.fetchCloudBackup(emailToUse);
+    if (backup) {
+      let count = 0;
+      if (backup.likedSongs && Array.isArray(backup.likedSongs) && backup.likedSongs.length > 0) {
+        const map: Record<string, Song> = {};
+        backup.likedSongs.forEach((s: any) => { if (s && s.id) map[s.id] = s; });
+        setLikedSongsMap(prev => ({ ...prev, ...map }));
+      }
+      if (backup.likedSongIds && Array.isArray(backup.likedSongIds) && backup.likedSongIds.length > 0) {
+        setLikedSongIds(prev => Array.from(new Set([...prev, ...backup.likedSongIds])));
+        count = backup.likedSongIds.length;
+      }
+      if (backup.playlists && Array.isArray(backup.playlists) && backup.playlists.length > 0) {
+        setPlaylists(prev => {
+          const m = new Map<string, Playlist>();
+          [...prev, ...backup.playlists].forEach(p => m.set(p.id, p));
+          return Array.from(m.values());
+        });
+      }
+      if (backup.recentSongIds && Array.isArray(backup.recentSongIds) && backup.recentSongIds.length > 0) {
+        setRecentSongIds(prev => Array.from(new Set([...prev, ...backup.recentSongIds])));
+      }
+      hasInitialRestoreAttempted.current = true;
+      return { success: true, count };
+    }
+    hasInitialRestoreAttempted.current = true;
+    return { success: false, count: 0 };
+  };
+
   // On App Launch (Fresh Install / Reinstall): Auto-restore latest persistent phone backup
   useEffect(() => {
     const autoRestoreIfEmpty = async () => {
       const savedLiked = localStorage.getItem(STORAGE_KEYS.LIKED);
       if (!savedLiked || savedLiked === '[]' || (JSON.parse(savedLiked || '[]').length === 0)) {
-        const backup = await CloudSyncService.fetchCloudBackup(user?.email || 'default');
-        if (backup) {
-          if (backup.likedSongs && Array.isArray(backup.likedSongs) && backup.likedSongs.length > 0) {
-            const map: Record<string, Song> = {};
-            backup.likedSongs.forEach((s: any) => { if (s && s.id) map[s.id] = s; });
-            setLikedSongsMap(prev => ({ ...prev, ...map }));
-          }
-          if (backup.likedSongIds && Array.isArray(backup.likedSongIds) && backup.likedSongIds.length > 0) {
-            setLikedSongIds(backup.likedSongIds);
-          }
-          if (backup.playlists && Array.isArray(backup.playlists) && backup.playlists.length > 0) {
-            setPlaylists(backup.playlists);
-          }
-          if (backup.recentSongIds && Array.isArray(backup.recentSongIds) && backup.recentSongIds.length > 0) {
-            setRecentSongIds(backup.recentSongIds);
-          }
-        }
+        await restoreFromCloud(user?.email);
+      } else {
+        hasInitialRestoreAttempted.current = true;
       }
     };
     autoRestoreIfEmpty();
@@ -145,6 +164,9 @@ export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   // Automatic Real-Time Local & Cloud Backup (Always keeps phone backup up to date)
   useEffect(() => {
+    if (!hasInitialRestoreAttempted.current) return;
+    if (likedSongIds.length === 0 && playlists.length <= 1 && recentSongIds.length === 0) return;
+
     clearTimeout(syncTimeoutRef.current);
     syncTimeoutRef.current = setTimeout(() => {
       const userProfile = user || {
@@ -159,7 +181,7 @@ export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         userProfile,
         { likedSongIds, playlists, recentSongIds, likedSongs: favorites }
       );
-    }, 600);
+    }, 1000);
     return () => clearTimeout(syncTimeoutRef.current);
   }, [likedSongIds, playlists, recentSongIds, user, likedSongsMap]);
 
@@ -274,6 +296,7 @@ export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         addToRecent,
         getSongById,
         restoreUserData,
+        restoreFromCloud,
       }}
     >
       {children}

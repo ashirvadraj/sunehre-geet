@@ -20,7 +20,7 @@ export const CloudSyncService = {
     data: { likedSongIds: string[]; playlists: Playlist[]; recentSongIds: string[]; likedSongs?: Song[] }
   ): Promise<boolean> {
     const payload: BackupData = {
-      version: '11.0',
+      version: '12.0',
       exportedAt: Date.now(),
       user: {
         email: user.email,
@@ -34,13 +34,19 @@ export const CloudSyncService = {
 
     const jsonStr = JSON.stringify(payload);
 
-    // 1. Session & Storage Cache
+    // 1. Session & Storage Cache (Never overwrite non-empty with empty)
     try {
       const emailHash = Math.abs(
         user.email.toLowerCase().trim().split('').reduce((a, b) => ((a << 5) - a + b.charCodeAt(0)) | 0, 0)
       ).toString(36);
-      localStorage.setItem(`sunehre_backup_${emailHash}`, jsonStr);
-      localStorage.setItem('sunehre_last_backup', jsonStr);
+
+      const existingRaw = localStorage.getItem(`sunehre_backup_${emailHash}`) || localStorage.getItem('sunehre_last_backup');
+      const isExistingNonEmpty = existingRaw && existingRaw.includes('"likedSongIds":["');
+      
+      if (!(data.likedSongIds.length === 0 && isExistingNonEmpty)) {
+        localStorage.setItem(`sunehre_backup_${emailHash}`, jsonStr);
+        localStorage.setItem('sunehre_last_backup', jsonStr);
+      }
     } catch {}
 
     // 2. Native Persistent Document Storage (Survives Uninstall & Clear-Data)
@@ -58,10 +64,12 @@ export const CloudSyncService = {
   },
 
   async fetchCloudBackup(email: string): Promise<BackupData | null> {
-    const cleanEmail = email.toLowerCase().trim();
+    const cleanEmail = (email || 'default').toLowerCase().trim();
     const emailHash = Math.abs(
       cleanEmail.split('').reduce((a, b) => ((a << 5) - a + b.charCodeAt(0)) | 0, 0)
     ).toString(36);
+
+    let bestBackup: BackupData | null = null;
 
     // 1. Check Native Persistent Storage first (survives app reinstall)
     try {
@@ -70,8 +78,8 @@ export const CloudSyncService = {
         const res = await cap.Plugins.MediaNotificationPlugin.loadLocalCloudBackup({ email: cleanEmail });
         if (res?.success && res.data) {
           const parsed = JSON.parse(res.data);
-          if (parsed && Array.isArray(parsed.likedSongIds)) {
-            return parsed;
+          if (parsed && Array.isArray(parsed.likedSongIds) && parsed.likedSongIds.length > 0) {
+            bestBackup = parsed;
           }
         }
       }
@@ -82,12 +90,14 @@ export const CloudSyncService = {
       const raw = localStorage.getItem(`sunehre_backup_${emailHash}`) || localStorage.getItem('sunehre_last_backup');
       if (raw) {
         const parsed = JSON.parse(raw);
-        if (parsed && Array.isArray(parsed.likedSongIds)) {
-          return parsed;
+        if (parsed && Array.isArray(parsed.likedSongIds) && parsed.likedSongIds.length > 0) {
+          if (!bestBackup || (parsed.likedSongIds.length > bestBackup.likedSongIds.length)) {
+            bestBackup = parsed;
+          }
         }
       }
     } catch {}
 
-    return null;
+    return bestBackup;
   },
 };

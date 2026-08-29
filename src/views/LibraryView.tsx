@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Heart, ListMusic, History, Download, Play, Plus, Trash2, Disc3, Sparkles } from 'lucide-react';
 import { usePlaylist } from '../context/PlaylistContext';
 import { useAudio } from '../context/AudioContext';
@@ -15,6 +15,8 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onOpenCreatePlaylist }
   const [activeTab, setActiveTab] = useState<'favorites' | 'playlists' | 'recent' | 'downloads'>('favorites');
   const [selectedPlaylistId, setSelectedPlaylistId] = useState<string | null>(null);
 
+  const [restoreMsg, setRestoreMsg] = useState<{ text: string; success: boolean } | null>(null);
+
   const {
     likedSongIds,
     favorites,
@@ -23,6 +25,7 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onOpenCreatePlaylist }
     deletePlaylist,
     removeSongFromPlaylist,
     restoreUserData,
+    restoreFromCloud,
     getSongById,
   } = usePlaylist();
 
@@ -38,43 +41,56 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onOpenCreatePlaylist }
     ? (selectedPlaylist.songIds.map((id) => getSongById(id)).filter(Boolean) as Song[])
     : [];
 
-  const handleRestore76Classics = () => {
-    const evergreen76 = SONGS.filter((s) => {
-      if (s.language === 'english') return false;
-      const c = `${s.artist} ${s.title}`.toLowerCase();
-      return (
-        c.includes('lata') ||
-        c.includes('kishore') ||
-        c.includes('rafi') ||
-        c.includes('mukesh') ||
-        c.includes('asha') ||
-        c.includes('hemant') ||
-        c.includes('jagjit') ||
-        c.includes('babul') ||
-        c.includes('honey singh') ||
-        c.includes('sonu nigam') ||
-        c.includes('kk') ||
-        c.includes('kumar sanu') ||
-        c.includes('alka') ||
-        c.includes('arijit') ||
-        c.includes('mohit')
-      );
-    }).slice(0, 76).map((s) => s.id);
-
-    restoreUserData(evergreen76);
+  const handleRestorePersonalBackup = async () => {
+    setRestoreMsg({ text: 'बैकअप खोजा जा रहा है...', success: true });
+    const res = await restoreFromCloud();
+    if (res.success && res.count > 0) {
+      setRestoreMsg({ text: `✅ बैकअप सफलतापूर्वक लोड हुआ (${res.count} गीत मिले)!`, success: true });
+    } else {
+      setRestoreMsg({ text: 'ℹ️ कोई बैकअप फ़ाइल नहीं मिली।', success: false });
+    }
+    setTimeout(() => setRestoreMsg(null), 4000);
   };
 
   return (
     <div className="pb-48 pt-3 px-4 space-y-6 max-w-lg mx-auto animate-fade-in">
       {/* Header */}
-      <div>
-        <h2 className="font-serif font-bold text-2xl text-retro-cream">
-          Your Library
-        </h2>
-        <p className="text-xs text-white/50">
-          Liked songs, custom playlists, and recently played history
-        </p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="font-serif font-bold text-2xl text-retro-cream">
+            Your Library
+          </h2>
+          <p className="text-xs text-white/50">
+            Liked songs, custom playlists, and recently played history
+          </p>
+        </div>
+
+        {/* Manual Restore Button */}
+        <button
+          onClick={handleRestorePersonalBackup}
+          className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-retro-gold/15 hover:bg-retro-gold/30 border border-retro-gold/40 text-retro-gold text-xs font-bold transition-all active:scale-95 shadow-sm"
+          title="Restore your personal backup"
+        >
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>रीस्टोर (Restore)</span>
+        </button>
       </div>
+
+      {/* Restore Status Toast */}
+      {restoreMsg && (
+        <div
+          className={`p-3 rounded-2xl border text-xs font-semibold flex items-center justify-between transition-all animate-fade-in ${
+            restoreMsg.success
+              ? 'bg-emerald-500/20 border-emerald-500/30 text-emerald-200'
+              : 'bg-amber-500/20 border-amber-500/30 text-amber-200'
+          }`}
+        >
+          <span>{restoreMsg.text}</span>
+          <button onClick={() => setRestoreMsg(null)} className="text-white/60 hover:text-white ml-2 text-sm font-bold">
+            ✕
+          </button>
+        </div>
+      )}
 
       {/* Tabs */}
       <div className="grid grid-cols-4 gap-1 p-1 bg-[#18112b] rounded-2xl border border-white/10">
@@ -171,14 +187,14 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onOpenCreatePlaylist }
                 </p>
               </div>
 
-              {/* Instant 1-Tap 76 Classics Restorer */}
+              {/* Instant Personal Backup Restorer */}
               <div className="pt-2">
                 <button
-                  onClick={handleRestore76Classics}
+                  onClick={handleRestorePersonalBackup}
                   className="px-5 py-3 rounded-2xl bg-gradient-to-r from-retro-gold via-amber-400 to-amber-600 text-retro-dark font-bold text-xs shadow-xl flex items-center justify-center gap-2 mx-auto active:scale-95 transition-all"
                 >
                   <Sparkles className="w-4 h-4" />
-                  <span>Restore 76 Evergreen Classics</span>
+                  <span>अपने पसंदीदा गीत रीस्टोर करें (Restore My Liked Songs)</span>
                 </button>
               </div>
             </div>

@@ -381,8 +381,24 @@ public class MediaNotificationPlugin extends Plugin {
             if (!appDir.exists()) {
                 appDir.mkdirs();
             }
+            if (backupData == null || backupData.length() < 10) {
+                call.reject("Empty data");
+                return;
+            }
+
             String fileName = "backup_" + Math.abs(email.toLowerCase().trim().hashCode()) + ".json";
             File backupFile = new File(appDir, fileName);
+
+            // Safety guard: If incoming backup has 0 liked songs while existing backup on disk has data, do not overwrite!
+            if (backupFile.exists() && backupFile.length() > 300 && backupData.contains("\"likedSongIds\":[]")) {
+                JSObject ret = new JSObject();
+                ret.put("success", true);
+                ret.put("skipped", true);
+                ret.put("reason", "Protected existing backup from empty overwrite");
+                call.resolve(ret);
+                return;
+            }
+
             FileOutputStream fos = new FileOutputStream(backupFile);
             fos.write(backupData.getBytes("utf-8"));
             fos.close();
