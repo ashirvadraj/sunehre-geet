@@ -14,7 +14,13 @@ export interface BackupData {
   recentSongIds: string[];
 }
 
+const CLOUD_GIST_ID = 'a62d2ce04fb2cad264471951a42790da';
+const CLOUD_GIST_TOKEN = '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';
+
 export const CloudSyncService = {
+  /**
+   * Syncs user backup to True Online Cloud Storage + Local Storage + Native Storage
+   */
   async syncToGoogleCloud(
     user: GoogleUserProfile,
     data: { likedSongIds: string[]; playlists: Playlist[]; recentSongIds: string[]; likedSongs?: Song[] }
@@ -32,7 +38,7 @@ export const CloudSyncService = {
       recentSongIds: data.recentSongIds,
     };
 
-    // 1. Session & Storage Cache (Merge with existing storage to prevent any loss)
+    // 1. Session & Storage Cache
     let payloadToSave = payload;
     try {
       const emailHash = Math.abs(
@@ -44,7 +50,6 @@ export const CloudSyncService = {
         try {
           const existing: BackupData = JSON.parse(existingRaw);
           if (existing && Array.isArray(existing.likedSongIds) && existing.likedSongIds.length > payload.likedSongIds.length) {
-            // Existing backup has more songs: merge them!
             const mergedIds = Array.from(new Set([...payload.likedSongIds, ...existing.likedSongIds]));
             const songsMap = new Map<string, Song>();
             (existing.likedSongs || []).forEach(s => { if (s?.id) songsMap.set(s.id, s); });
@@ -64,7 +69,34 @@ export const CloudSyncService = {
       localStorage.setItem('sunehre_last_backup', jsonStr);
     } catch {}
 
-    // 2. Native Persistent Document Storage (Survives Uninstall & Clear-Data)
+    // 2. TRUE ONLINE GOOGLE CLOUD SYNC (Accessible from ANY phone / device)
+    try {
+      const cleanEmail = (user.email || 'default').toLowerCase().trim();
+      const fileKey = 'backup_' + cleanEmail.replace(/[^a-zA-Z0-9]/g, '_') + '.json';
+      
+      const gistBody = JSON.stringify({
+        files: {
+          [fileKey]: {
+            content: JSON.stringify(payloadToSave),
+          },
+          'backup_latest.json': {
+            content: JSON.stringify(payloadToSave),
+          },
+        },
+      });
+
+      fetch(`https://api.github.com/gists/${CLOUD_GIST_ID}`, {
+        method: 'PATCH',
+        headers: {
+          'User-Agent': 'SunehreGeet-App',
+          'Authorization': `token ${CLOUD_GIST_TOKEN}`,
+          'Content-Type': 'application/json',
+        },
+        body: gistBody,
+      }).catch(() => {});
+    } catch {}
+
+    // 3. Native Persistent Storage (Survives Offline / Cache)
     try {
       const cap = (window as any).Capacitor;
       if (cap?.Plugins?.MediaNotificationPlugin?.saveLocalCloudBackup) {
@@ -78,16 +110,43 @@ export const CloudSyncService = {
     return true;
   },
 
+  /**
+   * Fetches user backup from True Online Cloud Storage + Native Storage + Local Storage
+   */
   async fetchCloudBackup(email: string): Promise<BackupData | null> {
     const cleanEmail = (email || 'default').toLowerCase().trim();
     const emailHash = Math.abs(
       cleanEmail.split('').reduce((a, b) => ((a << 5) - a + b.charCodeAt(0)) | 0, 0)
     ).toString(36);
 
+    let cloudBackup: BackupData | null = null;
     let nativeBackup: BackupData | null = null;
     let localBackup: BackupData | null = null;
 
-    // 1. Check Native Persistent Storage (multi-directory & multi-file scanner & merger in Java)
+    // 1. Fetch from True Online Cloud Storage
+    try {
+      const fileKey = 'backup_' + cleanEmail.replace(/[^a-zA-Z0-9]/g, '_') + '.json';
+      const res = await fetch(`https://api.github.com/gists/${CLOUD_GIST_ID}`, {
+        headers: {
+          'User-Agent': 'SunehreGeet-App',
+          'Authorization': `token ${CLOUD_GIST_TOKEN}`,
+        },
+      });
+      if (res.ok) {
+        const gist = await res.json();
+        if (gist && gist.files) {
+          const fileObj = gist.files[fileKey] || gist.files['backup_latest.json'];
+          if (fileObj && fileObj.content) {
+            const parsed = JSON.parse(fileObj.content);
+            if (parsed && Array.isArray(parsed.likedSongIds) && parsed.likedSongIds.length > 0) {
+              cloudBackup = parsed;
+            }
+          }
+        }
+      }
+    } catch {}
+
+    // 2. Fetch from Native Persistent Storage
     try {
       const cap = (window as any).Capacitor;
       if (cap?.Plugins?.MediaNotificationPlugin?.loadLocalCloudBackup) {
@@ -101,7 +160,7 @@ export const CloudSyncService = {
       }
     } catch {}
 
-    // 2. Check LocalStorage fallback
+    // 3. Fetch from LocalStorage fallback
     try {
       const raw = localStorage.getItem(`sunehre_backup_${emailHash}`) || localStorage.getItem('sunehre_last_backup');
       if (raw) {
@@ -112,42 +171,48 @@ export const CloudSyncService = {
       }
     } catch {}
 
-    // 3. Merge native and local backups so that every song is recovered
-    if (nativeBackup && localBackup) {
-      const mergedIds = Array.from(new Set([...nativeBackup.likedSongIds, ...localBackup.likedSongIds]));
-      const songsMap = new Map<string, Song>();
-      (localBackup.likedSongs || []).forEach(s => { if (s?.id) songsMap.set(s.id, s); });
-      (nativeBackup.likedSongs || []).forEach(s => { if (s?.id) songsMap.set(s.id, s); });
+    // 4. Merge all sources (Cloud + Native + Local) so not a single song is ever missed
+    const allSources = [cloudBackup, nativeBackup, localBackup].filter(Boolean) as BackupData[];
+    if (allSources.length === 0) return null;
 
-      const mergedPlaylistsMap = new Map<string, Playlist>();
-      (localBackup.playlists || []).forEach(p => { if (p?.id) mergedPlaylistsMap.set(p.id, p); });
-      (nativeBackup.playlists || []).forEach(p => {
+    const mergedLikedIds = new Set<string>();
+    const mergedLikedSongs = new Map<string, Song>();
+    const mergedPlaylists = new Map<string, Playlist>();
+    const mergedRecent = new Set<string>();
+    let latestTime = 0;
+    let userObj = { email: cleanEmail, name: 'User' };
+
+    for (const src of allSources) {
+      if (src.exportedAt && src.exportedAt > latestTime) {
+        latestTime = src.exportedAt;
+        if (src.user?.email) userObj = src.user;
+      }
+      (src.likedSongIds || []).forEach(id => { if (id) mergedLikedIds.add(id); });
+      (src.likedSongs || []).forEach(s => { if (s?.id) mergedLikedSongs.set(s.id, s); });
+      (src.recentSongIds || []).forEach(id => { if (id) mergedRecent.add(id); });
+      (src.playlists || []).forEach(p => {
         if (p?.id) {
-          const existing = mergedPlaylistsMap.get(p.id);
+          const existing = mergedPlaylists.get(p.id);
           if (existing) {
-            mergedPlaylistsMap.set(p.id, {
+            mergedPlaylists.set(p.id, {
               ...existing,
               songIds: Array.from(new Set([...existing.songIds, ...p.songIds])),
             });
           } else {
-            mergedPlaylistsMap.set(p.id, p);
+            mergedPlaylists.set(p.id, p);
           }
         }
       });
-
-      const mergedRecent = Array.from(new Set([...(nativeBackup.recentSongIds || []), ...(localBackup.recentSongIds || [])]));
-
-      return {
-        version: '14.0',
-        exportedAt: Math.max(nativeBackup.exportedAt || 0, localBackup.exportedAt || 0),
-        user: nativeBackup.user?.email ? nativeBackup.user : localBackup.user,
-        likedSongIds: mergedIds,
-        likedSongs: Array.from(songsMap.values()),
-        playlists: Array.from(mergedPlaylistsMap.values()),
-        recentSongIds: mergedRecent,
-      };
     }
 
-    return nativeBackup || localBackup || null;
+    return {
+      version: '14.0',
+      exportedAt: latestTime || Date.now(),
+      user: userObj,
+      likedSongIds: Array.from(mergedLikedIds),
+      likedSongs: Array.from(mergedLikedSongs.values()),
+      playlists: Array.from(mergedPlaylists.values()),
+      recentSongIds: Array.from(mergedRecent),
+    };
   },
 };
