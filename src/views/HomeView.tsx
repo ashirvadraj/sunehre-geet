@@ -106,7 +106,94 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* 2. रैंडम मास्टरपीस (Random Masterpieces) */}
+      {/* 2. Mood & Ras (भाव) Curated Categories */}
+      <section className="space-y-2.5">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-xl bg-retro-gold/15 border border-retro-gold/30 flex items-center justify-center text-retro-gold flex-shrink-0">
+            <Flame className="w-4 h-4" />
+          </div>
+          <div>
+            <h3 className="font-serif font-bold text-sm sm:text-base text-retro-cream leading-tight">
+              मूड और भाव (Mood Playlists)
+            </h3>
+            <p className="text-[10px] text-white/50">आपके हर एहसास के लिए ख़ास धुनें</p>
+          </div>
+        </div>
+
+        <div className="flex gap-2.5 overflow-x-auto pb-1 scrollbar-none snap-x snap-mandatory">
+          {[
+            {
+              id: 'romantic',
+              title: 'प्यार के नग़मे',
+              sub: 'Golden Romance',
+              emoji: '❤️',
+              bg: 'from-rose-900/80 to-amber-950/80',
+              border: 'border-rose-500/30',
+              keywords: ['pyaar', 'dil', 'ishq', 'mohabbat', 'sanam', 'deewana', 'tum', 'chand'],
+            },
+            {
+              id: 'sad',
+              title: 'दर्द भरे गीत',
+              sub: 'Soulful & Melancholy',
+              emoji: '💔',
+              bg: 'from-indigo-950/80 to-slate-900/80',
+              border: 'border-indigo-500/30',
+              keywords: ['dard', 'gham', 'juda', 'aansoo', 'kismat', 'bewafa', 'tanhai', 'roye'],
+            },
+            {
+              id: 'monsoon',
+              title: 'बरखा ऋतू',
+              sub: 'Monsoon & Rain Ragas',
+              emoji: '🌧️',
+              bg: 'from-cyan-950/80 to-blue-950/80',
+              border: 'border-cyan-500/30',
+              keywords: ['rimjhim', 'barish', 'sawan', 'badal', 'megha', 'barse', 'boond'],
+            },
+            {
+              id: 'ghazal',
+              title: 'शाम-ए-ग़ज़ल',
+              sub: 'Jagjit & Soul Ghazals',
+              emoji: '☕',
+              bg: 'from-amber-950/80 to-orange-950/80',
+              border: 'border-amber-500/30',
+              keywords: ['ghazal', 'jagjit', 'mehdi', 'chitra', 'hothon', 'baat', 'shaam', 'nazar'],
+            },
+            {
+              id: 'masti',
+              title: 'मस्ती और क़व्वाली',
+              sub: 'Retro Dance & Beats',
+              emoji: '🕺',
+              bg: 'from-emerald-950/80 to-teal-950/80',
+              border: 'border-emerald-500/30',
+              keywords: ['disco', 'masti', 'qawwali', 'dosti', 'dum', 'pardesiya', 'sholay'],
+            },
+          ].map((m) => {
+            return (
+              <div
+                key={m.id}
+                onClick={() => {
+                  const moodTracks = indianSongs.filter((s) => {
+                    const txt = `${s.title} ${s.artist} ${s.movie || ''}`.toLowerCase();
+                    return m.keywords.some((k) => txt.includes(k));
+                  });
+                  const pool = moodTracks.length > 0 ? moodTracks : indianSongs;
+                  const firstTrack = pool[Math.floor(Math.random() * pool.length)];
+                  playSong(firstTrack, pool);
+                }}
+                className={`w-[130px] flex-shrink-0 snap-start cursor-pointer rounded-2xl p-3 bg-gradient-to-br ${m.bg} border ${m.border} hover:scale-105 active:scale-95 transition-all shadow-lg flex flex-col justify-between`}
+              >
+                <div className="text-2xl mb-2">{m.emoji}</div>
+                <div>
+                  <h4 className="font-bold text-xs text-white truncate font-serif">{m.title}</h4>
+                  <p className="text-[9px] text-retro-gold/80 truncate mt-0.5">{m.sub}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 3. रैंडम मास्टरपीस (Random Masterpieces) */}
       <section className="space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
