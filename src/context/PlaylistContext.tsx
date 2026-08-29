@@ -49,7 +49,7 @@ export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const { user, syncNow } = useAuth();
   const syncTimeoutRef = useRef<any>(null);
   const hasInitialRestoreAttempted = useRef<boolean>(false);
-  const isSyncBlocked = useRef<boolean>(true); // Block sync until restore completes
+  const [isRestoring, setIsRestoring] = useState<boolean>(true); // true until first restore finishes
 
   const [likedSongIds, setLikedSongIds] = useState<string[]>(() => {
     try {
@@ -194,15 +194,15 @@ export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   // This ensures even returning users get their full song history merged back.
   useEffect(() => {
     const mergeNativeBackupOnLaunch = async () => {
-      isSyncBlocked.current = true; // Block sync while restoring
+      setIsRestoring(true); // Block sync (as state, so useEffect re-runs when it becomes false)
       try {
         await restoreFromCloud(user?.email);
       } catch {}
       hasInitialRestoreAttempted.current = true;
-      // Give React 3 seconds to apply state updates before allowing sync to fire
+      // Give React 1 second for state updates to settle, then unblock sync
       setTimeout(() => {
-        isSyncBlocked.current = false;
-      }, 3000);
+        setIsRestoring(false); // This triggers sync useEffect to re-run with merged state!
+      }, 1000);
     };
     mergeNativeBackupOnLaunch();
   }, [user]);
@@ -247,15 +247,15 @@ export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     new Map([...Object.values(likedSongsMap), ...favorites].map(s => [s.id, s])).values()
   );
 
-  // Automatic Real-Time Local & Cloud Backup (Always keeps phone backup up to date)
+  // Automatic Real-Time Local & Cloud Backup
+  // Triggers whenever liked songs change OR when restore completes (isRestoring flips to false)
   useEffect(() => {
-    if (isSyncBlocked.current) return; // Do NOT sync while restore is in progress!
+    if (isRestoring) return; // Don't sync while restore is in progress
     if (!hasInitialRestoreAttempted.current) return;
     if (likedSongIds.length === 0 && playlists.length <= 1 && recentSongIds.length === 0) return;
 
     clearTimeout(syncTimeoutRef.current);
     syncTimeoutRef.current = setTimeout(() => {
-      if (isSyncBlocked.current) return; // Double-check before writing!
       const userProfile = user || {
         email: 'local_user@sunehregeet.app',
         name: 'Local User',
@@ -271,7 +271,7 @@ export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       );
     }, 2000);
     return () => clearTimeout(syncTimeoutRef.current);
-  }, [likedSongIds, playlists, recentSongIds, user, likedSongsMap]);
+  }, [likedSongIds, playlists, recentSongIds, user, likedSongsMap, isRestoring]);
 
   const toggleLike = (songId: string, songObj?: Song) => {
     const song = songObj || likedSongsMap[songId] || SONGS.find(s => s.id === songId);
