@@ -49,6 +49,7 @@ export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const { user, syncNow } = useAuth();
   const syncTimeoutRef = useRef<any>(null);
   const hasInitialRestoreAttempted = useRef<boolean>(false);
+  const isSyncBlocked = useRef<boolean>(true); // Block sync until restore completes
 
   const [likedSongIds, setLikedSongIds] = useState<string[]>(() => {
     try {
@@ -189,17 +190,21 @@ export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return { success: false, count: 0 };
   };
 
-  // On App Launch (Fresh Install / Reinstall): Auto-restore latest persistent phone backup
+  // On App Launch: ALWAYS try to merge native persistent backup with what is in localStorage.
+  // This ensures even returning users get their full song history merged back.
   useEffect(() => {
-    const autoRestoreIfEmpty = async () => {
-      const savedLiked = localStorage.getItem(STORAGE_KEYS.LIKED);
-      if (!savedLiked || savedLiked === '[]' || (JSON.parse(savedLiked || '[]').length === 0)) {
+    const mergeNativeBackupOnLaunch = async () => {
+      isSyncBlocked.current = true; // Block sync while restoring
+      try {
         await restoreFromCloud(user?.email);
-      } else {
-        hasInitialRestoreAttempted.current = true;
-      }
+      } catch {}
+      hasInitialRestoreAttempted.current = true;
+      // Give React 3 seconds to apply state updates before allowing sync to fire
+      setTimeout(() => {
+        isSyncBlocked.current = false;
+      }, 3000);
     };
-    autoRestoreIfEmpty();
+    mergeNativeBackupOnLaunch();
   }, [user]);
 
   // Listen to song playback across the entire app and cache song objects
@@ -244,11 +249,13 @@ export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   // Automatic Real-Time Local & Cloud Backup (Always keeps phone backup up to date)
   useEffect(() => {
+    if (isSyncBlocked.current) return; // Do NOT sync while restore is in progress!
     if (!hasInitialRestoreAttempted.current) return;
     if (likedSongIds.length === 0 && playlists.length <= 1 && recentSongIds.length === 0) return;
 
     clearTimeout(syncTimeoutRef.current);
     syncTimeoutRef.current = setTimeout(() => {
+      if (isSyncBlocked.current) return; // Double-check before writing!
       const userProfile = user || {
         email: 'local_user@sunehregeet.app',
         name: 'Local User',
@@ -262,7 +269,7 @@ export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         userProfile,
         { likedSongIds, playlists, recentSongIds, likedSongs: allKnownSongs }
       );
-    }, 1500);
+    }, 2000);
     return () => clearTimeout(syncTimeoutRef.current);
   }, [likedSongIds, playlists, recentSongIds, user, likedSongsMap]);
 
