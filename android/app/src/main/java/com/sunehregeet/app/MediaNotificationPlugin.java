@@ -40,7 +40,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @CapacitorPlugin(name = "MediaNotificationPlugin")
 public class MediaNotificationPlugin extends Plugin {
@@ -376,42 +383,139 @@ public class MediaNotificationPlugin extends Plugin {
         String email = call.getString("email", "default");
         String backupData = call.getString("data", "{}");
         try {
-            File docDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-            File appDir = new File(docDir, "SunehreGeet");
-            if (!appDir.exists()) {
-                appDir.mkdirs();
-            }
             if (backupData == null || backupData.length() < 10) {
                 call.reject("Empty data");
                 return;
             }
 
-            String fileName = "backup_" + Math.abs(email.toLowerCase().trim().hashCode()) + ".json";
-            File backupFile = new File(appDir, fileName);
+            JSONObject incoming = new JSONObject(backupData);
+            JSONArray incomingIds = incoming.optJSONArray("likedSongIds");
+            JSONArray incomingSongs = incoming.optJSONArray("likedSongs");
+            JSONArray incomingPlaylists = incoming.optJSONArray("playlists");
+            JSONArray incomingRecent = incoming.optJSONArray("recentSongIds");
 
-            // Safety guard: If incoming backup has 0 liked songs while existing backup on disk has data, do not overwrite!
-            if (backupFile.exists() && backupFile.length() > 300 && backupData.contains("\"likedSongIds\":[]")) {
-                JSObject ret = new JSObject();
-                ret.put("success", true);
-                ret.put("skipped", true);
-                ret.put("reason", "Protected existing backup from empty overwrite");
-                call.resolve(ret);
-                return;
+            // Load existing backup files to merge with existing data so NOTHING is lost
+            Set<String> finalLikedIds = new LinkedHashSet<>();
+            Map<String, JSONObject> finalLikedSongs = new LinkedHashMap<>();
+            Map<String, JSONObject> finalPlaylists = new LinkedHashMap<>();
+            Set<String> finalRecentIds = new LinkedHashSet<>();
+
+            // 1. Add incoming first
+            if (incomingIds != null) {
+                for (int i = 0; i < incomingIds.length(); i++) {
+                    String id = incomingIds.optString(i);
+                    if (id != null && !id.trim().isEmpty()) finalLikedIds.add(id.trim());
+                }
+            }
+            if (incomingSongs != null) {
+                for (int i = 0; i < incomingSongs.length(); i++) {
+                    JSONObject s = incomingSongs.optJSONObject(i);
+                    if (s != null && s.has("id")) {
+                        finalLikedSongs.put(s.getString("id"), s);
+                        finalLikedIds.add(s.getString("id"));
+                    }
+                }
+            }
+            if (incomingPlaylists != null) {
+                for (int i = 0; i < incomingPlaylists.length(); i++) {
+                    JSONObject p = incomingPlaylists.optJSONObject(i);
+                    if (p != null && p.has("id")) finalPlaylists.put(p.getString("id"), p);
+                }
+            }
+            if (incomingRecent != null) {
+                for (int i = 0; i < incomingRecent.length(); i++) {
+                    String rid = incomingRecent.optString(i);
+                    if (rid != null && !rid.trim().isEmpty()) finalRecentIds.add(rid.trim());
+                }
             }
 
+            // 2. Read existing latest backup on disk and PRESERVE any songs that were not in incoming!
+            File docDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+            File appDir = new File(docDir, "SunehreGeet");
+            if (!appDir.exists()) {
+                appDir.mkdirs();
+            }
+
+            File latestFile = new File(appDir, "backup_latest.json");
+            if (latestFile.exists() && latestFile.length() > 50) {
+                try {
+                    FileInputStream fis = new FileInputStream(latestFile);
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(fis, "utf-8"));
+                    StringBuilder sb = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) sb.append(line);
+                    reader.close();
+                    JSONObject existing = new JSONObject(sb.toString());
+
+                    // If incoming has FEWER liked songs than existing on disk, PRESERVE the existing songs!
+                    JSONArray exIds = existing.optJSONArray("likedSongIds");
+                    if (exIds != null && exIds.length() > finalLikedIds.size()) {
+                        for (int i = 0; i < exIds.length(); i++) {
+                            finalLikedIds.add(exIds.getString(i));
+                        }
+                    }
+                    JSONArray exSongs = existing.optJSONArray("likedSongs");
+                    if (exSongs != null) {
+                        for (int i = 0; i < exSongs.length(); i++) {
+                            JSONObject s = exSongs.optJSONObject(i);
+                            if (s != null && s.has("id") && !finalLikedSongs.containsKey(s.getString("id"))) {
+                                finalLikedSongs.put(s.getString("id"), s);
+                            }
+                        }
+                    }
+                } catch (Exception e) {}
+            }
+
+            // Build final merged payload
+            incoming.put("version", "14.0");
+            incoming.put("exportedAt", System.currentTimeMillis());
+            incoming.put("likedSongIds", new JSONArray(finalLikedIds));
+            incoming.put("likedSongs", new JSONArray(finalLikedSongs.values()));
+            incoming.put("playlists", new JSONArray(finalPlaylists.values()));
+            incoming.put("recentSongIds", new JSONArray(finalRecentIds));
+
+            String finalDataStr = incoming.toString();
+            byte[] bytes = finalDataStr.getBytes("utf-8");
+
+            // Save to primary Documents/SunehreGeet/
+            String fileName = "backup_" + Math.abs(email.toLowerCase().trim().hashCode()) + ".json";
+            File backupFile = new File(appDir, fileName);
             FileOutputStream fos = new FileOutputStream(backupFile);
-            fos.write(backupData.getBytes("utf-8"));
+            fos.write(bytes);
             fos.close();
 
-            // Save master latest backup fallback as well
-            File latestFile = new File(appDir, "backup_latest.json");
             FileOutputStream fosLatest = new FileOutputStream(latestFile);
-            fosLatest.write(backupData.getBytes("utf-8"));
+            fosLatest.write(bytes);
             fosLatest.close();
+
+            // Also mirror to secondary locations for extreme reliability
+            try {
+                File dlDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+                File dlAppDir = new File(dlDir, "SunehreGeet");
+                if (!dlAppDir.exists()) dlAppDir.mkdirs();
+                FileOutputStream fosDl = new FileOutputStream(new File(dlAppDir, "backup_latest.json"));
+                fosDl.write(bytes);
+                fosDl.close();
+            } catch (Exception ignored) {}
+
+            try {
+                Context ctx = getContext();
+                if (ctx != null) {
+                    File extDir = ctx.getExternalFilesDir(null);
+                    if (extDir != null) {
+                        File extAppDir = new File(extDir, "SunehreGeet");
+                        if (!extAppDir.exists()) extAppDir.mkdirs();
+                        FileOutputStream fosExt = new FileOutputStream(new File(extAppDir, "backup_latest.json"));
+                        fosExt.write(bytes);
+                        fosExt.close();
+                    }
+                }
+            } catch (Exception ignored) {}
 
             JSObject ret = new JSObject();
             ret.put("success", true);
             ret.put("path", backupFile.getAbsolutePath());
+            ret.put("songCount", finalLikedIds.size());
             call.resolve(ret);
         } catch (Exception e) {
             call.reject("Failed to save backup: " + e.getMessage());
@@ -422,61 +526,157 @@ public class MediaNotificationPlugin extends Plugin {
     public void loadLocalCloudBackup(PluginCall call) {
         String email = call.getString("email", "default");
         try {
+            List<File> searchDirs = new ArrayList<>();
             File docDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-            File appDir = new File(docDir, "SunehreGeet");
-            if (!appDir.exists()) {
-                JSObject ret = new JSObject();
-                ret.put("success", false);
-                call.resolve(ret);
-                return;
+            if (docDir != null) searchDirs.add(new File(docDir, "SunehreGeet"));
+            File dlDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+            if (dlDir != null) searchDirs.add(new File(dlDir, "SunehreGeet"));
+            Context ctx = getContext();
+            if (ctx != null) {
+                File extDir = ctx.getExternalFilesDir(null);
+                if (extDir != null) searchDirs.add(new File(extDir, "SunehreGeet"));
+                searchDirs.add(new File(ctx.getFilesDir(), "SunehreGeet"));
             }
 
-            File bestFile = null;
-            String fileName = "backup_" + Math.abs(email.toLowerCase().trim().hashCode()) + ".json";
-            File emailFile = new File(appDir, fileName);
-            if (emailFile.exists() && emailFile.length() > 50) {
-                bestFile = emailFile;
-            } else {
-                File latestFile = new File(appDir, "backup_latest.json");
-                if (latestFile.exists() && latestFile.length() > 50) {
-                    bestFile = latestFile;
-                } else {
-                    // Search all backup files in directory and pick the largest/most recent
-                    File[] files = appDir.listFiles((dir, name) -> name.startsWith("backup_") && name.endsWith(".json"));
-                    if (files != null && files.length > 0) {
-                        for (File f : files) {
-                            if (bestFile == null || f.length() > bestFile.length()) {
-                                bestFile = f;
+            Set<String> allLikedIds = new LinkedHashSet<>();
+            Map<String, JSONObject> allLikedSongs = new LinkedHashMap<>();
+            Map<String, JSONObject> allPlaylists = new LinkedHashMap<>();
+            Set<String> allRecentIds = new LinkedHashSet<>();
+            JSONObject latestUser = null;
+            long latestExportTime = 0;
+            int foundFilesCount = 0;
+
+            for (File dir : searchDirs) {
+                if (dir == null || !dir.exists() || !dir.isDirectory()) continue;
+                File[] files = dir.listFiles((d, name) -> name.endsWith(".json"));
+                if (files == null) continue;
+
+                for (File f : files) {
+                    if (!f.isFile() || f.length() < 10) continue;
+                    try {
+                        FileInputStream fis = new FileInputStream(f);
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(fis, "utf-8"));
+                        StringBuilder sb = new StringBuilder();
+                        String line;
+                        while ((line = reader.readLine()) != null) {
+                            sb.append(line);
+                        }
+                        reader.close();
+
+                        JSONObject json = new JSONObject(sb.toString());
+                        foundFilesCount++;
+
+                        // Extract exportedAt
+                        long exp = json.optLong("exportedAt", f.lastModified());
+                        if (exp > latestExportTime) {
+                            latestExportTime = exp;
+                            if (json.has("user")) latestUser = json.optJSONObject("user");
+                        }
+
+                        // Extract likedSongIds
+                        if (json.has("likedSongIds")) {
+                            JSONArray ids = json.getJSONArray("likedSongIds");
+                            for (int i = 0; i < ids.length(); i++) {
+                                String id = ids.optString(i);
+                                if (id != null && !id.trim().isEmpty()) {
+                                    allLikedIds.add(id.trim());
+                                }
                             }
                         }
+
+                        // Extract likedSongs
+                        if (json.has("likedSongs")) {
+                            JSONArray songs = json.getJSONArray("likedSongs");
+                            for (int i = 0; i < songs.length(); i++) {
+                                JSONObject s = songs.optJSONObject(i);
+                                if (s != null && s.has("id")) {
+                                    String sid = s.getString("id");
+                                    allLikedSongs.put(sid, s);
+                                    allLikedIds.add(sid); // Also ensure ID is in likedSongIds!
+                                }
+                            }
+                        }
+
+                        // Extract playlists
+                        if (json.has("playlists")) {
+                            JSONArray pls = json.getJSONArray("playlists");
+                            for (int i = 0; i < pls.length(); i++) {
+                                JSONObject p = pls.optJSONObject(i);
+                                if (p != null && p.has("id")) {
+                                    String pid = p.getString("id");
+                                    if (allPlaylists.containsKey(pid)) {
+                                        // Merge songIds
+                                        JSONObject existingPl = allPlaylists.get(pid);
+                                        JSONArray eIds = existingPl.optJSONArray("songIds");
+                                        JSONArray nIds = p.optJSONArray("songIds");
+                                        Set<String> mergedPlSongIds = new LinkedHashSet<>();
+                                        if (eIds != null) {
+                                            for (int j = 0; j < eIds.length(); j++) mergedPlSongIds.add(eIds.getString(j));
+                                        }
+                                        if (nIds != null) {
+                                            for (int j = 0; j < nIds.length(); j++) mergedPlSongIds.add(nIds.getString(j));
+                                        }
+                                        existingPl.put("songIds", new JSONArray(mergedPlSongIds));
+                                    } else {
+                                        allPlaylists.put(pid, p);
+                                    }
+                                }
+                            }
+                        }
+
+                        // Extract recentSongIds
+                        if (json.has("recentSongIds")) {
+                            JSONArray rec = json.getJSONArray("recentSongIds");
+                            for (int i = 0; i < rec.length(); i++) {
+                                String rid = rec.optString(i);
+                                if (rid != null && !rid.trim().isEmpty()) {
+                                    allRecentIds.add(rid.trim());
+                                }
+                            }
+                        }
+                    } catch (Exception e) {
+                        // Skip corrupted file
                     }
                 }
             }
 
-            if (bestFile != null && bestFile.exists()) {
-                FileInputStream fis = new FileInputStream(bestFile);
-                BufferedReader reader = new BufferedReader(new InputStreamReader(fis, "utf-8"));
-                StringBuilder sb = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    sb.append(line);
-                }
-                reader.close();
-
+            if (allLikedIds.isEmpty() && allPlaylists.isEmpty()) {
                 JSObject ret = new JSObject();
-                ret.put("success", true);
-                ret.put("data", sb.toString());
-                ret.put("fileName", bestFile.getName());
+                ret.put("success", false);
+                ret.put("message", "No backups found");
                 call.resolve(ret);
                 return;
             }
 
+            // Build merged JSON
+            JSONObject merged = new JSONObject();
+            merged.put("version", "14.0");
+            merged.put("exportedAt", latestExportTime > 0 ? latestExportTime : System.currentTimeMillis());
+            if (latestUser != null) {
+                merged.put("user", latestUser);
+            } else {
+                JSONObject defaultUser = new JSONObject();
+                defaultUser.put("email", email);
+                defaultUser.put("name", "User");
+                merged.put("user", defaultUser);
+            }
+            merged.put("likedSongIds", new JSONArray(allLikedIds));
+            merged.put("likedSongs", new JSONArray(allLikedSongs.values()));
+            merged.put("playlists", new JSONArray(allPlaylists.values()));
+            merged.put("recentSongIds", new JSONArray(allRecentIds));
+
+            String mergedStr = merged.toString();
+
             JSObject ret = new JSObject();
-            ret.put("success", false);
+            ret.put("success", true);
+            ret.put("data", mergedStr);
+            ret.put("songCount", allLikedIds.size());
+            ret.put("filesScanned", foundFilesCount);
             call.resolve(ret);
         } catch (Exception e) {
             JSObject ret = new JSObject();
             ret.put("success", false);
+            ret.put("error", e.getMessage());
             call.resolve(ret);
         }
     }

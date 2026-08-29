@@ -27,7 +27,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSleepTimer }) => {
               सुनहरे गीत
             </h1>
             <span className="text-[9px] px-1.5 py-0.5 rounded bg-retro-gold/25 text-retro-gold font-bold uppercase tracking-wider border border-retro-gold/30">
-              v39.0
+              v40.0
             </span>
           </div>
           <p className="text-[11px] text-retro-gold/80 font-medium tracking-tight">
