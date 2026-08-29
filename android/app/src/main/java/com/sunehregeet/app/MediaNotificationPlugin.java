@@ -8,15 +8,20 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Environment;
 import android.os.PowerManager;
+import android.provider.MediaStore;
 import android.speech.RecognizerIntent;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
@@ -431,13 +436,11 @@ public class MediaNotificationPlugin extends Plugin {
             JSONArray incomingPlaylists = incoming.optJSONArray("playlists");
             JSONArray incomingRecent = incoming.optJSONArray("recentSongIds");
 
-            // Load existing backup files to merge with existing data so NOTHING is lost
             Set<String> finalLikedIds = new LinkedHashSet<>();
             Map<String, JSONObject> finalLikedSongs = new LinkedHashMap<>();
             Map<String, JSONObject> finalPlaylists = new LinkedHashMap<>();
             Set<String> finalRecentIds = new LinkedHashSet<>();
 
-            // 1. Add incoming first
             if (incomingIds != null) {
                 for (int i = 0; i < incomingIds.length(); i++) {
                     String id = incomingIds.optString(i);
@@ -466,43 +469,6 @@ public class MediaNotificationPlugin extends Plugin {
                 }
             }
 
-            // 2. Read existing latest backup on disk and PRESERVE any songs that were not in incoming!
-            File docDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-            File appDir = new File(docDir, "SunehreGeet");
-            if (!appDir.exists()) {
-                appDir.mkdirs();
-            }
-
-            File latestFile = new File(appDir, "backup_latest.json");
-            if (latestFile.exists() && latestFile.length() > 50) {
-                try {
-                    FileInputStream fis = new FileInputStream(latestFile);
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(fis, "utf-8"));
-                    StringBuilder sb = new StringBuilder();
-                    String line;
-                    while ((line = reader.readLine()) != null) sb.append(line);
-                    reader.close();
-                    JSONObject existing = new JSONObject(sb.toString());
-
-                    // If incoming has FEWER liked songs than existing on disk, PRESERVE the existing songs!
-                    JSONArray exIds = existing.optJSONArray("likedSongIds");
-                    if (exIds != null && exIds.length() > finalLikedIds.size()) {
-                        for (int i = 0; i < exIds.length(); i++) {
-                            finalLikedIds.add(exIds.getString(i));
-                        }
-                    }
-                    JSONArray exSongs = existing.optJSONArray("likedSongs");
-                    if (exSongs != null) {
-                        for (int i = 0; i < exSongs.length(); i++) {
-                            JSONObject s = exSongs.optJSONObject(i);
-                            if (s != null && s.has("id") && !finalLikedSongs.containsKey(s.getString("id"))) {
-                                finalLikedSongs.put(s.getString("id"), s);
-                            }
-                        }
-                    }
-                } catch (Exception e) {}
-            }
-
             // Build final merged payload
             incoming.put("version", "14.0");
             incoming.put("exportedAt", System.currentTimeMillis());
@@ -513,45 +479,52 @@ public class MediaNotificationPlugin extends Plugin {
 
             String finalDataStr = incoming.toString();
             byte[] bytes = finalDataStr.getBytes("utf-8");
-
-            // Save to primary Documents/SunehreGeet/
             String fileName = "backup_" + Math.abs(email.toLowerCase().trim().hashCode()) + ".json";
-            File backupFile = new File(appDir, fileName);
-            FileOutputStream fos = new FileOutputStream(backupFile);
-            fos.write(bytes);
-            fos.close();
+            Context ctx = getContext();
 
-            FileOutputStream fosLatest = new FileOutputStream(latestFile);
-            fosLatest.write(bytes);
-            fosLatest.close();
+            // === ANDROID 10+ (API 29+): Use MediaStore — SURVIVES UNINSTALL without permissions ===
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && ctx != null) {
+                ContentResolver resolver = ctx.getContentResolver();
+                String relPath = "Download/SunehreGeet/";
 
-            // Also mirror to secondary locations for extreme reliability
+                // Save user-specific file
+                saveViaMediaStore(resolver, fileName, relPath, bytes);
+                // Save latest file
+                saveViaMediaStore(resolver, "backup_latest.json", relPath, bytes);
+            }
+
+            // === ANDROID 9 and below (API < 29): Use direct file access ===
+            // Also try on Android 10 as fallback (requestLegacyExternalStorage covers it)
+            try {
+                File docDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+                File appDir = new File(docDir, "SunehreGeet");
+                if (!appDir.exists()) appDir.mkdirs();
+                writeFile(new File(appDir, fileName), bytes);
+                writeFile(new File(appDir, "backup_latest.json"), bytes);
+            } catch (Exception ignored) {}
+
             try {
                 File dlDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
                 File dlAppDir = new File(dlDir, "SunehreGeet");
                 if (!dlAppDir.exists()) dlAppDir.mkdirs();
-                FileOutputStream fosDl = new FileOutputStream(new File(dlAppDir, "backup_latest.json"));
-                fosDl.write(bytes);
-                fosDl.close();
+                writeFile(new File(dlAppDir, fileName), bytes);
+                writeFile(new File(dlAppDir, "backup_latest.json"), bytes);
             } catch (Exception ignored) {}
 
-            try {
-                Context ctx = getContext();
-                if (ctx != null) {
+            // Also save to app-specific external dir (fast access, deleted on uninstall but useful for in-session)
+            if (ctx != null) {
+                try {
                     File extDir = ctx.getExternalFilesDir(null);
                     if (extDir != null) {
                         File extAppDir = new File(extDir, "SunehreGeet");
                         if (!extAppDir.exists()) extAppDir.mkdirs();
-                        FileOutputStream fosExt = new FileOutputStream(new File(extAppDir, "backup_latest.json"));
-                        fosExt.write(bytes);
-                        fosExt.close();
+                        writeFile(new File(extAppDir, "backup_latest.json"), bytes);
                     }
-                }
-            } catch (Exception ignored) {}
+                } catch (Exception ignored) {}
+            }
 
             JSObject ret = new JSObject();
             ret.put("success", true);
-            ret.put("path", backupFile.getAbsolutePath());
             ret.put("songCount", finalLikedIds.size());
             call.resolve(ret);
         } catch (Exception e) {
@@ -559,22 +532,47 @@ public class MediaNotificationPlugin extends Plugin {
         }
     }
 
+    // Helper: write bytes to a File safely
+    private void writeFile(File f, byte[] bytes) throws Exception {
+        FileOutputStream fos = new FileOutputStream(f);
+        fos.write(bytes);
+        fos.flush();
+        fos.close();
+    }
+
+    // Helper: save/overwrite a file via MediaStore (Android 10+) — survives uninstall
+    private void saveViaMediaStore(ContentResolver resolver, String displayName, String relativePath, byte[] bytes) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) return;
+        try {
+            // Delete old version if exists
+            String selection = MediaStore.MediaColumns.DISPLAY_NAME + " = ? AND " +
+                               MediaStore.MediaColumns.RELATIVE_PATH + " = ?";
+            String[] args = { displayName, relativePath };
+            resolver.delete(MediaStore.Downloads.EXTERNAL_CONTENT_URI, selection, args);
+
+            // Insert new file
+            ContentValues cv = new ContentValues();
+            cv.put(MediaStore.MediaColumns.DISPLAY_NAME, displayName);
+            cv.put(MediaStore.MediaColumns.MIME_TYPE, "application/json");
+            cv.put(MediaStore.MediaColumns.RELATIVE_PATH, relativePath);
+            Uri uri = resolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, cv);
+            if (uri != null) {
+                java.io.OutputStream out = resolver.openOutputStream(uri);
+                if (out != null) {
+                    out.write(bytes);
+                    out.flush();
+                    out.close();
+                }
+            }
+        } catch (Exception e) { /* ignore */ }
+    }
+
+
+
     @PluginMethod
     public void loadLocalCloudBackup(PluginCall call) {
         String email = call.getString("email", "default");
         try {
-            List<File> searchDirs = new ArrayList<>();
-            File docDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-            if (docDir != null) searchDirs.add(new File(docDir, "SunehreGeet"));
-            File dlDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-            if (dlDir != null) searchDirs.add(new File(dlDir, "SunehreGeet"));
-            Context ctx = getContext();
-            if (ctx != null) {
-                File extDir = ctx.getExternalFilesDir(null);
-                if (extDir != null) searchDirs.add(new File(extDir, "SunehreGeet"));
-                searchDirs.add(new File(ctx.getFilesDir(), "SunehreGeet"));
-            }
-
             Set<String> allLikedIds = new LinkedHashSet<>();
             Map<String, JSONObject> allLikedSongs = new LinkedHashMap<>();
             Map<String, JSONObject> allPlaylists = new LinkedHashMap<>();
@@ -582,6 +580,62 @@ public class MediaNotificationPlugin extends Plugin {
             JSONObject latestUser = null;
             long latestExportTime = 0;
             int foundFilesCount = 0;
+
+            Context ctx = getContext();
+
+            // === ANDROID 10+ (API 29+): Read from MediaStore Downloads (survives uninstall) ===
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && ctx != null) {
+                ContentResolver resolver = ctx.getContentResolver();
+                String[] projection = { MediaStore.MediaColumns._ID, MediaStore.MediaColumns.DISPLAY_NAME };
+                String selection = MediaStore.MediaColumns.RELATIVE_PATH + " LIKE ?";
+                String[] selectionArgs = { "%Download/SunehreGeet%" };
+                Cursor cursor = resolver.query(
+                    MediaStore.Downloads.EXTERNAL_CONTENT_URI, projection, selection, selectionArgs, null
+                );
+                if (cursor != null) {
+                    while (cursor.moveToNext()) {
+                        long id = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.MediaColumns._ID));
+                        Uri fileUri = android.content.ContentUris.withAppendedId(
+                            MediaStore.Downloads.EXTERNAL_CONTENT_URI, id
+                        );
+                        try {
+                            InputStream is = resolver.openInputStream(fileUri);
+                            if (is != null) {
+                                BufferedReader reader = new BufferedReader(new InputStreamReader(is, "utf-8"));
+                                StringBuilder sb = new StringBuilder();
+                                String line;
+                                while ((line = reader.readLine()) != null) sb.append(line);
+                                reader.close();
+                                String content = sb.toString().trim();
+                                if (content.startsWith("{")) {
+                                    mergeBackupJson(new JSONObject(content), allLikedIds, allLikedSongs,
+                                        allPlaylists, allRecentIds, latestExportTime, latestUser);
+                                    foundFilesCount++;
+                                    JSONObject parsed = new JSONObject(content);
+                                    long exp = parsed.optLong("exportedAt", 0);
+                                    if (exp > latestExportTime) {
+                                        latestExportTime = exp;
+                                        if (parsed.has("user")) latestUser = parsed.optJSONObject("user");
+                                    }
+                                }
+                            }
+                        } catch (Exception ignored) {}
+                    }
+                    cursor.close();
+                }
+            }
+
+            // === LEGACY FILE SCAN (Android 9 and below, or as supplemental fallback) ===
+            List<File> searchDirs = new ArrayList<>();
+            File docDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+            if (docDir != null) searchDirs.add(new File(docDir, "SunehreGeet"));
+            File dlDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+            if (dlDir != null) searchDirs.add(new File(dlDir, "SunehreGeet"));
+            if (ctx != null) {
+                File extDir = ctx.getExternalFilesDir(null);
+                if (extDir != null) searchDirs.add(new File(extDir, "SunehreGeet"));
+                searchDirs.add(new File(ctx.getFilesDir(), "SunehreGeet"));
+            }
 
             for (File dir : searchDirs) {
                 if (dir == null || !dir.exists() || !dir.isDirectory()) continue;
@@ -595,85 +649,18 @@ public class MediaNotificationPlugin extends Plugin {
                         BufferedReader reader = new BufferedReader(new InputStreamReader(fis, "utf-8"));
                         StringBuilder sb = new StringBuilder();
                         String line;
-                        while ((line = reader.readLine()) != null) {
-                            sb.append(line);
-                        }
+                        while ((line = reader.readLine()) != null) sb.append(line);
                         reader.close();
 
                         JSONObject json = new JSONObject(sb.toString());
+                        mergeBackupJson(json, allLikedIds, allLikedSongs, allPlaylists, allRecentIds, latestExportTime, latestUser);
                         foundFilesCount++;
-
-                        // Extract exportedAt
                         long exp = json.optLong("exportedAt", f.lastModified());
                         if (exp > latestExportTime) {
                             latestExportTime = exp;
                             if (json.has("user")) latestUser = json.optJSONObject("user");
                         }
-
-                        // Extract likedSongIds
-                        if (json.has("likedSongIds")) {
-                            JSONArray ids = json.getJSONArray("likedSongIds");
-                            for (int i = 0; i < ids.length(); i++) {
-                                String id = ids.optString(i);
-                                if (id != null && !id.trim().isEmpty()) {
-                                    allLikedIds.add(id.trim());
-                                }
-                            }
-                        }
-
-                        // Extract likedSongs
-                        if (json.has("likedSongs")) {
-                            JSONArray songs = json.getJSONArray("likedSongs");
-                            for (int i = 0; i < songs.length(); i++) {
-                                JSONObject s = songs.optJSONObject(i);
-                                if (s != null && s.has("id")) {
-                                    String sid = s.getString("id");
-                                    allLikedSongs.put(sid, s);
-                                    allLikedIds.add(sid); // Also ensure ID is in likedSongIds!
-                                }
-                            }
-                        }
-
-                        // Extract playlists
-                        if (json.has("playlists")) {
-                            JSONArray pls = json.getJSONArray("playlists");
-                            for (int i = 0; i < pls.length(); i++) {
-                                JSONObject p = pls.optJSONObject(i);
-                                if (p != null && p.has("id")) {
-                                    String pid = p.getString("id");
-                                    if (allPlaylists.containsKey(pid)) {
-                                        // Merge songIds
-                                        JSONObject existingPl = allPlaylists.get(pid);
-                                        JSONArray eIds = existingPl.optJSONArray("songIds");
-                                        JSONArray nIds = p.optJSONArray("songIds");
-                                        Set<String> mergedPlSongIds = new LinkedHashSet<>();
-                                        if (eIds != null) {
-                                            for (int j = 0; j < eIds.length(); j++) mergedPlSongIds.add(eIds.getString(j));
-                                        }
-                                        if (nIds != null) {
-                                            for (int j = 0; j < nIds.length(); j++) mergedPlSongIds.add(nIds.getString(j));
-                                        }
-                                        existingPl.put("songIds", new JSONArray(mergedPlSongIds));
-                                    } else {
-                                        allPlaylists.put(pid, p);
-                                    }
-                                }
-                            }
-                        }
-
-                        // Extract recentSongIds
-                        if (json.has("recentSongIds")) {
-                            JSONArray rec = json.getJSONArray("recentSongIds");
-                            for (int i = 0; i < rec.length(); i++) {
-                                String rid = rec.optString(i);
-                                if (rid != null && !rid.trim().isEmpty()) {
-                                    allRecentIds.add(rid.trim());
-                                }
-                            }
-                        }
-                    } catch (Exception e) {
-                        // Skip corrupted file
-                    }
+                    } catch (Exception e) { /* Skip corrupted file */ }
                 }
             }
 
@@ -702,11 +689,9 @@ public class MediaNotificationPlugin extends Plugin {
             merged.put("playlists", new JSONArray(allPlaylists.values()));
             merged.put("recentSongIds", new JSONArray(allRecentIds));
 
-            String mergedStr = merged.toString();
-
             JSObject ret = new JSObject();
             ret.put("success", true);
-            ret.put("data", mergedStr);
+            ret.put("data", merged.toString());
             ret.put("songCount", allLikedIds.size());
             ret.put("filesScanned", foundFilesCount);
             call.resolve(ret);
@@ -717,6 +702,58 @@ public class MediaNotificationPlugin extends Plugin {
             call.resolve(ret);
         }
     }
+
+    // Helper: merge a backup JSON object into the running accumulators
+    private void mergeBackupJson(JSONObject json, Set<String> allLikedIds, Map<String, JSONObject> allLikedSongs,
+                                  Map<String, JSONObject> allPlaylists, Set<String> allRecentIds,
+                                  long latestExportTime, JSONObject latestUser) throws Exception {
+        if (json.has("likedSongIds")) {
+            JSONArray ids = json.getJSONArray("likedSongIds");
+            for (int i = 0; i < ids.length(); i++) {
+                String id = ids.optString(i);
+                if (id != null && !id.trim().isEmpty()) allLikedIds.add(id.trim());
+            }
+        }
+        if (json.has("likedSongs")) {
+            JSONArray songs = json.getJSONArray("likedSongs");
+            for (int i = 0; i < songs.length(); i++) {
+                JSONObject s = songs.optJSONObject(i);
+                if (s != null && s.has("id")) {
+                    String sid = s.getString("id");
+                    allLikedSongs.put(sid, s);
+                    allLikedIds.add(sid);
+                }
+            }
+        }
+        if (json.has("playlists")) {
+            JSONArray pls = json.getJSONArray("playlists");
+            for (int i = 0; i < pls.length(); i++) {
+                JSONObject p = pls.optJSONObject(i);
+                if (p != null && p.has("id")) {
+                    String pid = p.getString("id");
+                    if (allPlaylists.containsKey(pid)) {
+                        JSONObject existingPl = allPlaylists.get(pid);
+                        JSONArray eIds = existingPl.optJSONArray("songIds");
+                        JSONArray nIds = p.optJSONArray("songIds");
+                        Set<String> merged = new LinkedHashSet<>();
+                        if (eIds != null) for (int j = 0; j < eIds.length(); j++) merged.add(eIds.getString(j));
+                        if (nIds != null) for (int j = 0; j < nIds.length(); j++) merged.add(nIds.getString(j));
+                        existingPl.put("songIds", new JSONArray(merged));
+                    } else {
+                        allPlaylists.put(pid, p);
+                    }
+                }
+            }
+        }
+        if (json.has("recentSongIds")) {
+            JSONArray rec = json.getJSONArray("recentSongIds");
+            for (int i = 0; i < rec.length(); i++) {
+                String rid = rec.optString(i);
+                if (rid != null && !rid.trim().isEmpty()) allRecentIds.add(rid.trim());
+            }
+        }
+    }
+
 
     @PluginMethod
     public void getDeviceGoogleAccounts(PluginCall call) {
