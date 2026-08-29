@@ -18,18 +18,12 @@ import {
   RefreshCw,
   Type,
   Music2,
-  Sparkles,
-  Sliders,
-  Share2,
-  Radio
+  Sparkles
 } from 'lucide-react';
 import { useAudio } from '../context/AudioContext';
 import { usePlaylists } from '../context/PlaylistContext';
 import { useDownload } from '../context/DownloadContext';
 import { fetchLyricsForSong, LyricsData } from '../services/lyricsService';
-import { CassetteVisualizer } from './CassetteVisualizer';
-import { EqualizerModal } from './EqualizerModal';
-import { RetroCardModal } from './RetroCardModal';
 
 interface PlayerProps {
   onOpenSleepTimer: () => void;
@@ -64,9 +58,7 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
   const { isFavorite, toggleFavorite } = usePlaylists();
   const { isDownloaded, downloadSong, deleteDownload, downloadingId } = useDownload();
 
-  const [activeView, setActiveView] = useState<'turntable' | 'cassette' | 'lyrics'>('turntable');
-  const [isEqualizerOpen, setIsEqualizerOpen] = useState(false);
-  const [isRetroCardOpen, setIsRetroCardOpen] = useState(false);
+  const [activeView, setActiveView] = useState<'turntable' | 'lyrics'>('turntable');
   const [lyricsData, setLyricsData] = useState<LyricsData | null>(null);
   const [isLoadingLyrics, setIsLoadingLyrics] = useState(false);
   const [lyricsFontSize, setLyricsFontSize] = useState<'sm' | 'base' | 'lg'>('base');
@@ -149,85 +141,52 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
           <ChevronDown className="w-6 h-6" />
         </button>
 
-        {/* View Switcher: Turntable Record vs Cassette vs Lyrics */}
+        {/* View Switcher: Turntable Record vs Lyrics */}
         <div className="flex items-center p-1 rounded-full bg-black/60 border border-retro-gold/30 shadow-lg">
           <button
             onClick={() => setActiveView('turntable')}
-            className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
               activeView === 'turntable'
                 ? 'bg-gradient-to-r from-retro-gold to-amber-500 text-retro-dark shadow-md'
                 : 'text-white/60 hover:text-white'
             }`}
-            title="Vinyl Disc"
           >
             <Disc className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">विनाइल</span>
+            <span>रिकॉर्ड (Record)</span>
           </button>
-
-          <button
-            onClick={() => setActiveView('cassette')}
-            className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
-              activeView === 'cassette'
-                ? 'bg-gradient-to-r from-retro-gold to-amber-500 text-retro-dark shadow-md'
-                : 'text-white/60 hover:text-white'
-            }`}
-            title="Cassette Tape"
-          >
-            <Radio className="w-3.5 h-3.5" />
-            <span>कैसेट (Tape)</span>
-          </button>
-
           <button
             onClick={() => {
               setActiveView('lyrics');
               if (!lyricsData && !isLoadingLyrics) loadLyrics();
             }}
-            className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
               activeView === 'lyrics'
                 ? 'bg-gradient-to-r from-retro-gold to-amber-500 text-retro-dark shadow-md'
                 : 'text-retro-gold/90 hover:text-retro-gold hover:bg-white/5'
             }`}
-            title="Live Lyrics"
           >
             <FileText className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">बोल</span>
+            <span>गीत के बोल (Lyrics)</span>
             {lyricsData?.isSynced && (
               <Sparkles className="w-3 h-3 text-amber-300 animate-pulse" />
             )}
           </button>
         </div>
 
-        {/* Action Buttons: Equalizer & Sleep Timer & Share Card */}
-        <div className="flex items-center gap-1.5">
-          <button
-            onClick={() => setIsEqualizerOpen(true)}
-            className="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 text-retro-gold hover:bg-white/10 transition-all border border-retro-gold/20"
-            title="Vintage Equalizer"
-          >
-            <Sliders className="w-4 h-4" />
-          </button>
-          <button
-            onClick={() => setIsRetroCardOpen(true)}
-            className="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 text-retro-cream hover:bg-white/10 transition-all border border-white/10"
-            title="Share Retro Card"
-          >
-            <Share2 className="w-4 h-4" />
-          </button>
-          <button
-            onClick={onOpenSleepTimer}
-            className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${
-              sleepTimer !== null
-                ? 'bg-retro-gold text-retro-dark'
-                : 'bg-white/5 text-retro-cream hover:bg-white/10'
-            }`}
-            title="Sleep Timer"
-          >
-            <Moon className="w-4 h-4" />
-          </button>
-        </div>
+        <button
+          onClick={onOpenSleepTimer}
+          className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
+            sleepTimer !== null
+              ? 'bg-retro-gold text-retro-dark'
+              : 'bg-white/5 text-retro-cream hover:bg-white/10'
+          }`}
+          title="Sleep Timer"
+        >
+          <Moon className="w-5 h-5" />
+        </button>
       </div>
 
-      {/* Center View: Turntable Record OR Vintage Cassette Tape OR Synced Lyrics */}
+      {/* Center View: Turntable OR Real-Time Synced Karaoke Lyrics */}
       {activeView === 'turntable' ? (
         <div className="relative z-10 flex-1 flex flex-col items-center justify-center my-2 animate-fade-in">
           {/* Full Edge-to-Edge Rotating CD Album Disc */}
@@ -263,10 +222,18 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
               </div>
             </div>
           </div>
-        </div>
-      ) : activeView === 'cassette' ? (
-        <div className="relative z-10 flex-1 flex flex-col items-center justify-center my-2 animate-fade-in">
-          <CassetteVisualizer song={currentSong} isPlaying={isPlaying} />
+
+          {/* Quick Lyrics Banner Button */}
+          <button
+            onClick={() => {
+              setActiveView('lyrics');
+              if (!lyricsData && !isLoadingLyrics) loadLyrics();
+            }}
+            className="mt-6 px-4 py-2 rounded-full bg-[#1e1338]/90 border border-retro-gold/30 hover:border-retro-gold text-retro-gold text-xs font-semibold flex items-center gap-2 shadow-lg backdrop-blur-md active:scale-95 transition-all"
+          >
+            <FileText className="w-3.5 h-3.5" />
+            <span>गीत के बोल देखें (View Live Lyrics)</span>
+          </button>
         </div>
       ) : (
         /* REAL-TIME SYNCED KARAOKE LYRICS VIEW */
@@ -494,19 +461,6 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
           </button>
         </div>
       </div>
-
-      {/* Vintage Equalizer Modal */}
-      <EqualizerModal
-        isOpen={isEqualizerOpen}
-        onClose={() => setIsEqualizerOpen(false)}
-      />
-
-      {/* Retro Shareable Card Modal */}
-      <RetroCardModal
-        isOpen={isRetroCardOpen}
-        onClose={() => setIsRetroCardOpen(false)}
-        song={currentSong}
-      />
     </div>
   );
 };
