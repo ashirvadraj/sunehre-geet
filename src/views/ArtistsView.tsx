@@ -18,13 +18,16 @@ export const ArtistsView: React.FC<ArtistsViewProps> = ({
   onOpenCreatePlaylist,
 }) => {
   const { playSong } = useAudio();
-  const [selectedCategory, setSelectedCategory] = useState<'indian' | 'international'>('indian');
+  const [selectedCategory, setSelectedCategory] = useState<'indian' | 'international'>(() => {
+    return selectedArtist?.category === 'international' ? 'international' : 'indian';
+  });
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Always ensure Bollywood is default selected whenever entering singer section
+  // Sync category with the selected artist if an artist was opened (e.g. from Search or Recommendations)
   useEffect(() => {
-    setSelectedCategory('indian');
-    setSearchQuery('');
+    if (selectedArtist?.category) {
+      setSelectedCategory(selectedArtist.category);
+    }
   }, [selectedArtist]);
 
   // 1. Filter artists by category
@@ -117,11 +120,18 @@ export const ArtistsView: React.FC<ArtistsViewProps> = ({
         <div className="space-y-5 animate-slide-up">
           {/* Back Button */}
           <button
-            onClick={() => onSelectArtist(null)}
+            onClick={() => {
+              if (selectedArtist?.category) {
+                setSelectedCategory(selectedArtist.category);
+              }
+              onSelectArtist(null);
+            }}
             className="inline-flex items-center gap-2 text-xs font-bold text-retro-gold hover:text-amber-300 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>← Back to All Singers (गायक सूची)</span>
+            <span>
+              ← Back to {selectedArtist?.category === 'international' || selectedCategory === 'international' ? 'International Singers (अंतर्राष्ट्रीय गायक)' : 'Bollywood Singers (बॉलीवुड गायक)'}
+            </span>
           </button>
 
           {/* Artist Hero Banner */}
@@ -265,7 +275,12 @@ export const ArtistsView: React.FC<ArtistsViewProps> = ({
             {filteredArtists.map((artist) => (
               <button
                 key={artist.id}
-                onClick={() => onSelectArtist(artist)}
+                onClick={() => {
+                  if (artist.category) {
+                    setSelectedCategory(artist.category);
+                  }
+                  onSelectArtist(artist);
+                }}
                 className="p-4 rounded-2xl bg-[#160e29] border border-white/5 hover:border-retro-gold/40 transition-all text-center space-y-3 group shadow-md hover:bg-[#1f143a]"
               >
                 <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto p-0.5 bg-gradient-to-tr from-retro-gold via-amber-400 to-purple-600 shadow-lg group-hover:scale-105 transition-transform duration-300">
