@@ -56,7 +56,7 @@ export const MiniPlayer: React.FC = () => {
         <button
           onClick={(e) => {
             e.stopPropagation();
-            toggleLike(currentSong.id);
+            toggleLike(currentSong.id, currentSong);
           }}
           className={`p-2 rounded-full transition-colors ${
             liked ? 'text-red-500' : 'text-retro-muted hover:text-retro-cream'

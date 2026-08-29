@@ -9,9 +9,9 @@ interface PlaylistContextType {
   favorites: Song[];
   playlists: Playlist[];
   recentSongIds: string[];
-  toggleLike: (songId: string) => void;
+  toggleLike: (songId: string, songObj?: Song) => void;
   isLiked: (songId: string) => boolean;
-  toggleFavorite: (songId: string) => void;
+  toggleFavorite: (songId: string, songObj?: Song) => void;
   isFavorite: (songId: string) => boolean;
   createPlaylist: (name: string, description?: string) => Playlist;
   deletePlaylist: (playlistId: string) => void;
@@ -99,34 +99,34 @@ export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     localStorage.setItem(STORAGE_KEYS.RECENT, JSON.stringify(recentSongIds));
   }, [recentSongIds]);
 
-  // On App Launch (Fresh Install / Reinstall): Auto-restore latest persistent phone backup if empty
+  // On App Launch (Fresh Install / Reinstall): Auto-restore latest persistent phone backup
   useEffect(() => {
     const autoRestoreIfEmpty = async () => {
       const savedLiked = localStorage.getItem(STORAGE_KEYS.LIKED);
-      if (!savedLiked || savedLiked === '[]') {
-        const backup = await CloudSyncService.fetchCloudBackup('default');
+      if (!savedLiked || savedLiked === '[]' || (JSON.parse(savedLiked || '[]').length === 0)) {
+        const backup = await CloudSyncService.fetchCloudBackup(user?.email || 'default');
         if (backup) {
-          if (backup.likedSongIds && backup.likedSongIds.length > 0) {
-            setLikedSongIds(backup.likedSongIds);
-          }
-          if (backup.likedSongs && backup.likedSongs.length > 0) {
+          if (backup.likedSongs && Array.isArray(backup.likedSongs) && backup.likedSongs.length > 0) {
             const map: Record<string, Song> = {};
             backup.likedSongs.forEach((s: any) => { if (s && s.id) map[s.id] = s; });
             setLikedSongsMap(prev => ({ ...prev, ...map }));
           }
-          if (backup.playlists && backup.playlists.length > 0) {
+          if (backup.likedSongIds && Array.isArray(backup.likedSongIds) && backup.likedSongIds.length > 0) {
+            setLikedSongIds(backup.likedSongIds);
+          }
+          if (backup.playlists && Array.isArray(backup.playlists) && backup.playlists.length > 0) {
             setPlaylists(backup.playlists);
           }
-          if (backup.recentSongIds && backup.recentSongIds.length > 0) {
+          if (backup.recentSongIds && Array.isArray(backup.recentSongIds) && backup.recentSongIds.length > 0) {
             setRecentSongIds(backup.recentSongIds);
           }
         }
       }
     };
     autoRestoreIfEmpty();
-  }, []);
+  }, [user]);
 
-  // Listen to song playback across the entire app
+  // Listen to song playback across the entire app and cache song objects
   useEffect(() => {
     const handleSongPlayed = (e: any) => {
       const song = e.detail?.song;
@@ -164,7 +164,7 @@ export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   }, [likedSongIds, playlists, recentSongIds, user, likedSongsMap]);
 
   const toggleLike = (songId: string, songObj?: Song) => {
-    const song = songObj || SONGS.find(s => s.id === songId);
+    const song = songObj || likedSongsMap[songId] || SONGS.find(s => s.id === songId);
     if (song) {
       setLikedSongsMap(prev => ({ ...prev, [songId]: song }));
     }
@@ -176,7 +176,7 @@ export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   const isLiked = (songId: string) => likedSongIds.includes(songId);
-  const toggleFavorite = (songId: string) => toggleLike(songId);
+  const toggleFavorite = (songId: string, songObj?: Song) => toggleLike(songId, songObj);
   const isFavorite = (songId: string) => isLiked(songId);
 
   const createPlaylist = (name: string, description: string = '') => {

@@ -372,7 +372,7 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
 
             {/* Favorite Button */}
             <button
-              onClick={() => toggleFavorite(currentSong.id)}
+              onClick={() => toggleFavorite(currentSong.id, currentSong)}
               className={`p-2.5 rounded-full transition-all ${
                 isFav
                   ? 'bg-red-500/20 text-red-400'

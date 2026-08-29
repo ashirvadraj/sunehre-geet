@@ -408,13 +408,37 @@ public class MediaNotificationPlugin extends Plugin {
         try {
             File docDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
             File appDir = new File(docDir, "SunehreGeet");
-            String fileName = "backup_" + Math.abs(email.toLowerCase().trim().hashCode()) + ".json";
-            File backupFile = new File(appDir, fileName);
-            if (!backupFile.exists()) {
-                backupFile = new File(appDir, "backup_latest.json");
+            if (!appDir.exists()) {
+                JSObject ret = new JSObject();
+                ret.put("success", false);
+                call.resolve(ret);
+                return;
             }
-            if (backupFile.exists()) {
-                FileInputStream fis = new FileInputStream(backupFile);
+
+            File bestFile = null;
+            String fileName = "backup_" + Math.abs(email.toLowerCase().trim().hashCode()) + ".json";
+            File emailFile = new File(appDir, fileName);
+            if (emailFile.exists() && emailFile.length() > 50) {
+                bestFile = emailFile;
+            } else {
+                File latestFile = new File(appDir, "backup_latest.json");
+                if (latestFile.exists() && latestFile.length() > 50) {
+                    bestFile = latestFile;
+                } else {
+                    // Search all backup files in directory and pick the largest/most recent
+                    File[] files = appDir.listFiles((dir, name) -> name.startsWith("backup_") && name.endsWith(".json"));
+                    if (files != null && files.length > 0) {
+                        for (File f : files) {
+                            if (bestFile == null || f.length() > bestFile.length()) {
+                                bestFile = f;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (bestFile != null && bestFile.exists()) {
+                FileInputStream fis = new FileInputStream(bestFile);
                 BufferedReader reader = new BufferedReader(new InputStreamReader(fis, "utf-8"));
                 StringBuilder sb = new StringBuilder();
                 String line;
@@ -426,9 +450,11 @@ public class MediaNotificationPlugin extends Plugin {
                 JSObject ret = new JSObject();
                 ret.put("success", true);
                 ret.put("data", sb.toString());
+                ret.put("fileName", bestFile.getName());
                 call.resolve(ret);
                 return;
             }
+
             JSObject ret = new JSObject();
             ret.put("success", false);
             call.resolve(ret);

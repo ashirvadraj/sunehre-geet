@@ -147,7 +147,7 @@ export const SongItem: React.FC<SongItemProps> = ({
         <button
           onClick={(e) => {
             e.stopPropagation();
-            toggleFavorite(song.id);
+            toggleFavorite(song.id, song);
           }}
           className={`p-1.5 rounded-full transition-all ${
             isFav
