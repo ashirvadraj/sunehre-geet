@@ -484,59 +484,37 @@ public class MediaNotificationPlugin extends Plugin {
             String userFileName = "backup_" + Math.abs(email.toLowerCase().trim().hashCode()) + ".json";
             Context ctx = getContext();
 
-            // === 1. ANDROID 10+ (API 29+): MediaStore Downloads ===
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && ctx != null) {
-                ContentResolver resolver = ctx.getContentResolver();
-                String relPath = "Download/SunehreGeet/";
-                saveViaMediaStore(resolver, userFileName, relPath, bytes);
-                saveViaMediaStore(resolver, "backup_latest.json", relPath, bytes);
-                // Also write to Music directory via MediaStore Audio (survives uninstall across all UIDs)
-                saveViaAudioMediaStore(resolver, "backup_latest.json", bytes);
-                saveViaAudioMediaStore(resolver, userFileName, bytes);
-            }
-
-            // === 2. Direct File System Writes to ALL accessible locations ===
-            List<File> targetDirs = new ArrayList<>();
-            try {
-                File docDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-                if (docDir != null) targetDirs.add(new File(docDir, "SunehreGeet"));
-            } catch (Exception ignored) {}
-
-            try {
-                File dlDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-                if (dlDir != null) targetDirs.add(new File(dlDir, "SunehreGeet"));
-            } catch (Exception ignored) {}
-
-            try {
-                File musDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
-                if (musDir != null) targetDirs.add(new File(musDir, "SunehreGeet"));
-            } catch (Exception ignored) {}
-
-            try {
-                File sd = Environment.getExternalStorageDirectory();
-                if (sd != null) targetDirs.add(new File(sd, "SunehreGeet"));
-            } catch (Exception ignored) {}
-
-            targetDirs.add(new File("/sdcard/SunehreGeet"));
-            targetDirs.add(new File("/sdcard/Download/SunehreGeet"));
-            targetDirs.add(new File("/sdcard/Documents/SunehreGeet"));
-
+            // === Save ONLY to App Private Storage (Never litters public Downloads folder) ===
             if (ctx != null) {
                 try {
-                    File extDir = ctx.getExternalFilesDir(null);
-                    if (extDir != null) targetDirs.add(new File(extDir, "SunehreGeet"));
+                    File internalDir = new File(ctx.getFilesDir(), "SunehreGeet");
+                    if (!internalDir.exists()) internalDir.mkdirs();
+                    writeFile(new File(internalDir, userFileName), bytes);
+                    writeFile(new File(internalDir, "backup_latest.json"), bytes);
                 } catch (Exception ignored) {}
-                try {
-                    targetDirs.add(new File(ctx.getFilesDir(), "SunehreGeet"));
-                } catch (Exception ignored) {}
-            }
 
-            for (File dir : targetDirs) {
                 try {
-                    if (!dir.exists()) dir.mkdirs();
-                    if (dir.exists() && dir.isDirectory()) {
-                        writeFile(new File(dir, userFileName), bytes);
-                        writeFile(new File(dir, "backup_latest.json"), bytes);
+                    File extDir = ctx.getExternalFilesDir(null);
+                    if (extDir != null) {
+                        File extAppDir = new File(extDir, "SunehreGeet");
+                        if (!extAppDir.exists()) extAppDir.mkdirs();
+                        writeFile(new File(extAppDir, userFileName), bytes);
+                        writeFile(new File(extAppDir, "backup_latest.json"), bytes);
+                    }
+                } catch (Exception ignored) {}
+
+                // Clean up any old duplicate backup files from public Downloads folder
+                try {
+                    File dlDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+                    if (dlDir != null) {
+                        File dlAppDir = new File(dlDir, "SunehreGeet");
+                        if (dlAppDir.exists() && dlAppDir.isDirectory()) {
+                            File[] oldFiles = dlAppDir.listFiles();
+                            if (oldFiles != null) {
+                                for (File of : oldFiles) of.delete();
+                            }
+                            dlAppDir.delete();
+                        }
                     }
                 } catch (Exception ignored) {}
             }
@@ -557,76 +535,6 @@ public class MediaNotificationPlugin extends Plugin {
             fos.write(bytes);
             fos.flush();
             fos.close();
-        } catch (Exception ignored) {}
-    }
-
-    // Helper: save/overwrite a file via MediaStore Downloads (Android 10+)
-    private void saveViaMediaStore(ContentResolver resolver, String displayName, String relativePath, byte[] bytes) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q || resolver == null) return;
-        try {
-            Uri foundUri = null;
-            try {
-                String selection = MediaStore.MediaColumns.DISPLAY_NAME + " = ?";
-                String[] args = { displayName };
-                Cursor c = resolver.query(MediaStore.Downloads.EXTERNAL_CONTENT_URI, new String[]{ MediaStore.MediaColumns._ID }, selection, args, null);
-                if (c != null) {
-                    if (c.moveToFirst()) {
-                        long id = c.getLong(c.getColumnIndexOrThrow(MediaStore.MediaColumns._ID));
-                        foundUri = ContentUris.withAppendedId(MediaStore.Downloads.EXTERNAL_CONTENT_URI, id);
-                    }
-                    c.close();
-                }
-            } catch (Exception ignored) {}
-
-            boolean written = false;
-            if (foundUri != null) {
-                try {
-                    OutputStream out = resolver.openOutputStream(foundUri, "wt");
-                    if (out != null) {
-                        out.write(bytes);
-                        out.flush();
-                        out.close();
-                        written = true;
-                    }
-                } catch (Exception ignored) {}
-            }
-
-            if (!written) {
-                ContentValues cv = new ContentValues();
-                cv.put(MediaStore.MediaColumns.DISPLAY_NAME, displayName);
-                cv.put(MediaStore.MediaColumns.MIME_TYPE, "application/json");
-                cv.put(MediaStore.MediaColumns.RELATIVE_PATH, relativePath);
-                Uri uri = resolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, cv);
-                if (uri != null) {
-                    OutputStream out = resolver.openOutputStream(uri);
-                    if (out != null) {
-                        out.write(bytes);
-                        out.flush();
-                        out.close();
-                    }
-                }
-            }
-        } catch (Exception ignored) {}
-    }
-
-    // Helper: save via MediaStore Audio (Android 10+)
-    private void saveViaAudioMediaStore(ContentResolver resolver, String displayName, byte[] bytes) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q || resolver == null) return;
-        try {
-            ContentValues cv = new ContentValues();
-            cv.put(MediaStore.Audio.Media.DISPLAY_NAME, displayName);
-            cv.put(MediaStore.Audio.Media.TITLE, "Sunehre Geet Backup");
-            cv.put(MediaStore.Audio.Media.MIME_TYPE, "audio/mpeg");
-            cv.put(MediaStore.Audio.Media.RELATIVE_PATH, "Music/SunehreGeet/");
-            Uri uri = resolver.insert(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, cv);
-            if (uri != null) {
-                OutputStream out = resolver.openOutputStream(uri);
-                if (out != null) {
-                    out.write(bytes);
-                    out.flush();
-                    out.close();
-                }
-            }
         } catch (Exception ignored) {}
     }
 
