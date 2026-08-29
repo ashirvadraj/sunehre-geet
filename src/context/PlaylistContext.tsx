@@ -269,7 +269,7 @@ export const PlaylistProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         userProfile,
         { likedSongIds, playlists, recentSongIds, likedSongs: allKnownSongs }
       );
-    }, 2000);
+    }, 400);
     return () => clearTimeout(syncTimeoutRef.current);
   }, [likedSongIds, playlists, recentSongIds, user, likedSongsMap, isRestoring]);
 
