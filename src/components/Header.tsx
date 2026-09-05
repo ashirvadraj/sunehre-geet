@@ -1,13 +1,15 @@
 import React from 'react';
-import { Moon, User, Cloud } from 'lucide-react';
+import { Moon, User, Cloud, Sparkles } from 'lucide-react';
 import { useAudio } from '../context/AudioContext';
 import { useAuth } from '../context/AuthContext';
+import { CURRENT_APP_VERSION } from '../services/versionService';
 
 interface HeaderProps {
   onOpenSleepTimer: () => void;
+  onOpenWrapped?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenSleepTimer }) => {
+export const Header: React.FC<HeaderProps> = ({ onOpenSleepTimer, onOpenWrapped }) => {
   const { sleepTimer } = useAudio();
   const { user, isLoggedIn, setIsAccountModalOpen } = useAuth();
 
@@ -27,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSleepTimer }) => {
               सुनहरे गीत
             </h1>
             <span className="text-[9px] px-1.5 py-0.5 rounded bg-retro-gold/25 text-retro-gold font-bold uppercase tracking-wider border border-retro-gold/30">
-              v40.0
+              v{CURRENT_APP_VERSION.toFixed(1)}
             </span>
           </div>
           <p className="text-[11px] text-retro-gold/80 font-medium tracking-tight">
@@ -37,6 +39,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSleepTimer }) => {
       </div>
 
       <div className="flex items-center gap-2">
+        {/* Spotify Wrapped Button */}
+        {onOpenWrapped && (
+          <button
+            onClick={onOpenWrapped}
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-amber-500/20 via-rose-500/20 to-purple-600/20 text-amber-300 border border-amber-500/40 hover:scale-105 active:scale-95 transition-all shadow-md shadow-amber-500/10"
+            title="Sunehre Wrapped"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+            <span className="tracking-tight font-sans text-[11px]">Wrapped</span>
+          </button>
+        )}
+
         {/* Sleep Timer */}
         <button
           onClick={onOpenSleepTimer}

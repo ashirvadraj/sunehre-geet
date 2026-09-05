@@ -7,16 +7,19 @@ import { Artist, Decade, Song } from '../types';
 import { useAudio } from '../context/AudioContext';
 import { useDownload } from '../context/DownloadContext';
 import { RecommendationService } from '../services/recommendationService';
+import { WrappedBanner } from '../components/WrappedBanner';
 
 interface HomeViewProps {
   onSelectArtist: (artist: Artist) => void;
   onSelectDecade: (decadeId: Decade['id']) => void;
   onOpenCreatePlaylist: (songId?: string) => void;
+  onOpenWrapped?: () => void;
 }
 
 export const HomeView: React.FC<HomeViewProps> = ({
   onSelectArtist,
   onSelectDecade,
+  onOpenWrapped,
 }) => {
   const { currentSong, isPlaying, playSong, togglePlay } = useAudio();
   const { downloadSong, isDownloaded, downloadingId } = useDownload();
@@ -105,6 +108,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </button>
         </div>
       </section>
+
+      {/* Spotify Wrapped Banner */}
+      {onOpenWrapped && (
+        <WrappedBanner onOpenWrapped={onOpenWrapped} />
+      )}
 
       {/* 2. Mood & Ras (भाव) Curated Categories */}
       <section className="space-y-2.5">

@@ -23,6 +23,7 @@ import { Disc3 } from 'lucide-react';
 import { RecommendationService } from './services/recommendationService';
 import { VersionService, VersionConfig } from './services/versionService';
 import { UpdateRequiredModal } from './components/UpdateRequiredModal';
+import { WrappedModal } from './components/WrappedModal';
 import { SONGS } from './data/songs';
 
 export const MainApp: React.FC = () => {
@@ -30,6 +31,7 @@ export const MainApp: React.FC = () => {
   const [selectedArtist, setSelectedArtist] = useState<Artist | null>(null);
   const [selectedDecade, setSelectedDecade] = useState<Decade['id']>('50s');
   const [isSleepTimerOpen, setIsSleepTimerOpen] = useState(false);
+  const [isWrappedOpen, setIsWrappedOpen] = useState(false);
   const [createPlaylistModal, setCreatePlaylistModal] = useState<{
     isOpen: boolean;
     songId?: string;
@@ -92,6 +94,12 @@ export const MainApp: React.FC = () => {
       listener = await CapApp.addListener('backButton', () => {
         // 0. If Update Required is active, completely lock down
         if (updateConfig) {
+          return;
+        }
+
+        // 0.5. If Wrapped modal is open, close it
+        if (isWrappedOpen) {
+          setIsWrappedOpen(false);
           return;
         }
 
@@ -159,6 +167,7 @@ export const MainApp: React.FC = () => {
   }, [
     isFullPlayerOpen,
     isSleepTimerOpen,
+    isWrappedOpen,
     isAccountModalOpen,
     createPlaylistModal.isOpen,
     selectedArtist,
@@ -184,8 +193,11 @@ export const MainApp: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#0c0817] text-[#FFF4E0] flex flex-col antialiased select-none font-sans relative">
-      {/* Header with Account Button */}
-      <Header onOpenSleepTimer={() => setIsSleepTimerOpen(true)} />
+      {/* Header with Account & Wrapped Buttons */}
+      <Header
+        onOpenSleepTimer={() => setIsSleepTimerOpen(true)}
+        onOpenWrapped={() => setIsWrappedOpen(true)}
+      />
 
       {/* Main View Area */}
       <main className="flex-1 w-full max-w-md mx-auto">
@@ -195,6 +207,7 @@ export const MainApp: React.FC = () => {
               onSelectArtist={handleSelectArtist}
               onSelectDecade={handleSelectDecade}
               onOpenCreatePlaylist={handleOpenCreatePlaylist}
+              onOpenWrapped={() => setIsWrappedOpen(true)}
             />
           )}
 
@@ -221,7 +234,10 @@ export const MainApp: React.FC = () => {
           )}
 
           {activeTab === 'library' && (
-            <LibraryView onOpenCreatePlaylist={handleOpenCreatePlaylist} />
+            <LibraryView
+              onOpenCreatePlaylist={handleOpenCreatePlaylist}
+              onOpenWrapped={() => setIsWrappedOpen(true)}
+            />
           )}
         </ErrorBoundary>
       </main>
@@ -250,6 +266,12 @@ export const MainApp: React.FC = () => {
       <AccountModal
         isOpen={isAccountModalOpen}
         onClose={() => setIsAccountModalOpen(false)}
+      />
+
+      {/* Spotify-style Wrapped Modal */}
+      <WrappedModal
+        isOpen={isWrappedOpen}
+        onClose={() => setIsWrappedOpen(false)}
       />
 
       {/* Welcome / First-Launch Screen */}

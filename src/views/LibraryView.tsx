@@ -6,12 +6,14 @@ import { useDownload } from '../context/DownloadContext';
 import { SongItem } from '../components/SongItem';
 import { Song } from '../types';
 import { SONGS } from '../data/songs';
+import { WrappedBanner } from '../components/WrappedBanner';
 
 interface LibraryViewProps {
   onOpenCreatePlaylist: (songId?: string) => void;
+  onOpenWrapped?: () => void;
 }
 
-export const LibraryView: React.FC<LibraryViewProps> = ({ onOpenCreatePlaylist }) => {
+export const LibraryView: React.FC<LibraryViewProps> = ({ onOpenCreatePlaylist, onOpenWrapped }) => {
   const [activeTab, setActiveTab] = useState<'favorites' | 'playlists' | 'recent' | 'downloads'>('favorites');
   const [selectedPlaylistId, setSelectedPlaylistId] = useState<string | null>(null);
 
@@ -128,6 +130,11 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onOpenCreatePlaylist }
             ✕
           </button>
         </div>
+      )}
+
+      {/* Spotify Wrapped Banner */}
+      {onOpenWrapped && (
+        <WrappedBanner onOpenWrapped={onOpenWrapped} />
       )}
 
       {/* Tabs */}

@@ -3,6 +3,7 @@ import { Song } from '../types';
 import { SONGS } from '../data/songs';
 import { getOfflineAudioUrl, cacheAudioInBackground } from '../services/offlineService';
 import { fetchLyricsForSong } from '../services/lyricsService';
+import { WrappedService } from '../services/wrappedService';
 
 interface AudioContextType {
   currentSong: Song | null;
@@ -386,12 +387,13 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         }
       }
 
-      // Record to Recently Played
+      // Record to Recently Played & Wrapped Listening History
       try {
         window.dispatchEvent(new CustomEvent('sunehreSongPlayed', { detail: { song } }));
         const curRecent = JSON.parse(localStorage.getItem('sunehre_geet_recent') || '[]');
         const updatedRecent = [song.id, ...curRecent.filter((id: string) => id !== song.id)].slice(0, 50);
         localStorage.setItem('sunehre_geet_recent', JSON.stringify(updatedRecent));
+        WrappedService.recordPlayback(song.id, song.duration || 180);
       } catch {}
 
       // Background Pre-fetch Lyrics for 0ms instant display
