@@ -1,27 +1,7 @@
 // @ts-nocheck
 import { Song } from '../types';
 
-const rawSongs = [
-  {
-    "id": "sg-sachin-sachin",
-    "title": "Sachin Sachin",
-    "artist": "Sukhwinder Singh, Kaly, A.R. Rahman",
-    "artists": [
-      "Sukhwinder Singh",
-      "Kaly",
-      "A.R. Rahman"
-    ],
-    "movie": "Sachin: A Billion Dreams",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 252,
-    "audioUrl": "https://aac.saavncdn.com/318/d772544798891124f4308c77832a3200_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/318/Sachin-A-Billion-Dreams-Tamil-2017-500x500.jpg",
-    "genre": "Bollywood Anthem",
-    "language": "hindi",
-    "composer": "A.R. Rahman",
-    "lyricist": "Irshad Kamil"
-  },
+export const SONGS: Song[] = [
   {
     "id": "sg-Drb6UvkS",
     "artistId": "lata-mangeshkar",
@@ -43,126 +23,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-cLeeS9CG",
-    "artistId": "lata-mangeshkar",
-    "title": "Utha Utha Ho Sakalik",
-    "artist": "Hridaynath Mangeshkar, Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional",
-    "artists": [
-      "Lata Mangeshkar",
-      "Hridaynath Mangeshkar, Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional"
-    ],
-    "movie": "Golden Hour Lata Mangeshkar - Devotional",
-    "year": 1960,
-    "decade": "60s",
-    "duration": 206,
-    "audioUrl": "https://aac.saavncdn.com/522/c6277cf260a70161de029972e362a1ec_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/023/Golden-Hour-Lata-Mangeshkar-Devotional-Marathi-1960-20200917073908-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Hridaynath Mangeshkar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-M71aqJ_H",
-    "artistId": "lata-mangeshkar",
-    "title": "Jakey Pabo Na (From \"Amanat Vol.1\")",
-    "artist": "Lata Mangeshkar - Golden Melodies Of Lata And Asha",
-    "artists": [
-      "Lata Mangeshkar",
-      "Lata Mangeshkar - Golden Melodies Of Lata And Asha"
-    ],
-    "movie": "Golden Melodies Of Lata And Asha",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 313,
-    "audioUrl": "https://aac.saavncdn.com/855/5dcf9957679eb9d3384e8e4c6d3d8a32_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/855/Golden-Melodies-Of-Lata-And-Asha-Bengali-2025-20251029171003-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Amit Kumar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-tTBqgFw3",
-    "artistId": "lata-mangeshkar",
-    "title": "Ganraj Rangi Nachato",
-    "artist": "Hridaynath Mangeshkar, Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional",
-    "artists": [
-      "Lata Mangeshkar",
-      "Hridaynath Mangeshkar, Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional"
-    ],
-    "movie": "Golden Hour Lata Mangeshkar - Devotional",
-    "year": 1960,
-    "decade": "60s",
-    "duration": 217,
-    "audioUrl": "https://aac.saavncdn.com/522/a2b6c9efb08d5830aaae5425ba0ec32b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/023/Golden-Hour-Lata-Mangeshkar-Devotional-Marathi-1960-20200917073908-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Hridaynath Mangeshkar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-NmFcDVXt",
-    "artistId": "lata-mangeshkar",
-    "title": "Runu Junu Runu Junu Re Bhramara",
-    "artist": "Hridaynath Mangeshkar, Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional",
-    "artists": [
-      "Lata Mangeshkar",
-      "Hridaynath Mangeshkar, Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional"
-    ],
-    "movie": "Golden Hour Lata Mangeshkar - Devotional",
-    "year": 1960,
-    "decade": "60s",
-    "duration": 239,
-    "audioUrl": "https://aac.saavncdn.com/522/4218cfc054c02e496e6c611f248cd45e_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/023/Golden-Hour-Lata-Mangeshkar-Devotional-Marathi-1960-20200917073908-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Hridaynath Mangeshkar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-jpKI5BLt",
-    "artistId": "lata-mangeshkar",
-    "title": "Jethe Jato Tethe Tu Maza Sangati",
-    "artist": "Shrinivas Khale, Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional",
-    "artists": [
-      "Lata Mangeshkar",
-      "Shrinivas Khale, Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional"
-    ],
-    "movie": "Golden Hour Lata Mangeshkar - Devotional",
-    "year": 1960,
-    "decade": "60s",
-    "duration": 199,
-    "audioUrl": "https://aac.saavncdn.com/522/dc1eee34a20e852883d1053a16280146_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/023/Golden-Hour-Lata-Mangeshkar-Devotional-Marathi-1960-20200917073908-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Shrinivas Khale",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-wcw9K5TC",
-    "artistId": "lata-mangeshkar",
-    "title": "Are Are Dnyana Jhalasi Pavan",
-    "artist": "Hridaynath Mangeshkar, Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional",
-    "artists": [
-      "Lata Mangeshkar",
-      "Hridaynath Mangeshkar, Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional"
-    ],
-    "movie": "Golden Hour Lata Mangeshkar - Devotional",
-    "year": 1960,
-    "decade": "60s",
-    "duration": 192,
-    "audioUrl": "https://aac.saavncdn.com/522/81e37e2d7a2dd08444b56d524e917b7d_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/023/Golden-Hour-Lata-Mangeshkar-Devotional-Marathi-1960-20200917073908-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Hridaynath Mangeshkar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-gxBSInh6",
     "artistId": "lata-mangeshkar",
     "title": "Dil To Pagal Hai",
@@ -179,86 +39,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/172/Golden-Hits-Of-Yash-Chopra-Hindi-2017-500x500.jpg",
     "genre": "hindi",
     "composer": "Uttam Singh",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-KA4fabX1",
-    "artistId": "lata-mangeshkar",
-    "title": "Pasaydaan",
-    "artist": "Hridaynath Mangeshkar, Lata Mangeshkar ft. Dj Dips - Golden Hour Lata Mangeshkar - Devotional",
-    "artists": [
-      "Lata Mangeshkar",
-      "Hridaynath Mangeshkar, Lata Mangeshkar ft. Dj Dips - Golden Hour Lata Mangeshkar - Devotional"
-    ],
-    "movie": "Golden Hour Lata Mangeshkar - Devotional",
-    "year": 1960,
-    "decade": "60s",
-    "duration": 238,
-    "audioUrl": "https://aac.saavncdn.com/522/c45afcf4f351ada322138dc9af49306d_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/023/Golden-Hour-Lata-Mangeshkar-Devotional-Marathi-1960-20200917073908-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Hridaynath Mangeshkar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-dLjA6MjJ",
-    "artistId": "lata-mangeshkar",
-    "title": "Vithal To Aala Aala",
-    "artist": "Vasant Prabhu, Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional",
-    "artists": [
-      "Lata Mangeshkar",
-      "Vasant Prabhu, Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional"
-    ],
-    "movie": "Golden Hour Lata Mangeshkar - Devotional",
-    "year": 1960,
-    "decade": "60s",
-    "duration": 200,
-    "audioUrl": "https://aac.saavncdn.com/522/9361e7db53c00eed3336a0cde3394ebe_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/023/Golden-Hour-Lata-Mangeshkar-Devotional-Marathi-1960-20200917073908-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Vasant Prabhu",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-buWDYdDe",
-    "artistId": "lata-mangeshkar",
-    "title": "Vithala Samacharan Tujhe Dharite",
-    "artist": "Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional",
-    "artists": [
-      "Lata Mangeshkar",
-      "Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional"
-    ],
-    "movie": "Golden Hour Lata Mangeshkar - Devotional",
-    "year": 1960,
-    "decade": "60s",
-    "duration": 206,
-    "audioUrl": "https://aac.saavncdn.com/023/bf7c9b56ba4ab27e5edb05045ec7382b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/023/Golden-Hour-Lata-Mangeshkar-Devotional-Marathi-1960-20200917073908-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Lata Mangeshkar, Vasant Prabhu",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-BopAuQDy",
-    "artistId": "lata-mangeshkar",
-    "title": "Raghunandan Aale - Lata Mangeshkar",
-    "artist": "Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional",
-    "artists": [
-      "Lata Mangeshkar",
-      "Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional"
-    ],
-    "movie": "Golden Hour Lata Mangeshkar - Devotional",
-    "year": 1960,
-    "decade": "60s",
-    "duration": 195,
-    "audioUrl": "https://aac.saavncdn.com/023/be32bd715887f636d81afa48ba57d7da_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/023/Golden-Hour-Lata-Mangeshkar-Devotional-Marathi-1960-20200917073908-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Lata Mangeshkar, Vasant Prabhu",
     "lyricist": "",
     "language": "hindi"
   },
@@ -363,26 +143,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-BIXdkYUA",
-    "artistId": "lata-mangeshkar",
-    "title": "Sharan Tula Bhagwanta",
-    "artist": "Vasant Prabhu, Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional",
-    "artists": [
-      "Lata Mangeshkar",
-      "Vasant Prabhu, Lata Mangeshkar - Golden Hour Lata Mangeshkar - Devotional"
-    ],
-    "movie": "Golden Hour Lata Mangeshkar - Devotional",
-    "year": 1960,
-    "decade": "60s",
-    "duration": 202,
-    "audioUrl": "https://aac.saavncdn.com/522/e167937d74ccfa79446726eb4720a9ba_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/023/Golden-Hour-Lata-Mangeshkar-Devotional-Marathi-1960-20200917073908-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Vasant Prabhu",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-fxjhxnLY",
     "artistId": "lata-mangeshkar",
     "title": "Itna Na Mujhse Tu Pyar Badha",
@@ -459,26 +219,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/318/Mohammed-Rafi-Golden-Hits-Hindi-2023-20260709020009-500x500.jpg",
     "genre": "hindi",
     "composer": "Jugal Kishore- Tilakraj",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-mj4PulRm",
-    "artistId": "lata-mangeshkar",
-    "title": "Om Namoji Aadya Commentary",
-    "artist": "Hridaynath Mangeshkar, Lata Mangeshkar, Chours - Golden Hour Lata Mangeshkar - Devotional",
-    "artists": [
-      "Lata Mangeshkar",
-      "Hridaynath Mangeshkar, Lata Mangeshkar, Chours - Golden Hour Lata Mangeshkar - Devotional"
-    ],
-    "movie": "Golden Hour Lata Mangeshkar - Devotional",
-    "year": 1960,
-    "decade": "60s",
-    "duration": 218,
-    "audioUrl": "https://aac.saavncdn.com/522/086fde4654a9648e613efdbe27c7259d_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/023/Golden-Hour-Lata-Mangeshkar-Devotional-Marathi-1960-20200917073908-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Hridaynath Mangeshkar",
     "lyricist": "",
     "language": "hindi"
   },
@@ -719,26 +459,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/732/Evergreen-Romantic-Songs-With-Jhankar-Beats-Hindi-2017-20181120-500x500.jpg",
     "genre": "hindi",
     "composer": "Amar, Utpal",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-fKo6x77u",
-    "artistId": "lata-mangeshkar",
-    "title": "Aaj Tabe Ei Tuku",
-    "artist": "Lata Mangeshkar - Valentine Special Bengali Romantic Modern Songs",
-    "artists": [
-      "Lata Mangeshkar",
-      "Lata Mangeshkar - Valentine Special Bengali Romantic Modern Songs"
-    ],
-    "movie": "Valentine Special Bengali Romantic Modern Songs",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 229,
-    "audioUrl": "https://aac.saavncdn.com/694/7ea4c31d3ff69f1214c244e3f2aaa295_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/694/Valentine-Special-Bengali-Romantic-Modern-Songs-Bengali-2015-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Salil Chowdhury",
     "lyricist": "",
     "language": "hindi"
   },
@@ -3243,86 +2963,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-30_7C7wH",
-    "artistId": "kishore-kumar",
-    "title": "Aaj Ei Dintake (From \"Antarale\")",
-    "artist": "Kishore Kumar - Romantic Gems Of Bappi Lahiri",
-    "artists": [
-      "Kishore Kumar",
-      "Kishore Kumar - Romantic Gems Of Bappi Lahiri"
-    ],
-    "movie": "Romantic Gems Of Bappi Lahiri",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 266,
-    "audioUrl": "https://aac.saavncdn.com/202/112d19bf0dbf8b6691a19ae459fb79d8_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/202/Romantic-Gems-Of-Bappi-Lahiri-Bengali-2018-20181011-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Bappi Lahiri",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-t8pQLGM6",
-    "artistId": "kishore-kumar",
-    "title": "Aamar Pujar Phool",
-    "artist": "Kishore Kumar - Valentine Special Bengali Romantic Modern Songs",
-    "artists": [
-      "Kishore Kumar",
-      "Kishore Kumar - Valentine Special Bengali Romantic Modern Songs"
-    ],
-    "movie": "Valentine Special Bengali Romantic Modern Songs",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 267,
-    "audioUrl": "https://aac.saavncdn.com/694/a79a56d22c4cbe68c4bfb8a2c40c4263_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/694/Valentine-Special-Bengali-Romantic-Modern-Songs-Bengali-2015-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Hemanta Kumar Mukhopadhyay",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-zDYDvpKo",
-    "artistId": "kishore-kumar",
-    "title": "Se Jeno Aamar Pashe",
-    "artist": "Kishore Kumar - Valentine Special Bengali Romantic Modern Songs",
-    "artists": [
-      "Kishore Kumar",
-      "Kishore Kumar - Valentine Special Bengali Romantic Modern Songs"
-    ],
-    "movie": "Valentine Special Bengali Romantic Modern Songs",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 209,
-    "audioUrl": "https://aac.saavncdn.com/694/dfed307479505edb2ae516a79774b418_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/694/Valentine-Special-Bengali-Romantic-Modern-Songs-Bengali-2015-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Hemanta Kumar Mukhopadhyay",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-j8iKKPmg",
-    "artistId": "kishore-kumar",
-    "title": "Tomay Porechhe Mone",
-    "artist": "Kishore Kumar ft. Arindom - Valentine Special Bengali Romantic Modern Songs",
-    "artists": [
-      "Kishore Kumar",
-      "Kishore Kumar ft. Arindom - Valentine Special Bengali Romantic Modern Songs"
-    ],
-    "movie": "Valentine Special Bengali Romantic Modern Songs",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 202,
-    "audioUrl": "https://aac.saavncdn.com/694/c944395d4424cee22d97d6d5b2a9e673_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/694/Valentine-Special-Bengali-Romantic-Modern-Songs-Bengali-2015-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Basu Monohari",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-F_mWZuWE",
     "artistId": "kishore-kumar",
     "title": "Yeh Raaten Yeh Mausam - Lofi",
@@ -3343,26 +2983,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-NbqAudAr",
-    "artistId": "kishore-kumar",
-    "title": "Mon Janala Khule Dena",
-    "artist": "Kishore Kumar - Valentine Special Bengali Romantic Modern Songs",
-    "artists": [
-      "Kishore Kumar",
-      "Kishore Kumar - Valentine Special Bengali Romantic Modern Songs"
-    ],
-    "movie": "Valentine Special Bengali Romantic Modern Songs",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 202,
-    "audioUrl": "https://aac.saavncdn.com/694/b20506897170cbd9b71566188ba815fc_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/694/Valentine-Special-Bengali-Romantic-Modern-Songs-Bengali-2015-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Basu Monohari",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-u57Xrj9M",
     "artistId": "kishore-kumar",
     "title": "Ek Main Aur Ek Tu - Lofi",
@@ -3379,26 +2999,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/360/Kishore-Da-Romantic-Lofi-Mix-Hindi-2023-20230105083105-500x500.jpg",
     "genre": "hindi",
     "composer": "Asha Bhosle, Kishore Kumar, Denish Shukla, R.D. Burman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg--ShXSzxn",
-    "artistId": "kishore-kumar",
-    "title": "Ashwini Ye Na",
-    "artist": "Arun Paudwal, Anuradha Paudwal, Kishore Kumar - Filmi Songs- Romantic Marathi",
-    "artists": [
-      "Kishore Kumar",
-      "Arun Paudwal, Anuradha Paudwal, Kishore Kumar - Filmi Songs- Romantic Marathi"
-    ],
-    "movie": "Filmi Songs- Romantic Marathi",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 301,
-    "audioUrl": "https://aac.saavncdn.com/738/96ed8e16ac5e4ca773baf33495d491c8_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/738/Filmi-Songs-Romantic-Marathi-2013-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Arun Paudwal",
     "lyricist": "",
     "language": "hindi"
   },
@@ -3539,26 +3139,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/000/default_Saregama-500x500.jpg",
     "genre": "hindi",
     "composer": "R.D. Burman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-LFjYX8FN",
-    "artistId": "kishore-kumar",
-    "title": "Gunjane Dole Je Bhramar - Lofi",
-    "artist": "Vaibhav Singh Music, Kishore Kumar, Asha Bhosle - Kishore-Asha Romantic Bangla Lofi Hits",
-    "artists": [
-      "Kishore Kumar",
-      "Vaibhav Singh Music, Kishore Kumar, Asha Bhosle - Kishore-Asha Romantic Bangla Lofi Hits"
-    ],
-    "movie": "Kishore-Asha Romantic Bangla Lofi Hits",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 172,
-    "audioUrl": "https://aac.saavncdn.com/490/7098272819d1ca844514c623354e80ef_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/490/Kishore-Asha-Romantic-Bangla-Lofi-Hits-Bengali-2023-20230221063229-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Vaibhav Singh Music, Kishore Kumar, Asha Bhosle, S. D. Burman",
     "lyricist": "",
     "language": "hindi"
   },
@@ -4883,86 +4463,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-8_k6Ejq8",
-    "artistId": "asha-bhosle",
-    "title": "Manmohana Tu Raja Swapnatala",
-    "artist": "Asha Bhosle, Ravindra Sathe - Asha Bhosle Hits",
-    "artists": [
-      "Asha Bhosle",
-      "Asha Bhosle, Ravindra Sathe - Asha Bhosle Hits"
-    ],
-    "movie": "Asha Bhosle Hits",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 359,
-    "audioUrl": "https://aac.saavncdn.com/602/e4c4cf9dbc1f51360068e346a3511890_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/602/Asha-Bhosle-Hits-Marathi-2021-20260615175349-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Anil Mohile",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-geNoErCG",
-    "artistId": "asha-bhosle",
-    "title": "Ekach Hya Janmi Janu",
-    "artist": "Asha Bhosle - Asha Bhosle Hits",
-    "artists": [
-      "Asha Bhosle",
-      "Asha Bhosle - Asha Bhosle Hits"
-    ],
-    "movie": "Asha Bhosle Hits",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 262,
-    "audioUrl": "https://aac.saavncdn.com/602/cd7e3db851deabf1e28b095c547cad54_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/602/Asha-Bhosle-Hits-Marathi-2021-20260615175349-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Sudhir Phadke",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg--sDT8o52",
-    "artistId": "asha-bhosle",
-    "title": "Oth Aatur Jhale",
-    "artist": "Suresh Wadkar, Asha Bhosle - Asha Bhosle Hits",
-    "artists": [
-      "Asha Bhosle",
-      "Suresh Wadkar, Asha Bhosle - Asha Bhosle Hits"
-    ],
-    "movie": "Asha Bhosle Hits",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 365,
-    "audioUrl": "https://aac.saavncdn.com/602/72eed04f34e37c55077b04a79c59a493_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/602/Asha-Bhosle-Hits-Marathi-2021-20260615175349-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Shridhar Phadke",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-RUD7Isua",
-    "artistId": "asha-bhosle",
-    "title": "Krishna Keshava Kanhaiya Kanha",
-    "artist": "Lata Mangeshkar, Asha Bhosle, Ravindra Sathe - Asha Bhosle Hits",
-    "artists": [
-      "Asha Bhosle",
-      "Lata Mangeshkar, Asha Bhosle, Ravindra Sathe - Asha Bhosle Hits"
-    ],
-    "movie": "Asha Bhosle Hits",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 484,
-    "audioUrl": "https://aac.saavncdn.com/602/400fb26bf8092cfe7f6f6e0a434233de_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/602/Asha-Bhosle-Hits-Marathi-2021-20260615175349-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Anil Mohile",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-awAse-_c",
     "artistId": "asha-bhosle",
     "title": "Do Lafzon Ki Hai Dil Ki Kahani - Jhankar Beats",
@@ -4979,66 +4479,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/955/Asha-Bhosle-Hits-Jhankar-Beats-Hindi-2023-20230119083105-500x500.jpg",
     "genre": "hindi",
     "composer": "DJ Harshit Shah, Asha Bhosle, Sharad Kumar, R.D. Burman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-3oNTI0_B",
-    "artistId": "asha-bhosle",
-    "title": "Jhurate Mi Dinraat Re",
-    "artist": "Asha Bhosle, Suresh Wadkar - Asha Bhosle Hits",
-    "artists": [
-      "Asha Bhosle",
-      "Asha Bhosle, Suresh Wadkar - Asha Bhosle Hits"
-    ],
-    "movie": "Asha Bhosle Hits",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 381,
-    "audioUrl": "https://aac.saavncdn.com/602/2eadb45018e9f4188d52827dbf7bf541_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/602/Asha-Bhosle-Hits-Marathi-2021-20260615175349-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Anil Mohile",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-gcaEIVgv",
-    "artistId": "asha-bhosle",
-    "title": "Prem Kele Nahi Kela Gunha",
-    "artist": "Asha Bhosle, Suresh Wadkar - Asha Bhosle Hits",
-    "artists": [
-      "Asha Bhosle",
-      "Asha Bhosle, Suresh Wadkar - Asha Bhosle Hits"
-    ],
-    "movie": "Asha Bhosle Hits",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 251,
-    "audioUrl": "https://aac.saavncdn.com/602/e8162bf870439564ee6eb0f887957244_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/602/Asha-Bhosle-Hits-Marathi-2021-20260615175349-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Anil Mohile",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-sr15rfnS",
-    "artistId": "asha-bhosle",
-    "title": "Umale Manihi Priti Julali Ashihi",
-    "artist": "Asha Bhosle - Asha Bhosle Hits",
-    "artists": [
-      "Asha Bhosle",
-      "Asha Bhosle - Asha Bhosle Hits"
-    ],
-    "movie": "Asha Bhosle Hits",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 309,
-    "audioUrl": "https://aac.saavncdn.com/602/bee237b3f643d52227c3fab896a90073_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/602/Asha-Bhosle-Hits-Marathi-2021-20260615175349-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Anil Mohile",
     "lyricist": "",
     "language": "hindi"
   },
@@ -5119,26 +4559,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/347/Bollywood-Mashup-Songs-2013-500x500.jpg",
     "genre": "hindi",
     "composer": "A.R. Rahman, Nadeem-Shravan, Anu Malik",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-NhGb8t3K",
-    "artistId": "asha-bhosle",
-    "title": "Jivalaga Sajana",
-    "artist": "Asha Bhosle - Asha Bhosle Hits",
-    "artists": [
-      "Asha Bhosle",
-      "Asha Bhosle - Asha Bhosle Hits"
-    ],
-    "movie": "Asha Bhosle Hits",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 252,
-    "audioUrl": "https://aac.saavncdn.com/602/31eb0d0c03dd654fc062de44a74230ac_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/602/Asha-Bhosle-Hits-Marathi-2021-20260615175349-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Anil Mohile",
     "lyricist": "",
     "language": "hindi"
   },
@@ -5339,26 +4759,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/292/Asha-Bhosle-Hits-Hindi-2023-20260820195717-500x500.jpg",
     "genre": "hindi",
     "composer": "R.D. Burman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-XMI7GC73",
-    "artistId": "asha-bhosle",
-    "title": "Engengey (From \"Naerukku Naer\")",
-    "artist": "Vairamuthu, Deva, Asha Bhosle, Hariharan - Hits Of Surya",
-    "artists": [
-      "Asha Bhosle",
-      "Vairamuthu, Deva, Asha Bhosle, Hariharan - Hits Of Surya"
-    ],
-    "movie": "Hits Of Surya",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 348,
-    "audioUrl": "https://aac.saavncdn.com/738/76e04870734f0ce7b491451c6e76f971_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/738/Hits-Of-Surya-Tamil-2026-20260207053912-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Deva",
     "lyricist": "",
     "language": "hindi"
   },
@@ -5643,86 +5043,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-kxVhrxme",
-    "artistId": "asha-bhosle",
-    "title": "Prem Kise Hoy (From \"Dujane\")",
-    "artist": "Asha Bhosle - Romantic Gems Of Bappi Lahiri",
-    "artists": [
-      "Asha Bhosle",
-      "Asha Bhosle - Romantic Gems Of Bappi Lahiri"
-    ],
-    "movie": "Romantic Gems Of Bappi Lahiri",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 232,
-    "audioUrl": "https://aac.saavncdn.com/202/a8bf578e30b4221f9eccef670aff1249_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/202/Romantic-Gems-Of-Bappi-Lahiri-Bengali-2018-20181011-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Bappi Lahiri",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-CIofD3qa",
-    "artistId": "asha-bhosle",
-    "title": "Amar Ga Chhamchham Kare (From \"Antarale\")",
-    "artist": "Asha Bhosle, Bappi Lahiri - Romantic Gems Of Bappi Lahiri",
-    "artists": [
-      "Asha Bhosle",
-      "Asha Bhosle, Bappi Lahiri - Romantic Gems Of Bappi Lahiri"
-    ],
-    "movie": "Romantic Gems Of Bappi Lahiri",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 301,
-    "audioUrl": "https://aac.saavncdn.com/202/edb6fab83a17b7df44c46aff1557d63e_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/202/Romantic-Gems-Of-Bappi-Lahiri-Bengali-2018-20181011-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Bappi Lahiri",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-FO7VK3gi",
-    "artistId": "asha-bhosle",
-    "title": "Chandoba Chandoba Bhagalas Ka",
-    "artist": "Asha Bhosle - Romantic Marathi Songs",
-    "artists": [
-      "Asha Bhosle",
-      "Asha Bhosle - Romantic Marathi Songs"
-    ],
-    "movie": "Romantic Marathi Songs",
-    "year": 1980,
-    "decade": "80s",
-    "duration": 199,
-    "audioUrl": "https://aac.saavncdn.com/276/efc90dea1baf1326cd2382b5b209014e_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/276/Romantic-Marathi-Songs-Marathi-1980-20260513103201-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Bhaskar Chandavarkar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-ysSXcNTp",
-    "artistId": "asha-bhosle",
-    "title": "Oi Neel Pakhitake (From \"Dujane\")",
-    "artist": "Asha Bhosle, Bappi Lahiri - Romantic Gems Of Bappi Lahiri",
-    "artists": [
-      "Asha Bhosle",
-      "Asha Bhosle, Bappi Lahiri - Romantic Gems Of Bappi Lahiri"
-    ],
-    "movie": "Romantic Gems Of Bappi Lahiri",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 219,
-    "audioUrl": "https://aac.saavncdn.com/202/1b371b1b37ec7e3114fe1513e32f7f12_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/202/Romantic-Gems-Of-Bappi-Lahiri-Bengali-2018-20181011-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Bappi Lahiri",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-qgRGn7OF",
     "artistId": "asha-bhosle",
     "title": "Tumhari Nazron Mein Humne Dekha - Lofi",
@@ -5759,66 +5079,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/823/Bollywood-Romantic-Duet-Hindi-2026-20260219053641-500x500.jpg",
     "genre": "hindi",
     "composer": "R.D. Burman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-K0JUUspo",
-    "artistId": "asha-bhosle",
-    "title": "Mehedir Rang Makhano",
-    "artist": "Asha Bhosle - Valentine Special Bengali Romantic Modern Songs",
-    "artists": [
-      "Asha Bhosle",
-      "Asha Bhosle - Valentine Special Bengali Romantic Modern Songs"
-    ],
-    "movie": "Valentine Special Bengali Romantic Modern Songs",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 248,
-    "audioUrl": "https://aac.saavncdn.com/694/d08406b92068adfe51d8d4e758bcb61f_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/694/Valentine-Special-Bengali-Romantic-Modern-Songs-Bengali-2015-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Hemanta Kumar Mukhopadhyay",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-5aJ3oL5n",
-    "artistId": "asha-bhosle",
-    "title": "Maner Mayur",
-    "artist": "Asha Bhosle - Valentine Special Bengali Romantic Modern Songs",
-    "artists": [
-      "Asha Bhosle",
-      "Asha Bhosle - Valentine Special Bengali Romantic Modern Songs"
-    ],
-    "movie": "Valentine Special Bengali Romantic Modern Songs",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 243,
-    "audioUrl": "https://aac.saavncdn.com/694/003b88cab8a6c2088bfe9326a7a91b4e_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/694/Valentine-Special-Bengali-Romantic-Modern-Songs-Bengali-2015-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Swapan Chakraborty",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-B75zeso1",
-    "artistId": "asha-bhosle",
-    "title": "Jano Naki Tumi (From \"Pratidan\")",
-    "artist": "Asha Bhosle, Bappi Lahiri - Romantic Gems Of Bappi Lahiri",
-    "artists": [
-      "Asha Bhosle",
-      "Asha Bhosle, Bappi Lahiri - Romantic Gems Of Bappi Lahiri"
-    ],
-    "movie": "Romantic Gems Of Bappi Lahiri",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 291,
-    "audioUrl": "https://aac.saavncdn.com/202/06334e3716b4d4f78def13ddbb1fed46_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/202/Romantic-Gems-Of-Bappi-Lahiri-Bengali-2018-20181011-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Bappi Lahiri",
     "lyricist": "",
     "language": "hindi"
   },
@@ -6783,26 +6043,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-PH-tctv8",
-    "artistId": "mukesh",
-    "title": "Enn Theivaththukkei (From \"Sivakasi\")",
-    "artist": "Perarasu, Sri, Mukesh - Tsunami Sad Songs",
-    "artists": [
-      "Mukesh",
-      "Perarasu, Sri, Mukesh - Tsunami Sad Songs"
-    ],
-    "movie": "Tsunami Sad Songs",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 272,
-    "audioUrl": "https://aac.saavncdn.com/754/76cf85fc63175500740e8301f5f38c31_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/754/Tsunami-Sad-Songs-Tamil-2026-20260207054428-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Sri",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-LM4bDWvj",
     "artistId": "mukesh",
     "title": "Ek Din Bik Jayega Mati Ke Mol Sad",
@@ -6939,26 +6179,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/080/Sada-Khush-Rahe-Tu-Million-Jhankar-Beats-Hindi-2024-20240723083730-500x500.jpg",
     "genre": "hindi",
     "composer": "Hero And King Of Jhankar Studio, Mukesh, Ravi",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-FKgDP_dv",
-    "artistId": "mukesh",
-    "title": "Sada Sada Siva",
-    "artist": "Mukesh - Gnana Kirukkan",
-    "artists": [
-      "Mukesh",
-      "Mukesh - Gnana Kirukkan"
-    ],
-    "movie": "Gnana Kirukkan",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 234,
-    "audioUrl": "https://aac.saavncdn.com/618/87d2f19bbc1707733c4dc9eb18ab8bdf_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/618/Gnana-Kirukkan-Tamil-2013-20180531-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Taj Noor",
     "lyricist": "",
     "language": "hindi"
   },
@@ -8443,26 +7663,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-zr1SMJIB",
-    "artistId": "hemant-kumar",
-    "title": "Gomu Sangtina Mazya",
-    "artist": "Asha Bhosle, Hemant Kumar - Ani...Dr. Kashinath Ghanekar",
-    "artists": [
-      "Hemant Kumar",
-      "Asha Bhosle, Hemant Kumar - Ani...Dr. Kashinath Ghanekar"
-    ],
-    "movie": "Ani...Dr. Kashinath Ghanekar",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 250,
-    "audioUrl": "https://aac.saavncdn.com/625/53510f972bbf9d4aada23b6346df5854_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/625/Ani-Dr-Kashinath-Ghanekar-Marathi-2018-20181112-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Pt. Hridaynath Mangeshkar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-rvIVLCpI",
     "artistId": "hemant-kumar",
     "title": "Na Yeh Chand Hoga",
@@ -8823,26 +8023,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-ilVIFUjx",
-    "artistId": "hemant-kumar",
-    "title": "Chole Chole Majhkhane",
-    "artist": "Hemanta Kumar Mukhopadhyay - Golden Hour,Vol. 8 Hemanta Mukherjee",
-    "artists": [
-      "Hemant Kumar",
-      "Hemanta Kumar Mukhopadhyay - Golden Hour,Vol. 8 Hemanta Mukherjee"
-    ],
-    "movie": "Golden Hour,Vol. 8 Hemanta Mukherjee",
-    "year": 1981,
-    "decade": "80s",
-    "duration": 196,
-    "audioUrl": "https://aac.saavncdn.com/669/2fe139653f7441cbe4f8cb1fb28daec7_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/669/Golden-Hour-Vol-8-Hemanta-Mukherjee-Bengali-1981-20200912113954-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Hemanta Kumar Mukhopadhyay",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-TE0CJIxM",
     "artistId": "hemant-kumar",
     "title": "Gaon Ki Rani Part - 1",
@@ -8963,26 +8143,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-zHwy5bzo",
-    "artistId": "hemant-kumar",
-    "title": "Aaj Dujanar Duti Path",
-    "artist": "Hemanta Kumar Mukhopadhyay - Golden Melody - Hemanta Mukherjee",
-    "artists": [
-      "Hemant Kumar",
-      "Hemanta Kumar Mukhopadhyay - Golden Melody - Hemanta Mukherjee"
-    ],
-    "movie": "Golden Melody - Hemanta Mukherjee",
-    "year": 2003,
-    "decade": "2000s",
-    "duration": 203,
-    "audioUrl": "https://aac.saavncdn.com/563/c0573dc7dac252901aa0c711796fe16f_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/563/Golden-Melody-Hemanta-Mukherjee-2003-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Hemanta Kumar Mukhopadhyay",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-c2bFwC-O",
     "artistId": "hemant-kumar",
     "title": "Beqarar Karke Hamen Yun Na Jaiye",
@@ -9023,26 +8183,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-R_NX3Sx7",
-    "artistId": "hemant-kumar",
-    "title": "Tumi Jabei Chole",
-    "artist": "Hemanta Kumar Mukhopadhyay - Golden Hour,Vol. 8 Hemanta Mukherjee",
-    "artists": [
-      "Hemant Kumar",
-      "Hemanta Kumar Mukhopadhyay - Golden Hour,Vol. 8 Hemanta Mukherjee"
-    ],
-    "movie": "Golden Hour,Vol. 8 Hemanta Mukherjee",
-    "year": 1981,
-    "decade": "80s",
-    "duration": 203,
-    "audioUrl": "https://aac.saavncdn.com/669/7e558981bd7500329461f7700d5da5bf_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/669/Golden-Hour-Vol-8-Hemanta-Mukherjee-Bengali-1981-20200912113954-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Hemanta Kumar Mukhopadhyay, Ashima Mukherjee",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-ZneLX_bC",
     "artistId": "hemant-kumar",
     "title": "Nain Se Nain",
@@ -9079,26 +8219,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/000/default_Saregama-500x500.jpg",
     "genre": "hindi",
     "composer": "Kalyanji-Anandji",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-7cXrZvli",
-    "artistId": "hemant-kumar",
-    "title": "Ami Gaan Shonabo",
-    "artist": "Hemanta Kumar Mukhopadhyay - Golden Melody - Hemanta Mukherjee",
-    "artists": [
-      "Hemant Kumar",
-      "Hemanta Kumar Mukhopadhyay - Golden Melody - Hemanta Mukherjee"
-    ],
-    "movie": "Golden Melody - Hemanta Mukherjee",
-    "year": 2003,
-    "decade": "2000s",
-    "duration": 185,
-    "audioUrl": "https://aac.saavncdn.com/563/4aa5d0ee72bd1cfbfaea9f59334ad1a0_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/563/Golden-Melody-Hemanta-Mukherjee-2003-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Rajen Sarkar",
     "lyricist": "",
     "language": "hindi"
   },
@@ -9239,26 +8359,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/973/Golden-Moments-Ab-Yaad-Hamen-Kyon-Aate-Ho-Hindi-1999-20220429143428-500x500.jpg",
     "genre": "hindi",
     "composer": "Hemant Kumar, Tersemlal",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-e3MCezfG",
-    "artistId": "hemant-kumar",
-    "title": "Surjyo Dobar Pala Ase Jadi (From \"Indrani\")",
-    "artist": "Hemanta Kumar Mukhopadhyay - Golden Duo - Hemanta Mukherjee And Nachiketa Ghosh",
-    "artists": [
-      "Hemant Kumar",
-      "Hemanta Kumar Mukhopadhyay - Golden Duo - Hemanta Mukherjee And Nachiketa Ghosh"
-    ],
-    "movie": "Golden Duo - Hemanta Mukherjee And Nachiketa Ghosh",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 185,
-    "audioUrl": "https://aac.saavncdn.com/515/d315f16df71cd0b6631e5eb9d144c0d4_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/515/Golden-Duo-Hemanta-Mukherjee-And-Nachiketa-Ghosh-Bengali-2018-20180806-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Nachiketa Ghosh",
     "lyricist": "",
     "language": "hindi"
   },
@@ -9423,26 +8523,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-yf8fMv9N",
-    "artistId": "manna-dey",
-    "title": "Coffee Houser Sei Addata Aaj Aar Nei - Manna Dey",
-    "artist": "Manna Dey - Hits Of Manna Dey,Vol. 2",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Hits Of Manna Dey,Vol. 2"
-    ],
-    "movie": "Hits Of Manna Dey,Vol. 2",
-    "year": 1982,
-    "decade": "80s",
-    "duration": 387,
-    "audioUrl": "https://aac.saavncdn.com/394/1a5f112c11fd38735ce32ca59fccfc94_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/394/Hits-Of-Manna-Dey-Vol-2-Bengali-1982-20200909093959-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Manna Dey, Suparnakanti Ghosh",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-KB7a_DWk",
     "artistId": "manna-dey",
     "title": "Pyar Hua Iqrar Hua (From \"Shree 420\")",
@@ -9499,26 +8579,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/475/Manna-Dey-Hits-Hindi-2016-500x500.jpg",
     "genre": "hindi",
     "composer": "Shankar-Jaikishan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-awflezg_",
-    "artistId": "manna-dey",
-    "title": "Coffee Houser Sei Addata Aaj Aar Nei",
-    "artist": "Manna Dey, Suparnakanti Ghosh - Manna Dey Bengali Hits",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey, Suparnakanti Ghosh - Manna Dey Bengali Hits"
-    ],
-    "movie": "Manna Dey Bengali Hits",
-    "year": 2016,
-    "decade": "2000s",
-    "duration": 386,
-    "audioUrl": "https://aac.saavncdn.com/468/074e1e620bbf0f292e719929f82c32c6_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/468/Manna-Dey-Bengali-Hits-Bengali-2016-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Suparnakanti Ghosh",
     "lyricist": "",
     "language": "hindi"
   },
@@ -9583,46 +8643,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-P7BJEG4i",
-    "artistId": "manna-dey",
-    "title": "Tumi Nijer Mukhei Bolle Jedin",
-    "artist": "Manna Dey - Hits Of Manna Dey,Vol. 2",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Hits Of Manna Dey,Vol. 2"
-    ],
-    "movie": "Hits Of Manna Dey,Vol. 2",
-    "year": 1982,
-    "decade": "80s",
-    "duration": 193,
-    "audioUrl": "https://aac.saavncdn.com/394/40c007b74a91e5ea1b5f045c38e013dc_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/394/Hits-Of-Manna-Dey-Vol-2-Bengali-1982-20200909093959-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Manna Dey, Prabhas Dey",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-uRye8t0B",
-    "artistId": "manna-dey",
-    "title": "Ei Brishtite Bhije Mati",
-    "artist": "Manna Dey, Lata Mangeshkar - Bengali Film Hits",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey, Lata Mangeshkar - Bengali Film Hits"
-    ],
-    "movie": "Bengali Film Hits",
-    "year": 1981,
-    "decade": "80s",
-    "duration": 272,
-    "audioUrl": "https://aac.saavncdn.com/775/20e25702dd7ba77e90ee532ceaaa4466_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/775/Bengali-Film-Hits-Bengali-1981-20260515081405-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Bireswar Sarkar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-yZAozjm1",
     "artistId": "manna-dey",
     "title": "Ae Bhai Zara Dekh Ke Chalo (From \"Mera Naam Joker\")",
@@ -9643,26 +8663,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-G1plt42c",
-    "artistId": "manna-dey",
-    "title": "O Chand Samle Rakho Jochhnake",
-    "artist": "Manna Dey, Prabhas Dey - Manna Dey Bengali Hits",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey, Prabhas Dey - Manna Dey Bengali Hits"
-    ],
-    "movie": "Manna Dey Bengali Hits",
-    "year": 2016,
-    "decade": "2000s",
-    "duration": 191,
-    "audioUrl": "https://aac.saavncdn.com/468/a59306861fd071d66849fcfd30d5411b_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/468/Manna-Dey-Bengali-Hits-Bengali-2016-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Prabhas Dey",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-1jPo6Hfe",
     "artistId": "manna-dey",
     "title": "Yari Hai Imaan Mera (From \"Zanjeer\")",
@@ -9679,66 +8679,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/475/Manna-Dey-Hits-Hindi-2016-500x500.jpg",
     "genre": "hindi",
     "composer": "Kalyanji-Anandji",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-vnW81b7Q",
-    "artistId": "manna-dey",
-    "title": "Oi Mahasindhur Opar Theke",
-    "artist": "Manna Dey - Hits Of Manna Dey Modern Songs",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Hits Of Manna Dey Modern Songs"
-    ],
-    "movie": "Hits Of Manna Dey Modern Songs",
-    "year": 1986,
-    "decade": "80s",
-    "duration": 222,
-    "audioUrl": "https://aac.saavncdn.com/893/a3354888f03c7380069694134e769fc1_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/893/Hits-Of-Manna-Dey-Modern-Songs-Bengali-1986-20200904163921-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Manna Dey, Dwijendralal Roy",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-3pFNoZ_O",
-    "artistId": "manna-dey",
-    "title": "Aamar Bhalobasar Rajprasade",
-    "artist": "Manna Dey, Nachiketa Ghosh - Manna Dey Bengali Hits",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey, Nachiketa Ghosh - Manna Dey Bengali Hits"
-    ],
-    "movie": "Manna Dey Bengali Hits",
-    "year": 2016,
-    "decade": "2000s",
-    "duration": 216,
-    "audioUrl": "https://aac.saavncdn.com/468/4f171d73efaca086e3ce3a34f2de3e27_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/468/Manna-Dey-Bengali-Hits-Bengali-2016-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Nachiketa Ghosh",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-rWnDKfik",
-    "artistId": "manna-dey",
-    "title": "Sundari Go Dohai Dohai",
-    "artist": "Manna Dey - Manna Dey Bengali Hits",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Manna Dey Bengali Hits"
-    ],
-    "movie": "Manna Dey Bengali Hits",
-    "year": 2016,
-    "decade": "2000s",
-    "duration": 198,
-    "audioUrl": "https://aac.saavncdn.com/468/d16eb5aa791de12c4e425cbd2fcb7de8_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/468/Manna-Dey-Bengali-Hits-Bengali-2016-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Manna Dey",
     "lyricist": "",
     "language": "hindi"
   },
@@ -9803,86 +8743,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-9N2nBCca",
-    "artistId": "manna-dey",
-    "title": "Ei Kule Ami Aar Oi Kule Tumi",
-    "artist": "Manna Dey - Manna Dey Bengali Hits",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Manna Dey Bengali Hits"
-    ],
-    "movie": "Manna Dey Bengali Hits",
-    "year": 2016,
-    "decade": "2000s",
-    "duration": 193,
-    "audioUrl": "https://aac.saavncdn.com/468/7f76963d3bc90d1780013e74180062e3_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/468/Manna-Dey-Bengali-Hits-Bengali-2016-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Manna Dey",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-pDCJg5CH",
-    "artistId": "manna-dey",
-    "title": "Hridayer Gaan Shikhe To Gaay Go Sabai",
-    "artist": "Manna Dey, Ratu Mukherjee - Manna Dey Bengali Hits",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey, Ratu Mukherjee - Manna Dey Bengali Hits"
-    ],
-    "movie": "Manna Dey Bengali Hits",
-    "year": 2016,
-    "decade": "2000s",
-    "duration": 182,
-    "audioUrl": "https://aac.saavncdn.com/468/dfeae9d6d8fb38f1d15114b9170f8b8b_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/468/Manna-Dey-Bengali-Hits-Bengali-2016-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Ratu Mukherjee",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-0iXaODSV",
-    "artistId": "manna-dey",
-    "title": "O Amar Mon Jamunar Ange Ange",
-    "artist": "Manna Dey - Manna Dey Bengali Hits",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Manna Dey Bengali Hits"
-    ],
-    "movie": "Manna Dey Bengali Hits",
-    "year": 2016,
-    "decade": "2000s",
-    "duration": 215,
-    "audioUrl": "https://aac.saavncdn.com/468/26d5e00e5c1674fb2407b368bcedd583_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/468/Manna-Dey-Bengali-Hits-Bengali-2016-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Manna Dey",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-VQLTk4-u",
-    "artistId": "manna-dey",
-    "title": "Pousher Kachhakachhi Rod Makha",
-    "artist": "Manna Dey - Hits Of Manna Dey,Vol. 2",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Hits Of Manna Dey,Vol. 2"
-    ],
-    "movie": "Hits Of Manna Dey,Vol. 2",
-    "year": 1982,
-    "decade": "80s",
-    "duration": 199,
-    "audioUrl": "https://aac.saavncdn.com/394/74158e647df516ea285ec316ec806523_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/394/Hits-Of-Manna-Dey-Vol-2-Bengali-1982-20200909093959-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Manna Dey, Prabhas Dey",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-zPju1tqd",
     "artistId": "manna-dey",
     "title": "Chunri Sambhal Gori (From \"Baharon Ke Sapne\")",
@@ -9939,126 +8799,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/475/Manna-Dey-Hits-Hindi-2016-500x500.jpg",
     "genre": "hindi",
     "composer": "Laxmikant - Pyarelal",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-reeLtCiu",
-    "artistId": "manna-dey",
-    "title": "Lalita Go Oke Aaj Chole Jete Bal Na",
-    "artist": "Manna Dey - Manna Dey Bengali Hits",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Manna Dey Bengali Hits"
-    ],
-    "movie": "Manna Dey Bengali Hits",
-    "year": 2016,
-    "decade": "2000s",
-    "duration": 201,
-    "audioUrl": "https://aac.saavncdn.com/468/add8a18d471c94ff652cbbdc7cc3b992_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/468/Manna-Dey-Bengali-Hits-Bengali-2016-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Manna Dey",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-im2OzsE7",
-    "artistId": "manna-dey",
-    "title": "Gahan Megher Chhaya Ghanay",
-    "artist": "Manna Dey, Prabhas Dey - Manna Dey Bengali Hits",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey, Prabhas Dey - Manna Dey Bengali Hits"
-    ],
-    "movie": "Manna Dey Bengali Hits",
-    "year": 2016,
-    "decade": "2000s",
-    "duration": 206,
-    "audioUrl": "https://aac.saavncdn.com/468/13b9fe1fd81984098b46ff05404c775a_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/468/Manna-Dey-Bengali-Hits-Bengali-2016-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Prabhas Dey",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-Hvo4guRi",
-    "artistId": "manna-dey",
-    "title": "Ami Taar Thikana Rakhini",
-    "artist": "Manna Dey, Sudhin Dasgupta - Manna Dey Bengali Hits",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey, Sudhin Dasgupta - Manna Dey Bengali Hits"
-    ],
-    "movie": "Manna Dey Bengali Hits",
-    "year": 2016,
-    "decade": "2000s",
-    "duration": 198,
-    "audioUrl": "https://aac.saavncdn.com/468/88582f1079db01e6bcd0152f271e9a37_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/468/Manna-Dey-Bengali-Hits-Bengali-2016-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Sudhin Dasgupta",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-f44f6ejE",
-    "artistId": "manna-dey",
-    "title": "Jani Tomar Premer Jogyo Ami To Noi",
-    "artist": "Manna Dey - Manna Dey Bengali Hits",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Manna Dey Bengali Hits"
-    ],
-    "movie": "Manna Dey Bengali Hits",
-    "year": 2016,
-    "decade": "2000s",
-    "duration": 206,
-    "audioUrl": "https://aac.saavncdn.com/468/467f9a81de4ec09b5e42cc74b2204694_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/468/Manna-Dey-Bengali-Hits-Bengali-2016-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Manna Dey",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-UtiAGNTg",
-    "artistId": "manna-dey",
-    "title": "Ami Niralay Bose",
-    "artist": "Manna Dey - Manna Dey Bengali Hits",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Manna Dey Bengali Hits"
-    ],
-    "movie": "Manna Dey Bengali Hits",
-    "year": 2016,
-    "decade": "2000s",
-    "duration": 201,
-    "audioUrl": "https://aac.saavncdn.com/468/f64301e6020b5502df154abc8bf223d2_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/468/Manna-Dey-Bengali-Hits-Bengali-2016-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Manna Dey",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-6loM3r6h",
-    "artistId": "manna-dey",
-    "title": "Ami Aaj Akasher Mato Ekela",
-    "artist": "Manna Dey - Hits Of Manna Dey,Vol. 2",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Hits Of Manna Dey,Vol. 2"
-    ],
-    "movie": "Hits Of Manna Dey,Vol. 2",
-    "year": 1982,
-    "decade": "80s",
-    "duration": 293,
-    "audioUrl": "https://aac.saavncdn.com/394/65b040634867f144b06348db29743e9e_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/394/Hits-Of-Manna-Dey-Vol-2-Bengali-1982-20200909093959-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Manna Dey",
     "lyricist": "",
     "language": "hindi"
   },
@@ -10363,66 +9103,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-XzWS1BHY",
-    "artistId": "manna-dey",
-    "title": "Ami Je Jalsaghare (From \"Antony Firingee\")",
-    "artist": "Manna Dey - Masterpieces - Classical Based Songs Of Manna Dey",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Masterpieces - Classical Based Songs Of Manna Dey"
-    ],
-    "movie": "Masterpieces - Classical Based Songs Of Manna Dey",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 182,
-    "audioUrl": "https://aac.saavncdn.com/564/beab7789da99f434e64b7cf7d5a4568e_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/564/Masterpieces-Classical-Based-Songs-Of-Manna-Dey-Bengali-2017-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Anil Bagchi",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-jhmhadAa",
-    "artistId": "manna-dey",
-    "title": "Behag Jadi Na Hoi (From \"Dui Purush\")",
-    "artist": "Manna Dey - Masterpieces - Classical Based Songs Of Manna Dey",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Masterpieces - Classical Based Songs Of Manna Dey"
-    ],
-    "movie": "Masterpieces - Classical Based Songs Of Manna Dey",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 251,
-    "audioUrl": "https://aac.saavncdn.com/564/56e29341212e17c192dc2f446b4f553d_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/564/Masterpieces-Classical-Based-Songs-Of-Manna-Dey-Bengali-2017-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Adhir Bagchi",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-SuWLWIA9",
-    "artistId": "manna-dey",
-    "title": "Abhimane Chole Jeo Na",
-    "artist": "Manna Dey - Classic Touch - Classical Based Bengali Songs",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Classic Touch - Classical Based Bengali Songs"
-    ],
-    "movie": "Classic Touch - Classical Based Bengali Songs",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 197,
-    "audioUrl": "https://aac.saavncdn.com/440/08ff00f9fa6525b95d6962c27c70948f_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/440/Classic-Touch-Classical-Based-Bengali-Songs-Bengali-2018-20180514-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Ratu Mukherjee",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-WdTpRNng",
     "artistId": "manna-dey",
     "title": "Poochho Na Kaise Maine",
@@ -10463,46 +9143,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-lwf5RVIO",
-    "artistId": "manna-dey",
-    "title": "Baje Go Beena (From \"Marjinna Abdulla\")",
-    "artist": "Manna Dey - Masterpieces - Classical Based Songs Of Manna Dey",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Masterpieces - Classical Based Songs Of Manna Dey"
-    ],
-    "movie": "Masterpieces - Classical Based Songs Of Manna Dey",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 200,
-    "audioUrl": "https://aac.saavncdn.com/564/3f99793ddda960acff8153868cafb938_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/564/Masterpieces-Classical-Based-Songs-Of-Manna-Dey-Bengali-2017-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Salil Chowdhury",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-6yjVJqMi",
-    "artistId": "manna-dey",
-    "title": "Swapane Baje Go Banshi",
-    "artist": "Manna Dey - Masterpieces - Classical Based Songs Of Manna Dey",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Masterpieces - Classical Based Songs Of Manna Dey"
-    ],
-    "movie": "Masterpieces - Classical Based Songs Of Manna Dey",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 273,
-    "audioUrl": "https://aac.saavncdn.com/564/e3c5e1eb113a7a17c5b3b14ee83e5732_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/564/Masterpieces-Classical-Based-Songs-Of-Manna-Dey-Bengali-2017-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Prabhas Dey",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-ARGfcagS",
     "artistId": "manna-dey",
     "title": "Phool Gendva Na Maro",
@@ -10519,26 +9159,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/237/Manna-Dey-Classical-Gems-Vol-2-1954-500x500.jpg",
     "genre": "hindi",
     "composer": "Roshan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-X1JEKhe8",
-    "artistId": "manna-dey",
-    "title": "E Nadi Emon Nadi",
-    "artist": "Manna Dey - Masterpieces - Classical Based Songs Of Manna Dey",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Masterpieces - Classical Based Songs Of Manna Dey"
-    ],
-    "movie": "Masterpieces - Classical Based Songs Of Manna Dey",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 180,
-    "audioUrl": "https://aac.saavncdn.com/564/84c02f1cf34831926a8a2978420ad971_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/564/Masterpieces-Classical-Based-Songs-Of-Manna-Dey-Bengali-2017-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Prabhas Dey",
     "lyricist": "",
     "language": "hindi"
   },
@@ -10943,26 +9563,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-_ypuQaq7",
-    "artistId": "manna-dey",
-    "title": "Hoyto Tomari Janya",
-    "artist": "Manna Dey - Teen Bhubaner Parey",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Teen Bhubaner Parey"
-    ],
-    "movie": "Teen Bhubaner Parey",
-    "year": 1969,
-    "decade": "60s",
-    "duration": 197,
-    "audioUrl": "https://aac.saavncdn.com/168/3d78a9d177fa17ca814e966b45fcc135_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/168/Teen-Bhubaner-Parey-Bengali-1969-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Sudhin Dasgupta",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-crod1aT_",
     "artistId": "manna-dey",
     "title": "Na Mangun Sona Chandi",
@@ -11063,26 +9663,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-9VO5FLlR",
-    "artistId": "manna-dey",
-    "title": "Ke Pratham Kachhe Esechhi",
-    "artist": "Manna Dey, Lata Mangeshkar - Shankhabela",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey, Lata Mangeshkar - Shankhabela"
-    ],
-    "movie": "Shankhabela",
-    "year": 1966,
-    "decade": "60s",
-    "duration": 196,
-    "audioUrl": "https://aac.saavncdn.com/694/b2afb6960d5a5e6dcdfeac510c876392_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/694/Shankhabela-Bengali-1966-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Sudhin Dasgupta",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-w7O5Wh5b",
     "artistId": "manna-dey",
     "title": "Jiska Koi Nahin - Manna Dey",
@@ -11119,26 +9699,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/206/Teesri-Kasam-Hindi-1966-20171010094248-500x500.jpg",
     "genre": "hindi",
     "composer": "Shankar-Jaikishan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-xQaCF2Hf",
-    "artistId": "manna-dey",
-    "title": "Ami Kon Pathe Je Chali",
-    "artist": "Manna Dey - Chhadmabeshi",
-    "artists": [
-      "Manna Dey",
-      "Manna Dey - Chhadmabeshi"
-    ],
-    "movie": "Chhadmabeshi",
-    "year": 1971,
-    "decade": "70s",
-    "duration": 195,
-    "audioUrl": "https://aac.saavncdn.com/594/f94beca19df22fcbab68747af41cda53_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/594/Chhadmabeshi-Bengali-1971-20200124073741-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Sudhin Dasgupta",
     "lyricist": "",
     "language": "hindi"
   },
@@ -11243,26 +9803,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-CjsxIpQT",
-    "artistId": "geeta-dutt",
-    "title": "Ganpati Bappa Moraya",
-    "artist": "Adil Ahmed, Geeta Dutt - Ashtavinayak And Other Hits",
-    "artists": [
-      "Geeta Dutt",
-      "Adil Ahmed, Geeta Dutt - Ashtavinayak And Other Hits"
-    ],
-    "movie": "Ashtavinayak And Other Hits",
-    "year": 1968,
-    "decade": "60s",
-    "duration": 208,
-    "audioUrl": "https://aac.saavncdn.com/652/e5c5f3a091b410dafd276d08a5ab10e9_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/652/Ashtavinayak-And-Other-Hits-1968-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Adil Ahmed",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-1Q1dhTuI",
     "artistId": "geeta-dutt",
     "title": "Kaise Koi Jiye Zeher Hai Zindagi Sab Bujh Gaye Diye (From \"BaadBaan\")",
@@ -11323,26 +9863,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-4VC76YqO",
-    "artistId": "geeta-dutt",
-    "title": "Nishiraat Banka Chand Akashe - LOFI",
-    "artist": "Pratik Gadre, Geeta Dutt ft. Dev Anand - Geeta Dutt Bangla Lofi Hits",
-    "artists": [
-      "Geeta Dutt",
-      "Pratik Gadre, Geeta Dutt ft. Dev Anand - Geeta Dutt Bangla Lofi Hits"
-    ],
-    "movie": "Geeta Dutt Bangla Lofi Hits",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 146,
-    "audioUrl": "https://aac.saavncdn.com/967/6b89233a6e7f570af1ade2f1240dbd33_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/967/Geeta-Dutt-Bangla-Lofi-Hits-Bengali-2023-20230317163302-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Pratik Gadre, Geeta Dutt, Nachiketa Ghosh",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-VwRMxvuh",
     "artistId": "geeta-dutt",
     "title": "Ankhon Hi Ankhon Mein - Party Hits",
@@ -11383,186 +9903,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-Ngt3xoyP",
-    "artistId": "geeta-dutt",
-    "title": "Banshi Bujhi Sei Surey - LOFI",
-    "artist": "Saurabh Gaikwad, Geeta Dutt ft. Dev Anand - Geeta Dutt Bangla Lofi Hits",
-    "artists": [
-      "Geeta Dutt",
-      "Saurabh Gaikwad, Geeta Dutt ft. Dev Anand - Geeta Dutt Bangla Lofi Hits"
-    ],
-    "movie": "Geeta Dutt Bangla Lofi Hits",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 138,
-    "audioUrl": "https://aac.saavncdn.com/967/245726b2540ceb9e8e824cc58ae92c1d_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/967/Geeta-Dutt-Bangla-Lofi-Hits-Bengali-2023-20230317163302-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Saurabh Gaikwad, Geeta Dutt, Hemanta Mukherjee",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-y1944RGb",
-    "artistId": "geeta-dutt",
-    "title": "Akash Jure Swapno Maya - LOFI",
-    "artist": "Saurabh Gaikwad, Geeta Dutt, Chorus ft. Dev Anand - Geeta Dutt Bangla Lofi Hits",
-    "artists": [
-      "Geeta Dutt",
-      "Saurabh Gaikwad, Geeta Dutt, Chorus ft. Dev Anand - Geeta Dutt Bangla Lofi Hits"
-    ],
-    "movie": "Geeta Dutt Bangla Lofi Hits",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 145,
-    "audioUrl": "https://aac.saavncdn.com/967/fb36eab312b298085d9d9f5404536c48_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/967/Geeta-Dutt-Bangla-Lofi-Hits-Bengali-2023-20230317163302-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Saurabh Gaikwad, Geeta Dutt, Chorus, Kanu Ghosh",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-5qZdTHQm",
-    "artistId": "geeta-dutt",
-    "title": "Krishnachura Agun Tumi - LOFI",
-    "artist": "Saurabh Gaikwad, Geeta Dutt ft. Dev Anand - Geeta Dutt Bangla Lofi Hits",
-    "artists": [
-      "Geeta Dutt",
-      "Saurabh Gaikwad, Geeta Dutt ft. Dev Anand - Geeta Dutt Bangla Lofi Hits"
-    ],
-    "movie": "Geeta Dutt Bangla Lofi Hits",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 158,
-    "audioUrl": "https://aac.saavncdn.com/967/1aaa173da2921418afca16c6828b56f7_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/967/Geeta-Dutt-Bangla-Lofi-Hits-Bengali-2023-20230317163302-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Saurabh Gaikwad, Geeta Dutt, Sudhin Dasgupta",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-GJajp6rR",
-    "artistId": "geeta-dutt",
-    "title": "Ei Mayabi Tithi - LOFI",
-    "artist": "Rahul Chaturvedi, Geeta Dutt ft. Dev Anand - Geeta Dutt Bangla Lofi Hits",
-    "artists": [
-      "Geeta Dutt",
-      "Rahul Chaturvedi, Geeta Dutt ft. Dev Anand - Geeta Dutt Bangla Lofi Hits"
-    ],
-    "movie": "Geeta Dutt Bangla Lofi Hits",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 140,
-    "audioUrl": "https://aac.saavncdn.com/967/b3f603680bec43ca7cfe9e6c53c01d7e_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/967/Geeta-Dutt-Bangla-Lofi-Hits-Bengali-2023-20230317163302-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Rahul Chaturvedi, Geeta Dutt, Hemanta Mukherjee",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-leeDl7S9",
-    "artistId": "geeta-dutt",
-    "title": "Jhiri Jhiri Chaitali Batase - LOFI",
-    "artist": "Pratik Gadre, Geeta Dutt ft. Dev Anand - Geeta Dutt Bangla Lofi Hits",
-    "artists": [
-      "Geeta Dutt",
-      "Pratik Gadre, Geeta Dutt ft. Dev Anand - Geeta Dutt Bangla Lofi Hits"
-    ],
-    "movie": "Geeta Dutt Bangla Lofi Hits",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 148,
-    "audioUrl": "https://aac.saavncdn.com/967/38bc4e8a9592685110e32de6b313fcdd_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/967/Geeta-Dutt-Bangla-Lofi-Hits-Bengali-2023-20230317163302-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Pratik Gadre, Geeta Dutt, Sudhin Dasgupta",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-wWOQ6oVs",
-    "artistId": "geeta-dutt",
-    "title": "Shudhu Ekbar Bole Jao - LOFI",
-    "artist": "Rahul Chaturvedi, Geeta Dutt - Geeta Dutt Bangla Lofi Hits",
-    "artists": [
-      "Geeta Dutt",
-      "Rahul Chaturvedi, Geeta Dutt - Geeta Dutt Bangla Lofi Hits"
-    ],
-    "movie": "Geeta Dutt Bangla Lofi Hits",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 134,
-    "audioUrl": "https://aac.saavncdn.com/967/8410c638def7f8e5d6e113c25b862149_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/967/Geeta-Dutt-Bangla-Lofi-Hits-Bengali-2023-20230317163302-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Rahul Chaturvedi, Geeta Dutt, Binod Chatterjee",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-T1JFfLLB",
-    "artistId": "geeta-dutt",
-    "title": "Ei Sundar Swarnali Sandhaye - LOFI",
-    "artist": "Sidharth Narayanan, Geeta Dutt ft. Dev Anand - Geeta Dutt Bangla Lofi Hits",
-    "artists": [
-      "Geeta Dutt",
-      "Sidharth Narayanan, Geeta Dutt ft. Dev Anand - Geeta Dutt Bangla Lofi Hits"
-    ],
-    "movie": "Geeta Dutt Bangla Lofi Hits",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 141,
-    "audioUrl": "https://aac.saavncdn.com/967/2c4f44c1c70830ce382e2fdd8c376677_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/967/Geeta-Dutt-Bangla-Lofi-Hits-Bengali-2023-20230317163302-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Sidharth Narayanan, Geeta Dutt, Amal Mukherjee",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-pycPEzcP",
-    "artistId": "geeta-dutt",
-    "title": "Oi Sur Bhora Dur Neelimay - LOFI",
-    "artist": "Saurabh Gaikwad, Geeta Dutt ft. Dev Anand - Geeta Dutt Bangla Lofi Hits",
-    "artists": [
-      "Geeta Dutt",
-      "Saurabh Gaikwad, Geeta Dutt ft. Dev Anand - Geeta Dutt Bangla Lofi Hits"
-    ],
-    "movie": "Geeta Dutt Bangla Lofi Hits",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 148,
-    "audioUrl": "https://aac.saavncdn.com/967/7a7563b26c1beed9a4c15ea6eba91086_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/967/Geeta-Dutt-Bangla-Lofi-Hits-Bengali-2023-20230317163302-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Saurabh Gaikwad, Geeta Dutt, Kanu Ghosh",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-MdAeT7Ch",
-    "artistId": "geeta-dutt",
-    "title": "Ektu Chaoya Aar Ektu Paoya - LOFI",
-    "artist": "Rahul Chaturvedi, Geeta Dutt - Geeta Dutt Bangla Lofi Hits",
-    "artists": [
-      "Geeta Dutt",
-      "Rahul Chaturvedi, Geeta Dutt - Geeta Dutt Bangla Lofi Hits"
-    ],
-    "movie": "Geeta Dutt Bangla Lofi Hits",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 136,
-    "audioUrl": "https://aac.saavncdn.com/967/b9656ecd6a9784a02b85f2ffc15bff23_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/967/Geeta-Dutt-Bangla-Lofi-Hits-Bengali-2023-20230317163302-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Rahul Chaturvedi, Geeta Dutt, Sudhin Dasgupta",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-Dcb0yRVO",
     "artistId": "geeta-dutt",
     "title": "Jane Kahan Mera Jigar Gaya Ji - Party Hits",
@@ -11579,26 +9919,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/974/Retro-Party-Hits-Mohammed-Rafi-Hindi-2022-20221222084257-500x500.jpg",
     "genre": "hindi",
     "composer": "Geeta Dutt, Mohammed Rafi, Saurabh Gaikwad, O. P. Nayyar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-zO2Z154F",
-    "artistId": "geeta-dutt",
-    "title": "Tumi Je Amar - Lofi",
-    "artist": "Geeta Dutt, Abhimanyu-Pragya ft. Dev Anand - Uttam Suchitra Lofi Hits",
-    "artists": [
-      "Geeta Dutt",
-      "Geeta Dutt, Abhimanyu-Pragya ft. Dev Anand - Uttam Suchitra Lofi Hits"
-    ],
-    "movie": "Uttam Suchitra Lofi Hits",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 150,
-    "audioUrl": "https://aac.saavncdn.com/281/6221ccb1e42803744f4edb9f10e078ec_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/281/Uttam-Suchitra-Lofi-Hits-Bengali-2023-20230201103248-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Geeta Dutt, Abhimanyu-Pragya, Hemanta Mukherjee, Sidharth Narayanan",
     "lyricist": "",
     "language": "hindi"
   },
@@ -11643,46 +9963,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-2WDGoa_8",
-    "artistId": "geeta-dutt",
-    "title": "Neer Choto Khaati Nei - Lofi",
-    "artist": "Geeta Dutt, Hemanta Mukherjee, Abhimanyu-Pragya ft. Dev Anand - Uttam Suchitra Lofi Hits",
-    "artists": [
-      "Geeta Dutt",
-      "Geeta Dutt, Hemanta Mukherjee, Abhimanyu-Pragya ft. Dev Anand - Uttam Suchitra Lofi Hits"
-    ],
-    "movie": "Uttam Suchitra Lofi Hits",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 144,
-    "audioUrl": "https://aac.saavncdn.com/281/e01228d08a137ffdb4d6942008a26f4f_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/281/Uttam-Suchitra-Lofi-Hits-Bengali-2023-20230201103248-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Geeta Dutt, Hemanta Mukherjee, Abhimanyu-Pragya, Nachiketa Ghosh, Saurabh Gaikwad",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-zUN59Yny",
-    "artistId": "geeta-dutt",
-    "title": "Shudhu Ektukhani Chaoa - LOFI",
-    "artist": "Vaibhav Singh Music, Kishore Kumar, Geeta Dutt ft. Dev Anand - Kishore Bangla Lofi Hits Vol - 3",
-    "artists": [
-      "Geeta Dutt",
-      "Vaibhav Singh Music, Kishore Kumar, Geeta Dutt ft. Dev Anand - Kishore Bangla Lofi Hits Vol - 3"
-    ],
-    "movie": "Kishore Bangla Lofi Hits Vol - 3",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 134,
-    "audioUrl": "https://aac.saavncdn.com/966/bf129111db6a8eaa57fd8d4a2507804d_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/966/Kishore-Bangla-Lofi-Hits-Vol-3-Bengali-2023-20230317163300-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Vaibhav Singh Music, Kishore Kumar, Geeta Dutt, Hemanta Mukherjee",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-37AgR2_s",
     "artistId": "geeta-dutt",
     "title": "Hawa Dheere Se Aana",
@@ -11699,26 +9979,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/000/default_Saregama-500x500.jpg",
     "genre": "hindi",
     "composer": "S. D. Burman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-f0RUQB4q",
-    "artistId": "geeta-dutt",
-    "title": "Tumi Je Amar (From \"Harano Sur\")",
-    "artist": "Geeta Dutt - Hits of Geeta Dutt - Bengali Songs",
-    "artists": [
-      "Geeta Dutt",
-      "Geeta Dutt - Hits of Geeta Dutt - Bengali Songs"
-    ],
-    "movie": "Hits of Geeta Dutt - Bengali Songs",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 201,
-    "audioUrl": "https://aac.saavncdn.com/424/305264de7dec3cd7ab03fa7976a87661_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/424/Hits-of-Geeta-Dutt-Bengali-Songs-Bengali-2017-20171120-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Hemanta Kumar Mukhopadhyay",
     "lyricist": "",
     "language": "hindi"
   },
@@ -11823,26 +10083,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-hRp9ZbPh",
-    "artistId": "geeta-dutt",
-    "title": "Neer Chhoto Kshati Nei (From \"Indrani\")",
-    "artist": "Hemanta Kumar Mukhopadhyay, Geeta Dutt - Ultimate Romantic Film Duets",
-    "artists": [
-      "Geeta Dutt",
-      "Hemanta Kumar Mukhopadhyay, Geeta Dutt - Ultimate Romantic Film Duets"
-    ],
-    "movie": "Ultimate Romantic Film Duets",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 199,
-    "audioUrl": "https://aac.saavncdn.com/539/bfa51ad06492303f9e26408b598b0b26_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/539/Ultimate-Romantic-Film-Duets-Bengali-2018-20180806-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Nachiketa Ghosh",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-D7UMd6SQ",
     "artistId": "geeta-dutt",
     "title": "Hum Aap Ki Ankhon Mein",
@@ -11879,66 +10119,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/748/Best-Of-Romantic-Hits-Hindi-2021-20210308111452-500x500.jpg",
     "genre": "hindi",
     "composer": "S. D. Burman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-fpxC9hs_",
-    "artistId": "geeta-dutt",
-    "title": "Shudhu Ektukhani Chaoa (From \"Lukochuri\")",
-    "artist": "Kishore Kumar, Geeta Dutt - Sundar Hridirajan Tumi - Top 20 Romantic Love Songs Of Tagore",
-    "artists": [
-      "Geeta Dutt",
-      "Kishore Kumar, Geeta Dutt - Sundar Hridirajan Tumi - Top 20 Romantic Love Songs Of Tagore"
-    ],
-    "movie": "Sundar Hridirajan Tumi - Top 20 Romantic Love Songs Of Tagore",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 170,
-    "audioUrl": "https://aac.saavncdn.com/886/649cf2703a7e91d8cb64799096a8a4dc_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/886/Sundar-Hridirajan-Tumi-Top-20-Romantic-Love-Songs-Of-Tagore-Bengali-2017-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Hemanta Kumar Mukhopadhyay",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-8TRIbvOd",
-    "artistId": "geeta-dutt",
-    "title": "Neer Chhoto Kshati Nei",
-    "artist": "Hemanta Mukherjee, Geeta Dutt - Bengali Classics - 50s Love",
-    "artists": [
-      "Geeta Dutt",
-      "Hemanta Mukherjee, Geeta Dutt - Bengali Classics - 50s Love"
-    ],
-    "movie": "Bengali Classics - 50s Love",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 199,
-    "audioUrl": "https://aac.saavncdn.com/121/d696e7b877ebec73b358a7c68b267e39_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/121/Bengali-Classics-50s-Love-Bengali-2023-20230418083450-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Hemanta Mukherjee, Geeta Dutt, Nachiketa Ghosh",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-BDihBU3S",
-    "artistId": "geeta-dutt",
-    "title": "Tumi Je Amar",
-    "artist": "Geeta Dutt - Bengali Classics - 50s Love",
-    "artists": [
-      "Geeta Dutt",
-      "Geeta Dutt - Bengali Classics - 50s Love"
-    ],
-    "movie": "Bengali Classics - 50s Love",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 202,
-    "audioUrl": "https://aac.saavncdn.com/121/04ecb4698741a873c1d8200a1b75b758_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/121/Bengali-Classics-50s-Love-Bengali-2023-20230418083450-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Geeta Dutt, Hemanta Mukherjee",
     "lyricist": "",
     "language": "hindi"
   },
@@ -11983,46 +10163,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-Q3qlsCkH",
-    "artistId": "geeta-dutt",
-    "title": "Ei Sundar Swarnali Sandhaye",
-    "artist": "Geeta Dutt - Bengali Classics - 50s Love",
-    "artists": [
-      "Geeta Dutt",
-      "Geeta Dutt - Bengali Classics - 50s Love"
-    ],
-    "movie": "Bengali Classics - 50s Love",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 205,
-    "audioUrl": "https://aac.saavncdn.com/121/9a63cc0efc3614277861641913d96680_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/121/Bengali-Classics-50s-Love-Bengali-2023-20230418083450-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Geeta Dutt, Amal Mukherjee",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-jgjmxnuF",
-    "artistId": "geeta-dutt",
-    "title": "Nishiraat Banka Chand Akashe",
-    "artist": "Geeta Dutt - Bengali Classics - 50s Love",
-    "artists": [
-      "Geeta Dutt",
-      "Geeta Dutt - Bengali Classics - 50s Love"
-    ],
-    "movie": "Bengali Classics - 50s Love",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 248,
-    "audioUrl": "https://aac.saavncdn.com/121/cc39682081a7ad620bf2bd00251742d7_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/121/Bengali-Classics-50s-Love-Bengali-2023-20230418083450-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Geeta Dutt, Nachiketa Ghosh",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-E8OdU7nj",
     "artistId": "talat-mahmood",
     "title": "Ghazal Ke Saaz Uthao",
@@ -12059,26 +10199,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/417/Ghazal-Ka-Safar-Urdu-1997-20200916103923-500x500.jpg",
     "genre": "urdu",
     "composer": "Talat Mahmood",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-49C-nyG_",
-    "artistId": "talat-mahmood",
-    "title": "Nishi Bhor Holo Jagiya - Talat Mahmood",
-    "artist": "Talat Mahmood - Nazrul Ghazal Songs",
-    "artists": [
-      "Talat Mahmood",
-      "Talat Mahmood - Nazrul Ghazal Songs"
-    ],
-    "movie": "Nazrul Ghazal Songs",
-    "year": 1997,
-    "decade": "90s",
-    "duration": 187,
-    "audioUrl": "https://aac.saavncdn.com/650/114f8f47a52166c003b3ee7bfb0ad9b3_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/650/Nazrul-Ghazal-Songs-Bengali-1997-20200912113924-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Talat Mahmood, Kazi Nazrul Islam",
     "lyricist": "",
     "language": "hindi"
   },
@@ -12499,66 +10619,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/941/Geet-And-Ghazal-Talat-Mahmood-Hindi-2014-500x500.jpg",
     "genre": "hindi",
     "composer": "S. D. Burman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-6GBBsAT3",
-    "artistId": "talat-mahmood",
-    "title": "Shaane Guman Karto",
-    "artist": "Talat Mahmood - Ghazal Ane Geeto",
-    "artists": [
-      "Talat Mahmood",
-      "Talat Mahmood - Ghazal Ane Geeto"
-    ],
-    "movie": "Ghazal Ane Geeto",
-    "year": 1999,
-    "decade": "90s",
-    "duration": 200,
-    "audioUrl": "https://aac.saavncdn.com/442/4c061f8b644ba978b7f202805e9bbe33_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/442/Ghazal-Ane-Geeto-Gujarati-1999-500x500.jpg",
-    "genre": "gujarati",
-    "composer": "Kersi Mistry",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-u8Vfnz4U",
-    "artistId": "talat-mahmood",
-    "title": "Chadhyan Anmol Kishti Par",
-    "artist": "Talat Mahmood - Ghazal Ane Geeto",
-    "artists": [
-      "Talat Mahmood",
-      "Talat Mahmood - Ghazal Ane Geeto"
-    ],
-    "movie": "Ghazal Ane Geeto",
-    "year": 1999,
-    "decade": "90s",
-    "duration": 205,
-    "audioUrl": "https://aac.saavncdn.com/442/234c7b6d3200a33f42383c4679bcd03f_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/442/Ghazal-Ane-Geeto-Gujarati-1999-500x500.jpg",
-    "genre": "gujarati",
-    "composer": "Ninu Mazumdar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-pahOvxnd",
-    "artistId": "talat-mahmood",
-    "title": "Sukani Ja Tun",
-    "artist": "Talat Mahmood - Ghazal Ane Geeto",
-    "artists": [
-      "Talat Mahmood",
-      "Talat Mahmood - Ghazal Ane Geeto"
-    ],
-    "movie": "Ghazal Ane Geeto",
-    "year": 1999,
-    "decade": "90s",
-    "duration": 201,
-    "audioUrl": "https://aac.saavncdn.com/442/7ff5fcf2c1380488c15ef13096fbe691_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/442/Ghazal-Ane-Geeto-Gujarati-1999-500x500.jpg",
-    "genre": "gujarati",
-    "composer": "Ninu Mazumdar",
     "lyricist": "",
     "language": "hindi"
   },
@@ -13443,26 +11503,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-mW4LvYmt",
-    "artistId": "udit-narayan",
-    "title": "Janha Ra Sana Bhauni",
-    "artist": "Udit Narayan - Udit Narayan Romantic Hits",
-    "artists": [
-      "Udit Narayan",
-      "Udit Narayan - Udit Narayan Romantic Hits"
-    ],
-    "movie": "Udit Narayan Romantic Hits",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 317,
-    "audioUrl": "https://aac.saavncdn.com/528/89d8ceec6f87b7aa5ec2166ee6e3e3fb_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/528/Udit-Narayan-Romantic-Hits-Oriya-2025-20251202191216-500x500.jpg",
-    "genre": "odia",
-    "composer": "Udit Narayan, Abhijit Majumdar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-_iwX9vOk",
     "artistId": "udit-narayan",
     "title": "Bin Sajni Ke Jeevan (From \"Khanjar\")",
@@ -13479,46 +11519,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/842/Udit-Narayan-Romantic-Hits-Hindi-2016-500x500.jpg",
     "genre": "hindi",
     "composer": "Amar-Utpal",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-nBNEifuy",
-    "artistId": "udit-narayan",
-    "title": "To Gaan Ra Chandini",
-    "artist": "Udit Narayan - Udit Narayan Romantic Hits",
-    "artists": [
-      "Udit Narayan",
-      "Udit Narayan - Udit Narayan Romantic Hits"
-    ],
-    "movie": "Udit Narayan Romantic Hits",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 301,
-    "audioUrl": "https://aac.saavncdn.com/528/03123c7e9338fb950ddffbbad7325e6b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/528/Udit-Narayan-Romantic-Hits-Oriya-2025-20251202191216-500x500.jpg",
-    "genre": "odia",
-    "composer": "Udit Narayan, Abhijit Majumdar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-1AVnbh5A",
-    "artistId": "udit-narayan",
-    "title": "Hau Hau Helama",
-    "artist": "Udit Narayan - Udit Narayan Romantic Hits",
-    "artists": [
-      "Udit Narayan",
-      "Udit Narayan - Udit Narayan Romantic Hits"
-    ],
-    "movie": "Udit Narayan Romantic Hits",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 246,
-    "audioUrl": "https://aac.saavncdn.com/528/94f350a5e72cce41003f88652bd38d50_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/528/Udit-Narayan-Romantic-Hits-Oriya-2025-20251202191216-500x500.jpg",
-    "genre": "odia",
-    "composer": "Udit Narayan, Premanand",
     "lyricist": "",
     "language": "hindi"
   },
@@ -13543,26 +11543,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-QAlFDxhY",
-    "artistId": "udit-narayan",
-    "title": "Se Mo Dream Girl",
-    "artist": "Udit Narayan - Udit Narayan Romantic Hits",
-    "artists": [
-      "Udit Narayan",
-      "Udit Narayan - Udit Narayan Romantic Hits"
-    ],
-    "movie": "Udit Narayan Romantic Hits",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 216,
-    "audioUrl": "https://aac.saavncdn.com/528/e5a56b33d9b234831741232c97e6d8af_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/528/Udit-Narayan-Romantic-Hits-Oriya-2025-20251202191216-500x500.jpg",
-    "genre": "odia",
-    "composer": "Udit Narayan, Krushna Chandra Sabath",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-2Eyx__v5",
     "artistId": "udit-narayan",
     "title": "Bhool Jayenge Hum (From \"Kuchh Meetha Ho Jaye\")",
@@ -13579,66 +11559,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/842/Udit-Narayan-Romantic-Hits-Hindi-2016-500x500.jpg",
     "genre": "hindi",
     "composer": "Himesh Reshammiya",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-Z8yEM0QC",
-    "artistId": "udit-narayan",
-    "title": "Rajakumari",
-    "artist": "Udit Narayan - Udit Narayan Romantic Hits",
-    "artists": [
-      "Udit Narayan",
-      "Udit Narayan - Udit Narayan Romantic Hits"
-    ],
-    "movie": "Udit Narayan Romantic Hits",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 269,
-    "audioUrl": "https://aac.saavncdn.com/528/c72990dd69cec5aea58ec609a6db47f0_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/528/Udit-Narayan-Romantic-Hits-Oriya-2025-20251202191216-500x500.jpg",
-    "genre": "odia",
-    "composer": "Udit Narayan, Krushna Chandra Sabath",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-ucIKDGXr",
-    "artistId": "udit-narayan",
-    "title": "Chhatire Lekhichi Tori Na",
-    "artist": "Udit Narayan - Udit Narayan Romantic Hits",
-    "artists": [
-      "Udit Narayan",
-      "Udit Narayan - Udit Narayan Romantic Hits"
-    ],
-    "movie": "Udit Narayan Romantic Hits",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 380,
-    "audioUrl": "https://aac.saavncdn.com/528/24e6df4af5c20d17ac6bd5610ebccc30_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/528/Udit-Narayan-Romantic-Hits-Oriya-2025-20251202191216-500x500.jpg",
-    "genre": "odia",
-    "composer": "Udit Narayan, Premanand",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-4MjK4vb1",
-    "artistId": "udit-narayan",
-    "title": "Mo Priya Asuchhi",
-    "artist": "Udit Narayan - Udit Narayan Romantic Hits",
-    "artists": [
-      "Udit Narayan",
-      "Udit Narayan - Udit Narayan Romantic Hits"
-    ],
-    "movie": "Udit Narayan Romantic Hits",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 326,
-    "audioUrl": "https://aac.saavncdn.com/528/da9dddf307c4159c4658c84c3c50e8f1_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/528/Udit-Narayan-Romantic-Hits-Oriya-2025-20251202191216-500x500.jpg",
-    "genre": "odia",
-    "composer": "Udit Narayan, Abhijit Majumdar",
     "lyricist": "",
     "language": "hindi"
   },
@@ -13723,66 +11643,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-l0-NqCl0",
-    "artistId": "udit-narayan",
-    "title": "Tu Jebe Hasidelu Tu Jebe Chahin Delu",
-    "artist": "Ira Mohanty, Udit Narayan - Udit Narayan All Time Hits Romantic Duets",
-    "artists": [
-      "Udit Narayan",
-      "Ira Mohanty, Udit Narayan - Udit Narayan All Time Hits Romantic Duets"
-    ],
-    "movie": "Udit Narayan All Time Hits Romantic Duets",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 199,
-    "audioUrl": "https://aac.saavncdn.com/801/ced600b38fd2af28ca7ab07b66e7c6e9_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/801/Udit-Narayan-All-Time-Hits-Romantic-Duets-Oriya-2025-20250221091946-500x500.jpg",
-    "genre": "odia",
-    "composer": "Ira Mohanty, Udit Narayan, Malaya Mishra",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-4LastxVh",
-    "artistId": "udit-narayan",
-    "title": "Nila Akasha Tale",
-    "artist": "Ira Mohanty, Udit Narayan - Udit Narayan All Time Hits Romantic Duets",
-    "artists": [
-      "Udit Narayan",
-      "Ira Mohanty, Udit Narayan - Udit Narayan All Time Hits Romantic Duets"
-    ],
-    "movie": "Udit Narayan All Time Hits Romantic Duets",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 308,
-    "audioUrl": "https://aac.saavncdn.com/801/8bad91f88feb7bc5964d66d5fd3f0da2_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/801/Udit-Narayan-All-Time-Hits-Romantic-Duets-Oriya-2025-20250221091946-500x500.jpg",
-    "genre": "odia",
-    "composer": "Ira Mohanty, Udit Narayan, Malaya Mishra",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-VeDAefXJ",
-    "artistId": "udit-narayan",
-    "title": "To Chehera Phula Pasara",
-    "artist": "Tapu Mishra, Udit Narayan - Udit Narayan All Time Hits Romantic Duets",
-    "artists": [
-      "Udit Narayan",
-      "Tapu Mishra, Udit Narayan - Udit Narayan All Time Hits Romantic Duets"
-    ],
-    "movie": "Udit Narayan All Time Hits Romantic Duets",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 259,
-    "audioUrl": "https://aac.saavncdn.com/801/9e00d4188d0c4d6c25e04a22f05cbb62_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/801/Udit-Narayan-All-Time-Hits-Romantic-Duets-Oriya-2025-20250221091946-500x500.jpg",
-    "genre": "odia",
-    "composer": "Tapu Mishra, Udit Narayan, Prashant Padhi",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-C_MmGS9K",
     "artistId": "udit-narayan",
     "title": "Hum Na Hoonge Judda (From \"Aa Gale Lag Jaa\")",
@@ -13799,26 +11659,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/842/Udit-Narayan-Romantic-Hits-Hindi-2016-500x500.jpg",
     "genre": "hindi",
     "composer": "Anu Malik",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-6RN2Q_28",
-    "artistId": "udit-narayan",
-    "title": "Paunji Tote Magibi Nahin",
-    "artist": "Udit Narayan, Ira Mohanty ft. Kumar Bapi - Udit Narayan All Time Hits Romantic Duets",
-    "artists": [
-      "Udit Narayan",
-      "Udit Narayan, Ira Mohanty ft. Kumar Bapi - Udit Narayan All Time Hits Romantic Duets"
-    ],
-    "movie": "Udit Narayan All Time Hits Romantic Duets",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 348,
-    "audioUrl": "https://aac.saavncdn.com/801/a5dbf08595a814ec41d29625daecb5d8_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/801/Udit-Narayan-All-Time-Hits-Romantic-Duets-Oriya-2025-20250221091946-500x500.jpg",
-    "genre": "odia",
-    "composer": "Udit Narayan, Ira Mohanty, Shantiraj Khosla",
     "lyricist": "",
     "language": "hindi"
   },
@@ -13863,26 +11703,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-9zRacwjB",
-    "artistId": "udit-narayan",
-    "title": "Tik Tik Ghorir_(From\"Ram Lakhan\")",
-    "artist": "Udit Narayan, Shreya Ghosal - Udit Narayan Bengali Romantic Hits",
-    "artists": [
-      "Udit Narayan",
-      "Udit Narayan, Shreya Ghosal - Udit Narayan Bengali Romantic Hits"
-    ],
-    "movie": "Udit Narayan Bengali Romantic Hits",
-    "year": 2022,
-    "decade": "2000s",
-    "duration": 271,
-    "audioUrl": "https://aac.saavncdn.com/640/0a2368316cf9db466d39268730711e72_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/640/Udit-Narayan-Bengali-Romantic-Hits-Bengali-2022-20220727230129-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Babul Bose",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-wKU4su_B",
     "artistId": "udit-narayan",
     "title": "Jis Jeewan Mein (From \"Aa Gale Lag Jaa\")",
@@ -13903,46 +11723,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-rrEmT7fY",
-    "artistId": "udit-narayan",
-    "title": "Bayasara Ranga Lagichhi",
-    "artist": "Udit Narayan, Pammi - Udit Narayan All Time Hits Romantic Duets",
-    "artists": [
-      "Udit Narayan",
-      "Udit Narayan, Pammi - Udit Narayan All Time Hits Romantic Duets"
-    ],
-    "movie": "Udit Narayan All Time Hits Romantic Duets",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 291,
-    "audioUrl": "https://aac.saavncdn.com/801/6bb2b136ed8eff69b7d2ecb536671f7e_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/801/Udit-Narayan-All-Time-Hits-Romantic-Duets-Oriya-2025-20250221091946-500x500.jpg",
-    "genre": "odia",
-    "composer": "Udit Narayan, Pammi, Abhijit Majumdar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-JpemwSK5",
-    "artistId": "udit-narayan",
-    "title": "Rupeli Dehare Tora",
-    "artist": "Udit Narayan, Ira Mohanty - Udit Narayan All Time Hits Romantic Duets",
-    "artists": [
-      "Udit Narayan",
-      "Udit Narayan, Ira Mohanty - Udit Narayan All Time Hits Romantic Duets"
-    ],
-    "movie": "Udit Narayan All Time Hits Romantic Duets",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 286,
-    "audioUrl": "https://aac.saavncdn.com/801/17d47f34604f973a6b2a54405624c0a5_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/801/Udit-Narayan-All-Time-Hits-Romantic-Duets-Oriya-2025-20250221091946-500x500.jpg",
-    "genre": "odia",
-    "composer": "Udit Narayan, Ira Mohanty, Gagan Bihari",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-IM6T1v4G",
     "artistId": "udit-narayan",
     "title": "Pyar Kya Hota Hai (From \"Aashiq Mastane\")",
@@ -13959,26 +11739,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/842/Udit-Narayan-Romantic-Hits-Hindi-2016-500x500.jpg",
     "genre": "hindi",
     "composer": "Dilip Sen-Sameer Sen",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-KsPUJar6",
-    "artistId": "udit-narayan",
-    "title": "Tu Gitatiye Priya Mo Othora",
-    "artist": "Udit Narayan - Udit Narayan Romantic Hits",
-    "artists": [
-      "Udit Narayan",
-      "Udit Narayan - Udit Narayan Romantic Hits"
-    ],
-    "movie": "Udit Narayan Romantic Hits",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 348,
-    "audioUrl": "https://aac.saavncdn.com/528/8ee85565552f911ea5ded20079401158_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/528/Udit-Narayan-Romantic-Hits-Oriya-2025-20251202191216-500x500.jpg",
-    "genre": "odia",
-    "composer": "Udit Narayan, Gagan Jena",
     "lyricist": "",
     "language": "hindi"
   },
@@ -14603,26 +12363,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-MvxVIPHT",
-    "artistId": "udit-narayan",
-    "title": "Soniya Soniya",
-    "artist": "P. Unnikrishnan, Udit Narayan, Harini - Rakshakudu",
-    "artists": [
-      "Udit Narayan",
-      "P. Unnikrishnan, Udit Narayan, Harini - Rakshakudu"
-    ],
-    "movie": "Rakshakudu",
-    "year": 1997,
-    "decade": "90s",
-    "duration": 332,
-    "audioUrl": "https://aac.saavncdn.com/205/4c4a35cbebc4324e89bf14c7f437983b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/205/Rakshakudu-Telugu-1997-20180516-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-dX1y0gD9",
     "artistId": "udit-narayan",
     "title": "Pyar Kiya To Nibhana",
@@ -15099,26 +12839,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/995/Karz-The-Burden-Of-Truth-Hindi-2002-20221201073340-500x500.jpg",
     "genre": "hindi",
     "composer": "Sanjeev-Darshan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-T3up1tDy",
-    "artistId": "udit-narayan",
-    "title": "Oye Raju Kannullo",
-    "artist": "Vandemataram Srinivas, Udit Narayan, Usha - Aayudham",
-    "artists": [
-      "Udit Narayan",
-      "Vandemataram Srinivas, Udit Narayan, Usha - Aayudham"
-    ],
-    "movie": "Aayudham",
-    "year": 2003,
-    "decade": "2000s",
-    "duration": 255,
-    "audioUrl": "https://aac.saavncdn.com/265/566aa67c7dd6bfb7619833cf8f08046e_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/265/Aayudham-2003-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Vandemataram Srinivas",
     "lyricist": "",
     "language": "hindi"
   },
@@ -16723,26 +14443,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-oyNC9mEd",
-    "artistId": "anuradha-paudwal",
-    "title": "Nishana Tula Dislana",
-    "artist": "Arun Paudwal, Anuradha Paudwal, Suresh Wadkar - Filmi Songs- Romantic Marathi",
-    "artists": [
-      "Anuradha Paudwal",
-      "Arun Paudwal, Anuradha Paudwal, Suresh Wadkar - Filmi Songs- Romantic Marathi"
-    ],
-    "movie": "Filmi Songs- Romantic Marathi",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 355,
-    "audioUrl": "https://aac.saavncdn.com/738/99e15aeda4bb584b249995016d616df3_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/738/Filmi-Songs-Romantic-Marathi-2013-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Arun Paudwal",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-TgM1QJqC",
     "artistId": "anuradha-paudwal",
     "title": "Kaisa Lagta Hai (From \"Baaghi\")",
@@ -16779,26 +14479,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/255/Ghar-Ek-Mandir-Hindi-1984-20200901173931-500x500.jpg",
     "genre": "hindi",
     "composer": "Suresh Wadkar, Anuradha Paudwal, Laxmikant - Pyarelal",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg--eejvSdS",
-    "artistId": "anuradha-paudwal",
-    "title": "Choricha Mamla",
-    "artist": "Arun Paudwal, Anuradha Paudwal, Sachin - Filmi Songs- Romantic Marathi",
-    "artists": [
-      "Anuradha Paudwal",
-      "Arun Paudwal, Anuradha Paudwal, Sachin - Filmi Songs- Romantic Marathi"
-    ],
-    "movie": "Filmi Songs- Romantic Marathi",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 319,
-    "audioUrl": "https://aac.saavncdn.com/738/b7edbba52e52d4d6ea7a674777f881b6_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/738/Filmi-Songs-Romantic-Marathi-2013-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Arun Paudwal",
     "lyricist": "",
     "language": "hindi"
   },
@@ -16943,26 +14623,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-kEfq8xo4",
-    "artistId": "anuradha-paudwal",
-    "title": "Hi Navri Asli",
-    "artist": "Anil-Arun, Anuradha Paudwal, Sachin - Filmi Songs- Romantic Marathi",
-    "artists": [
-      "Anuradha Paudwal",
-      "Anil-Arun, Anuradha Paudwal, Sachin - Filmi Songs- Romantic Marathi"
-    ],
-    "movie": "Filmi Songs- Romantic Marathi",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 305,
-    "audioUrl": "https://aac.saavncdn.com/738/64d4a4d2f3222598a0a4bfb792549d13_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/738/Filmi-Songs-Romantic-Marathi-2013-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Anil-Arun",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-nEyc9kB7",
     "artistId": "anuradha-paudwal",
     "title": "Tumhare Siva (From \"Tum Bin\")",
@@ -17019,26 +14679,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/113/Romantic-Hits-Of-90-s-Hindi-2017-500x500.jpg",
     "genre": "hindi",
     "composer": "Super Cassettes Industries Private Limited",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-kCNNXUYb",
-    "artistId": "anuradha-paudwal",
-    "title": "Ye Jeevlaga Ye",
-    "artist": "Arun Paudwal, Anuradha Paudwal, Sachin - Filmi Songs- Romantic Marathi",
-    "artists": [
-      "Anuradha Paudwal",
-      "Arun Paudwal, Anuradha Paudwal, Sachin - Filmi Songs- Romantic Marathi"
-    ],
-    "movie": "Filmi Songs- Romantic Marathi",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 312,
-    "audioUrl": "https://aac.saavncdn.com/738/a636cffc838c5973d6c3698ec3148fd5_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/738/Filmi-Songs-Romantic-Marathi-2013-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Arun Paudwal",
     "lyricist": "",
     "language": "hindi"
   },
@@ -17503,26 +15143,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-qYs3gt2g",
-    "artistId": "anuradha-paudwal",
-    "title": "Om Namah Shivay Dhun",
-    "artist": "Anuradha Paudwal - Om Namah Shivay",
-    "artists": [
-      "Anuradha Paudwal",
-      "Anuradha Paudwal - Om Namah Shivay"
-    ],
-    "movie": "Om Namah Shivay",
-    "year": 1991,
-    "decade": "90s",
-    "duration": 3644,
-    "audioUrl": "https://aac.saavncdn.com/837/fc5d14339768becf069da700f6f8ebff_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/837/Om-Namah-Shivay-Gujarati-1991-20221203125014-500x500.jpg",
-    "genre": "hindi",
-    "composer": "Pankaj Bhatt",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-c8PT0p2N",
     "artistId": "anuradha-paudwal",
     "title": "Dil Diwane Ka Dola Dildar Ke Liye",
@@ -17838,26 +15458,6 @@ const rawSongs = [
     "audioUrl": "https://aac.saavncdn.com/341/582ddb1d1f4f7e473fcf2a00cf0d1451_160.mp4",
     "coverUrl": "https://c.saavncdn.com/341/Aashiqui-Super-Jhankar-Beat-Hindi-1993-20241225141133-500x500.jpg",
     "genre": "hindi",
-    "composer": "Super Cassettes Industries Private Limited",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-yFXTuDuM",
-    "artistId": "anuradha-paudwal",
-    "title": "Aai Chokhe Shopno Tumi",
-    "artist": "Anuradha Paudwal, Kumar Sanu ft. Sarbarish Majumder - Aashiqui",
-    "artists": [
-      "Anuradha Paudwal",
-      "Anuradha Paudwal, Kumar Sanu ft. Sarbarish Majumder - Aashiqui"
-    ],
-    "movie": "Aashiqui",
-    "year": 1987,
-    "decade": "80s",
-    "duration": 284,
-    "audioUrl": "https://aac.saavncdn.com/636/a4d1b1984ca8a7cebaec602b176243cf_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/636/Aashiqui-Bengali-1987-20241225142056-500x500.jpg",
-    "genre": "bengali",
     "composer": "Super Cassettes Industries Private Limited",
     "lyricist": "",
     "language": "hindi"
@@ -19023,26 +16623,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-BGBTRyou",
-    "artistId": "sp-balasubrahmanyam",
-    "title": "Kailove Chedugudu (From \"Sakhi\")",
-    "artist": "Naveen, S.P. Charan, S.P. Balasubrahmanyam - Colourful Romantic Hits",
-    "artists": [
-      "S. P. Balasubrahmanyam",
-      "Naveen, S.P. Charan, S.P. Balasubrahmanyam - Colourful Romantic Hits"
-    ],
-    "movie": "Colourful Romantic Hits",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 278,
-    "audioUrl": "https://aac.saavncdn.com/278/eae868fcdaff5f175b3a13930f6668e4_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/278/Colourful-Romantic-Hits-Telugu-2018-20190118-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-7CwLvXc6",
     "artistId": "hariharan",
     "title": "Shree Hanuman Chalisa",
@@ -19623,226 +17203,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-TGZ7Ihii",
-    "artistId": "hariharan",
-    "title": "Vennilave Vennilave",
-    "artist": "A.R. Rahman, Vairamuthu, Hariharan, Sadhana Sargam - Romantic Melody",
-    "artists": [
-      "Hariharan",
-      "A.R. Rahman, Vairamuthu, Hariharan, Sadhana Sargam - Romantic Melody"
-    ],
-    "movie": "Romantic Melody",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 357,
-    "audioUrl": "https://aac.saavncdn.com/666/bb9cdcb080c6dde968d627982891663e_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/666/Romantic-Melody-Tamil-2026-20260716203740-500x500.jpg",
-    "genre": "tamil",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-w7RoRGNU",
-    "artistId": "hariharan",
-    "title": "Konja Naal Poru Thalaiva",
-    "artist": "Deva, Vaali, Hariharan - Romantic Melody",
-    "artists": [
-      "Hariharan",
-      "Deva, Vaali, Hariharan - Romantic Melody"
-    ],
-    "movie": "Romantic Melody",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 310,
-    "audioUrl": "https://aac.saavncdn.com/666/d59a402df63cde9ab7cb2dfb3408e117_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/666/Romantic-Melody-Tamil-2026-20260716203740-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Deva",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-xJogSesu",
-    "artistId": "hariharan",
-    "title": "Un Per Solla",
-    "artist": "Kalai Kumar, Deva, Hariharan, Sujatha Mohan - Romantic Melody",
-    "artists": [
-      "Hariharan",
-      "Kalai Kumar, Deva, Hariharan, Sujatha Mohan - Romantic Melody"
-    ],
-    "movie": "Romantic Melody",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 309,
-    "audioUrl": "https://aac.saavncdn.com/666/18011542b6e7d5cbe489d433745096c0_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/666/Romantic-Melody-Tamil-2026-20260716203740-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Deva",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-uj6SZOpm",
-    "artistId": "hariharan",
-    "title": "Kurukku Siruthvalea (From \"Mudhalvan\")",
-    "artist": "Vairamuthu, A.R. Rahman, Hariharan, Mahalakshmi Iyer - Romantic Hits",
-    "artists": [
-      "Hariharan",
-      "Vairamuthu, A.R. Rahman, Hariharan, Mahalakshmi Iyer - Romantic Hits"
-    ],
-    "movie": "Romantic Hits",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 398,
-    "audioUrl": "https://aac.saavncdn.com/507/381273f62af146c19e5121a663057e21_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/507/Romantic-Hits-Tamil-2026-20260207053921-500x500.jpg",
-    "genre": "tamil",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-Y5qtRiXm",
-    "artistId": "hariharan",
-    "title": "Nenjukkul Peidhidum",
-    "artist": "Harris Jayaraj, Thamarai, Hariharan, Devan Ekambaram, VV Prassanna - Romantic Melody",
-    "artists": [
-      "Hariharan",
-      "Harris Jayaraj, Thamarai, Hariharan, Devan Ekambaram, VV Prassanna - Romantic Melody"
-    ],
-    "movie": "Romantic Melody",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 371,
-    "audioUrl": "https://aac.saavncdn.com/666/51d553c73a700947c34a11b136d1e943_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/666/Romantic-Melody-Tamil-2026-20260716203740-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Harris Jayaraj",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg--lVpR5MU",
-    "artistId": "hariharan",
-    "title": "Pachai Nirame",
-    "artist": "A.R. Rahman, Vairamuthu, Hariharan - Romantic Melody",
-    "artists": [
-      "Hariharan",
-      "A.R. Rahman, Vairamuthu, Hariharan - Romantic Melody"
-    ],
-    "movie": "Romantic Melody",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 358,
-    "audioUrl": "https://aac.saavncdn.com/666/87209902f5888840df79d42001d000fe_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/666/Romantic-Melody-Tamil-2026-20260716203740-500x500.jpg",
-    "genre": "tamil",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-g7oDHmgk",
-    "artistId": "hariharan",
-    "title": "Ragasiya Kanavugal (From \"Bheema\")",
-    "artist": "Yugabharathi, Harris Jayaraj, Hariharan, Madhushree - Romantic Hits",
-    "artists": [
-      "Hariharan",
-      "Yugabharathi, Harris Jayaraj, Hariharan, Madhushree - Romantic Hits"
-    ],
-    "movie": "Romantic Hits",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 359,
-    "audioUrl": "https://aac.saavncdn.com/507/624f3944a1489bf3209e1765003c53a9_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/507/Romantic-Hits-Tamil-2026-20260207053921-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Harris Jayaraj",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-nTuUuowE",
-    "artistId": "hariharan",
-    "title": "Kandukondain Kandukondain",
-    "artist": "A.R. Rahman, Vairamuthu, Hariharan, Mahalakshmi Iyer - Romantic Melody",
-    "artists": [
-      "Hariharan",
-      "A.R. Rahman, Vairamuthu, Hariharan, Mahalakshmi Iyer - Romantic Melody"
-    ],
-    "movie": "Romantic Melody",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 318,
-    "audioUrl": "https://aac.saavncdn.com/666/f3f5954ea5bd80baba2244088a4acaa0_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/666/Romantic-Melody-Tamil-2026-20260716203740-500x500.jpg",
-    "genre": "tamil",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-RhcycLTC",
-    "artistId": "hariharan",
-    "title": "Oru Ponnu Onnu (From \"Kushi\")",
-    "artist": "Vairamuthu, Deva, Hariharan, Anuradha Sriram - Romantic Hits",
-    "artists": [
-      "Hariharan",
-      "Vairamuthu, Deva, Hariharan, Anuradha Sriram - Romantic Hits"
-    ],
-    "movie": "Romantic Hits",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 336,
-    "audioUrl": "https://aac.saavncdn.com/507/47d06c25561e58ba7346d62f18724f6a_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/507/Romantic-Hits-Tamil-2026-20260207053921-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Deva",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-f4bMjaP_",
-    "artistId": "hariharan",
-    "title": "Meettatha Oru Veenai (From \"Poonthottam\")",
-    "artist": "Mu Mehtha, Ilaiyaraaja, Hariharan, Mahalakshmi Iyer - Romantic Hits",
-    "artists": [
-      "Hariharan",
-      "Mu Mehtha, Ilaiyaraaja, Hariharan, Mahalakshmi Iyer - Romantic Hits"
-    ],
-    "movie": "Romantic Hits",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 300,
-    "audioUrl": "https://aac.saavncdn.com/507/f27fed49c4063c53dd3d4b8e7bf37633_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/507/Romantic-Hits-Tamil-2026-20260207053921-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Ilaiyaraaja",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-Y8sAnHS2",
-    "artistId": "hariharan",
-    "title": "Uyire Uyire",
-    "artist": "A.R. Rahman, Vairamuthu, K. S. Chithra, Hariharan - Romantic Melody",
-    "artists": [
-      "Hariharan",
-      "A.R. Rahman, Vairamuthu, K. S. Chithra, Hariharan - Romantic Melody"
-    ],
-    "movie": "Romantic Melody",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 435,
-    "audioUrl": "https://aac.saavncdn.com/666/16f186ed6de3397fa05d3b8d10eea34b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/666/Romantic-Melody-Tamil-2026-20260716203740-500x500.jpg",
-    "genre": "tamil",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-PqMQ311f",
     "artistId": "hariharan",
     "title": "Bhaaga Sa (From \"Chachi 420\")",
@@ -19903,66 +17263,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-3489QMR9",
-    "artistId": "hariharan",
-    "title": "Attarintiki",
-    "artist": "Hariharan, Shreya Ghoshal, Mani Sharma - Romantic Jukebox - Shreya Ghoshal & Sunitha",
-    "artists": [
-      "Hariharan",
-      "Hariharan, Shreya Ghoshal, Mani Sharma - Romantic Jukebox - Shreya Ghoshal & Sunitha"
-    ],
-    "movie": "Romantic Jukebox - Shreya Ghoshal & Sunitha",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 357,
-    "audioUrl": "https://aac.saavncdn.com/437/cb0f86576c0a6113a1d0b82d313936e8_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/437/Romantic-Jukebox-Shreya-Ghoshal-Sunitha-Telugu-2015-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Mani Sharma",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-7_IycCUJ",
-    "artistId": "hariharan",
-    "title": "Pachchadanamey (From \"Sakhi\")",
-    "artist": "Hariharan, Clinton - Romantic Waves - Valentines Day Spl - Telugu",
-    "artists": [
-      "Hariharan",
-      "Hariharan, Clinton - Romantic Waves - Valentines Day Spl - Telugu"
-    ],
-    "movie": "Romantic Waves - Valentines Day Spl - Telugu",
-    "year": 2020,
-    "decade": "2000s",
-    "duration": 361,
-    "audioUrl": "https://aac.saavncdn.com/779/ffc6786029423f760984d7949e45da87_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/779/Romantic-Waves-Valentines-Day-Spl-Telugu-Telugu-2020-20200212093453-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-XJgdjr7O",
-    "artistId": "hariharan",
-    "title": "Aaro Padum",
-    "artist": "Hariharan - Romantic Duets (Malayalam Film Duet Songs)",
-    "artists": [
-      "Hariharan",
-      "Hariharan - Romantic Duets (Malayalam Film Duet Songs)"
-    ],
-    "movie": "Romantic Duets (Malayalam Film Duet Songs)",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 359,
-    "audioUrl": "https://aac.saavncdn.com/016/f6245bed27465d04a4163a6469741248_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/016/Romantic-Duets-Malayalam-2021-20250515124634-500x500.jpg",
-    "genre": "malayalam",
-    "composer": "Ilaiyaraaja",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg--hk8Nffp",
     "artistId": "hariharan",
     "title": "Judaai Judaai - Part 1",
@@ -19983,46 +17283,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-0i-pLcjz",
-    "artistId": "hariharan",
-    "title": "Chandrakala (From \"Adhurs\")",
-    "artist": "Devi Sri Prasad, Hariharan, Rita Thyagarajan - Jabilli Nuvve Cheppamma... Jr. NTR Romantic Hits",
-    "artists": [
-      "Hariharan",
-      "Devi Sri Prasad, Hariharan, Rita Thyagarajan - Jabilli Nuvve Cheppamma... Jr. NTR Romantic Hits"
-    ],
-    "movie": "Jabilli Nuvve Cheppamma... Jr. NTR Romantic Hits",
-    "year": 2014,
-    "decade": "2000s",
-    "duration": 254,
-    "audioUrl": "https://aac.saavncdn.com/150/c02ed332d5f355e0d1f5073f165c7bba_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/150/Jabilli-Nuvve-Cheppamma-Jr-NTR-Romantic-Hits-Telugu-2014-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Devi Sri Prasad",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-yxwGryfh",
-    "artistId": "hariharan",
-    "title": "Yaro Azhaithathu (From \"Sishya\")",
-    "artist": "Pazhani Bharathi, Deva, Hariharan, Uma Ramanan - Romantic Hits",
-    "artists": [
-      "Hariharan",
-      "Pazhani Bharathi, Deva, Hariharan, Uma Ramanan - Romantic Hits"
-    ],
-    "movie": "Romantic Hits",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 319,
-    "audioUrl": "https://aac.saavncdn.com/507/2c6c0904e4cf06bee954180dcabd2587_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/507/Romantic-Hits-Tamil-2026-20260207053921-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Deva",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-GsatOa78",
     "artistId": "hariharan",
     "title": "Jhonka Hawa Ka (From \"Hum Dil De Chuke Sanam\")",
@@ -20039,26 +17299,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/261/Romantic-Sad-Songs-Hindi-2024-20251024162014-500x500.jpg",
     "genre": "hindi",
     "composer": "Ismail Darbar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-AWjfdimJ",
-    "artistId": "hariharan",
-    "title": "Yamunatheeram (From \"Anand\")",
-    "artist": "Hariharan, K. S. Chithra - Romantic Hits of Sekhar Kammula",
-    "artists": [
-      "Hariharan",
-      "Hariharan, K. S. Chithra - Romantic Hits of Sekhar Kammula"
-    ],
-    "movie": "Romantic Hits of Sekhar Kammula",
-    "year": 2019,
-    "decade": "2000s",
-    "duration": 249,
-    "audioUrl": "https://aac.saavncdn.com/384/c1c086e999c7c88f246862ae74b5b270_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/384/Romantic-Hits-of-Sekhar-Kammula-Telugu-2019-20190201200156-500x500.jpg",
-    "genre": "telugu",
-    "composer": "K.M. Radha Krishnan",
     "lyricist": "",
     "language": "hindi"
   },
@@ -20203,26 +17443,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-DWlAvvOI",
-    "artistId": "sadhana-sargam",
-    "title": "Ashakya Hi Shakya Kartil Swami",
-    "artist": "Sadhana Sargam - Swami Samarth Song - Ashakya Hi Shakya Kartil Swami",
-    "artists": [
-      "Sadhana Sargam",
-      "Sadhana Sargam - Swami Samarth Song - Ashakya Hi Shakya Kartil Swami"
-    ],
-    "movie": "Swami Samarth Song - Ashakya Hi Shakya Kartil Swami",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 324,
-    "audioUrl": "https://aac.saavncdn.com/134/fcd0be72d41434858ea174d169bd8870_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/134/Swami-Samarth-Song-Ashakya-Hi-Shakya-Kartil-Swami-Marathi-2021-20210622003507-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Navin, Manish",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-C8xnYoYF",
     "artistId": "sadhana-sargam",
     "title": "Na Kajare Ki Dhar (Duet Version)",
@@ -20363,66 +17583,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-253wtnwY",
-    "artistId": "sadhana-sargam",
-    "title": "Marali Mareyagi",
-    "artist": "Sudheer Aththavar, Sadhana Sargam - Savaari (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Sadhana Sargam",
-      "Sudheer Aththavar, Sadhana Sargam - Savaari (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Savaari (Original Motion Picture Soundtrack)",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 288,
-    "audioUrl": "https://aac.saavncdn.com/711/0078279ae10d2509f74817eb73186523_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/711/Savaari-Kannada-2009-20250319101558-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Sadhana Sargam, Sudheer Aththavar, Manikanth Kadri",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-yLJ7cITk",
-    "artistId": "sadhana-sargam",
-    "title": "Vennelave Vennelave (From \"Merupu Kalalu\")",
-    "artist": "Hariharan, Sadhana Sargam, A.R. Rahman, Veturi - A.R. Rahman Tollywood Superhits",
-    "artists": [
-      "Sadhana Sargam",
-      "Hariharan, Sadhana Sargam, A.R. Rahman, Veturi - A.R. Rahman Tollywood Superhits"
-    ],
-    "movie": "A.R. Rahman Tollywood Superhits",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 359,
-    "audioUrl": "https://aac.saavncdn.com/129/66bf40ba27b3934fa920782eef5a1996_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/129/A-R-Rahman-Tollywood-Superhits-Telugu-2026-20260106191102-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-LYzVQFSg",
-    "artistId": "sadhana-sargam",
-    "title": "Vennelave Vennelave",
-    "artist": "Hariharan, Sadhana Sargam - Merupu Kalalu",
-    "artists": [
-      "Sadhana Sargam",
-      "Hariharan, Sadhana Sargam - Merupu Kalalu"
-    ],
-    "movie": "Merupu Kalalu",
-    "year": 1997,
-    "decade": "90s",
-    "duration": 359,
-    "audioUrl": "https://aac.saavncdn.com/137/22904d8a59e448ed5cc3967195cd9fd0_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/137/Merupu-Kalalu-Telugu-1997-20221207155957-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-htu5BRZ4",
     "artistId": "sadhana-sargam",
     "title": "Dhire Dhire Aap Mere",
@@ -20463,26 +17623,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-a_LW9YWI",
-    "artistId": "sadhana-sargam",
-    "title": "Akkam Pakkam",
-    "artist": "Sadhana Sargam - Kireedam",
-    "artists": [
-      "Sadhana Sargam",
-      "Sadhana Sargam - Kireedam"
-    ],
-    "movie": "Kireedam",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 316,
-    "audioUrl": "https://aac.saavncdn.com/393/3e2bc2b09e4b940811dc5aced1d1f68b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/393/Kireedam-Tamil-2009-20221210170329-500x500.jpg",
-    "genre": "tamil",
-    "composer": "G.V. Prakash Kumar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-I42Jlqov",
     "artistId": "sadhana-sargam",
     "title": "Chupke Se",
@@ -20498,26 +17638,6 @@ const rawSongs = [
     "audioUrl": "https://aac.saavncdn.com/035/06f880dcf29d07e2ee1b857f81243059_160.mp4",
     "coverUrl": "https://c.saavncdn.com/753/Saathiya-Hindi-2002-20190329145814-500x500.jpg",
     "genre": "hindi",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-c6J1jhwl",
-    "artistId": "sadhana-sargam",
-    "title": "Vennilave Vennilave",
-    "artist": "A.R. Rahman, Vairamuthu, Hariharan, Sadhana Sargam - Tamil Classic 80's to 90's",
-    "artists": [
-      "Sadhana Sargam",
-      "A.R. Rahman, Vairamuthu, Hariharan, Sadhana Sargam - Tamil Classic 80's to 90's"
-    ],
-    "movie": "Tamil Classic 80's to 90's",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 357,
-    "audioUrl": "https://aac.saavncdn.com/834/d00ee80120163f1a852b75e567a8990b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/834/Tamil-Classic-80-s-to-90-s-Tamil-2026-20260717233647-500x500.jpg",
-    "genre": "tamil",
     "composer": "A.R. Rahman",
     "lyricist": "",
     "language": "hindi"
@@ -20603,26 +17723,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-cyTFo8f9",
-    "artistId": "sadhana-sargam",
-    "title": "Snehidhane",
-    "artist": "A.R. Rahman - Alaipayuthey",
-    "artists": [
-      "Sadhana Sargam",
-      "A.R. Rahman - Alaipayuthey"
-    ],
-    "movie": "Alaipayuthey",
-    "year": 2000,
-    "decade": "2000s",
-    "duration": 293,
-    "audioUrl": "https://aac.saavncdn.com/517/8339b93844eb46b6257e7c6fab93bdff_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/517/Alaipayuthey-Tamil-2000-500x500.jpg",
-    "genre": "tamil",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg--GYdH3iU",
     "artistId": "sadhana-sargam",
     "title": "Aap Ke Karib - Jhankar Beats",
@@ -20639,26 +17739,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/230/90s-Evergreen-Romantic-Songs-With-Jhankar-Beats-Hindi-2017-20210525151442-500x500.jpg",
     "genre": "hindi",
     "composer": "Nadeem-Shravan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-7jDJnpPa",
-    "artistId": "sadhana-sargam",
-    "title": "Thanthana Thanthana (From \"Thavasi\")",
-    "artist": "Pa. Vijay, Vidyasagar, K.J. Yesudas, Sadhana Sargam - Romantic Hits",
-    "artists": [
-      "Sadhana Sargam",
-      "Pa. Vijay, Vidyasagar, K.J. Yesudas, Sadhana Sargam - Romantic Hits"
-    ],
-    "movie": "Romantic Hits",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 271,
-    "audioUrl": "https://aac.saavncdn.com/507/a9326053335be8b7365e09e0bf7f1cba_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/507/Romantic-Hits-Tamil-2026-20260207053921-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Vidyasagar",
     "lyricist": "",
     "language": "hindi"
   },
@@ -20683,26 +17763,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-8LeW75XC",
-    "artistId": "sadhana-sargam",
-    "title": "Manassa (From \"Munna\")",
-    "artist": "Harris Jayaraj, Sadhana Sargam, Haricharan, Naresh Iyer, Krish - Prabhas Romantic Mood",
-    "artists": [
-      "Sadhana Sargam",
-      "Harris Jayaraj, Sadhana Sargam, Haricharan, Naresh Iyer, Krish - Prabhas Romantic Mood"
-    ],
-    "movie": "Prabhas Romantic Mood",
-    "year": 2014,
-    "decade": "2000s",
-    "duration": 350,
-    "audioUrl": "https://aac.saavncdn.com/211/a9244da3e6272fae869fa395d28d558b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/211/Prabhas-Romantic-Mood-Telugu-2014-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Harris Jayaraj",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-tStaE8gb",
     "artistId": "sadhana-sargam",
     "title": "Subah Se Lekar (From \"Mohra\")",
@@ -20723,26 +17783,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-nt5KKkXe",
-    "artistId": "sadhana-sargam",
-    "title": "Snehithane",
-    "artist": "A.R. Rahman, Vairamuthu, Srinivas, Sadhana Sargam - Romantic Melody",
-    "artists": [
-      "Sadhana Sargam",
-      "A.R. Rahman, Vairamuthu, Srinivas, Sadhana Sargam - Romantic Melody"
-    ],
-    "movie": "Romantic Melody",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 292,
-    "audioUrl": "https://aac.saavncdn.com/666/f116e64e2359e2fe8474e033bece3271_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/666/Romantic-Melody-Tamil-2026-20260716203740-500x500.jpg",
-    "genre": "tamil",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-cKlpjnd-",
     "artistId": "sadhana-sargam",
     "title": "Sau Saal Pahle",
@@ -20759,26 +17799,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/998/Suhane-Pal-Lata-Mangeshkar-Mohammed-Rafi-Romantic-Duets-Hindi-2024-20241127094132-500x500.jpg",
     "genre": "hindi",
     "composer": "Sadhana Sargam, Vipin Sachdeva, Arvind Hasabnis, Shankar-Jaikishan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-Y_p8bmyH",
-    "artistId": "sadhana-sargam",
-    "title": "Siruthooral (From \"Ponniyin Selvan\")",
-    "artist": "Vaali, Vidyasagar, Srinivas, Sadhana Sargam - Romantic Hits",
-    "artists": [
-      "Sadhana Sargam",
-      "Vaali, Vidyasagar, Srinivas, Sadhana Sargam - Romantic Hits"
-    ],
-    "movie": "Romantic Hits",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 291,
-    "audioUrl": "https://aac.saavncdn.com/507/da866b385134db18c9bc8dd8b4565528_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/507/Romantic-Hits-Tamil-2026-20260207053921-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Vidyasagar",
     "lyricist": "",
     "language": "hindi"
   },
@@ -21443,26 +18463,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-B984wIm_",
-    "artistId": "lucky-ali",
-    "title": "Sarigama",
-    "artist": "A.R. Rahman, Lucky Ali, Vasundhara Das, Plasi - Boys",
-    "artists": [
-      "Lucky Ali",
-      "A.R. Rahman, Lucky Ali, Vasundhara Das, Plasi - Boys"
-    ],
-    "movie": "Boys",
-    "year": 2003,
-    "decade": "2000s",
-    "duration": 369,
-    "audioUrl": "https://aac.saavncdn.com/889/c82fd0290130831382c36b3365332357_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/889/Boys-2003-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-r03Elso4",
     "artistId": "lucky-ali",
     "title": "Socha Nahin Tha",
@@ -21483,26 +18483,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-RMPttkDL",
-    "artistId": "lucky-ali",
-    "title": "Hey Goodbye Priya",
-    "artist": "A.R. Rahman, Sunitha Sarathy, Shankar Mahadevan, Lucky Ali, Karthik - Yuva",
-    "artists": [
-      "Lucky Ali",
-      "A.R. Rahman, Sunitha Sarathy, Shankar Mahadevan, Lucky Ali, Karthik - Yuva"
-    ],
-    "movie": "Yuva",
-    "year": 2004,
-    "decade": "2000s",
-    "duration": 301,
-    "audioUrl": "https://aac.saavncdn.com/083/e68b9dd344956c8c7665348b3876dd1c_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/083/Yuva-Telugu-2004-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-UVSfqAih",
     "artistId": "lucky-ali",
     "title": "Dekha Hai Aise Bhi",
@@ -21519,46 +18499,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/043/Road-Movie-Hindi-2010-20190617160642-500x500.jpg",
     "genre": "hindi",
     "composer": "Lucky Ali",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-X358UHK4",
-    "artistId": "lucky-ali",
-    "title": "Charumati",
-    "artist": "K.M. Radha Krishnan, Lucky Ali - Anand",
-    "artists": [
-      "Lucky Ali",
-      "K.M. Radha Krishnan, Lucky Ali - Anand"
-    ],
-    "movie": "Anand",
-    "year": 2004,
-    "decade": "2000s",
-    "duration": 249,
-    "audioUrl": "https://aac.saavncdn.com/453/8c457bf557b31a6e108d1549e0f16c4a_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/453/Anand-2004-500x500.jpg",
-    "genre": "telugu",
-    "composer": "K.M. Radha Krishnan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-DtJal_Pv",
-    "artistId": "lucky-ali",
-    "title": "Appudu Appudu",
-    "artist": "Lucky Ali, Sumangali - Sye",
-    "artists": [
-      "Lucky Ali",
-      "Lucky Ali, Sumangali - Sye"
-    ],
-    "movie": "Sye",
-    "year": 2004,
-    "decade": "2000s",
-    "duration": 247,
-    "audioUrl": "https://aac.saavncdn.com/695/4dee9a3640bbb160fdf556540c2ec206_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/695/Sye-2000-500x500.jpg",
-    "genre": "telugu",
-    "composer": "M. M. Keeravani",
     "lyricist": "",
     "language": "hindi"
   },
@@ -21599,26 +18539,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/616/Tu-Meri-Main-Tera-Main-Tera-Tu-Meri-Hindi-2025-20260203083207-500x500.jpg",
     "genre": "hindi",
     "composer": "Vishal & Shekhar, Lucky Ali, Anvita Dutt Guptan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-aLBoLST3",
-    "artistId": "lucky-ali",
-    "title": "Secret Of Success",
-    "artist": "A.R. Rahman, Vasundhara Das, Clinton Cerejo, Blazze, Lucky Ali, Siddharth, Genelia D'Souza - Boys",
-    "artists": [
-      "Lucky Ali",
-      "A.R. Rahman, Vasundhara Das, Clinton Cerejo, Blazze, Lucky Ali, Siddharth, Genelia D'Souza - Boys"
-    ],
-    "movie": "Boys",
-    "year": 2003,
-    "decade": "2000s",
-    "duration": 369,
-    "audioUrl": "https://aac.saavncdn.com/575/f672dc735b6d671dbb8c7140b41f3cc1_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/086/Boys-2003-500x500.jpg",
-    "genre": "tamil",
-    "composer": "A.R. Rahman",
     "lyricist": "",
     "language": "hindi"
   },
@@ -21743,46 +18663,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-Ih_za55U",
-    "artistId": "lucky-ali",
-    "title": "O Sanam (DJ NYK Lofi Remix)",
-    "artist": "Lucky Ali, DJ NYK - O Sanam (DJ NYK Lofi Remix)",
-    "artists": [
-      "Lucky Ali",
-      "Lucky Ali, DJ NYK - O Sanam (DJ NYK Lofi Remix)"
-    ],
-    "movie": "O Sanam (DJ NYK Lofi Remix)",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 186,
-    "audioUrl": "https://aac.saavncdn.com/567/3bc7f900de296b82bd65d088fd906f3d_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/567/O-Sanam-DJ-NYK-Lofi-Remix--Hindi-2021-20210312230925-500x500.jpg",
-    "genre": "hindi",
-    "composer": "Lucky Ali, DJ NYK",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-O8zwFtOy",
-    "artistId": "lucky-ali",
-    "title": "Hey Goodbye Nanba",
-    "artist": "A.R. Rahman, Sunitha Sarathy, Shankar Mahadevan, Lucky Ali, Karthik ft. Lyse - Aayitha Ezhutu",
-    "artists": [
-      "Lucky Ali",
-      "A.R. Rahman, Sunitha Sarathy, Shankar Mahadevan, Lucky Ali, Karthik ft. Lyse - Aayitha Ezhutu"
-    ],
-    "movie": "Aayitha Ezhutu",
-    "year": 2004,
-    "decade": "2000s",
-    "duration": 298,
-    "audioUrl": "https://aac.saavncdn.com/929/26acccd12368be01abc54337550db24c_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/929/Aayitha-Ezhutu-Tamil-2004-20190629140126-500x500.jpg",
-    "genre": "tamil",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-v7Roo-z7",
     "artistId": "lucky-ali",
     "title": "O Sanam",
@@ -21838,26 +18718,6 @@ const rawSongs = [
     "audioUrl": "https://aac.saavncdn.com/905/ffcb73d37ac3617b25b06f30748e551f_160.mp4",
     "coverUrl": "https://c.saavncdn.com/905/O-Sanam-Reprise-Hindi-2022-20221107123306-500x500.jpg",
     "genre": "hindi",
-    "composer": "Lucky Ali",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-WdpMg3FX",
-    "artistId": "lucky-ali",
-    "title": "o sanam (slowed + reverb)",
-    "artist": "Tuneit, Ajima, slow hindi - o sanam",
-    "artists": [
-      "Lucky Ali",
-      "Tuneit, Ajima, slow hindi - o sanam"
-    ],
-    "movie": "o sanam",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 107,
-    "audioUrl": "https://aac.saavncdn.com/506/d08f86558068b9b8403490b6a8552509_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/506/o-sanam-Unknown-2025-20250924123532-500x500.jpg",
-    "genre": "unknown",
     "composer": "Lucky Ali",
     "lyricist": "",
     "language": "hindi"
@@ -23043,26 +19903,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-Uqk5l7Yk",
-    "artistId": "jagjit-singh",
-    "title": "Shree Ram Dhun",
-    "artist": "Jagjit Singh - He Ram. . . He Ram. . . Shree Ram Dhun - Jagjit Singh",
-    "artists": [
-      "Jagjit Singh",
-      "Jagjit Singh - He Ram. . . He Ram. . . Shree Ram Dhun - Jagjit Singh"
-    ],
-    "movie": "He Ram. . . He Ram. . . Shree Ram Dhun - Jagjit Singh",
-    "year": 1999,
-    "decade": "90s",
-    "duration": 1582,
-    "audioUrl": "https://aac.saavncdn.com/774/d95a96e77ee484394724a73484b01250_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/774/He-Ram-He-Ram-Shree-Ram-Dhun-Jagjit-Singh-Tamil-1999-500x500.jpg",
-    "genre": "hindi",
-    "composer": "Jagjit Singh",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-Y8TOv5zC",
     "artistId": "jagjit-singh",
     "title": "Shree Ram Dhun, Pt. 1",
@@ -23559,26 +20399,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/228/Dil-Se-Re-Reprised-Version--Hindi-2018-20220205211138-500x500.jpg",
     "genre": "hindi",
     "composer": "Siddharth Slathia, A. R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-1NnfX-2s",
-    "artistId": "ar-rahman",
-    "title": "Dil Se Re (LO-FI Remix)",
-    "artist": "Mann Taneja, A. R. Rahman, Anuradha, Anupama - Dil Se Re (LO-FI Remix)",
-    "artists": [
-      "A. R. Rahman",
-      "Mann Taneja, A. R. Rahman, Anuradha, Anupama - Dil Se Re (LO-FI Remix)"
-    ],
-    "movie": "Dil Se Re (LO-FI Remix)",
-    "year": 2022,
-    "decade": "2000s",
-    "duration": 272,
-    "audioUrl": "https://aac.saavncdn.com/807/13415991c38faf1f13608090ecd2d553_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/807/Dil-Se-Re-LO-FI-Remix-Hindi-2022-20221213004737-500x500.jpg",
-    "genre": "hindi",
-    "composer": "Mann Taneja, A. R. Rahman, Anuradha, Anupama",
     "lyricist": "",
     "language": "hindi"
   },
@@ -24143,126 +20963,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-8tPeUyuq",
-    "artistId": "ar-rahman",
-    "title": "Jai Ho! (You Are My Destiny) [Made Popular By A.R. Rahman ft. Nicole Scherzinger] [Vocal Version]",
-    "artist": "Party Tyme Karaoke ft. Nicole Scherzinger - Party Tyme Karaoke - Pop Male Hits 4 (Vocal Versions)",
-    "artists": [
-      "A. R. Rahman",
-      "Party Tyme Karaoke ft. Nicole Scherzinger - Party Tyme Karaoke - Pop Male Hits 4 (Vocal Versions)"
-    ],
-    "movie": "Party Tyme Karaoke - Pop Male Hits 4 (Vocal Versions)",
-    "year": 2020,
-    "decade": "2000s",
-    "duration": 223,
-    "audioUrl": "https://aac.saavncdn.com/506/801959af0e60d285a971bb52861102c2_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/506/Party-Tyme-Karaoke-Pop-Male-Hits-4-Vocal-Versions--English-2020-20201205010632-500x500.jpg",
-    "genre": "english",
-    "composer": "A. R. Rahman, Gulzar Nama, Shah Tanvi",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-FuATX2sL",
-    "artistId": "ar-rahman",
-    "title": "Chikiri Chikiri (From \"Peddi\") - Telugu",
-    "artist": "A.R. Rahman, Mohit Chauhan, Balaji - Chikiri Chikiri (From \"Peddi\") - Telugu",
-    "artists": [
-      "A. R. Rahman",
-      "A.R. Rahman, Mohit Chauhan, Balaji - Chikiri Chikiri (From Peddi) - Telugu"
-    ],
-    "movie": "Chikiri Chikiri (From \"Peddi\") - Telugu",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 273,
-    "audioUrl": "https://aac.saavncdn.com/735/afffe241f71836496fd3ebd720b06822_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/735/Chikiri-Chikiri-From-Peddi-Telugu-Telugu-2025-20251107191120-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-oemj5iht",
-    "artistId": "ar-rahman",
-    "title": "Chikiri Chikiri (From \"Peddi\")",
-    "artist": "Mohit Chauhan, A.R. Rahman, Balaji ft. Suriya, Mamitha Baiju - A.R. Rahman Tollywood Superhits",
-    "artists": [
-      "A. R. Rahman",
-      "Mohit Chauhan, A.R. Rahman, Balaji ft. Suriya, Mamitha Baiju - A.R. Rahman Tollywood Superhits"
-    ],
-    "movie": "A.R. Rahman Tollywood Superhits",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 273,
-    "audioUrl": "https://aac.saavncdn.com/129/971e0f2186465e4a25d6a1eafdecb746_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/129/A-R-Rahman-Tollywood-Superhits-Telugu-2026-20260106191102-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-TBUTIsY-",
-    "artistId": "ar-rahman",
-    "title": "Chikiri Chikiri",
-    "artist": "Balaji, A.R. Rahman, Mohit Chauhan - Peddi - Telugu",
-    "artists": [
-      "A. R. Rahman",
-      "Balaji, A.R. Rahman, Mohit Chauhan - Peddi - Telugu"
-    ],
-    "movie": "Peddi - Telugu",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 273,
-    "audioUrl": "https://aac.saavncdn.com/698/f4fcc4b5240f1911573f690c97f6545b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/698/Peddi-Telugu-Telugu-2026-20260528131116-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-dzXnrx4r",
-    "artistId": "ar-rahman",
-    "title": "Hellallallo (From \"Peddi\") - Telugu",
-    "artist": "Anantha Sriram, A.R. Rahman, Rakshita Suresh - Hellallallo (From \"Peddi\") - Telugu",
-    "artists": [
-      "A. R. Rahman",
-      "Anantha Sriram, A.R. Rahman, Rakshita Suresh - Hellallallo (From Peddi) - Telugu"
-    ],
-    "movie": "Hellallallo (From \"Peddi\") - Telugu",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 228,
-    "audioUrl": "https://aac.saavncdn.com/242/72329de8a4203630eb2ec21518be4a7c_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/242/Hellallallo-From-Peddi-Telugu-Telugu-2026-20260523201040-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-FTNNs18W",
-    "artistId": "ar-rahman",
-    "title": "Hellallallo",
-    "artist": "Anantha Sriram, A.R. Rahman, Rakshita Suresh - Peddi - Telugu",
-    "artists": [
-      "A. R. Rahman",
-      "Anantha Sriram, A.R. Rahman, Rakshita Suresh - Peddi - Telugu"
-    ],
-    "movie": "Peddi - Telugu",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 228,
-    "audioUrl": "https://aac.saavncdn.com/698/de4d80ada9b848cb3bd4f6f02b8c45fe_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/698/Peddi-Telugu-Telugu-2026-20260528131116-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-DmFM4XiZ",
     "artistId": "ar-rahman",
     "title": "Guzarish",
@@ -24318,106 +21018,6 @@ const rawSongs = [
     "audioUrl": "https://aac.saavncdn.com/733/13f724cb22adbfb4a8bc031e4455588b_160.mp4",
     "coverUrl": "https://c.saavncdn.com/733/Tere-Ishk-Mein-Hindi-2025-20251203141038-500x500.jpg",
     "genre": "hindi",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-xfyBhOX4",
-    "artistId": "ar-rahman",
-    "title": "Rai Rai Raa Raa (From \"Peddi\") - Telugu",
-    "artist": "A.R. Rahman, Anantha Sriram - Rai Rai Raa Raa (From \"Peddi\") - Telugu",
-    "artists": [
-      "A. R. Rahman",
-      "A.R. Rahman, Anantha Sriram - Rai Rai Raa Raa (From Peddi) - Telugu"
-    ],
-    "movie": "Rai Rai Raa Raa (From \"Peddi\") - Telugu",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 266,
-    "audioUrl": "https://aac.saavncdn.com/785/8335b714eabce2ffc6eed193bc74c89c_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/785/Rai-Rai-Raa-Raa-From-Peddi-Telugu-Telugu-2026-20260302201014-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-j0Og6K6l",
-    "artistId": "ar-rahman",
-    "title": "Rai Rai Raa Raa",
-    "artist": "Anantha Sriram, A.R. Rahman - Peddi - Telugu",
-    "artists": [
-      "A. R. Rahman",
-      "Anantha Sriram, A.R. Rahman - Peddi - Telugu"
-    ],
-    "movie": "Peddi - Telugu",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 266,
-    "audioUrl": "https://aac.saavncdn.com/698/c8db98c5166da88ef2a9219cb4d226f6_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/698/Peddi-Telugu-Telugu-2026-20260528131116-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-7RsyGWv1",
-    "artistId": "ar-rahman",
-    "title": "Rai Rai Raa Raa (From \"Peddi\")",
-    "artist": "A.R. Rahman, Anantha Sriram - Global Star  - Ram Charan Superhit Song Collection",
-    "artists": [
-      "A. R. Rahman",
-      "A.R. Rahman, Anantha Sriram - Global Star  - Ram Charan Superhit Song Collection"
-    ],
-    "movie": "Global Star  - Ram Charan Superhit Song Collection",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 266,
-    "audioUrl": "https://aac.saavncdn.com/806/6203b50b22ea8aabd8441762f834fe8e_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/806/Global-Star-Ram-Charan-Superhit-Song-Collection-Telugu-2026-20260324181027-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-3vLQEgwe",
-    "artistId": "ar-rahman",
-    "title": "Massa Massa",
-    "artist": "Anantha Sriram, A.R. Rahman, Vishal Mishra - Peddi - Telugu",
-    "artists": [
-      "A. R. Rahman",
-      "Anantha Sriram, A.R. Rahman, Vishal Mishra - Peddi - Telugu"
-    ],
-    "movie": "Peddi - Telugu",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 222,
-    "audioUrl": "https://aac.saavncdn.com/698/8676bf774d283f9052bd1a70ac663aa2_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/698/Peddi-Telugu-Telugu-2026-20260528131116-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-tPQ5bg-9",
-    "artistId": "ar-rahman",
-    "title": "Hayirabba",
-    "artist": "P. Unnikrishnan, S.P. Pallavi - Jeans",
-    "artists": [
-      "A. R. Rahman",
-      "P. Unnikrishnan, S.P. Pallavi - Jeans"
-    ],
-    "movie": "Jeans",
-    "year": 1998,
-    "decade": "90s",
-    "duration": 434,
-    "audioUrl": "https://aac.saavncdn.com/280/ebfea2e5f51012c9c1578475cb1f28e5_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/280/Jeans-1999-500x500.jpg",
-    "genre": "telugu",
     "composer": "A.R. Rahman",
     "lyricist": "",
     "language": "hindi"
@@ -24503,86 +21103,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-znXH60kT",
-    "artistId": "ar-rahman",
-    "title": "Vastha Nee Venuka",
-    "artist": "A.R. Rahman, Harini, Hariharan - Naani",
-    "artists": [
-      "A. R. Rahman",
-      "A.R. Rahman, Harini, Hariharan - Naani"
-    ],
-    "movie": "Naani",
-    "year": 2004,
-    "decade": "2000s",
-    "duration": 334,
-    "audioUrl": "https://aac.saavncdn.com/470/831b26b459473071b951d2fa3003568f_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/470/Nani-2004-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-CNi4GEJ7",
-    "artistId": "ar-rahman",
-    "title": "Preminche Premava",
-    "artist": "A.R. Rahman, Shreya Ghoshal, Naresh Ayar - Nuvvu Nenu Prema",
-    "artists": [
-      "A. R. Rahman",
-      "A.R. Rahman, Shreya Ghoshal, Naresh Ayar - Nuvvu Nenu Prema"
-    ],
-    "movie": "Nuvvu Nenu Prema",
-    "year": 2006,
-    "decade": "2000s",
-    "duration": 355,
-    "audioUrl": "https://aac.saavncdn.com/317/b2afb9325a75a2e318ef885f477bccbc_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/317/Nuvvu-Nenu-Prema-2006-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-Clatuuyf",
-    "artistId": "ar-rahman",
-    "title": "Poolane Kunukeyamantaa (From \"I-Manoharudu\")",
-    "artist": "A.R. Rahman, Haricharan, Shreya Ghoshal, Anantha Sriram - A.R. Rahman Telugu Classics",
-    "artists": [
-      "A. R. Rahman",
-      "A.R. Rahman, Haricharan, Shreya Ghoshal, Anantha Sriram - A.R. Rahman Telugu Classics"
-    ],
-    "movie": "A.R. Rahman Telugu Classics",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 308,
-    "audioUrl": "https://aac.saavncdn.com/436/a3a4f9ef1add64513ef94d46b83287a1_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/436/A-R-Rahman-Telugu-Classics-Telugu-2026-20260709222459-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-ktoxjjsQ",
-    "artistId": "ar-rahman",
-    "title": "Poolane Kunukeyamantaa",
-    "artist": "A.R. Rahman, Haricharan, Shreya Ghoshal, Anantha Sriram - I - Manoharudu",
-    "artists": [
-      "A. R. Rahman",
-      "A.R. Rahman, Haricharan, Shreya Ghoshal, Anantha Sriram - I - Manoharudu"
-    ],
-    "movie": "I - Manoharudu",
-    "year": 2014,
-    "decade": "2000s",
-    "duration": 308,
-    "audioUrl": "https://aac.saavncdn.com/364/952499ea0aea6a7fe66cb37e88fa29a5_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/364/I-Manoharudu-Telugu-2014-20190914115023-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-FE2VPrXE",
     "artistId": "ar-rahman",
     "title": "Tum Tak",
@@ -24619,46 +21139,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/424/Romantic-Mashup-Hindi-2018-20230608012356-500x500.jpg",
     "genre": "hindi",
     "composer": "Raj Barman, Anwesshaa Dattagupta, Anu Malik, Nadeem, Shravan, Jatin, Lalit, Rajesh Roshan, A. R. Rahman, Adil Nadaf, Joy Anjan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg--alI1gkT",
-    "artistId": "ar-rahman",
-    "title": "Ennavale Adi Ennavale",
-    "artist": "A.R. Rahman, Vairamuthu, P. Unnikrishnan - Romantic Melody",
-    "artists": [
-      "A. R. Rahman",
-      "A.R. Rahman, Vairamuthu, P. Unnikrishnan - Romantic Melody"
-    ],
-    "movie": "Romantic Melody",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 308,
-    "audioUrl": "https://aac.saavncdn.com/666/619d08a3e21ddae73b8e2c811d1b7a60_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/666/Romantic-Melody-Tamil-2026-20260716203740-500x500.jpg",
-    "genre": "tamil",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-jRirXjIS",
-    "artistId": "ar-rahman",
-    "title": "Anjali Anjali",
-    "artist": "A.R. Rahman, Vairamuthu, S. P. Balasubrahmanyam, K. S. Chithra - Romantic Melody",
-    "artists": [
-      "A. R. Rahman",
-      "A.R. Rahman, Vairamuthu, S. P. Balasubrahmanyam, K. S. Chithra - Romantic Melody"
-    ],
-    "movie": "Romantic Melody",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 483,
-    "audioUrl": "https://aac.saavncdn.com/666/07e3778b588629b70975cefbf3b74eef_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/666/Romantic-Melody-Tamil-2026-20260716203740-500x500.jpg",
-    "genre": "tamil",
-    "composer": "A.R. Rahman",
     "lyricist": "",
     "language": "hindi"
   },
@@ -24759,46 +21239,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/626/Romantic-Rains-Hindi-2023-20240926183641-500x500.jpg",
     "genre": "hindi",
     "composer": "A. R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-sEOjPS2s",
-    "artistId": "ar-rahman",
-    "title": "Aaro Nilaavayi (from \"Ee Pattanathil Bhootham\")",
-    "artist": "Vineeth Sreenivasan, Swetha Mohan ft. Raman Mahadevan - Valentine's Day Malayalam Romantic Songs",
-    "artists": [
-      "A. R. Rahman",
-      "Vineeth Sreenivasan, Swetha Mohan ft. Raman Mahadevan - Valentine's Day Malayalam Romantic Songs"
-    ],
-    "movie": "Valentine's Day Malayalam Romantic Songs",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 258,
-    "audioUrl": "https://aac.saavncdn.com/549/31458f47b1c2d3e7de930556f9e50450_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/549/Valentine-s-Day-Malayalam-Romantic-Songs-Malayalam-2026-20260128213002-500x500.jpg",
-    "genre": "malayalam",
-    "composer": "Shaan Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-vVEuqbsu",
-    "artistId": "ar-rahman",
-    "title": "Ye Kannulu Chudani Chitrame (From \"Ardhashathabdam\")",
-    "artist": "Sid Sriram - Romantic Hits Of 2021",
-    "artists": [
-      "A. R. Rahman",
-      "Sid Sriram - Romantic Hits Of 2021"
-    ],
-    "movie": "Romantic Hits Of 2021",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 289,
-    "audioUrl": "https://aac.saavncdn.com/000/60e0ee9f7e46a1117d6d16f32052ad44_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/000/Romantic-Hits-Of-2021-Telugu-2021-20211228152245-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Nawfal Raja",
     "lyricist": "",
     "language": "hindi"
   },
@@ -24963,26 +21403,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-gvtZ_2CQ",
-    "artistId": "ar-rahman",
-    "title": "Prema Ane (From \"Premikula Roju\")",
-    "artist": "S.P. Balasubrahmanyam, Swarnalatha ft. Raman Mahadevan - Romantic Duets Hits",
-    "artists": [
-      "A. R. Rahman",
-      "S.P. Balasubrahmanyam, Swarnalatha ft. Raman Mahadevan - Romantic Duets Hits"
-    ],
-    "movie": "Romantic Duets Hits",
-    "year": 2020,
-    "decade": "2000s",
-    "duration": 400,
-    "audioUrl": "https://aac.saavncdn.com/674/0a2e263906023d405c847b185aa4fd22_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/674/Romantic-Duets-Hits-Telugu-2020-20200514124955-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-GMsZx5rX",
     "artistId": "ar-rahman",
     "title": "Ek Ho Gaye Hum Aur Tum (Hamma) - Unwind Version",
@@ -25123,66 +21543,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-VxvZr2zE",
-    "artistId": "kunal-ganjawala",
-    "title": "Ninaane Ninaane",
-    "artist": "Kunal Ganjawala, K. S. Chithra, Sadhu Kokila - Suntaragaali",
-    "artists": [
-      "Kunal Ganjawala",
-      "Kunal Ganjawala, K. S. Chithra, Sadhu Kokila - Suntaragaali"
-    ],
-    "movie": "Suntaragaali",
-    "year": 2007,
-    "decade": "2000s",
-    "duration": 305,
-    "audioUrl": "https://aac.saavncdn.com/814/8225b36ad0aa4f69d3bfa5f3856a07d7_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/814/Suntaragaali1-Kannada-2007-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Sadhu Kokila",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-VynrLCud",
-    "artistId": "kunal-ganjawala",
-    "title": "Raja Ninnane",
-    "artist": "Kunal Ganjawala, Anuradha Sriram, V. Harikrishna - Indra",
-    "artists": [
-      "Kunal Ganjawala",
-      "Kunal Ganjawala, Anuradha Sriram, V. Harikrishna - Indra"
-    ],
-    "movie": "Indra",
-    "year": 2008,
-    "decade": "2000s",
-    "duration": 287,
-    "audioUrl": "https://aac.saavncdn.com/203/129abe6d645c1a6bfe38f3b14a6c240b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/203/Indra-Kannada-2008-500x500.jpg",
-    "genre": "kannada",
-    "composer": "V. Harikrishna",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-K-PiwBla",
-    "artistId": "kunal-ganjawala",
-    "title": "Naaku Neeku",
-    "artist": "Harris Jayaraj, Kunal Ganjawala, Vasundhara Das - Aparichithudu",
-    "artists": [
-      "Kunal Ganjawala",
-      "Harris Jayaraj, Kunal Ganjawala, Vasundhara Das - Aparichithudu"
-    ],
-    "movie": "Aparichithudu",
-    "year": 2005,
-    "decade": "2000s",
-    "duration": 326,
-    "audioUrl": "https://aac.saavncdn.com/951/a58d70c8727ab8d5122fe894bdd31dbf_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/951/Aparichithudu-2005-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Harris Jayaraj",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-vWZXc7YB",
     "artistId": "kunal-ganjawala",
     "title": "Salaam-E-Ishq (From \"Salaam-E-Ishq\")",
@@ -25203,86 +21563,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-r8QB1Fyg",
-    "artistId": "kunal-ganjawala",
-    "title": "Dhava Dhava",
-    "artist": "V. Harikrishna, Anuradha Sriram, Kunal Ganjawala - Snehana Preetina",
-    "artists": [
-      "Kunal Ganjawala",
-      "V. Harikrishna, Anuradha Sriram, Kunal Ganjawala - Snehana Preetina"
-    ],
-    "movie": "Snehana Preetina",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 293,
-    "audioUrl": "https://aac.saavncdn.com/716/bf3ad8f5d0f9951c7104a7eee37e1a7e_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/716/Dhava-Dhava-Kannada-2018-20230619195041-500x500.jpg",
-    "genre": "kannada",
-    "composer": "V. Harikrishna",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-yAgEhJQy",
-    "artistId": "kunal-ganjawala",
-    "title": "Preethse Preethse",
-    "artist": "Kunal Ganjawala, Anoop Seelin - Preethse Preethse",
-    "artists": [
-      "Kunal Ganjawala",
-      "Kunal Ganjawala, Anoop Seelin - Preethse Preethse"
-    ],
-    "movie": "Preethse Preethse",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 292,
-    "audioUrl": "https://aac.saavncdn.com/715/0afd208a1c8915634fd313eaeb77cd68_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/715/Preethse-Preethse1-Kannada-2009-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Anoop Seelin",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-63DrP-zr",
-    "artistId": "kunal-ganjawala",
-    "title": "Ninagende Visheshavaada Maahithi",
-    "artist": "Jayanth Kaikini, Kunal Ganjawala, Hamsika Iyer - Prithvi (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Kunal Ganjawala",
-      "Jayanth Kaikini, Kunal Ganjawala, Hamsika Iyer - Prithvi (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Prithvi (Original Motion Picture Soundtrack)",
-    "year": 2010,
-    "decade": "2000s",
-    "duration": 266,
-    "audioUrl": "https://aac.saavncdn.com/022/cfe6c55cfda404bf042d3eb001cb570c_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/022/Prithvi-Kannada-2010-20250318111528-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Kunal Ganjawala, Hamsika Iyer, Jayanth Kaikini, Manikanth Kadri",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-5pt9V47Y",
-    "artistId": "kunal-ganjawala",
-    "title": "Dil Mangey More",
-    "artist": "Chakri, Kunal Ganjawala, Maha Lakshmi - Krishna",
-    "artists": [
-      "Kunal Ganjawala",
-      "Chakri, Kunal Ganjawala, Maha Lakshmi - Krishna"
-    ],
-    "movie": "Krishna",
-    "year": 2007,
-    "decade": "2000s",
-    "duration": 225,
-    "audioUrl": "https://aac.saavncdn.com/183/f6b9d6304d92ad44e99bbcd592ec774b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/183/Krishna-2007-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Chakri",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-OqQi2h5h",
     "artistId": "kunal-ganjawala",
     "title": "Bheegey Hont",
@@ -25299,86 +21579,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/476/Murder-Hindi-2026-20260327193520-500x500.jpg",
     "genre": "hindi",
     "composer": "Anu Malik",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-t4pZ79L1",
-    "artistId": "kunal-ganjawala",
-    "title": "Touch Me (Tamil)",
-    "artist": "Kunal Ganjawala, Gayatri Ganjawala, Pritam, Piraisoodan - Dhoom 2 - Tamil",
-    "artists": [
-      "Kunal Ganjawala",
-      "Kunal Ganjawala, Gayatri Ganjawala, Pritam, Piraisoodan - Dhoom 2 - Tamil"
-    ],
-    "movie": "Dhoom 2 - Tamil",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 317,
-    "audioUrl": "https://aac.saavncdn.com/475/71e65fd9f259d9aa1bdffe0dd17880f2_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/475/Dhoom-2-Tamil-Tamil-2006-20190329180951-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Pritam",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-3hkGU6Bc",
-    "artistId": "kunal-ganjawala",
-    "title": "Karige Loga",
-    "artist": "Devi Sri Prasad, Kunal Ganjawala, Megha, Vanamali - Aarya - 2",
-    "artists": [
-      "Kunal Ganjawala",
-      "Devi Sri Prasad, Kunal Ganjawala, Megha, Vanamali - Aarya - 2"
-    ],
-    "movie": "Aarya - 2",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 365,
-    "audioUrl": "https://aac.saavncdn.com/298/019372208b7876a707deaa65f3715aa7_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/298/Aarya-2-Telugu-2009-20190822135933-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Devi Sri Prasad",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-Qlh6lF6-",
-    "artistId": "kunal-ganjawala",
-    "title": "Ninna Kanda",
-    "artist": "Joshua Sridhar, Kunal Ganjawala - Arrasu",
-    "artists": [
-      "Kunal Ganjawala",
-      "Joshua Sridhar, Kunal Ganjawala - Arrasu"
-    ],
-    "movie": "Arrasu",
-    "year": 2019,
-    "decade": "2000s",
-    "duration": 283,
-    "audioUrl": "https://aac.saavncdn.com/100/a815eea9f5e987bb08f131b76f65c6c9_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/100/Baaro-Baaro-Kannada-2019-20230620182535-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Joshua Sridhar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-AD3P4F7U",
-    "artistId": "kunal-ganjawala",
-    "title": "O Manase",
-    "artist": "Kunal Ganjawala, V. Harikrishna - Gaja",
-    "artists": [
-      "Kunal Ganjawala",
-      "Kunal Ganjawala, V. Harikrishna - Gaja"
-    ],
-    "movie": "Gaja",
-    "year": 2007,
-    "decade": "2000s",
-    "duration": 277,
-    "audioUrl": "https://aac.saavncdn.com/159/f3f6a1ee41128ce2290d8e5a0505ac18_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/159/Gaja-Kannada-2007-500x500.jpg",
-    "genre": "kannada",
-    "composer": "V. Harikrishna",
     "lyricist": "",
     "language": "hindi"
   },
@@ -25423,86 +21623,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-bEU2g_Jq",
-    "artistId": "kunal-ganjawala",
-    "title": "Tu Tu Tu",
-    "artist": "Kunal Ganjawala, Shreya Ghoshal, Devi Sri Prasad - Ready",
-    "artists": [
-      "Kunal Ganjawala",
-      "Kunal Ganjawala, Shreya Ghoshal, Devi Sri Prasad - Ready"
-    ],
-    "movie": "Ready",
-    "year": 2008,
-    "decade": "2000s",
-    "duration": 263,
-    "audioUrl": "https://aac.saavncdn.com/724/c9cdd95875d794996a850dbd7a4541df_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/724/Ready-Telugu-2008-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Devi Sri Prasad",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-H0u-eLZW",
-    "artistId": "kunal-ganjawala",
-    "title": "Swapno Jeno Pelo Bhasha",
-    "artist": "Kunal Ganjawala, Mahalakshmi Iyer, Jeet Gannguli, Priyo Chatterjee - Saath Pake Bandha",
-    "artists": [
-      "Kunal Ganjawala",
-      "Kunal Ganjawala, Mahalakshmi Iyer, Jeet Gannguli, Priyo Chatterjee - Saath Pake Bandha"
-    ],
-    "movie": "Saath Pake Bandha",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 300,
-    "audioUrl": "https://aac.saavncdn.com/266/310f11fe26959fb1ec2092362db2fa58_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/266/Saath-Pake-Bandha-Bengali-2020-20201205000211-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Jeet Gannguli, Priyo Chatterjee",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-lc6BBQ2C",
-    "artistId": "kunal-ganjawala",
-    "title": "Jagadame",
-    "artist": "Mani Sharma, Kunal Ganjawala - Pokiri",
-    "artists": [
-      "Kunal Ganjawala",
-      "Mani Sharma, Kunal Ganjawala - Pokiri"
-    ],
-    "movie": "Pokiri",
-    "year": 2006,
-    "decade": "2000s",
-    "duration": 270,
-    "audioUrl": "https://aac.saavncdn.com/082/ab7689262b96c15cfd4b395e6d0bd2b8_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/082/Pokiri-2006-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Mani Sharma",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-xWL1pQZf",
-    "artistId": "kunal-ganjawala",
-    "title": "Onde Ondu Saari",
-    "artist": "Kaviraj, Kunal Ganjawala, Priya Hemesh - Mungaru Male (Original Motion Picture SoundtracK)",
-    "artists": [
-      "Kunal Ganjawala",
-      "Kaviraj, Kunal Ganjawala, Priya Hemesh - Mungaru Male (Original Motion Picture SoundtracK)"
-    ],
-    "movie": "Mungaru Male (Original Motion Picture SoundtracK)",
-    "year": 2006,
-    "decade": "2000s",
-    "duration": 272,
-    "audioUrl": "https://aac.saavncdn.com/087/85abf195fc67d57ebc596e979adddc41_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/087/Mungaru-Male-Original-Motion-Picture-SoundtracK-Kannada-2006-20250318150358-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Kunal Ganjawala, Priya Hemesh, Kaviraj, Mano Murthy",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-wj9ecyic",
     "artistId": "kunal-ganjawala",
     "title": "Loot Jayenge",
@@ -25523,46 +21643,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-hdgdVgih",
-    "artistId": "kunal-ganjawala",
-    "title": "Mon Bebagi",
-    "artist": "Kunal Ganjawala, Akriti Kakar, Rana Majumdar, Jeet Gannguli, Prasen - Paglu",
-    "artists": [
-      "Kunal Ganjawala",
-      "Kunal Ganjawala, Akriti Kakar, Rana Majumdar, Jeet Gannguli, Prasen - Paglu"
-    ],
-    "movie": "Paglu",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 250,
-    "audioUrl": "https://aac.saavncdn.com/361/d3cbdeaf80aa9d53b180aa6f78457b09_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/361/Paglu-Bengali-2020-20201203174912-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Jeet Gannguli, Prasen",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-xEThunIY",
-    "artistId": "kunal-ganjawala",
-    "title": "O My Love",
-    "artist": "Kunal Ganjawala ft. Shreya Ghoshal, Jeet Gannguli - Amanush (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Kunal Ganjawala",
-      "Kunal Ganjawala ft. Shreya Ghoshal, Jeet Gannguli - Amanush (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Amanush (Original Motion Picture Soundtrack)",
-    "year": 2010,
-    "decade": "2000s",
-    "duration": 304,
-    "audioUrl": "https://aac.saavncdn.com/549/eda7310196dd67a8ff37285c338b7629_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/549/Amanush-Original-Motion-Picture-Soundtrack-Bengali-2010-20240529211601-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Jeet Gannguli",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-KXX4u4er",
     "artistId": "kunal-ganjawala",
     "title": "Dil Na Diya",
@@ -25579,86 +21659,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/085/Krrish-Hindi-2006-20221201153524-500x500.jpg",
     "genre": "hindi",
     "composer": "Rajesh Roshan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-OXRaJ6Qg",
-    "artistId": "kunal-ganjawala",
-    "title": "Prem Amar Title Track",
-    "artist": "Kunal Ganjawala ft. June Banerjee, Jeet Gannguli - Prem Amar (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Kunal Ganjawala",
-      "Kunal Ganjawala ft. June Banerjee, Jeet Gannguli - Prem Amar (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Prem Amar (Original Motion Picture Soundtrack)",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 235,
-    "audioUrl": "https://aac.saavncdn.com/785/ca64026dcde32d77d687c0021cec0f10_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/785/Prem-Amar-Original-Motion-Picture-Soundtrack-Bengali-2009-20240819151502-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Jeet Gannguli",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-AEWfzX4i",
-    "artistId": "kunal-ganjawala",
-    "title": "Amay Ador Kor (Original)",
-    "artist": "Kunal Ganjawala ft. Ankita Raut - Khokababu (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Kunal Ganjawala",
-      "Kunal Ganjawala ft. Ankita Raut - Khokababu (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Khokababu (Original Motion Picture Soundtrack)",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 247,
-    "audioUrl": "https://aac.saavncdn.com/224/4f599c295fb48ee522a5204816c66317_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/224/Khokababu-Original-Motion-Picture-Soundtrack-Bengali-2024-20260602202150-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Rishi Canda",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-wgAGca3G",
-    "artistId": "kunal-ganjawala",
-    "title": "Amay Ador Kor",
-    "artist": "Kunal Ganjawala ft. Raj Barman - Bengali Hits of Subhashree",
-    "artists": [
-      "Kunal Ganjawala",
-      "Kunal Ganjawala ft. Raj Barman - Bengali Hits of Subhashree"
-    ],
-    "movie": "Bengali Hits of Subhashree",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 247,
-    "audioUrl": "https://aac.saavncdn.com/154/93d67d6d1362c06eea495787ee695191_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/154/Bengali-Hits-of-Subhashree-Bengali-2026-20260601214230-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Rishi Canda",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-nIG97Qfo",
-    "artistId": "kunal-ganjawala",
-    "title": "Mahi ve",
-    "artist": "Kunal Ganjawala ft. Jeet Gannguli - Challenge",
-    "artists": [
-      "Kunal Ganjawala",
-      "Kunal Ganjawala ft. Jeet Gannguli - Challenge"
-    ],
-    "movie": "Challenge",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 285,
-    "audioUrl": "https://aac.saavncdn.com/600/e2173f218cfd8589369ff4eb490db535_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/600/Challenge-Bengali-2009-20240203072502-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Jeet Gannguli",
     "lyricist": "",
     "language": "hindi"
   },
@@ -26383,46 +22383,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-iUWrzqYp",
-    "artistId": "arijit-singh",
-    "title": "Asatoma Sadgamaya",
-    "artist": "Arijit Singh ft. Indraadip Das Gupta - Khaad (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Arijit Singh",
-      "Arijit Singh ft. Indraadip Das Gupta - Khaad (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Khaad (Original Motion Picture Soundtrack)",
-    "year": 2014,
-    "decade": "2000s",
-    "duration": 186,
-    "audioUrl": "https://aac.saavncdn.com/120/eedacfc9827d06553440c0398af1d1a8_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/120/Khaad-Original-Motion-Picture-Soundtrack-Bengali-2014-20251111175802-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Indraadip Das Gupta ",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-d3sanFq-",
-    "artistId": "arijit-singh",
-    "title": "Sadher Lighty",
-    "artist": "Arijit Singh ft. Samidh Mukherjee, Indraadip Das Gupta - Obhishopto Nighty (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Arijit Singh",
-      "Arijit Singh ft. Samidh Mukherjee, Indraadip Das Gupta - Obhishopto Nighty (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Obhishopto Nighty (Original Motion Picture Soundtrack)",
-    "year": 2014,
-    "decade": "2000s",
-    "duration": 227,
-    "audioUrl": "https://aac.saavncdn.com/346/0e4de05b9335d2bbe9c6481aaa5e2f38_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/346/Obhishopto-Nighty-Original-Motion-Picture-Soundtrack-Bengali-2014-20260821223802-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Indraadip Das Gupta ",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-5gwNp22o",
     "artistId": "arijit-singh",
     "title": "Tadapnaa Judaa Judaa",
@@ -26903,26 +22863,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-CP-MsyFh",
-    "artistId": "sonu-nigam",
-    "title": "Modada Olage",
-    "artist": "V. Harikrishna, Sonu Nigam - Romantic Love Songs",
-    "artists": [
-      "Sonu Nigam",
-      "V. Harikrishna, Sonu Nigam - Romantic Love Songs"
-    ],
-    "movie": "Romantic Love Songs",
-    "year": 2019,
-    "decade": "2000s",
-    "duration": 362,
-    "audioUrl": "https://aac.saavncdn.com/141/e964732cbf564435deb6ec2bbd431994_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/141/Romantic-Love-Songs-Kannada-2019-20231219102458-500x500.jpg",
-    "genre": "kannada",
-    "composer": "V. Harikrishna",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-1_oiHrmN",
     "artistId": "sonu-nigam",
     "title": "Mujhe Raat Din Bas",
@@ -26939,26 +22879,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/341/Romantic-Songs-Of-Sonu-Nigam-Hindi-2015-500x500.jpg",
     "genre": "hindi",
     "composer": "Jatin-Lalit",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-Hmg56DjT",
-    "artistId": "sonu-nigam",
-    "title": "Minchagi Neenu (From \"Galipata\")",
-    "artist": "Sonu Nigam - Feel The Love With Romantic Songs",
-    "artists": [
-      "Sonu Nigam",
-      "Sonu Nigam - Feel The Love With Romantic Songs"
-    ],
-    "movie": "Feel The Love With Romantic Songs",
-    "year": 2022,
-    "decade": "2000s",
-    "duration": 266,
-    "audioUrl": "https://aac.saavncdn.com/072/32c06eeef7bc6c4c9bb97cd363e4c1ed_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/072/Feel-The-Love-With-Romantic-Songs-Kannada-2022-20220213000255-500x500.jpg",
-    "genre": "kannada",
-    "composer": "V. Harikrishna",
     "lyricist": "",
     "language": "hindi"
   },
@@ -26999,26 +22919,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/571/Romantic-Khans-Hindi-2015-500x500.jpg",
     "genre": "hindi",
     "composer": "Jatin-Lalit",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-PSrIYFJl",
-    "artistId": "sonu-nigam",
-    "title": "Ille Ile Ello",
-    "artist": "Giridhar Divan, Sonu Nigam, Shreya Ghoshal - Romantic Love Songs",
-    "artists": [
-      "Sonu Nigam",
-      "Giridhar Divan, Sonu Nigam, Shreya Ghoshal - Romantic Love Songs"
-    ],
-    "movie": "Romantic Love Songs",
-    "year": 2019,
-    "decade": "2000s",
-    "duration": 283,
-    "audioUrl": "https://aac.saavncdn.com/141/e28097e3fc79fc545c93a53467cc1a12_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/141/Romantic-Love-Songs-Kannada-2019-20231219102458-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Giridhar Divan",
     "lyricist": "",
     "language": "hindi"
   },
@@ -27099,46 +22999,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/602/Sonu-Nigam-Romantic-Melodies-Hindi-2020-20200727180829-500x500.jpg",
     "genre": "hindi",
     "composer": "Laxmi Narayan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-8nIDlBFf",
-    "artistId": "sonu-nigam",
-    "title": "Sandese Aate Hai (Lo - Fi Remix)",
-    "artist": "Sonu Nigam, Roopkumar Rathod - Romantic Melodies Bollywood Affair (Lo-Fi Remix)",
-    "artists": [
-      "Sonu Nigam",
-      "Sonu Nigam, Roopkumar Rathod - Romantic Melodies Bollywood Affair (Lo-Fi Remix)"
-    ],
-    "movie": "Romantic Melodies Bollywood Affair (Lo-Fi Remix)",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 352,
-    "audioUrl": "https://aac.saavncdn.com/625/63a869346a7edd07f9333c7395a94e9e_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/625/Romantic-Melodies-Bollywood-Affair-Lo-Fi-Remix-Hindi-2023-20230918163152-500x500.jpg",
-    "genre": "hindi",
-    "composer": "Sonu Nigam, Roopkumar Rathod, Anu Malik",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-qmfECVtE",
-    "artistId": "sonu-nigam",
-    "title": "Ninna Nodalentho",
-    "artist": "V. Sridhar, Sonu Nigam, Shreya Ghoshal - Romantic Love Songs",
-    "artists": [
-      "Sonu Nigam",
-      "V. Sridhar, Sonu Nigam, Shreya Ghoshal - Romantic Love Songs"
-    ],
-    "movie": "Romantic Love Songs",
-    "year": 2019,
-    "decade": "2000s",
-    "duration": 286,
-    "audioUrl": "https://aac.saavncdn.com/141/ed9229e0f6cca0552ecf47d061236494_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/141/Romantic-Love-Songs-Kannada-2019-20231219102458-500x500.jpg",
-    "genre": "kannada",
-    "composer": "V. Sridhar",
     "lyricist": "",
     "language": "hindi"
   },
@@ -27243,26 +23103,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-jXqimfQE",
-    "artistId": "sonu-nigam",
-    "title": "Paravashanadenu",
-    "artist": "Sonu Nigam - Paramathma",
-    "artists": [
-      "Sonu Nigam",
-      "Sonu Nigam - Paramathma"
-    ],
-    "movie": "Paramathma",
-    "year": 2011,
-    "decade": "2000s",
-    "duration": 236,
-    "audioUrl": "https://aac.saavncdn.com/815/2ce5f60e77df996faaf0db36cebb2a0d_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/815/Paramathma-Kannada-2019-20191031125126-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Sonu Nigam, V. Harikrishna",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-B3kRx-l_",
     "artistId": "sonu-nigam",
     "title": "Dil Dooba",
@@ -27283,46 +23123,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-qCd6mqXR",
-    "artistId": "sonu-nigam",
-    "title": "Minchagi Neenu",
-    "artist": "Sonu Nigam, V. Harikrishna - Gaalipata",
-    "artists": [
-      "Sonu Nigam",
-      "Sonu Nigam, V. Harikrishna - Gaalipata"
-    ],
-    "movie": "Gaalipata",
-    "year": 2008,
-    "decade": "2000s",
-    "duration": 265,
-    "audioUrl": "https://aac.saavncdn.com/125/20372194ac2f009e7fb70169526c044a_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/125/Gaalipata-Kannada-2008-500x500.jpg",
-    "genre": "kannada",
-    "composer": "V. Harikrishna",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-tqIx-jPh",
-    "artistId": "sonu-nigam",
-    "title": "Mathu Nannolu",
-    "artist": "Sonu Nigam, Shreya Goshal, V. Harikrishna - Gaja",
-    "artists": [
-      "Sonu Nigam",
-      "Sonu Nigam, Shreya Goshal, V. Harikrishna - Gaja"
-    ],
-    "movie": "Gaja",
-    "year": 2007,
-    "decade": "2000s",
-    "duration": 312,
-    "audioUrl": "https://aac.saavncdn.com/159/2bef0221e78ba038fb14351029095742_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/159/Gaja-Kannada-2007-500x500.jpg",
-    "genre": "kannada",
-    "composer": "V. Harikrishna",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-IEuHNGVB",
     "artistId": "sonu-nigam",
     "title": "Ghar Kab Aaoge (From \"BORDER 2\")",
@@ -27339,26 +23139,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/085/Ghar-Kab-Aaoge-From-BORDER-2-Hindi-2026-20251231171003-500x500.jpg",
     "genre": "hindi",
     "composer": "Anu Malik, Mithoon",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-Ufvbz75X",
-    "artistId": "sonu-nigam",
-    "title": "Matinalli Helalarenu",
-    "artist": "Sonu Nigam - Bombat",
-    "artists": [
-      "Sonu Nigam",
-      "Sonu Nigam - Bombat"
-    ],
-    "movie": "Bombat",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 324,
-    "audioUrl": "https://aac.saavncdn.com/942/ddf3a011ff350136b494fca9bc584112_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/942/Bombat-Kannada-2009-20221210171302-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Mano Murthy",
     "lyricist": "",
     "language": "hindi"
   },
@@ -27403,26 +23183,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-AOYQsXKr",
-    "artistId": "sonu-nigam",
-    "title": "Avarivarajothe",
-    "artist": "Sonu Nigam, Anuradha Bhat - Jarasandha",
-    "artists": [
-      "Sonu Nigam",
-      "Sonu Nigam, Anuradha Bhat - Jarasandha"
-    ],
-    "movie": "Jarasandha",
-    "year": 2011,
-    "decade": "2000s",
-    "duration": 253,
-    "audioUrl": "https://aac.saavncdn.com/440/a000b79ef8764842427c93ab68a32158_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/440/Jarasandha-Kannada-2011-20250408062653-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Sonu Nigam, Anuradha Bhat, Arjun Janya",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-lULDgPcz",
     "artistId": "sonu-nigam",
     "title": "Main Hoon Na",
@@ -27439,106 +23199,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/388/Main-Hoon-Na-Hindi-2004-20221202051448-500x500.jpg",
     "genre": "hindi",
     "composer": "Anu Malik",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-bTqmfIT_",
-    "artistId": "sonu-nigam",
-    "title": "Summane Yake Bande",
-    "artist": "Gurukiran, Sonu Nigam, Shruthi - Jeeva",
-    "artists": [
-      "Sonu Nigam",
-      "Gurukiran, Sonu Nigam, Shruthi - Jeeva"
-    ],
-    "movie": "Jeeva",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 281,
-    "audioUrl": "https://aac.saavncdn.com/889/0d1f45defde49826ace2ef491180e4c8_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/889/Jeeva-Georgian-2009-20231110154956-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Gurukiran",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-GrMHQwH_",
-    "artistId": "sonu-nigam",
-    "title": "Nee Sanihake Bandre",
-    "artist": "V. Harikrishna, Jayanth Kaikini, Sonu Nigam - Maleyali Jotheyali (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Sonu Nigam",
-      "V. Harikrishna, Jayanth Kaikini, Sonu Nigam - Maleyali Jotheyali (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Maleyali Jotheyali (Original Motion Picture Soundtrack)",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 264,
-    "audioUrl": "https://aac.saavncdn.com/933/b7877c45265383d865f1bdac16ad935b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/933/Maleyali-Jotheyali-Kannada-2009-20250318121851-500x500.jpg",
-    "genre": "kannada",
-    "composer": "V. Harikrishna, Jayanth Kaikini, Sonu Nigam",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-GbcVEJ-J",
-    "artistId": "sonu-nigam",
-    "title": "Khata Vintawa",
-    "artist": "Sonu Nigam, Shreya Ghoshal - Krrish",
-    "artists": [
-      "Sonu Nigam",
-      "Sonu Nigam, Shreya Ghoshal - Krrish"
-    ],
-    "movie": "Krrish",
-    "year": 2006,
-    "decade": "2000s",
-    "duration": 388,
-    "audioUrl": "https://aac.saavncdn.com/283/433f8c606b145c9e6aaa55b21f817851_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/283/Krrish-Telugu-2006-20221201153459-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Rajesh Roshan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-Wqvm5rD3",
-    "artistId": "sonu-nigam",
-    "title": "Nee Nenedare (From \"Junglee\")",
-    "artist": "Sonu Nigam ft. Aarohi Raghav - Aindrita Ray Hit Songs",
-    "artists": [
-      "Sonu Nigam",
-      "Sonu Nigam ft. Aarohi Raghav - Aindrita Ray Hit Songs"
-    ],
-    "movie": "Aindrita Ray Hit Songs",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 260,
-    "audioUrl": "https://aac.saavncdn.com/676/1bdaf28a1167209d0885db76ea63102a_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/676/Aindrita-Ray-Hit-Songs-Kannada-2025-20251016135129-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Sonu Nigam, V. Harikrishna, Jayanth Kaikini",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-lc3TBYA_",
-    "artistId": "sonu-nigam",
-    "title": "Nee Nenedare",
-    "artist": "V. Harikrishna, Jayanth Kaikini, Sonu Nigam - Junglee (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Sonu Nigam",
-      "V. Harikrishna, Jayanth Kaikini, Sonu Nigam - Junglee (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Junglee (Original Motion Picture Soundtrack)",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 262,
-    "audioUrl": "https://aac.saavncdn.com/681/077d60fc7b5b268a6248286de85f7274_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/681/Junglee-Kannada-2009-20250318124744-500x500.jpg",
-    "genre": "kannada",
-    "composer": "V. Harikrishna, Jayanth Kaikini, Sonu Nigam",
     "lyricist": "",
     "language": "hindi"
   },
@@ -27563,46 +23223,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-rwfMOKG-",
-    "artistId": "sonu-nigam",
-    "title": "Akasha Neene (Male)",
-    "artist": "Sonu Nigam, V. Harikrishna - Ambaari",
-    "artists": [
-      "Sonu Nigam",
-      "Sonu Nigam, V. Harikrishna - Ambaari"
-    ],
-    "movie": "Ambaari",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 289,
-    "audioUrl": "https://aac.saavncdn.com/156/17e1bde90a4a1139f175cf0f96a7438b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/156/Ambaari1-Kannada-2009-500x500.jpg",
-    "genre": "kannada",
-    "composer": "V. Harikrishna",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-ClvHqEPh",
-    "artistId": "sonu-nigam",
-    "title": "Sadha Ninna Kannali",
-    "artist": "Sonu Nigam, Shreya Ghoshal, V. Harikrishna, Jayanth Kaikini - Bachchan",
-    "artists": [
-      "Sonu Nigam",
-      "Sonu Nigam, Shreya Ghoshal, V. Harikrishna, Jayanth Kaikini - Bachchan"
-    ],
-    "movie": "Bachchan",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 277,
-    "audioUrl": "https://aac.saavncdn.com/963/91d88a50c8b78282298ec089f6e18bbc_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/963/Bachchan-Kannada-2013-20221028182424-500x500.jpg",
-    "genre": "kannada",
-    "composer": "V. Harikrishna, Shreya Ghoshal, Jayanth Kaikini, Sonu Nigam",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-veoghkiO",
     "artistId": "sonu-nigam",
     "title": "Ankhiyon Se Goli Maare (From \"Dulhe Raja\")",
@@ -27623,46 +23243,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-xbx9s_58",
-    "artistId": "sonu-nigam",
-    "title": "Ninnidale",
-    "artist": "Jayanth Kaikini, Sonu Nigam - Milana (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Sonu Nigam",
-      "Jayanth Kaikini, Sonu Nigam - Milana (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Milana (Original Motion Picture Soundtrack)",
-    "year": 2007,
-    "decade": "2000s",
-    "duration": 289,
-    "audioUrl": "https://aac.saavncdn.com/193/0ea552574e2aa76244eb1b149275205c_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/193/Milana-Kannada-2007-20250318135007-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Sonu Nigam, Jayanth Kaikini, Manomurthy",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-B7oQkl8B",
-    "artistId": "sonu-nigam",
-    "title": "Preethi Neenillade",
-    "artist": "Sonu Nigam, K. S. Chithra - Baava Baamaida",
-    "artists": [
-      "Sonu Nigam",
-      "Sonu Nigam, K. S. Chithra - Baava Baamaida"
-    ],
-    "movie": "Baava Baamaida",
-    "year": 2001,
-    "decade": "2000s",
-    "duration": 336,
-    "audioUrl": "https://aac.saavncdn.com/822/b11eb8d2d820777bda5deb949dc2b27e_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/822/Baava-Baamaida-Kannada-2001-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Hamsalekha",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-ms8pKrUh",
     "artistId": "sonu-nigam",
     "title": "Falak Dekhun (Sonu Nigam)",
@@ -27679,46 +23259,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/575/Garam-Masala-Hindi-2005-20210226131435-500x500.jpg",
     "genre": "hindi",
     "composer": "Pritam",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-7i04Ac5N",
-    "artistId": "sonu-nigam",
-    "title": "Ee Sanje Yakagide",
-    "artist": "Kaviraj, Sonu Nigam - Geleya (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Sonu Nigam",
-      "Kaviraj, Sonu Nigam - Geleya (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Geleya (Original Motion Picture Soundtrack)",
-    "year": 2007,
-    "decade": "2000s",
-    "duration": 311,
-    "audioUrl": "https://aac.saavncdn.com/186/93c03cc355d7aebe08738dbce4a82bb3_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/186/Geleya-Kannada-2007-20250318150601-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Sonu Nigam, Kaviraj, Mano Murthy",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-CU8tXxGK",
-    "artistId": "sonu-nigam",
-    "title": "O Gunavantha",
-    "artist": "Sonu Nigam, Shreya Goshal, V. Harikrishna - Jothe Jotheyali",
-    "artists": [
-      "Sonu Nigam",
-      "Sonu Nigam, Shreya Goshal, V. Harikrishna - Jothe Jotheyali"
-    ],
-    "movie": "Jothe Jotheyali",
-    "year": 2006,
-    "decade": "2000s",
-    "duration": 262,
-    "audioUrl": "https://aac.saavncdn.com/241/68df2e0de439e8007e5f6a509ceed029_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/241/Jothe-Jotheyali-Kannada-2006-500x500.jpg",
-    "genre": "kannada",
-    "composer": "V. Harikrishna",
     "lyricist": "",
     "language": "hindi"
   },
@@ -27863,26 +23403,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-7c6lM6Ly",
-    "artistId": "sonu-nigam",
-    "title": "Kan Kanna Salige",
-    "artist": "V. Harikrishna, V.Nagendra Prasad, Sonu Nigam - Navagraha (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Sonu Nigam",
-      "V. Harikrishna, V.Nagendra Prasad, Sonu Nigam - Navagraha (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Navagraha (Original Motion Picture Soundtrack)",
-    "year": 2008,
-    "decade": "2000s",
-    "duration": 272,
-    "audioUrl": "https://aac.saavncdn.com/513/efd9869ee75063fd8e858cdbcc5ac956_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/513/Navagraha-Kannada-2008-20250318141425-500x500.jpg",
-    "genre": "kannada",
-    "composer": "V. Harikrishna, V.Nagendra Prasad, Sonu Nigam",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-Vddo-avX",
     "artistId": "sonu-nigam",
     "title": "Do Pal",
@@ -27899,46 +23419,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/313/Veer-Zaara-Hindi-2004-20190329150841-500x500.jpg",
     "genre": "hindi",
     "composer": "Madan Mohan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-ZCF2JGxn",
-    "artistId": "sonu-nigam",
-    "title": "Aramage",
-    "artist": "Sonu Nigam, Shreya Ghoshal, Mano Murthy - Gokula",
-    "artists": [
-      "Sonu Nigam",
-      "Sonu Nigam, Shreya Ghoshal, Mano Murthy - Gokula"
-    ],
-    "movie": "Gokula",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 294,
-    "audioUrl": "https://aac.saavncdn.com/970/c103b76212f5835f1aab9ba81ddf5a41_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/970/Gokula-Kannada-2009-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Mano Murthy",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-vSyLxdUO",
-    "artistId": "sonu-nigam",
-    "title": "Koncha Reshime",
-    "artist": "Sonu Nigam, Archana Ravi, Veer Samarth ft. Aarohi Raghav - Olave Vismaya",
-    "artists": [
-      "Sonu Nigam",
-      "Sonu Nigam, Archana Ravi, Veer Samarth ft. Aarohi Raghav - Olave Vismaya"
-    ],
-    "movie": "Olave Vismaya",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 276,
-    "audioUrl": "https://aac.saavncdn.com/692/a212e2c550e52ab786ada7ad4b7a2059_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/692/Olave-Vismaya1-Kannada-2009-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Veer Samarth",
     "lyricist": "",
     "language": "hindi"
   },
@@ -27999,26 +23479,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/813/No-Entry-Hindi-2005-20240408221513-500x500.jpg",
     "genre": "hindi",
     "composer": "Sonu Nigam, Alisha Chinai, Anu Malik",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-XEOm4xTH",
-    "artistId": "sonu-nigam",
-    "title": "Ello Maleyagide",
-    "artist": "Sonu Nigam, Mano Murthy - Manasaare",
-    "artists": [
-      "Sonu Nigam",
-      "Sonu Nigam, Mano Murthy - Manasaare"
-    ],
-    "movie": "Manasaare",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 249,
-    "audioUrl": "https://aac.saavncdn.com/007/4ff85c81d15b6922a2ae2a49430ef0ee_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/007/Manasaare-Kannada-2009-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Mano Murthy",
     "lyricist": "",
     "language": "hindi"
   },
@@ -28099,26 +23559,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/547/Cafe-Classics-Vol-1-Hindi-2018-20180112091207-500x500.jpg",
     "genre": "hindi",
     "composer": "Aadesh Srivastava",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-a4ASAqHm",
-    "artistId": "sonu-nigam",
-    "title": "Hare Krishna Mahamantra",
-    "artist": "Sonu Nigam - Krishna Nee Begane - Kannada Krishna Classics",
-    "artists": [
-      "Sonu Nigam",
-      "Sonu Nigam - Krishna Nee Begane - Kannada Krishna Classics"
-    ],
-    "movie": "Krishna Nee Begane - Kannada Krishna Classics",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 372,
-    "audioUrl": "https://aac.saavncdn.com/000/bfc96ccb2691cc0a9ea1eff0ac96106c_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/000/Krishna-Nee-Begane-Kannada-Krishna-Classics-Kannada-2021-20210812164613-500x500.jpg",
-    "genre": "sanskrit",
-    "composer": "Bickram Ghosh",
     "lyricist": "",
     "language": "hindi"
   },
@@ -28303,86 +23743,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-DJ4Q3qYv",
-    "artistId": "shreya-ghoshal",
-    "title": "Madhuramu Kadha (From \"The Family Star\")",
-    "artist": "Shreya Ghoshal ft. 2 Chainz - Celebration With Top 10 Romantic Hits",
-    "artists": [
-      "Shreya Ghoshal",
-      "Shreya Ghoshal ft. 2 Chainz - Celebration With Top 10 Romantic Hits"
-    ],
-    "movie": "Celebration With Top 10 Romantic Hits",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 249,
-    "audioUrl": "https://aac.saavncdn.com/922/ed9cdf3247062b7793801af9304c4076_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/922/Celebration-With-Top-10-Romantic-Hits-Telugu-2025-20251014181011-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Gopi Sunder",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-CroW-gMo",
-    "artistId": "shreya-ghoshal",
-    "title": "Tomake Chuye Dilam (Female Version)",
-    "artist": "Shreya Ghoshal ft. Arindom - Best Bengali Romantic Songs",
-    "artists": [
-      "Shreya Ghoshal",
-      "Shreya Ghoshal ft. Arindom - Best Bengali Romantic Songs"
-    ],
-    "movie": "Best Bengali Romantic Songs",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 347,
-    "audioUrl": "https://aac.saavncdn.com/836/09c2cd41ba839372c6e14c5dc520f95a_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/836/Best-Bengali-Romantic-Songs-Bengali-2025-20251111182158-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Indraadip Das Gupta ",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-c-QEXHJa",
-    "artistId": "shreya-ghoshal",
-    "title": "Naam Na Jana Pakhi (Female Version)",
-    "artist": "Shreya Ghoshal - Best Bengali Romantic Songs",
-    "artists": [
-      "Shreya Ghoshal",
-      "Shreya Ghoshal - Best Bengali Romantic Songs"
-    ],
-    "movie": "Best Bengali Romantic Songs",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 247,
-    "audioUrl": "https://aac.saavncdn.com/836/ebc349b0edba78cbad5816d9c8ee0b03_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/836/Best-Bengali-Romantic-Songs-Bengali-2025-20251111182158-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Anindya Chattopadhyay",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-s6XuM9Ef",
-    "artistId": "shreya-ghoshal",
-    "title": "Nodoka (From \"Pushpa 2 The Rule\")",
-    "artist": "Shreya Ghoshal - Sandalwood Emotional-Romantic Superhits",
-    "artists": [
-      "Shreya Ghoshal",
-      "Shreya Ghoshal - Sandalwood Emotional-Romantic Superhits"
-    ],
-    "movie": "Sandalwood Emotional-Romantic Superhits",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 260,
-    "audioUrl": "https://aac.saavncdn.com/900/fcfc6988af8e8705bbb60f3f45015334_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/900/Sandalwood-Emotional-Romantic-Superhits-Kannada-2025-20251107191052-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Devi Sri Prasad",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-g3vtbp4h",
     "artistId": "shreya-ghoshal",
     "title": "Khuda Ki Kasam (From \"Rang\")",
@@ -28463,26 +23823,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-PwkLXF_h",
-    "artistId": "shreya-ghoshal",
-    "title": "Kichu Kotha Jayena Bola (From \"Sangharsh\")",
-    "artist": "Gautam, Sushmit, Moloy Ganguly, Shaan, Shreya Ghoshal - Evergreen Bangla Romantic Movie Songs",
-    "artists": [
-      "Shreya Ghoshal",
-      "Gautam, Sushmit, Moloy Ganguly, Shaan, Shreya Ghoshal - Evergreen Bangla Romantic Movie Songs"
-    ],
-    "movie": "Evergreen Bangla Romantic Movie Songs",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 309,
-    "audioUrl": "https://aac.saavncdn.com/722/385bb96fab45a4e8b78bd51400f62b1b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/722/Evergreen-Bangla-Romantic-Movie-Songs-Bengali-2026-20260506191104-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Moloy Ganguly",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-y38w-QVf",
     "artistId": "shreya-ghoshal",
     "title": "Rozana Lofi Mix(Remix By Moodyboy)",
@@ -28519,26 +23859,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/040/Shreya-Ghoshal-Romantic-Melodies-Hindi-2021-20210313004649-500x500.jpg",
     "genre": "hindi",
     "composer": "Laxmi Narayan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-DoYctiEo",
-    "artistId": "shreya-ghoshal",
-    "title": "Hey Naayak",
-    "artist": "Shreya Ghoshal, Naveen Madhav, S.S. Thaman - Romantic Kings",
-    "artists": [
-      "Shreya Ghoshal",
-      "Shreya Ghoshal, Naveen Madhav, S.S. Thaman - Romantic Kings"
-    ],
-    "movie": "Romantic Kings",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 193,
-    "audioUrl": "https://aac.saavncdn.com/912/587f312b04cdbf38bf3775aac99f59ee_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/912/Romantic-Kings-Telugu-2015-500x500.jpg",
-    "genre": "telugu",
-    "composer": "S.S. Thaman",
     "lyricist": "",
     "language": "hindi"
   },
@@ -28603,26 +23923,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-z_uOlzrs",
-    "artistId": "shreya-ghoshal",
-    "title": "Preminche Premava",
-    "artist": "Shreya Ghoshal, Naresh Iyer, A.R. Rahman - Romantic Jukebox - Shreya Ghoshal & Sunitha",
-    "artists": [
-      "Shreya Ghoshal",
-      "Shreya Ghoshal, Naresh Iyer, A.R. Rahman - Romantic Jukebox - Shreya Ghoshal & Sunitha"
-    ],
-    "movie": "Romantic Jukebox - Shreya Ghoshal & Sunitha",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 354,
-    "audioUrl": "https://aac.saavncdn.com/437/6d2de2df7c16435e1a7255d5cced8748_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/437/Romantic-Jukebox-Shreya-Ghoshal-Sunitha-Telugu-2015-500x500.jpg",
-    "genre": "telugu",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-PTNX7k-6",
     "artistId": "shreya-ghoshal",
     "title": "Vaaroon Forever (From “Mirzapur The Movie”)",
@@ -28639,26 +23939,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/381/Vaaroon-Forever-From-Mirzapur-The-Movie-Hindi-2026-20260817160523-500x500.jpg",
     "genre": "hindi",
     "composer": "Anand Bhaskar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-B6d7Dnf9",
-    "artistId": "shreya-ghoshal",
-    "title": "KALYANI (Remix)",
-    "artist": "ARJN, KDS, FIFTY4, Shreya Ghoshal - KALYANI (Remix)",
-    "artists": [
-      "Shreya Ghoshal",
-      "ARJN, KDS, FIFTY4, Shreya Ghoshal - KALYANI (Remix)"
-    ],
-    "movie": "KALYANI (Remix)",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 269,
-    "audioUrl": "https://aac.saavncdn.com/475/5fc341ce2ad68492fce5ed0bf4655f8f_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/475/KALYANI-Remix-Malayalam-2026-20260622131127-500x500.jpg",
-    "genre": "malayalam",
-    "composer": "Keshav Tyohar, Vishnu V, Suhas Moideen",
     "lyricist": "",
     "language": "hindi"
   },
@@ -28863,66 +24143,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-pAWzfxqU",
-    "artistId": "shreya-ghoshal",
-    "title": "Thodi Si Daaru",
-    "artist": "AP Dhillon, Shreya Ghoshal - Thodi Si Daaru",
-    "artists": [
-      "Shreya Ghoshal",
-      "AP Dhillon, Shreya Ghoshal - Thodi Si Daaru"
-    ],
-    "movie": "Thodi Si Daaru",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 180,
-    "audioUrl": "https://aac.saavncdn.com/587/855f5c3f77ae0c40ed7de3c955f8fdcc_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/587/Thodi-Si-Daaru-Punjabi-2025-20250717063530-500x500.jpg",
-    "genre": "punjabi",
-    "composer": "AP Dhillon, Shinda Kahlon, Luca Mauti",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-1gMfMz-B",
-    "artistId": "shreya-ghoshal",
-    "title": "Andam Lo Andhra",
-    "artist": "Mani Sharma, Shreya Ghoshal, S.P. Balasubrahmanyam - Lakshmi Narasimha",
-    "artists": [
-      "Shreya Ghoshal",
-      "Mani Sharma, Shreya Ghoshal, S.P. Balasubrahmanyam - Lakshmi Narasimha"
-    ],
-    "movie": "Lakshmi Narasimha",
-    "year": 2000,
-    "decade": "2000s",
-    "duration": 330,
-    "audioUrl": "https://aac.saavncdn.com/753/d6ee96b6d0fade1daa84742f5eebadfb_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/753/Lakshmi-Narasimha-2000-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Mani Sharma",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-_ZAsfN8t",
-    "artistId": "shreya-ghoshal",
-    "title": "Hilesso Hilessa",
-    "artist": "Devi Sri Prasad, Nakash Aziz, Shreya Ghoshal ft. Akkineni Naga Chaitanya, Sai Pallavi - Thandel",
-    "artists": [
-      "Shreya Ghoshal",
-      "Devi Sri Prasad, Nakash Aziz, Shreya Ghoshal ft. Akkineni Naga Chaitanya, Sai Pallavi - Thandel"
-    ],
-    "movie": "Thandel",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 209,
-    "audioUrl": "https://aac.saavncdn.com/925/7ccf097d065ebef79162c20d044283f2_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/925/Thandel-Telugu-2024-20250225125810-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Devi Sri Prasad, Nakash Aziz, Shreya Ghoshal",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-peNXmheB",
     "artistId": "shreya-ghoshal",
     "title": "Guli Mata",
@@ -28959,26 +24179,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/781/Rowdy-Rathore-Hindi-2012-20200627135501-500x500.jpg",
     "genre": "hindi",
     "composer": "Sajid Khan, Wajid Khan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-7g0pQPzx",
-    "artistId": "shreya-ghoshal",
-    "title": "Munbe Vaa",
-    "artist": "Naresh Iyer, Shreya Ghoshal - Sillunu Oru Kadhal",
-    "artists": [
-      "Shreya Ghoshal",
-      "Naresh Iyer, Shreya Ghoshal - Sillunu Oru Kadhal"
-    ],
-    "movie": "Sillunu Oru Kadhal",
-    "year": 2006,
-    "decade": "2000s",
-    "duration": 358,
-    "audioUrl": "https://aac.saavncdn.com/595/86c6a67ff7120d287cb4484ea020f488_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/106/Jillunu-Oru-Kadhal-2006-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Rajesh Roshan",
     "lyricist": "",
     "language": "hindi"
   },
@@ -29043,66 +24243,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-EopSAInU",
-    "artistId": "shreya-ghoshal",
-    "title": "Jabiliki",
-    "artist": "S.A. Raj Kumar, Shreya Ghoshal, Rajesh Krishnan - Andala Raamudu",
-    "artists": [
-      "Shreya Ghoshal",
-      "S.A. Raj Kumar, Shreya Ghoshal, Rajesh Krishnan - Andala Raamudu"
-    ],
-    "movie": "Andala Raamudu",
-    "year": 2006,
-    "decade": "2000s",
-    "duration": 267,
-    "audioUrl": "https://aac.saavncdn.com/579/631ce25a2d2964d134c272493e176fa9_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/579/Andala-Raamudu-2006-500x500.jpg",
-    "genre": "telugu",
-    "composer": "S.A. Raj Kumar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-kBlrtHYZ",
-    "artistId": "shreya-ghoshal",
-    "title": "Maha Muddu",
-    "artist": "Mani Sharma, Shreya Ghoshal, Karthik - Jai Chiranjeeva",
-    "artists": [
-      "Shreya Ghoshal",
-      "Mani Sharma, Shreya Ghoshal, Karthik - Jai Chiranjeeva"
-    ],
-    "movie": "Jai Chiranjeeva",
-    "year": 2005,
-    "decade": "2000s",
-    "duration": 306,
-    "audioUrl": "https://aac.saavncdn.com/627/ac85c1f1266c03c9ed20b21ef4d9a57d_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/627/Jai-Chiranjeeva-2005-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Mani Sharma",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-2rlyAWa8",
-    "artistId": "shreya-ghoshal",
-    "title": "Hoovina Baanadanthe",
-    "artist": "Shreya Ghoshal - Birugaali",
-    "artists": [
-      "Shreya Ghoshal",
-      "Shreya Ghoshal - Birugaali"
-    ],
-    "movie": "Birugaali",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 273,
-    "audioUrl": "https://aac.saavncdn.com/447/79e7be7a132b28c0cf387dab35634326_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/447/Birugaali-Kannada-2009-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Arjun Janya",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-nMZE9bjY",
     "artistId": "shreya-ghoshal",
     "title": "Pyaar Ki Ek Kahani",
@@ -29163,66 +24303,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-f_BtJyih",
-    "artistId": "shreya-ghoshal",
-    "title": "Chinnanati Chelikade",
-    "artist": "Mani Sharma, S.P. Balasubrahmanyam, Shreya Ghoshal - Yagnam",
-    "artists": [
-      "Shreya Ghoshal",
-      "Mani Sharma, S.P. Balasubrahmanyam, Shreya Ghoshal - Yagnam"
-    ],
-    "movie": "Yagnam",
-    "year": 2004,
-    "decade": "2000s",
-    "duration": 340,
-    "audioUrl": "https://aac.saavncdn.com/397/7195bcc2452ce2105e7aefc59d282a52_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/397/Yagnam-2000-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Mani Sharma",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-INN_7lSh",
-    "artistId": "shreya-ghoshal",
-    "title": "Thaen Thaen Thaen",
-    "artist": "Yugabharathi, Vidyasagar, Udit Narayan, Shreya Ghoshal ft. Manikka Vinayagam - Kuruvi",
-    "artists": [
-      "Shreya Ghoshal",
-      "Yugabharathi, Vidyasagar, Udit Narayan, Shreya Ghoshal ft. Manikka Vinayagam - Kuruvi"
-    ],
-    "movie": "Kuruvi",
-    "year": 2008,
-    "decade": "2000s",
-    "duration": 238,
-    "audioUrl": "https://aac.saavncdn.com/290/e3c7dc68f17d3630b483636b5765607e_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/290/Kuruvi-Tamil-2008-20260120193614-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Vidyasagar, Udit Narayan, Shreya Ghoshal, Yugabharathi",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-Ee7F-nM4",
-    "artistId": "shreya-ghoshal",
-    "title": "Em Chessavo",
-    "artist": "Mani Sharma, S.P. Charan, Shreya Ghoshal - Yagnam",
-    "artists": [
-      "Shreya Ghoshal",
-      "Mani Sharma, S.P. Charan, Shreya Ghoshal - Yagnam"
-    ],
-    "movie": "Yagnam",
-    "year": 2004,
-    "decade": "2000s",
-    "duration": 338,
-    "audioUrl": "https://aac.saavncdn.com/397/c220efc0997e6b9fb323a90a4b5962ef_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/397/Yagnam-2000-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Mani Sharma",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-nFUlWyR7",
     "artistId": "shreya-ghoshal",
     "title": "Ishq Hua",
@@ -29279,26 +24359,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/560/Tumsa-Nahin-Dekha-A-Love-Story-Hindi-2004-500x500.jpg",
     "genre": "hindi",
     "composer": "Nadeem-Shravan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-dluQ2fED",
-    "artistId": "shreya-ghoshal",
-    "title": "Naa Naguva Modalene",
-    "artist": "Shreya Ghoshal, Mano Murthy - Manasaare",
-    "artists": [
-      "Shreya Ghoshal",
-      "Shreya Ghoshal, Mano Murthy - Manasaare"
-    ],
-    "movie": "Manasaare",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 272,
-    "audioUrl": "https://aac.saavncdn.com/007/9e2e8b75cd51c7dbaaa66f04027af517_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/007/Manasaare-Kannada-2009-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Mano Murthy",
     "lyricist": "",
     "language": "hindi"
   },
@@ -29903,26 +24963,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-_kEOF93b",
-    "artistId": "sunidhi-chauhan",
-    "title": "Punjabi Dance Mashup",
-    "artist": "Gippy Grewal, Sunidhi Chauhan, Simar Dardi, Parmish Verma, Preet Harpal, The Landers ft. Smayra - Punjabi Dance Mashup",
-    "artists": [
-      "Sunidhi Chauhan",
-      "Gippy Grewal, Sunidhi Chauhan, Simar Dardi, Parmish Verma, Preet Harpal, The Landers ft. Smayra - Punjabi Dance Mashup"
-    ],
-    "movie": "Punjabi Dance Mashup",
-    "year": 2020,
-    "decade": "2000s",
-    "duration": 147,
-    "audioUrl": "https://aac.saavncdn.com/919/83940cfd76d02ec2a10f19c2a68dea7b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/919/Punjabi-Dance-Mashup-Punjabi-2020-20200527021404-500x500.jpg",
-    "genre": "punjabi",
-    "composer": "DJ Sway",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-oWpTDbBl",
     "artistId": "sunidhi-chauhan",
     "title": "Bardaasht (From \"Humraaz\", Remix Version)",
@@ -29939,26 +24979,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/196/Bollywood-Dance-Remix-Vol-1-Hindi-2024-20260613014249-500x500.jpg",
     "genre": "hindi",
     "composer": "Himesh Reshammiya",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-D2vey0Le",
-    "artistId": "sunidhi-chauhan",
-    "title": "Kundu Kundu (From \"Dhol\")",
-    "artist": "Vidyasagar, KK, Sunidhi Chauhan, Arivumathi - Vikram Dance Hits",
-    "artists": [
-      "Sunidhi Chauhan",
-      "Vidyasagar, KK, Sunidhi Chauhan, Arivumathi - Vikram Dance Hits"
-    ],
-    "movie": "Vikram Dance Hits",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 294,
-    "audioUrl": "https://aac.saavncdn.com/878/ce2792cecef3610b12b3dabb33e3dc92_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/878/Vikram-Dance-Hits-Tamil-2026-20260207053807-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Vidyasagar",
     "lyricist": "",
     "language": "hindi"
   },
@@ -30343,26 +25363,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-YmUpjmLX",
-    "artistId": "sunidhi-chauhan",
-    "title": "Gedha",
-    "artist": "Ammy Virk, Sunidhi Chauhan ft. Arijit Singh - Best Romantic Hits - Pyar Ho Wi Gya",
-    "artists": [
-      "Sunidhi Chauhan",
-      "Ammy Virk, Sunidhi Chauhan ft. Arijit Singh - Best Romantic Hits - Pyar Ho Wi Gya"
-    ],
-    "movie": "Best Romantic Hits - Pyar Ho Wi Gya",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 183,
-    "audioUrl": "https://aac.saavncdn.com/030/b48dbb82fb16cc39d24a4c5feb61c790_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/030/Best-Romantic-Hits-Pyar-Ho-Wi-Gya-Punjabi-2021-20260401031231-500x500.jpg",
-    "genre": "punjabi",
-    "composer": "Jatinder Shah",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-u-u3ltxw",
     "artistId": "sunidhi-chauhan",
     "title": "Mai Marjawangi",
@@ -30663,46 +25663,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-ijL8IrM2",
-    "artistId": "shaan",
-    "title": "Paharia Sur",
-    "artist": "Shaan, Iman Chakraborty - Best Bengali Romantic Songs",
-    "artists": [
-      "Shaan",
-      "Shaan, Iman Chakraborty - Best Bengali Romantic Songs"
-    ],
-    "movie": "Best Bengali Romantic Songs",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 244,
-    "audioUrl": "https://aac.saavncdn.com/836/b0a4935d67f23786fd96d9459f824878_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/836/Best-Bengali-Romantic-Songs-Bengali-2025-20251111182158-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Joy Sarkar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-93tFbJmB",
-    "artistId": "shaan",
-    "title": "Maina Maina (From \"Prema Khaidi\")",
-    "artist": "Shaan - Nuvvu Naatho Emannavo Romantic Love Hits",
-    "artists": [
-      "Shaan",
-      "Shaan - Nuvvu Naatho Emannavo Romantic Love Hits"
-    ],
-    "movie": "Nuvvu Naatho Emannavo Romantic Love Hits",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 268,
-    "audioUrl": "https://aac.saavncdn.com/293/4ac4de5898b517b9553a13507000f73a_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/293/Nuvvu-Naatho-Emannavo-Romantic-Love-Hits-Telugu-2025-20250728133001-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Shaan, D. Imman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-pAxNSVv8",
     "artistId": "shaan",
     "title": "Jadu Teri Nazar And Tujhe Dekha Toh",
@@ -30759,26 +25719,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/839/Rare-Romantic-Melodies-Hindi-2016-500x500.jpg",
     "genre": "hindi",
     "composer": "Deepak K. Bajaj",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-y9-Le976",
-    "artistId": "shaan",
-    "title": "Its Only Pyar",
-    "artist": "Shaan, Tapu Mishra - Odia Romantic Hits",
-    "artists": [
-      "Shaan",
-      "Shaan, Tapu Mishra - Odia Romantic Hits"
-    ],
-    "movie": "Odia Romantic Hits",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 380,
-    "audioUrl": "https://aac.saavncdn.com/683/6a2f58307368c8753b1df39381e42e19_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/683/Odia-Romantic-Hits-Odia-2018-20180209-500x500.jpg",
-    "genre": "odia",
-    "composer": "Goodly Rath",
     "lyricist": "",
     "language": "hindi"
   },
@@ -30963,26 +25903,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-y0UEdsEx",
-    "artistId": "shaan",
-    "title": "Rimjhim E Dharatey",
-    "artist": "Shaan ft. Shreya Ghoshal, Jeet Gannguli - Premer Kahini (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Shaan",
-      "Shaan ft. Shreya Ghoshal, Jeet Gannguli - Premer Kahini (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Premer Kahini (Original Motion Picture Soundtrack)",
-    "year": 2008,
-    "decade": "2000s",
-    "duration": 329,
-    "audioUrl": "https://aac.saavncdn.com/887/bd55cd983afb6434f0c90da3b5f19531_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/887/Premer-Kahini-Original-Motion-Picture-Soundtrack-Bengali-2008-20251216013004-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Jeet Gannguli",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-o5XM95GG",
     "artistId": "shaan",
     "title": "Dus Bahane",
@@ -31059,26 +25979,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/876/Jai-Ho-2013-500x500.jpg",
     "genre": "hindi",
     "composer": "Sajid-Wajid",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-o6YNFZyo",
-    "artistId": "shaan",
-    "title": "You Rock My World",
-    "artist": "Shaan, Premji Amaran - Aarya",
-    "artists": [
-      "Shaan",
-      "Shaan, Premji Amaran - Aarya"
-    ],
-    "movie": "Aarya",
-    "year": 2004,
-    "decade": "2000s",
-    "duration": 305,
-    "audioUrl": "https://aac.saavncdn.com/044/6c4e54ad37f9d75c73246c6eec5a7ad3_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/044/Aarya-2004-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Devi Sri Prasad",
     "lyricist": "",
     "language": "hindi"
   },
@@ -31403,26 +26303,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-ywbZh47A",
-    "artistId": "shaan",
-    "title": "Chokhe Chokhe",
-    "artist": "Shaan, Shreya Ghoshal, Jeet Gannguli, Gautam Sushmit - Mon Mane Na",
-    "artists": [
-      "Shaan",
-      "Shaan, Shreya Ghoshal, Jeet Gannguli, Gautam Sushmit - Mon Mane Na"
-    ],
-    "movie": "Mon Mane Na",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 328,
-    "audioUrl": "https://aac.saavncdn.com/330/7d20f5949882ff1bfd37694cc78b99a4_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/330/Mon-Mane-Na-Bengali-2020-20201203174912-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Jeet Gannguli, Gautam Sushmit",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-5IMOz-P3",
     "artistId": "shaan",
     "title": "Tanha Dil",
@@ -31723,26 +26603,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-ttafRJxz",
-    "artistId": "shaan",
-    "title": "Cheliya Cheliya",
-    "artist": "Shaan - Manmadhudu",
-    "artists": [
-      "Shaan",
-      "Shaan - Manmadhudu"
-    ],
-    "movie": "Manmadhudu",
-    "year": 2002,
-    "decade": "2000s",
-    "duration": 253,
-    "audioUrl": "https://aac.saavncdn.com/386/0c3de5452fbd75b19a33ef1ce22bfb15_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/386/Manmadhudu-Telugu-2002-20190206140019-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Devi Sri Prasad",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-77ZQgvzk",
     "artistId": "shaan",
     "title": "Woh Ladki Hai Kahan",
@@ -31943,46 +26803,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-GHpRxenL",
-    "artistId": "kailash-kher",
-    "title": "Hale Paathre",
-    "artist": "V. Harikrishna, Yogaraj Bhat, Kailash Kher, Soumya Rao - Junglee (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Kailash Kher",
-      "V. Harikrishna, Yogaraj Bhat, Kailash Kher, Soumya Rao - Junglee (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Junglee (Original Motion Picture Soundtrack)",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 277,
-    "audioUrl": "https://aac.saavncdn.com/681/4206062674f68bc74034c4e01c665468_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/681/Junglee-Kannada-2009-20250318124744-500x500.jpg",
-    "genre": "kannada",
-    "composer": "V. Harikrishna, Yogaraj Bhat, Kailash Kher, Soumya Rao",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-0iI6yl_z",
-    "artistId": "kailash-kher",
-    "title": "Hale Paathre (From \"Junglee\")",
-    "artist": "Kailash Kher, Sowmya Raoh, Yogaraj Bhat - Duniya Vijay Hit Songs",
-    "artists": [
-      "Kailash Kher",
-      "Kailash Kher, Sowmya Raoh, Yogaraj Bhat - Duniya Vijay Hit Songs"
-    ],
-    "movie": "Duniya Vijay Hit Songs",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 277,
-    "audioUrl": "https://aac.saavncdn.com/146/1bb41dd258b701336991a3c29b910e3b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/146/Duniya-Vijay-Hit-Songs-Kannada-2025-20251104133215-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Kailash Kher, Sowmya Raoh, Yogaraj Bhat, V. Harikrishna",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-ZLW8GCUw",
     "artistId": "kailash-kher",
     "title": "Kaun Hain Voh",
@@ -32023,126 +26843,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-YwdFPjUQ",
-    "artistId": "kailash-kher",
-    "title": "Baare Baare",
-    "artist": "Kailash Kher - Chingaari (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Kailash Kher",
-      "Kailash Kher - Chingaari (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Chingaari (Original Motion Picture Soundtrack)",
-    "year": 2012,
-    "decade": "2000s",
-    "duration": 254,
-    "audioUrl": "https://aac.saavncdn.com/817/c4698203b842339478a5f1fb1aa8ba39_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/817/Chingaari-Original-Motion-Picture-Soundtrack-Kannada-2012-20250417234215-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Kailash Kher, V. Harikrishna",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-pSanCera",
-    "artistId": "kailash-kher",
-    "title": "Blackberry",
-    "artist": "Bheems, Kailash Kher - Nuvva Nenaa",
-    "artists": [
-      "Kailash Kher",
-      "Bheems, Kailash Kher - Nuvva Nenaa"
-    ],
-    "movie": "Nuvva Nenaa",
-    "year": 2012,
-    "decade": "2000s",
-    "duration": 230,
-    "audioUrl": "https://aac.saavncdn.com/309/1341e0bd5ab1e98e97c2275e2b8e07c7_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/309/Nuvva-Nenaa-2012-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Bheems",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-e3WFDuka",
-    "artistId": "kailash-kher",
-    "title": "Shiva Shiva (From \"KD\") [Kannada]",
-    "artist": "Prem's, Kailash Kher - Shiva Shiva (From \"KD\")",
-    "artists": [
-      "Kailash Kher",
-      "Prem's, Kailash Kher - Shiva Shiva (From KD)"
-    ],
-    "movie": "Shiva Shiva (From \"KD\")",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 208,
-    "audioUrl": "https://aac.saavncdn.com/114/7d91ccfe8e1891844a695e6abb824257_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/114/Shiva-Shiva-From-KD-Kannada-2025-20250402133245-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Arjun Janya",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-3DbXOq60",
-    "artistId": "kailash-kher",
-    "title": "Shiva Shiva",
-    "artist": "Prem's, Kailash Kher, Manjunath BS, Arjun Janya - KD (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Kailash Kher",
-      "Prem's, Kailash Kher, Manjunath BS, Arjun Janya - KD (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "KD (Original Motion Picture Soundtrack)",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 208,
-    "audioUrl": "https://aac.saavncdn.com/608/479a4970dccb8bc3a3a3cb61e1d49af7_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/608/KD-Original-Motion-Picture-Soundtrack-Kannada-2026-20260429101216-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Arjun Janya, Manjunath BS",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-FW6Jprwi",
-    "artistId": "kailash-kher",
-    "title": "Aalaporaan Thamizhan (From \"Mersal\")",
-    "artist": "A.R. Rahman, Kailash Kher, Sathyaprakash D, Deepak, Pooja Av, Vivek - Thalapathy Vijay Kondattam",
-    "artists": [
-      "Kailash Kher",
-      "A.R. Rahman, Kailash Kher, Sathyaprakash D, Deepak, Pooja Av, Vivek - Thalapathy Vijay Kondattam"
-    ],
-    "movie": "Thalapathy Vijay Kondattam",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 348,
-    "audioUrl": "https://aac.saavncdn.com/710/ac4edb377d3b9a0254ecc38902bc8710_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/710/Thalapathy-Vijay-Kondattam-Tamil-2026-20260422140259-500x500.jpg",
-    "genre": "tamil",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-yYDStxbl",
-    "artistId": "kailash-kher",
-    "title": "Aalaporaan Thamizhan",
-    "artist": "A.R. Rahman, Kailash Kher, Sathyaprakash D, Deepak, Pooja Av, Vivek - Mersal",
-    "artists": [
-      "Kailash Kher",
-      "A.R. Rahman, Kailash Kher, Sathyaprakash D, Deepak, Pooja Av, Vivek - Mersal"
-    ],
-    "movie": "Mersal",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 348,
-    "audioUrl": "https://aac.saavncdn.com/492/eb45d961a1639b3c3a6df4c8777fa71c_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/492/Mersal-Tamil-2017-20170820120559-500x500.jpg",
-    "genre": "tamil",
-    "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-NEOBXe9X",
     "artistId": "kailash-kher",
     "title": "Jay-Jaykara",
@@ -32159,26 +26859,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/221/Bahubali-The-Conclusion-Hindi-2017-500x500.jpg",
     "genre": "hindi",
     "composer": "M. M. Keeravani",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-O8lenWy7",
-    "artistId": "kailash-kher",
-    "title": "Pranam Kanna",
-    "artist": "Prince Henry, Kailash Kher - Love Reddy",
-    "artists": [
-      "Kailash Kher",
-      "Prince Henry, Kailash Kher - Love Reddy"
-    ],
-    "movie": "Love Reddy",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 265,
-    "audioUrl": "https://aac.saavncdn.com/872/b5e812997c9e2639d0a6cb8dc7a483a8_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/872/Love-Reddy-Telugu-2024-20241014145949-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Prince Henry",
     "lyricist": "",
     "language": "hindi"
   },
@@ -32223,26 +26903,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-n28_O29t",
-    "artistId": "kailash-kher",
-    "title": "Pandagala",
-    "artist": "Devi Sri Prasad, Kailash Kher - Mirchi",
-    "artists": [
-      "Kailash Kher",
-      "Devi Sri Prasad, Kailash Kher - Mirchi"
-    ],
-    "movie": "Mirchi",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 291,
-    "audioUrl": "https://aac.saavncdn.com/500/a2e67d166c37067b39be48aa2d9259f9_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/500/Mirchi-2013-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Devi Sri Prasad",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-ygZ_hgO9",
     "artistId": "kailash-kher",
     "title": "Adiyogi (The Source of Yoga)",
@@ -32259,46 +26919,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/443/Adiyogi-The-Source-of-Yoga--English-2017-20200214223217-500x500.jpg",
     "genre": "hindi",
     "composer": "Prasoon Joshi",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-st1jlikt",
-    "artistId": "kailash-kher",
-    "title": "Bitbide Bitbide (From \"Mylari\")",
-    "artist": "Kailash Kher, Manjunath Sanjeev - Gurukiran Hit Songs, Vol. 2",
-    "artists": [
-      "Kailash Kher",
-      "Kailash Kher, Manjunath Sanjeev - Gurukiran Hit Songs, Vol. 2"
-    ],
-    "movie": "Gurukiran Hit Songs, Vol. 2",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 255,
-    "audioUrl": "https://aac.saavncdn.com/290/0c720a232336af7c193e619d64c6b448_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/290/Gurukiran-Hit-Songs-Vol-2-Kannada-2025-20251112103928-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Kailash Kher, Manjunath Sanjeev, Gurukiran",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-EPxttNJi",
-    "artistId": "kailash-kher",
-    "title": "Bitbide Bitbide",
-    "artist": "Manjunath Sanjeev, Kailash Kher - Mylari (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Kailash Kher",
-      "Manjunath Sanjeev, Kailash Kher - Mylari (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Mylari (Original Motion Picture Soundtrack)",
-    "year": 2010,
-    "decade": "2000s",
-    "duration": 255,
-    "audioUrl": "https://aac.saavncdn.com/244/c1d1069d4f4bf613446fa0bd14a3f981_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/244/Mylari-Kannada-2010-20250318111443-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Kailash Kher, Manjunath Sanjeev, Gurukiran",
     "lyricist": "",
     "language": "hindi"
   },
@@ -32339,26 +26959,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/686/Jay-Jay-Kedara-Hindi-2024-20240307170739-500x500.jpg",
     "genre": "hindi",
     "composer": "Amitabh Bachchan, Suresh Wadkar, Anup Jalota, Hema Malini, Sonu Nigam, Kailash Kher, Anandam Shivamani, Shankar Mahadevan, Shreya Ghoshal, Prasoon Joshi, Shaan, Babul Supriyo, Arijit Singh",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-LBr3Lnc-",
-    "artistId": "kailash-kher",
-    "title": "Konchem Konchem",
-    "artist": "Harris Jayaraj, Kailash Kher, Sujatha Mohan - Munna",
-    "artists": [
-      "Kailash Kher",
-      "Harris Jayaraj, Kailash Kher, Sujatha Mohan - Munna"
-    ],
-    "movie": "Munna",
-    "year": 2007,
-    "decade": "2000s",
-    "duration": 281,
-    "audioUrl": "https://aac.saavncdn.com/626/a3d1cc7959da5327590cd82e3d0a022e_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/626/Munna-2000-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Harris Jayaraj",
     "lyricist": "",
     "language": "hindi"
   },
@@ -32503,46 +27103,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-WVCoKGev",
-    "artistId": "kailash-kher",
-    "title": "Chaandan Mein (From \"Chaandan Mein\")",
-    "artist": "Kailash Kher, Naresh Kamath, Paresh Kamath - Best of Punjabi Sufi",
-    "artists": [
-      "Kailash Kher",
-      "Kailash Kher, Naresh Kamath, Paresh Kamath - Best of Punjabi Sufi"
-    ],
-    "movie": "Best of Punjabi Sufi",
-    "year": 2014,
-    "decade": "2000s",
-    "duration": 352,
-    "audioUrl": "https://aac.saavncdn.com/133/7418a6356e4b1bda79e98c53cd943517_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/133/Best-of-Punjabi-Sufi-Punjabi-2014-20260120201351-500x500.jpg",
-    "genre": "hindi",
-    "composer": "Kailash Kher, Naresh Kamath, Paresh Kamath",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-BZhyACuR",
-    "artistId": "kailash-kher",
-    "title": "Chhap Tilak (From \"Kailasa Jhoomo Re\")",
-    "artist": "Kailash Kher, Paresh Kamath, Naresh Kamath ft. Kanha Kamboj - Unforgettable Punjabi Sufi Songs",
-    "artists": [
-      "Kailash Kher",
-      "Kailash Kher, Paresh Kamath, Naresh Kamath ft. Kanha Kamboj - Unforgettable Punjabi Sufi Songs"
-    ],
-    "movie": "Unforgettable Punjabi Sufi Songs",
-    "year": 2014,
-    "decade": "2000s",
-    "duration": 308,
-    "audioUrl": "https://aac.saavncdn.com/107/2b55672e445dda0999a70f592cd38143_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/107/Unforgettable-Punjabi-Sufi-Songs-Punjabi-2014-20260120201351-500x500.jpg",
-    "genre": "hindi",
-    "composer": "Kailash Kher, Paresh Kamath, Naresh Kamath",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-BcZ8MroY",
     "artistId": "kailash-kher",
     "title": "Teri Deewani",
@@ -32657,26 +27217,6 @@ const rawSongs = [
     "duration": 200,
     "audioUrl": "https://aac.saavncdn.com/574/615643d84ce659831e3c9ec7ec07f40c_160.mp4",
     "coverUrl": "https://c.saavncdn.com/574/ARRived-Vol-2-Hindi-2019-20190206105947-500x500.jpg",
-    "genre": "hindi",
-    "composer": "Kailash Kher, Paresh Kamath, Naresh Kamath",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-I3cu3hMj",
-    "artistId": "kailash-kher",
-    "title": "Teri Deewani (Sped Up)",
-    "artist": "Kailash Kher, Paresh Kamath, Naresh Kamath, Bollywood Sped Up ft. Kanha Kamboj - Teri Deewani (Sped Up)",
-    "artists": [
-      "Kailash Kher",
-      "Kailash Kher, Paresh Kamath, Naresh Kamath, Bollywood Sped Up ft. Kanha Kamboj - Teri Deewani (Sped Up)"
-    ],
-    "movie": "Teri Deewani (Sped Up)",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 186,
-    "audioUrl": "https://aac.saavncdn.com/200/df523e5fd0e30c50d293352c8faae559_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/200/Teri-Deewani-Sped-Up-Hindi-2024-20240318222302-500x500.jpg",
     "genre": "hindi",
     "composer": "Kailash Kher, Paresh Kamath, Naresh Kamath",
     "lyricist": "",
@@ -33083,26 +27623,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-p5AXNL_v",
-    "artistId": "mohit-chauhan",
-    "title": "Tum Se Hi (From \"Love In Lo-Fi Volume 1\")[Remix By Dj Chetas,Dj Nyk]",
-    "artist": "Pritam, Mohit Chauhan, Irshad Kamil - Lofi Romantic Hits",
-    "artists": [
-      "Mohit Chauhan",
-      "Pritam, Mohit Chauhan, Irshad Kamil - Lofi Romantic Hits"
-    ],
-    "movie": "Lofi Romantic Hits",
-    "year": 2022,
-    "decade": "2000s",
-    "duration": 278,
-    "audioUrl": "https://aac.saavncdn.com/582/ee3a2c8a4e01ed8c8746495c9892e7db_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/582/Lofi-Romantic-Hits-Hindi-2022-20251206151656-500x500.jpg",
-    "genre": "hindi",
-    "composer": "Pritam",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-CroYckah",
     "artistId": "mohit-chauhan",
     "title": "Guncha (From \"Main Meri Patni Aur Woh\")",
@@ -33243,26 +27763,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-VBXZqRZE",
-    "artistId": "mohit-chauhan",
-    "title": "Chinni Chinni (From \"Itllu Arjuna\")",
-    "artist": "Thaman S, Mohit Chauhan, Kalyan Chakravarthy ft. Nandamuri Balakrishna, Pragya Jaiswal, Shraddha Srinath, Chandhini Chowdary - Chinni Chinni (From \"Itllu Arjuna\")",
-    "artists": [
-      "Mohit Chauhan",
-      "Thaman S, Mohit Chauhan, Kalyan Chakravarthy ft. Nandamuri Balakrishna, Pragya Jaiswal, Shraddha Srinath, Chandhini Chowdary - Chinni Chinni (From Itllu Arjuna)"
-    ],
-    "movie": "Chinni Chinni (From \"Itllu Arjuna\")",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 250,
-    "audioUrl": "https://aac.saavncdn.com/719/81f2633804d5021b4ce438402caa8b4a_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/719/Chinni-Chinni-From-Itllu-Arjuna-Telugu-2026-20260817151029-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Thaman S",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-llxluOsu",
     "artistId": "mohit-chauhan",
     "title": "Pee Loon",
@@ -33279,46 +27779,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/512/Once-Upon-A-Time-In-Mumbaai-Hindi-2010-20241223141749-500x500.jpg",
     "genre": "hindi",
     "composer": "Pritam",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-HMJJ-5xC",
-    "artistId": "mohit-chauhan",
-    "title": "Nallaru Po (From \"Dude\")",
-    "artist": "Sai Abhyankkar, Tippu, Mohit Chauhan - Nallaru Po (From \"Dude\")",
-    "artists": [
-      "Mohit Chauhan",
-      "Sai Abhyankkar, Tippu, Mohit Chauhan - Nallaru Po (From Dude)"
-    ],
-    "movie": "Nallaru Po (From \"Dude\")",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 236,
-    "audioUrl": "https://aac.saavncdn.com/108/6f00bd5dd20afbf056ea0a7558bea5ce_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/108/Nallaru-Po-From-Dude-Tamil-2025-20250919180543-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Sai Abhyankkar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-TgE0Fgr-",
-    "artistId": "mohit-chauhan",
-    "title": "Nallaru Po",
-    "artist": "Sai Abhyankkar, Tippu, Mohit Chauhan - Dude (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Mohit Chauhan",
-      "Sai Abhyankkar, Tippu, Mohit Chauhan - Dude (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Dude (Original Motion Picture Soundtrack)",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 236,
-    "audioUrl": "https://aac.saavncdn.com/880/f126a3b0b278df1e1e132b264225386e_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/880/Dude-Original-Motion-Picture-Soundtrack-Tamil-2025-20251026215849-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Sai Abhyankkar",
     "lyricist": "",
     "language": "hindi"
   },
@@ -33423,106 +27883,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-T_6uDg4Q",
-    "artistId": "mohit-chauhan",
-    "title": "Velicha Poove (From \"Ethir Neechal\")",
-    "artist": "Vaali, Anirudh Ravichander, Shreya Ghoshal, Mohit Chauhan - Love Notes by Anirudh Ravichander",
-    "artists": [
-      "Mohit Chauhan",
-      "Vaali, Anirudh Ravichander, Shreya Ghoshal, Mohit Chauhan - Love Notes by Anirudh Ravichander"
-    ],
-    "movie": "Love Notes by Anirudh Ravichander",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 312,
-    "audioUrl": "https://aac.saavncdn.com/522/0275a266c974272a8972e4f360d34caa_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/522/Love-Notes-by-Anirudh-Ravichander-Tamil-2026-20260605161958-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Anirudh Ravichander",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-R7FzRxU-",
-    "artistId": "mohit-chauhan",
-    "title": "Velicha Poove",
-    "artist": "Anirudh Ravichander - Ethir Neechal",
-    "artists": [
-      "Mohit Chauhan",
-      "Anirudh Ravichander - Ethir Neechal"
-    ],
-    "movie": "Ethir Neechal",
-    "year": 2012,
-    "decade": "2000s",
-    "duration": 313,
-    "audioUrl": "https://aac.saavncdn.com/259/59168a87f33991e10dae0a47175fb2c7_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/259/Ethir-Neechal-2012-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Anirudh Ravichander",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-IkyuWfcQ",
-    "artistId": "mohit-chauhan",
-    "title": "Po Nee Po (From \"3\") (The Pain of Love)",
-    "artist": "Anirudh Ravichander, Mohit Chauhan, Dhanush ft. SEERAT BAJWA - Broken Hearts Club",
-    "artists": [
-      "Mohit Chauhan",
-      "Anirudh Ravichander, Mohit Chauhan, Dhanush ft. SEERAT BAJWA - Broken Hearts Club"
-    ],
-    "movie": "Broken Hearts Club",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 251,
-    "audioUrl": "https://aac.saavncdn.com/181/698cf2a44149eaf89ff0ba0aa75ea593_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/181/Broken-Hearts-Club-Tamil-2026-20260807154757-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Anirudh Ravichander",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-UuWTge1d",
-    "artistId": "mohit-chauhan",
-    "title": "Po Nee Po (The Pain of Love)",
-    "artist": "Dhanush, Anirudh Ravichander, Mohit Chauhan - 3",
-    "artists": [
-      "Mohit Chauhan",
-      "Dhanush, Anirudh Ravichander, Mohit Chauhan - 3"
-    ],
-    "movie": "3",
-    "year": 2011,
-    "decade": "2000s",
-    "duration": 251,
-    "audioUrl": "https://aac.saavncdn.com/195/518493e985639886b15510cc18edc43d_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/195/3-Tamil-2011-20210522203119-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Anirudh Ravichander",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-Gv_JXYDB",
-    "artistId": "mohit-chauhan",
-    "title": "Madhura Pisumaatige",
-    "artist": "Mohit Chauhan, Dr. Shamitha Malnad - Birugaali",
-    "artists": [
-      "Mohit Chauhan",
-      "Mohit Chauhan, Dr. Shamitha Malnad - Birugaali"
-    ],
-    "movie": "Birugaali",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 277,
-    "audioUrl": "https://aac.saavncdn.com/447/bc84ffff130eae54a9d906d29f70a9ae_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/447/Birugaali-Kannada-2009-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Arjun Janya",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-E7Cj5CYn",
     "artistId": "mohit-chauhan",
     "title": "Matargashti",
@@ -33599,26 +27959,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/550/Shivaay4-Hindi-2016-500x500.jpg",
     "genre": "hindi",
     "composer": "Mithoon",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-1gugl0jt",
-    "artistId": "mohit-chauhan",
-    "title": "Po Ve Po - The Pain Of Love",
-    "artist": "Anirudh Ravichander, Mohit Chauhan - 3 (Telugu)",
-    "artists": [
-      "Mohit Chauhan",
-      "Anirudh Ravichander, Mohit Chauhan - 3 (Telugu)"
-    ],
-    "movie": "3 (Telugu)",
-    "year": 2012,
-    "decade": "2000s",
-    "duration": 255,
-    "audioUrl": "https://aac.saavncdn.com/244/c98976a02a6ce03c15004488708324fa_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/244/3-Telugu-2012-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Anirudh Ravichander",
     "lyricist": "",
     "language": "hindi"
   },
@@ -33799,26 +28139,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/951/Tashan-Hindi-2008-20190329150932-500x500.jpg",
     "genre": "hindi",
     "composer": "Vishal & Shekhar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-9CZDrWum",
-    "artistId": "sukhwinder-singh",
-    "title": "Arjunar Villu (From \"Gilli\")",
-    "artist": "Kabilan, Vidyasagar, Sukhwinder Singh, Manikka Vinayagam - Hits Of Vidyasagar (Vol. 2)",
-    "artists": [
-      "Sukhwinder Singh",
-      "Kabilan, Vidyasagar, Sukhwinder Singh, Manikka Vinayagam - Hits Of Vidyasagar (Vol. 2)"
-    ],
-    "movie": "Hits Of Vidyasagar (Vol. 2)",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 266,
-    "audioUrl": "https://aac.saavncdn.com/879/daa9c4892961e450110762206332500f_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/879/Hits-Of-Vidyasagar-Vol-2-Tamil-2026-20260207053735-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Vidyasagar",
     "lyricist": "",
     "language": "hindi"
   },
@@ -34063,86 +28383,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-iqh15kuU",
-    "artistId": "javed-ali",
-    "title": "Bujji Thalli",
-    "artist": "Devi Sri Prasad, Javed Ali ft. Akkineni Naga Chaitanya, Sai Pallavi - Thandel",
-    "artists": [
-      "Javed Ali",
-      "Devi Sri Prasad, Javed Ali ft. Akkineni Naga Chaitanya, Sai Pallavi - Thandel"
-    ],
-    "movie": "Thandel",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 248,
-    "audioUrl": "https://aac.saavncdn.com/925/b13e3333489bd9a8fb086a4b9f1dd6b8_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/925/Thandel-Telugu-2024-20250225125810-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Devi Sri Prasad, Javed Ali",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-Og6wQlfu",
-    "artistId": "javed-ali",
-    "title": "Vadhalane (From \"Chennai Love Story\")",
-    "artist": "Anantha Sriram, Mani Sharma, Javed Ali - Vadhalane (From \"Chennai Love Story\")",
-    "artists": [
-      "Javed Ali",
-      "Anantha Sriram, Mani Sharma, Javed Ali - Vadhalane (From Chennai Love Story)"
-    ],
-    "movie": "Vadhalane (From \"Chennai Love Story\")",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 333,
-    "audioUrl": "https://aac.saavncdn.com/327/899338150ff94b5ee46a9bc3b4e5c3c5_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/327/Vadhalane-From-Chennai-Love-Story-Telugu-2026-20260525181005-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Mani Sharma",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-jWcZ0-E4",
-    "artistId": "javed-ali",
-    "title": "Gulabi Kallu Rendu Mullu",
-    "artist": "Yuvan Shankar Raja, Javed Ali - Govindudu Andarivaadele",
-    "artists": [
-      "Javed Ali",
-      "Yuvan Shankar Raja, Javed Ali - Govindudu Andarivaadele"
-    ],
-    "movie": "Govindudu Andarivaadele",
-    "year": 2014,
-    "decade": "2000s",
-    "duration": 263,
-    "audioUrl": "https://aac.saavncdn.com/281/1eb58d61577901faaacbbb714f6c7297_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/281/Govindudu-Andarivaadele-Telugu-2014-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Yuvan Shankar Raja",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-5lOvlkGY",
-    "artistId": "javed-ali",
-    "title": "Vadhalane",
-    "artist": "Mani Sharma, Javed Ali, Anantha Sriram - Chennai Love Story",
-    "artists": [
-      "Javed Ali",
-      "Mani Sharma, Javed Ali, Anantha Sriram - Chennai Love Story"
-    ],
-    "movie": "Chennai Love Story",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 333,
-    "audioUrl": "https://aac.saavncdn.com/842/462c196ac0d3347b93715dc464ca9446_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/842/Chennai-Love-Story-Telugu-2026-20260723201006-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Mani Sharma",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-tc_QX8gX",
     "artistId": "javed-ali",
     "title": "Gale Lag Ja (Version 1)",
@@ -34239,66 +28479,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/508/Raanjhanaa-Hindi-2013-20260120201336-500x500.jpg",
     "genre": "hindi",
     "composer": "A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-8Md53naR",
-    "artistId": "javed-ali",
-    "title": "Nee Kannu Neeli Samudram",
-    "artist": "Javed Ali - Uppena",
-    "artists": [
-      "Javed Ali",
-      "Javed Ali - Uppena"
-    ],
-    "movie": "Uppena",
-    "year": 2020,
-    "decade": "2000s",
-    "duration": 312,
-    "audioUrl": "https://aac.saavncdn.com/587/31dcf48d7cf5fefe357f134760ba5402_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/587/Uppena-Telugu-2020-20210218155246-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Devi Sri Prasad",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-2iAYkyi7",
-    "artistId": "javed-ali",
-    "title": "Mone Holo Kyano (From \"Erao Manush\")",
-    "artist": "Javed Ali, Sumona - Mone Holo Kyano (From \"Erao Manush\")",
-    "artists": [
-      "Javed Ali",
-      "Javed Ali, Sumona - Mone Holo Kyano (From Erao Manush)"
-    ],
-    "movie": "Mone Holo Kyano (From \"Erao Manush\")",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 237,
-    "audioUrl": "https://aac.saavncdn.com/093/6898019d6cb90007626ec604500efc19_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/093/Mone-Holo-Kyano-From-Erao-Manush-Bengali-2026-20260817124804-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Balasai Lahiri",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-A_T5C_3s",
-    "artistId": "javed-ali",
-    "title": "Gamanava",
-    "artist": "Javed Ali, Shreya Ghoshal - Chingaari (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Javed Ali",
-      "Javed Ali, Shreya Ghoshal - Chingaari (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Chingaari (Original Motion Picture Soundtrack)",
-    "year": 2012,
-    "decade": "2000s",
-    "duration": 258,
-    "audioUrl": "https://aac.saavncdn.com/817/df27a42e60adc53cb4037fca6ba48bb0_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/817/Chingaari-Original-Motion-Picture-Soundtrack-Kannada-2012-20250417234215-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Javed Ali, Shreya Ghoshal, V. Harikrishna",
     "lyricist": "",
     "language": "hindi"
   },
@@ -34483,46 +28663,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-PzebheFq",
-    "artistId": "javed-ali",
-    "title": "Siragugal",
-    "artist": "Javed Ali, Madhushree, Yuvan Shankar Raja, Pa. Vijay - Valentine Special Vibes",
-    "artists": [
-      "Javed Ali",
-      "Javed Ali, Madhushree, Yuvan Shankar Raja, Pa. Vijay - Valentine Special Vibes"
-    ],
-    "movie": "Valentine Special Vibes",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 321,
-    "audioUrl": "https://aac.saavncdn.com/663/8af3cd094d2b8a7b5d376fb97a0a22fb_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/663/Valentine-Special-Vibes-Tamil-2026-20260421203802-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Yuvan Shankar Raja",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-Cd3iOuOg",
-    "artistId": "javed-ali",
-    "title": "Chorabali Nayika",
-    "artist": "Javed Ali, Arpita Choudhury - Best Odia Romantic Songs",
-    "artists": [
-      "Javed Ali",
-      "Javed Ali, Arpita Choudhury - Best Odia Romantic Songs"
-    ],
-    "movie": "Best Odia Romantic Songs",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 266,
-    "audioUrl": "https://aac.saavncdn.com/607/ce805b3407ac3c389d00f8e44baa6713_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/607/Best-Odia-Romantic-Songs-Odia-2025-20251106145959-500x500.jpg",
-    "genre": "odia",
-    "composer": "Somesh Satpathy",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-mvAv9Dcq",
     "artistId": "javed-ali",
     "title": "Gale Lag Ja Na Ja",
@@ -34603,66 +28743,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-Xl7q9Qej",
-    "artistId": "javed-ali",
-    "title": "Jalchobi (From \"Jalchobi\")",
-    "artist": "Javed Ali, Niladri Banerjee - Forever Love 2025 – Bangla Romantic",
-    "artists": [
-      "Javed Ali",
-      "Javed Ali, Niladri Banerjee - Forever Love 2025 – Bangla Romantic"
-    ],
-    "movie": "Forever Love 2025 – Bangla Romantic",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 217,
-    "audioUrl": "https://aac.saavncdn.com/639/74857e3d18d0af3a0e86a4078f127405_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/639/Forever-Love-2025-Bangla-Romantic-Bengali-2025-20251224181018-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Niladri Banerjee",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-e5NAt9Ap",
-    "artistId": "javed-ali",
-    "title": "Tu Ki Sei Sapan Pari",
-    "artist": "Javed Ali - Odia Romantic Hits",
-    "artists": [
-      "Javed Ali",
-      "Javed Ali - Odia Romantic Hits"
-    ],
-    "movie": "Odia Romantic Hits",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 133,
-    "audioUrl": "https://aac.saavncdn.com/683/d3aab427991f050e47842284174631e1_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/683/Odia-Romantic-Hits-Odia-2018-20180209-500x500.jpg",
-    "genre": "odia",
-    "composer": "Abhijit Majumdar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-3RnE_UUS",
-    "artistId": "javed-ali",
-    "title": "Padipoya (From \"Alludu Adhurs\")",
-    "artist": "Javed Ali - Romantic Hits Of 2021",
-    "artists": [
-      "Javed Ali",
-      "Javed Ali - Romantic Hits Of 2021"
-    ],
-    "movie": "Romantic Hits Of 2021",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 235,
-    "audioUrl": "https://aac.saavncdn.com/000/115c062d1e0a764f5df940a53ac1f614_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/000/Romantic-Hits-Of-2021-Telugu-2021-20211228152245-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Devi Sri Prasad",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg--b2LGpM9",
     "artistId": "javed-ali",
     "title": "Kya Khabar",
@@ -34703,86 +28783,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-siy33_qT",
-    "artistId": "javed-ali",
-    "title": "Mere Yaaraa & Tu Jo Mila (From \"Love In Lo-Fi Volume 1\")[Remix By Dj Chetas,Dj Nyk]",
-    "artist": "Pritam, Arijit Singh, Neeti Mohan, Javed Ali, Kaushik, Guddu, Akash, Rashmi-Virag, Kausar Munir - Lofi Romantic Hits",
-    "artists": [
-      "Javed Ali",
-      "Pritam, Arijit Singh, Neeti Mohan, Javed Ali, Kaushik, Guddu, Akash, Rashmi-Virag, Kausar Munir - Lofi Romantic Hits"
-    ],
-    "movie": "Lofi Romantic Hits",
-    "year": 2022,
-    "decade": "2000s",
-    "duration": 210,
-    "audioUrl": "https://aac.saavncdn.com/582/d68cb13d668f8d01d4052a689ea9da8a_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/582/Lofi-Romantic-Hits-Hindi-2022-20251206151656-500x500.jpg",
-    "genre": "hindi",
-    "composer": "Pritam, Kaushik, Guddu, Akash",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-OOEOyRst",
-    "artistId": "javed-ali",
-    "title": "Yebe Mo Bina",
-    "artist": "Javed Ali - Odia Romantic Hits",
-    "artists": [
-      "Javed Ali",
-      "Javed Ali - Odia Romantic Hits"
-    ],
-    "movie": "Odia Romantic Hits",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 314,
-    "audioUrl": "https://aac.saavncdn.com/683/97fc8dbe97d45cea35d2fc2be5ba56cb_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/683/Odia-Romantic-Hits-Odia-2018-20180209-500x500.jpg",
-    "genre": "odia",
-    "composer": "Abhijit Majumdar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-NRS6LrzA",
-    "artistId": "javed-ali",
-    "title": "Inthandhanga (From \"Jendapai Kapiraju\")",
-    "artist": "Javed Ali, Shashaa, G.V. Prakash Kumar - Nee Roopame - Recent Romantic Hits",
-    "artists": [
-      "Javed Ali",
-      "Javed Ali, Shashaa, G.V. Prakash Kumar - Nee Roopame - Recent Romantic Hits"
-    ],
-    "movie": "Nee Roopame - Recent Romantic Hits",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 214,
-    "audioUrl": "https://aac.saavncdn.com/411/bbd117ce329e3df201da69c3159102a6_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/411/Nee-Roopame-Recent-Romantic-Hits-Telugu-2017-20180105-500x500.jpg",
-    "genre": "telugu",
-    "composer": "G.V. Prakash Kumar",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-SjojpMgw",
-    "artistId": "javed-ali",
-    "title": "Nee Kallu Sankelluga (From \"Dabangg 3\")",
-    "artist": "Javed Ali - Telugu Romantic Hits",
-    "artists": [
-      "Javed Ali",
-      "Javed Ali - Telugu Romantic Hits"
-    ],
-    "movie": "Telugu Romantic Hits",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 289,
-    "audioUrl": "https://aac.saavncdn.com/051/6f6fcbe53df990056b0219b7abdf7117_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/051/Telugu-Romantic-Hits-Telugu-2021-20210525151001-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Sajid-Wajid",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-7pyyS9kE",
     "artistId": "javed-ali",
     "title": "Gori Sun Le",
@@ -34819,66 +28819,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/535/Beyond-Love-Romantic-Songs-For-Her-Hindi-2018-20180209-500x500.jpg",
     "genre": "hindi",
     "composer": "Siddhant Madhav",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-K-IZdbaw",
-    "artistId": "javed-ali",
-    "title": "Prem je Buker Majhe Koto Jhor Tole",
-    "artist": "Javed Ali - Bengali Romantic Hits",
-    "artists": [
-      "Javed Ali",
-      "Javed Ali - Bengali Romantic Hits"
-    ],
-    "movie": "Bengali Romantic Hits",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 291,
-    "audioUrl": "https://aac.saavncdn.com/677/ef4f9352bd368939af11bbf53bdf9f7c_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/677/Bengali-Romantic-Hits-Bengali-2018-20180208-500x500.jpg",
-    "genre": "bengali",
-    "composer": "Bappi Lahiri",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-s0cV77WZ",
-    "artistId": "javed-ali",
-    "title": "Priye Tamaro Prem No",
-    "artist": "Javed Ali - Beyond Love - Gujarati Romantic Songs",
-    "artists": [
-      "Javed Ali",
-      "Javed Ali - Beyond Love - Gujarati Romantic Songs"
-    ],
-    "movie": "Beyond Love - Gujarati Romantic Songs",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 341,
-    "audioUrl": "https://aac.saavncdn.com/540/6c89ba8097d4fa7f91a471d132da9bfd_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/540/Beyond-Love-Gujarati-Romantic-Songs-Gujarati-2018-20180209-500x500.jpg",
-    "genre": "gujarati",
-    "composer": "Bandish Vaz",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-Ta25Wb5L",
-    "artistId": "javed-ali",
-    "title": "Palkan De Vich",
-    "artist": "Santokh Singh Dhaliwal, Javed Ali - Tera Mera Saath Hove - Punjabi Romantic Songs",
-    "artists": [
-      "Javed Ali",
-      "Santokh Singh Dhaliwal, Javed Ali - Tera Mera Saath Hove - Punjabi Romantic Songs"
-    ],
-    "movie": "Tera Mera Saath Hove - Punjabi Romantic Songs",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 446,
-    "audioUrl": "https://aac.saavncdn.com/761/d4cf93f66f0eb877d6a9807cf98a85aa_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/761/Tera-Mera-Saath-Hove-Punjabi-Romantic-Songs-2013-500x500.jpg",
-    "genre": "punjabi",
-    "composer": "Santokh Singh Dhaliwal",
     "lyricist": "",
     "language": "hindi"
   },
@@ -35123,26 +29063,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-sNLzthyX",
-    "artistId": "shankar-mahadevan",
-    "title": "Choopultho Guchi",
-    "artist": "Shankar Mahadevan - Idiot",
-    "artists": [
-      "Shankar Mahadevan",
-      "Shankar Mahadevan - Idiot"
-    ],
-    "movie": "Idiot",
-    "year": 2002,
-    "decade": "2000s",
-    "duration": 268,
-    "audioUrl": "https://aac.saavncdn.com/100/e9872c98bf8ca23be2ba347f3dff2b72_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/100/Idiot-Telugu-2002-20200616185725-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Chakri",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-ZIMh-Qq7",
     "artistId": "shankar-mahadevan",
     "title": "Hanuman Chalisa by Shankar Mahadevan",
@@ -35159,26 +29079,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/780/Hanuman-Chalisa-Hindi-2022-20220614215623-500x500.jpg",
     "genre": "hindi",
     "composer": "Navin-Manish",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-4W-eQraL",
-    "artistId": "shankar-mahadevan",
-    "title": "Niddura Potunna",
-    "artist": "Koti, Shankar Mahadevan - Nuvve Nuvve",
-    "artists": [
-      "Shankar Mahadevan",
-      "Koti, Shankar Mahadevan - Nuvve Nuvve"
-    ],
-    "movie": "Nuvve Nuvve",
-    "year": 2002,
-    "decade": "2000s",
-    "duration": 273,
-    "audioUrl": "https://aac.saavncdn.com/312/a6472c24d86af79d51bd6a2ce87014cd_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/312/Nuvve-Nuvve-2002-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Koti",
     "lyricist": "",
     "language": "hindi"
   },
@@ -35223,86 +29123,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-Wqsd_E2U",
-    "artistId": "shankar-mahadevan",
-    "title": "Kadhale Kadhale (From \"Indru Netru Naalai\")",
-    "artist": "Shankar Mahadevan, Padmalatha - Double Delights",
-    "artists": [
-      "Shankar Mahadevan",
-      "Shankar Mahadevan, Padmalatha - Double Delights"
-    ],
-    "movie": "Double Delights",
-    "year": 2019,
-    "decade": "2000s",
-    "duration": 207,
-    "audioUrl": "https://aac.saavncdn.com/335/f16534f49ecca303f666ba8139d47699_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/335/Double-Delights-Tamil-2019-20260515204311-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Hiphop Tamizha",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-upubEB8F",
-    "artistId": "shankar-mahadevan",
-    "title": "Kadhale Kadhale",
-    "artist": "Hiphop Tamizha, Shankar Mahadevan, Padmalatha - Indru Netru Naalai (Original Motion Picture Soundtrack)",
-    "artists": [
-      "Shankar Mahadevan",
-      "Hiphop Tamizha, Shankar Mahadevan, Padmalatha - Indru Netru Naalai (Original Motion Picture Soundtrack)"
-    ],
-    "movie": "Indru Netru Naalai (Original Motion Picture Soundtrack)",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 207,
-    "audioUrl": "https://aac.saavncdn.com/209/f3ad78c43f4f846121b1407a89a6e762_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/209/Indru-Netru-Naalai-Original-Motion-Picture-Soundtrack-Tamil-2015-20250910161104-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Hiphop Tamizha, Shankar Mahadevan, Padmalatha",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-fqkmDc1E",
-    "artistId": "shankar-mahadevan",
-    "title": "Laila O Lailaa",
-    "artist": "Thaman S, Shankar Mahadevan, Ranjith, Rahul Nambiar, Naveen Madhav - Naayak",
-    "artists": [
-      "Shankar Mahadevan",
-      "Thaman S, Shankar Mahadevan, Ranjith, Rahul Nambiar, Naveen Madhav - Naayak"
-    ],
-    "movie": "Naayak",
-    "year": 2012,
-    "decade": "2000s",
-    "duration": 273,
-    "audioUrl": "https://aac.saavncdn.com/680/9aff747aab221c44ada9af706320258f_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/680/Naayak-2012-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Thaman S",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-ztKrLcYk",
-    "artistId": "shankar-mahadevan",
-    "title": "Akasam Ammayaithe",
-    "artist": "Devi Sri Prasad, Shankar Mahadevan, Gopika Poornima - Gabbar Singh",
-    "artists": [
-      "Shankar Mahadevan",
-      "Devi Sri Prasad, Shankar Mahadevan, Gopika Poornima - Gabbar Singh"
-    ],
-    "movie": "Gabbar Singh",
-    "year": 2012,
-    "decade": "2000s",
-    "duration": 292,
-    "audioUrl": "https://aac.saavncdn.com/450/d2030ff69a51e8f56154096b43723361_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/450/Gabbar-Singh-2012-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Devi Sri Prasad",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-B38Mf-9e",
     "artistId": "shankar-mahadevan",
     "title": "Bhaag Milkha Bhaag (Rock Version)",
@@ -35319,86 +29139,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/575/Bhaag-Milkha-Bhaag-Hindi-2013-20260120201340-500x500.jpg",
     "genre": "hindi",
     "composer": "Shankar Mahadevan, Ehsaan Noorani, Loy Mendonsa",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-6rXCUfVX",
-    "artistId": "shankar-mahadevan",
-    "title": "Yello Jogappa",
-    "artist": "Shankarmahadevan, Sunitha S. Murali, Gurukiran - Jogi",
-    "artists": [
-      "Shankar Mahadevan",
-      "Shankarmahadevan, Sunitha S. Murali, Gurukiran - Jogi"
-    ],
-    "movie": "Jogi",
-    "year": 2005,
-    "decade": "2000s",
-    "duration": 322,
-    "audioUrl": "https://aac.saavncdn.com/227/56fd9a05b0d0fc658e2985761908395a_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/227/Jogi-Kannada-2005-500x500.jpg",
-    "genre": "kannada",
-    "composer": "Gurukiran",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-d8D_s5lw",
-    "artistId": "shankar-mahadevan",
-    "title": "Roja Kadale",
-    "artist": "Harris Jayaraj, Shankar Mahadevan, Sunidhi Chauhan, Chinmayi, Vairamuthu - Anegan",
-    "artists": [
-      "Shankar Mahadevan",
-      "Harris Jayaraj, Shankar Mahadevan, Sunidhi Chauhan, Chinmayi, Vairamuthu - Anegan"
-    ],
-    "movie": "Anegan",
-    "year": 2014,
-    "decade": "2000s",
-    "duration": 321,
-    "audioUrl": "https://aac.saavncdn.com/274/6ce33c60d3e3b69617b3a6c757ddea2b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/274/Anegan-Tamil-2014-20190822152158-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Harris Jayaraj",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-flDTwA2F",
-    "artistId": "shankar-mahadevan",
-    "title": "Roja Kadale (From \"Anegan\")",
-    "artist": "Vairamuthu, Harris Jayaraj, Shankar Mahadevan, Sunidhi Chauhan, Chinmayi - The Love Diaries of Rahman & Harris",
-    "artists": [
-      "Shankar Mahadevan",
-      "Vairamuthu, Harris Jayaraj, Shankar Mahadevan, Sunidhi Chauhan, Chinmayi - The Love Diaries of Rahman & Harris"
-    ],
-    "movie": "The Love Diaries of Rahman & Harris",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 321,
-    "audioUrl": "https://aac.saavncdn.com/196/5dc2a8f5bb5487486902de50156785b6_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/196/The-Love-Diaries-of-Rahman-Harris-Tamil-2026-20260612153757-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Harris Jayaraj",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-_3tqyHEE",
-    "artistId": "shankar-mahadevan",
-    "title": "Shiva Shiva Shankara",
-    "artist": "Devi Sri Prasad, Shankar Mahadevan - Damarukam",
-    "artists": [
-      "Shankar Mahadevan",
-      "Devi Sri Prasad, Shankar Mahadevan - Damarukam"
-    ],
-    "movie": "Damarukam",
-    "year": 2012,
-    "decade": "2000s",
-    "duration": 295,
-    "audioUrl": "https://aac.saavncdn.com/865/dd682539407f43480ef74ad57929b31a_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/865/Damarukam-2012-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Devi Sri Prasad",
     "lyricist": "",
     "language": "hindi"
   },
@@ -35443,46 +29183,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-hftIFMHZ",
-    "artistId": "shankar-mahadevan",
-    "title": "Yemi Cheyamanduve",
-    "artist": "Shankar Mahadevan - The Versions - Yemi Cheyamanduve",
-    "artists": [
-      "Shankar Mahadevan",
-      "Shankar Mahadevan - The Versions - Yemi Cheyamanduve"
-    ],
-    "movie": "The Versions - Yemi Cheyamanduve",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 362,
-    "audioUrl": "https://aac.saavncdn.com/268/500db9cd06bf45772f25f341a0bddc8f_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/268/The-Versions-Yemi-Cheyamanduve-Telugu-2023-20230426093430-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Shankar Mahadevan, A.R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-hYM1aUJg",
-    "artistId": "shankar-mahadevan",
-    "title": "Baby Won't You Tell Me",
-    "artist": "Shankar Mahadevan, Shweta Mohan, Siddharth Mahadevan - Saaho",
-    "artists": [
-      "Shankar Mahadevan",
-      "Shankar Mahadevan, Shweta Mohan, Siddharth Mahadevan - Saaho"
-    ],
-    "movie": "Saaho",
-    "year": 2019,
-    "decade": "2000s",
-    "duration": 262,
-    "audioUrl": "https://aac.saavncdn.com/186/79ca80fc38bfd06766adc937b4288c1c_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/186/Saaho-Telugu-2019-20190828024553-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Shankar-Ehsaan-Loy",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-qn50ItUC",
     "artistId": "shankar-mahadevan",
     "title": "Om Namah Shivay",
@@ -35503,26 +29203,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-ZuEdeGhE",
-    "artistId": "shankar-mahadevan",
-    "title": "Enna Solla Pogirai",
-    "artist": "Shankar Mahadevan - Kandukondain Kandukondain",
-    "artists": [
-      "Shankar Mahadevan",
-      "Shankar Mahadevan - Kandukondain Kandukondain"
-    ],
-    "movie": "Kandukondain Kandukondain",
-    "year": 2000,
-    "decade": "2000s",
-    "duration": 361,
-    "audioUrl": "https://aac.saavncdn.com/544/ab5c81da425ea99925022a7af05cbb71_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/544/Kandukondain-Kandukondain-Tamil-2000-20220429143413-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Shankar Mahadevan, A. R. Rahman",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-Vw5lAkVW",
     "artistId": "shankar-mahadevan",
     "title": "Zinda",
@@ -35539,26 +29219,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/575/Bhaag-Milkha-Bhaag-Hindi-2013-20260120201340-500x500.jpg",
     "genre": "hindi",
     "composer": "Shankar Mahadevan, Ehsaan Noorani, Loy Mendonsa",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-G01zD7U0",
-    "artistId": "shankar-mahadevan",
-    "title": "Bapu Gari Bommo",
-    "artist": "Devi Sri Prasad, Shankar Mahadevan - Attarrintiki Daaredi",
-    "artists": [
-      "Shankar Mahadevan",
-      "Devi Sri Prasad, Shankar Mahadevan - Attarrintiki Daaredi"
-    ],
-    "movie": "Attarrintiki Daaredi",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 281,
-    "audioUrl": "https://aac.saavncdn.com/464/7df7d5c5e1b98f95d6ebd271a98142db_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/464/Attarrintiki-Daaredi-Telugu-2013-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Devi Sri Prasad",
     "lyricist": "",
     "language": "hindi"
   },
@@ -35923,26 +29583,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-JTAWcWX3",
-    "artistId": "shankar-mahadevan",
-    "title": "Mitwaa",
-    "artist": "Jaanvee Prabhu-Arora, Shankar Mahadevan - Mitwaa",
-    "artists": [
-      "Shankar Mahadevan",
-      "Jaanvee Prabhu-Arora, Shankar Mahadevan - Mitwaa"
-    ],
-    "movie": "Mitwaa",
-    "year": 2014,
-    "decade": "2000s",
-    "duration": 278,
-    "audioUrl": "https://aac.saavncdn.com/943/34fa153f7544ed1400d8f8ea4ec770fd_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/943/Mitwaa-Marathi-2014-20241119160647-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Shankar-Ehsaan-Loy",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-fAi_HX_6",
     "artistId": "shankar-mahadevan",
     "title": "Mitwa (Lofi Flip)",
@@ -36143,26 +29783,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-Ymnxn4sJ",
-    "artistId": "shankar-mahadevan",
-    "title": "Maana Madurai",
-    "artist": "Shankar Mahadevan, Yuvan Shankar Raja - Thimiru",
-    "artists": [
-      "Shankar Mahadevan",
-      "Shankar Mahadevan, Yuvan Shankar Raja - Thimiru"
-    ],
-    "movie": "Thimiru",
-    "year": 2006,
-    "decade": "2000s",
-    "duration": 286,
-    "audioUrl": "https://aac.saavncdn.com/561/5111c5a428b315d9be3ec967190e121e_sar_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/561/Thimiru-Tamil-2006-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Yuvan Shankar Raja",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-UIa15VhY",
     "artistId": "shankar-mahadevan",
     "title": "Maa (From \"Taare Zameen Par\")",
@@ -36263,26 +29883,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-hCSrIwLK",
-    "artistId": "shankar-mahadevan",
-    "title": "Maaradha",
-    "artist": "Vivek - Mervin, Shankar Mahadevan, Madhan Karky - Sanga Thamizhan",
-    "artists": [
-      "Shankar Mahadevan",
-      "Vivek - Mervin, Shankar Mahadevan, Madhan Karky - Sanga Thamizhan"
-    ],
-    "movie": "Sanga Thamizhan",
-    "year": 2019,
-    "decade": "2000s",
-    "duration": 240,
-    "audioUrl": "https://aac.saavncdn.com/836/fed8fde9776ead99ad384c7d79380072_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/836/Sanga-Thamizhan-Tamil-2019-20190917102537-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Vivek Siva, Mervin Solomon",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-lLvKTDFf",
     "artistId": "shankar-mahadevan",
     "title": "Maa (From \"Maa\")",
@@ -36303,26 +29903,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-qWm4HGTc",
-    "artistId": "shankar-mahadevan",
-    "title": "Maaman Parkiran",
-    "artist": "Deva, Shankar Mahadevan, Srivarthini ft. Amit Melwani - Vaimaiye Vellum",
-    "artists": [
-      "Shankar Mahadevan",
-      "Deva, Shankar Mahadevan, Srivarthini ft. Amit Melwani - Vaimaiye Vellum"
-    ],
-    "movie": "Vaimaiye Vellum",
-    "year": 1970,
-    "decade": "70s",
-    "duration": 309,
-    "audioUrl": "https://aac.saavncdn.com/037/531792c2d6ffbcb0cfbcc692f79dd203_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/037/Vaimaiye-Vellum-Tamil-1970-20180503104901-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Deva",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-uMS4v07F",
     "artistId": "shankar-mahadevan",
     "title": "Meri Maa (From \"Yaariyan\")",
@@ -36339,26 +29919,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/434/Mother-s-Day-Special-Hindi-2017-500x500.jpg",
     "genre": "hindi",
     "composer": "Pritam",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-8yjqLjFv",
-    "artistId": "shankar-mahadevan",
-    "title": "Maana Madurai (From \"Thimiru\")",
-    "artist": "Shankar Mahadevan - Yuvan Shankar Raja - Memorable Hits - Vol. 01",
-    "artists": [
-      "Shankar Mahadevan",
-      "Shankar Mahadevan - Yuvan Shankar Raja - Memorable Hits - Vol. 01"
-    ],
-    "movie": "Yuvan Shankar Raja - Memorable Hits - Vol. 01",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 288,
-    "audioUrl": "https://aac.saavncdn.com/133/1218ecb5746845779e102189d311b5f1_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/133/Yuvan-Shankar-Raja-Memorable-Hits-Vol-01-2013-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Yuvan Shankar Raja",
     "lyricist": "",
     "language": "hindi"
   },
@@ -37503,46 +31063,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-fz2WJLez",
-    "artistId": "himesh-reshammiya",
-    "title": "Loka Nayakuda (Come Dance With Me)",
-    "artist": "Himesh Reshammiya, Vineet Singh - Dhasavathaaram (Telugu)",
-    "artists": [
-      "Himesh Reshammiya",
-      "Himesh Reshammiya, Vineet Singh - Dhasavathaaram (Telugu)"
-    ],
-    "movie": "Dhasavathaaram (Telugu)",
-    "year": 2008,
-    "decade": "2000s",
-    "duration": 334,
-    "audioUrl": "https://aac.saavncdn.com/330/cee9a63b4464d6b623c21e55db8d9560_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/330/Dhasavathaaram-Telugu--Telugu-2008-20190822151703-500x500.jpg",
-    "genre": "telugu",
-    "composer": "Himesh Reshammiya",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-SyusvodF",
-    "artistId": "himesh-reshammiya",
-    "title": "Ulaga Nayagan (Come Dance With Me)",
-    "artist": "Himesh Reshammiya, Vinit ft. Tyla - Dhasavathaaram",
-    "artists": [
-      "Himesh Reshammiya",
-      "Himesh Reshammiya, Vinit ft. Tyla - Dhasavathaaram"
-    ],
-    "movie": "Dhasavathaaram",
-    "year": 2008,
-    "decade": "2000s",
-    "duration": 334,
-    "audioUrl": "https://aac.saavncdn.com/391/373f34161aef76802e5067ef06a50c95_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/391/Dhasavathaaram-2008-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Himesh Reshammiya",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-yRfAnc1M",
     "artistId": "himesh-reshammiya",
     "title": "Aap Ki Khatir (From \"Aap Ki Khatir\", Remix Version)",
@@ -37779,26 +31299,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/164/Best-of-Dance-2024-Hindi-2024-20251226211537-500x500.jpg",
     "genre": "hindi",
     "composer": "Kamaal Khan, Payal Dev, Himesh Reshammiya",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-ozEkSv8X",
-    "artistId": "himesh-reshammiya",
-    "title": "Ulaga Nayagan (From \"Dasavathaaram [Tamil]\") (Come Dance With Me)",
-    "artist": "Himesh Reshammiya, Vineet Singh - 2008 Top Tamil Hits",
-    "artists": [
-      "Himesh Reshammiya",
-      "Himesh Reshammiya, Vineet Singh - 2008 Top Tamil Hits"
-    ],
-    "movie": "2008 Top Tamil Hits",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 334,
-    "audioUrl": "https://aac.saavncdn.com/183/c410537feb9e054bbaefe9835b0d17d2_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/183/2008-Top-Tamil-Hits-Tamil-2015-500x500.jpg",
-    "genre": "tamil",
-    "composer": "Himesh Reshammiya",
     "lyricist": "",
     "language": "hindi"
   },
@@ -38643,26 +32143,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-LI79LVth",
-    "artistId": "reshma",
-    "title": "Sun Charkhe Di Mithi Mithi (Live Version / Remastered)",
-    "artist": "Sun Charkhe Di Mithi Mithi (Live Version / Remastered)",
-    "artists": [
-      "Reshma",
-      "Sun Charkhe Di Mithi Mithi (Live Version / Remastered)"
-    ],
-    "movie": "Sun Charkhe Di Mithi Mithi (Live Version / Remastered)",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 263,
-    "audioUrl": "https://aac.saavncdn.com/245/e4f2fa7696f9e19eef894aeedb506e48_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/245/Sun-Charkhe-Di-Mithi-Mithi-Live-Version-Remastered-Punjabi-2026-20260806054220-500x500.jpg",
-    "genre": "punjabi",
-    "composer": "Reshma",
-    "lyricist": "Reshma",
-    "language": "hindi"
-  },
-  {
     "id": "sg-nDaQ9fss",
     "artistId": "reshma",
     "title": "Maahi Wey Main Terey",
@@ -38699,46 +32179,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/844/Woh-Tera-Naam-Tha-2003-500x500.jpg",
     "genre": "hindi",
     "composer": "Dilip Sen, Sameer Sen",
-    "lyricist": "Reshma",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-LBfw6Q-i",
-    "artistId": "reshma",
-    "title": "Reshmachya Reghani",
-    "artist": "Asha Bhosle - Maratha Tituka Melvava",
-    "artists": [
-      "Reshma",
-      "Asha Bhosle - Maratha Tituka Melvava"
-    ],
-    "movie": "Maratha Tituka Melvava",
-    "year": 1963,
-    "decade": "60s",
-    "duration": 213,
-    "audioUrl": "https://aac.saavncdn.com/091/40d8d8f014d365cdbf51cb45e0aa0a7d_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/091/Maratha-Tituka-Melvava-Marathi-1963-20200924093926-500x500.jpg",
-    "genre": "marathi",
-    "composer": "Asha Bhosle, Anandghan",
-    "lyricist": "Reshma",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-gVaotSJP",
-    "artistId": "reshma",
-    "title": "Laal Meri Pat",
-    "artist": "Anish Mahli - Best Of Abida Parveen",
-    "artists": [
-      "Reshma",
-      "Anish Mahli - Best Of Abida Parveen"
-    ],
-    "movie": "Best Of Abida Parveen",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 249,
-    "audioUrl": "https://aac.saavncdn.com/338/38160700fae80a67f6d17988ed6904ad_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/338/Best-Of-Abida-Parveen-Punjabi-2025-20251106053038-500x500.jpg",
-    "genre": "hindi",
-    "composer": "Reshma",
     "lyricist": "Reshma",
     "language": "hindi"
   },
@@ -38799,26 +32239,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/070/Reshma-Hindi-2021-20220228132720-500x500.jpg",
     "genre": "hindi",
     "composer": "Honey Negi, Bablu Bobby",
-    "lyricist": "Reshma",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-a9iq7DqC",
-    "artistId": "reshma",
-    "title": "Goriye Main Jana Perdais",
-    "artist": "Mansoor Ali Malangi - Ubhey Tu Na Wanj Wey",
-    "artists": [
-      "Reshma",
-      "Mansoor Ali Malangi - Ubhey Tu Na Wanj Wey"
-    ],
-    "movie": "Ubhey Tu Na Wanj Wey",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 355,
-    "audioUrl": "https://aac.saavncdn.com/787/88eeede8a999c20fccf1d2dc6653cd25_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/787/Ubhey-Tu-Na-Wanj-Wey-Urdu-2023-20230612103956-500x500.jpg",
-    "genre": "punjabi",
-    "composer": "Reshma",
     "lyricist": "Reshma",
     "language": "hindi"
   },
@@ -39203,26 +32623,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-yH9vS1rF",
-    "artistId": "mehdi-hassan",
-    "title": "Toh Badapana Ku Dhik",
-    "artist": "Sourav Bharadwaj - Toh Badapana Ku Dhik",
-    "artists": [
-      "Mehdi Hassan",
-      "Sourav Bharadwaj - Toh Badapana Ku Dhik"
-    ],
-    "movie": "Toh Badapana Ku Dhik",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 295,
-    "audioUrl": "https://aac.saavncdn.com/476/94c8af8d91fcbcfc14c1e9491a96dd44_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/476/Toh-Badapana-Ku-Dhik-Oriya-2024-20240102191922-500x500.jpg",
-    "genre": "odia",
-    "composer": "Sourav Bharadwaj, Dibya Chandan",
-    "lyricist": "Mehdi Hassan",
-    "language": "hindi"
-  },
-  {
     "id": "sg-H2BRrEum",
     "artistId": "mehdi-hassan",
     "title": "Rafta Rafta Woh Meri Hasti Ka Saman",
@@ -39463,26 +32863,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-DPASASJz",
-    "artistId": "shafqat-amanat-ali",
-    "title": "Kol Kol",
-    "artist": "Boss Menn, Sadaat Shafqat Amanat Ali - Kol Kol",
-    "artists": [
-      "Shafqat Amanat Ali",
-      "Boss Menn, Sadaat Shafqat Amanat Ali - Kol Kol"
-    ],
-    "movie": "Kol Kol",
-    "year": 2020,
-    "decade": "2000s",
-    "duration": 221,
-    "audioUrl": "https://aac.saavncdn.com/055/fc5f951142d824906d1cb26a86882bdd_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/055/Kol-Kol-Punjabi-2020-20250222030724-500x500.jpg",
-    "genre": "punjabi",
-    "composer": "Boss Menn",
-    "lyricist": "Shafqat Amanat Ali",
-    "language": "hindi"
-  },
-  {
     "id": "sg-dxw__8x9",
     "artistId": "shafqat-amanat-ali",
     "title": "Tu",
@@ -39519,26 +32899,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/904/Tere-Naal-Love-Ho-Gaya-Hindi-2011-20240408214026-500x500.jpg",
     "genre": "hindi",
     "composer": "Sachin-Jigar",
-    "lyricist": "Shafqat Amanat Ali",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-F3izPJB2",
-    "artistId": "shafqat-amanat-ali",
-    "title": "Deedar",
-    "artist": "Shafqat Amanat Ali & Northern Lights - Deedar",
-    "artists": [
-      "Shafqat Amanat Ali",
-      "Shafqat Amanat Ali & Northern Lights - Deedar"
-    ],
-    "movie": "Deedar",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 255,
-    "audioUrl": "https://aac.saavncdn.com/235/fce85253f6ee8898d5e5d2e391aee8d2_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/235/Deedar-Punjabi-2017-20191010175248-500x500.jpg",
-    "genre": "punjabi",
-    "composer": "Boss Menn, Sadaat Shafqat Amanat Ali",
     "lyricist": "Shafqat Amanat Ali",
     "language": "hindi"
   },
@@ -39620,146 +32980,6 @@ const rawSongs = [
     "genre": "hindi",
     "composer": "Rahul Mishra",
     "lyricist": "Ali Zafar",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-CI-_yrlo",
-    "artistId": "noor-jehan",
-    "title": "Awaz De Kahan Hai",
-    "artist": "Surendra Nath - Best Of Noor Jehan, Vol. 1",
-    "artists": [
-      "Noor Jehan",
-      "Surendra Nath - Best Of Noor Jehan, Vol. 1"
-    ],
-    "movie": "Best Of Noor Jehan, Vol. 1",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 199,
-    "audioUrl": "https://aac.saavncdn.com/737/2b1db30538984d0ac067e9c4e331a576_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/737/Best-Of-Noor-Jehan-Vol-1-Punjabi-2026-20260331073026-500x500.jpg",
-    "genre": "hindi",
-    "composer": "Naushad Ali",
-    "lyricist": "Noor Jehan",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-xNeVcsVF",
-    "artistId": "noor-jehan",
-    "title": "Chandni Raaten",
-    "artist": "Queen Of Melody Noor Jehan",
-    "artists": [
-      "Noor Jehan",
-      "Queen Of Melody Noor Jehan"
-    ],
-    "movie": "Queen Of Melody Noor Jehan",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 265,
-    "audioUrl": "https://aac.saavncdn.com/205/d7b467dba85154915603c078867e83b9_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/205/Queen-Of-Melody-Noor-Jehan-Punjabi-2009-20250825083800-500x500.jpg",
-    "genre": "punjabi",
-    "composer": "Noor Jehan",
-    "lyricist": "Noor Jehan",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-FaIEyuS5",
-    "artistId": "noor-jehan",
-    "title": "Mujhse Pehli Si Mohabbat",
-    "artist": "Asha Bhosle - Best Of Noor Jehan, Vol. 1",
-    "artists": [
-      "Noor Jehan",
-      "Asha Bhosle - Best Of Noor Jehan, Vol. 1"
-    ],
-    "movie": "Best Of Noor Jehan, Vol. 1",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 350,
-    "audioUrl": "https://aac.saavncdn.com/737/27d1094a693709e424f91c775a73faf6_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/737/Best-Of-Noor-Jehan-Vol-1-Punjabi-2026-20260331073026-500x500.jpg",
-    "genre": "punjabi",
-    "composer": "Rashid Attre",
-    "lyricist": "Noor Jehan",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-F6Xh0vOb",
-    "artistId": "noor-jehan",
-    "title": "Jawan Hain Mohabbat",
-    "artist": "Best Of Noor Jehan, Vol. 1",
-    "artists": [
-      "Noor Jehan",
-      "Best Of Noor Jehan, Vol. 1"
-    ],
-    "movie": "Best Of Noor Jehan, Vol. 1",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 177,
-    "audioUrl": "https://aac.saavncdn.com/737/4b895e65e00d99def54add302cc5e72c_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/737/Best-Of-Noor-Jehan-Vol-1-Punjabi-2026-20260331073026-500x500.jpg",
-    "genre": "hindi",
-    "composer": "Naushad Ali",
-    "lyricist": "Noor Jehan",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-akHnjhFt",
-    "artistId": "noor-jehan",
-    "title": "Main Tey Mera Dilbar Jaani",
-    "artist": "Queen Of Melody Noor Jehan",
-    "artists": [
-      "Noor Jehan",
-      "Queen Of Melody Noor Jehan"
-    ],
-    "movie": "Queen Of Melody Noor Jehan",
-    "year": 2009,
-    "decade": "2000s",
-    "duration": 262,
-    "audioUrl": "https://aac.saavncdn.com/205/63fa1d0be6b730cd410cdecbf0a76c31_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/205/Queen-Of-Melody-Noor-Jehan-Punjabi-2009-20250825083800-500x500.jpg",
-    "genre": "punjabi",
-    "composer": "Noor Jehan",
-    "lyricist": "Noor Jehan",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-EDh6j-hx",
-    "artistId": "noor-jehan",
-    "title": "Sanun Nahar Wale Pool",
-    "artist": "Best Of Noor Jehan, Vol. 1",
-    "artists": [
-      "Noor Jehan",
-      "Best Of Noor Jehan, Vol. 1"
-    ],
-    "movie": "Best Of Noor Jehan, Vol. 1",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 245,
-    "audioUrl": "https://aac.saavncdn.com/737/17d7fbcc24bc4fb432dea7f344e2dd7d_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/737/Best-Of-Noor-Jehan-Vol-1-Punjabi-2026-20260331073026-500x500.jpg",
-    "genre": "punjabi",
-    "composer": "Salim Iqbal",
-    "lyricist": "Noor Jehan",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-crtbEjcE",
-    "artistId": "noor-jehan",
-    "title": "Sanu Nehar Waley Pul Te Bulake",
-    "artist": "Best Of Noor Jehan Kisa No Koi Payar Na Kara",
-    "artists": [
-      "Noor Jehan",
-      "Best Of Noor Jehan Kisa No Koi Payar Na Kara"
-    ],
-    "movie": "Best Of Noor Jehan Kisa No Koi Payar Na Kara",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 278,
-    "audioUrl": "https://aac.saavncdn.com/893/394f9f3ad7c2fbe0e273a6f119bfdf33_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/893/Best-Of-Noor-Jehan-Kisa-No-Koi-Payar-Na-Kara-Punjabi-2023-20260605224557-500x500.jpg",
-    "genre": "punjabi",
-    "composer": "Noor Jehan",
-    "lyricist": "Noor Jehan",
     "language": "hindi"
   },
   {
@@ -40399,26 +33619,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/539/Mausam-Hindi-1975-20190328153828-500x500.jpg",
     "genre": "hindi",
     "composer": "Madan Mohan",
-    "lyricist": "Bhupinder Singh",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-MuCXJubk",
-    "artistId": "bhupinder-singh",
-    "title": "Aa Chaliye",
-    "artist": "B Praak, Jaani - Honeymoon",
-    "artists": [
-      "Bhupinder Singh",
-      "B Praak, Jaani - Honeymoon"
-    ],
-    "movie": "Honeymoon",
-    "year": 2022,
-    "decade": "2000s",
-    "duration": 170,
-    "audioUrl": "https://aac.saavncdn.com/891/2b36ecdf48fe653e5cecfe5bc2cca663_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/891/Honeymoon-Punjabi-2022-20221027181008-500x500.jpg",
-    "genre": "punjabi",
-    "composer": "B Praak",
     "lyricist": "Bhupinder Singh",
     "language": "hindi"
   },
@@ -41683,66 +34883,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-qIssG4RV",
-    "artistId": "falguni-pathak",
-    "title": "Non Stop Garba by Falguni Pathak",
-    "artist": "Falguni Pathak - Non Stop Garba by Falguni Pathak",
-    "artists": [
-      "Falguni Pathak",
-      "Falguni Pathak - Non Stop Garba by Falguni Pathak"
-    ],
-    "movie": "Non Stop Garba by Falguni Pathak",
-    "year": 2022,
-    "decade": "2000s",
-    "duration": 4615,
-    "audioUrl": "https://aac.saavncdn.com/374/e51753b2f729224d85424de1bd12a7fb_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/374/Non-Stop-Garba-by-Falguni-Pathak-Gujarati-2022-20220919193312-500x500.jpg",
-    "genre": "gujarati",
-    "composer": "Falguni Pathak",
-    "lyricist": "Falguni Pathak",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-w6YMVuIY",
-    "artistId": "falguni-pathak",
-    "title": "Indhana Winva (Garba Mix)",
-    "artist": "Falguni Pathak, DJ Nitish Gulyani - Indhana Winva (Garba Mix)",
-    "artists": [
-      "Falguni Pathak",
-      "Falguni Pathak, DJ Nitish Gulyani - Indhana Winva (Garba Mix)"
-    ],
-    "movie": "Indhana Winva (Garba Mix)",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 165,
-    "audioUrl": "https://aac.saavncdn.com/732/e198a0fc224f39ad237932337e0f484e_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/732/Indhana-Winva-Garba-Mix-Hindi-2024-20240930114126-500x500.jpg",
-    "genre": "gujarati",
-    "composer": "Lalit Sen",
-    "lyricist": "Falguni Pathak",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-aSQf0EPz",
-    "artistId": "falguni-pathak",
-    "title": "Kesariyo Rang Tane",
-    "artist": "Falguni Pathak, Tushaar Trivedi - Non Stop Garba by Falguni Pathak",
-    "artists": [
-      "Falguni Pathak",
-      "Falguni Pathak, Tushaar Trivedi - Non Stop Garba by Falguni Pathak"
-    ],
-    "movie": "Non Stop Garba by Falguni Pathak",
-    "year": 2022,
-    "decade": "2000s",
-    "duration": 142,
-    "audioUrl": "https://aac.saavncdn.com/859/6c5e0c21fab50d7d0b00caa6f26d107d_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/859/Non-Stop-Garba-by-Falguni-Pathak-Gujarati-2022-20220922001218-500x500.jpg",
-    "genre": "gujarati",
-    "composer": "Falguni Pathak",
-    "lyricist": "Falguni Pathak",
-    "language": "hindi"
-  },
-  {
     "id": "sg-xShl89XB",
     "artistId": "falguni-pathak",
     "title": "Pari Hoon Main",
@@ -41778,46 +34918,6 @@ const rawSongs = [
     "audioUrl": "https://aac.saavncdn.com/165/549fc7b30ec31e7576111befc946c602_160.mp4",
     "coverUrl": "https://c.saavncdn.com/165/Now-Then-The-Greatest-Remix-Album--Hindi-2003-20190924060932-500x500.jpg",
     "genre": "hindi",
-    "composer": "Lalit Sen",
-    "lyricist": "Falguni Pathak",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-1u0Dftpz",
-    "artistId": "falguni-pathak",
-    "title": "Kumkumna Pagla Padiya (Gujarati Garba Song)",
-    "artist": "Falguni Pathak, Sudesh Bhosale - Maadi Tara Mandiriye (Non Stop Dandiya Mix)",
-    "artists": [
-      "Falguni Pathak",
-      "Falguni Pathak, Sudesh Bhosale - Maadi Tara Mandiriye (Non Stop Dandiya Mix)"
-    ],
-    "movie": "Maadi Tara Mandiriye (Non Stop Dandiya Mix)",
-    "year": 2000,
-    "decade": "2000s",
-    "duration": 400,
-    "audioUrl": "https://aac.saavncdn.com/808/216664fb1652028fce232709f5db3739_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/808/Maadi-Tara-Mandiriye-Non-Stop-Garba-Mix-Gujarati-2000-20240924131452-500x500.jpg",
-    "genre": "gujarati",
-    "composer": "Rishiraj",
-    "lyricist": "Falguni Pathak",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-fG-nZWx9",
-    "artistId": "falguni-pathak",
-    "title": "Aayi Re Milan Root",
-    "artist": "Falguni Pathak - Maine Payal Hai Chhankai",
-    "artists": [
-      "Falguni Pathak",
-      "Falguni Pathak - Maine Payal Hai Chhankai"
-    ],
-    "movie": "Maine Payal Hai Chhankai",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 282,
-    "audioUrl": "https://aac.saavncdn.com/597/ae07ca75ddba964a566234a2f84a4922_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/597/Maine-Payal-Hai-Chhankai-Hindi-2021-20240926205634-500x500.jpg",
-    "genre": "gujarati",
     "composer": "Lalit Sen",
     "lyricist": "Falguni Pathak",
     "language": "hindi"
@@ -43103,636 +36203,351 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-FN7RvfQc",
-    "title": "Mast Qalandar",
-    "artist": "Sami Yusuf, Rahat Fateh Ali Khan - Mast Qalandar",
+    "id": "atif-woh-lamhe",
+    "artistId": "atif-aslam",
+    "title": "Woh Lamhe Woh Baatein",
+    "artist": "Atif Aslam",
     "artists": [
-      "Sami Yusuf, Rahat Fateh Ali Khan - Mast Qalandar"
+      "Atif Aslam"
     ],
-    "movie": "Mast Qalandar",
-    "year": 2020,
+    "movie": "Zeher",
+    "year": 2005,
     "decade": "2000s",
-    "duration": 261,
-    "audioUrl": "https://aac.saavncdn.com/491/16c67e70fbdf6fdfdc574004274cf7f0_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/491/Mast-Qalandar-Punjabi-2020-20200818145823-500x500.jpg",
-    "genre": "punjabi",
-    "composer": "Traditional",
-    "lyricist": "Rahat",
-    "artistId": "rahat-fateh-ali-khan",
+    "duration": 320,
+    "audioUrl": "https://ia801808.us.archive.org/15/items/best-of-2005-bollywood-songs/zeher_-_02_-_woh_lamhe_woh_baatein.mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Bollywood Romantic",
+    "composer": "Mithoon, Roopkumar Rathod",
+    "lyricist": "Sayeed Quadri",
     "language": "hindi"
   },
   {
-    "id": "sg-IQP1Hagi",
-    "artistId": "abida-parveen",
-    "title": "Arey Logo Tumhara Kya",
-    "artist": "Abida Parveen",
+    "id": "atif-aadat-kalyug",
+    "artistId": "atif-aslam",
+    "title": "Aadat (Juda Hoke Bhi)",
+    "artist": "Atif Aslam",
     "artists": [
-      "Abida Parveen"
+      "Atif Aslam"
     ],
-    "movie": "Best of Abida Parveen",
-    "year": 1985,
-    "decade": "80s",
-    "duration": 434,
-    "audioUrl": "https://aac.saavncdn.com/338/54a89c6549764655283230d96343ea51_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/338/Best-Of-Abida-Parveen-Punjabi-2025-20251106053038-500x500.jpg",
-    "genre": "Sufi / Ghazal",
-    "composer": "Abida Parveen",
-    "lyricist": "Sufi Masters",
+    "movie": "Kalyug",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 334,
+    "audioUrl": "https://dn711408.ca.archive.org/0/items/best-of-2005-bollywood-songs/Kalyug%20(2005)%20-%2002%20-%20Aadat%20(part%201).mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Rock / Romantic",
+    "composer": "Goher Mumtaz, Atif Aslam",
+    "lyricist": "Sayeed Quadri",
     "language": "hindi"
   },
   {
-    "id": "sg-vhUiVT0A",
-    "artistId": "abida-parveen",
-    "title": "Laal Meri Pat",
-    "artist": "Abida Parveen",
+    "id": "atif-pehli-nazar",
+    "artistId": "atif-aslam",
+    "title": "Pehli Nazar Mein",
+    "artist": "Atif Aslam",
     "artists": [
-      "Abida Parveen"
+      "Atif Aslam"
     ],
-    "movie": "Best of Abida Parveen",
-    "year": 1985,
-    "decade": "80s",
-    "duration": 249,
-    "audioUrl": "https://aac.saavncdn.com/338/05a6a7f2f69d004c81922e343751cb62_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/338/Best-Of-Abida-Parveen-Punjabi-2025-20251106053038-500x500.jpg",
-    "genre": "Sufi / Ghazal",
-    "composer": "Abida Parveen",
-    "lyricist": "Sufi Masters",
+    "movie": "Race",
+    "year": 2008,
+    "decade": "2000s",
+    "duration": 314,
+    "audioUrl": "https://dn711202.ca.archive.org/0/items/best-of-2008-bollywood-songs/Race%20(2008)%20-%2002%20-%20Pehli%20Nazar%20Mein.mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Bollywood Romance",
+    "composer": "Pritam",
+    "lyricist": "Sameer",
     "language": "hindi"
   },
   {
-    "id": "sg-mbR4CNGA",
-    "artistId": "abida-parveen",
-    "title": "Main Nara-a-mastana",
-    "artist": "Abida Parveen",
+    "id": "atif-tu-jaane-na",
+    "artistId": "atif-aslam",
+    "title": "Tu Jaane Na",
+    "artist": "Atif Aslam",
     "artists": [
-      "Abida Parveen"
+      "Atif Aslam"
     ],
-    "movie": "Best of Abida Parveen",
-    "year": 1985,
-    "decade": "80s",
-    "duration": 440,
-    "audioUrl": "https://aac.saavncdn.com/338/86f4658afb0c6423f0c7c274c61dc3c0_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/338/Best-Of-Abida-Parveen-Punjabi-2025-20251106053038-500x500.jpg",
-    "genre": "Sufi / Ghazal",
-    "composer": "Abida Parveen",
-    "lyricist": "Sufi Masters",
+    "movie": "Ajab Prem Ki Ghazab Kahani",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 341,
+    "audioUrl": "https://dn721509.ca.archive.org/0/items/best-of-2009-bollywood-songs/Ajab%20Prem%20Ki%20Ghazab%20Kahani%20(2009)%20-%2002%20-%20Tu%20Jaane%20Na.mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Bollywood Romance",
+    "composer": "Pritam",
+    "lyricist": "Irshad Kamil",
     "language": "hindi"
   },
   {
-    "id": "sg-Avb0QRIP",
-    "artistId": "abida-parveen",
-    "title": "Jab Se Toone Mujhe Deewana",
-    "artist": "Abida Parveen",
+    "id": "atif-tera-hone-laga",
+    "artistId": "atif-aslam",
+    "title": "Tera Hone Laga Hoon",
+    "artist": "Atif Aslam, Alisha Chinai",
     "artists": [
-      "Abida Parveen"
+      "Atif Aslam",
+      "Alisha Chinai"
     ],
-    "movie": "Best of Abida Parveen",
-    "year": 1985,
-    "decade": "80s",
-    "duration": 748,
-    "audioUrl": "https://aac.saavncdn.com/338/024a22bbf5191eba90a4840a969bcc58_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/338/Best-Of-Abida-Parveen-Punjabi-2025-20251106053038-500x500.jpg",
-    "genre": "Sufi / Ghazal",
-    "composer": "Abida Parveen",
-    "lyricist": "Sufi Masters",
+    "movie": "Ajab Prem Ki Ghazab Kahani",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 299,
+    "audioUrl": "https://dn721509.ca.archive.org/0/items/best-of-2009-bollywood-songs/Ajab%20Prem%20Ki%20Ghazab%20Kahani%20(2009)%20-%2004%20-%20Tera%20Hone%20Laga%20Hoon.mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Bollywood Romance",
+    "composer": "Pritam",
+    "lyricist": "Ashish Pandit",
     "language": "hindi"
   },
   {
-    "id": "sg-Gn4zRe7Z",
-    "artistId": "abida-parveen",
-    "title": "Nahin Nigah Mein Manzil",
-    "artist": "Abida Parveen",
+    "id": "atif-bakhuda-tumhi-ho",
+    "artistId": "atif-aslam",
+    "title": "Bakhuda Tumhi Ho",
+    "artist": "Atif Aslam, Alka Yagnik",
     "artists": [
-      "Abida Parveen"
+      "Atif Aslam",
+      "Alka Yagnik"
     ],
-    "movie": "Best of Abida Parveen",
-    "year": 1985,
-    "decade": "80s",
-    "duration": 528,
-    "audioUrl": "https://aac.saavncdn.com/338/79ba05552943bb57a71c44baf22d1d47_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/338/Best-Of-Abida-Parveen-Punjabi-2025-20251106053038-500x500.jpg",
-    "genre": "Sufi / Ghazal",
-    "composer": "Abida Parveen",
-    "lyricist": "Sufi Masters",
+    "movie": "Kismat Konnection",
+    "year": 2008,
+    "decade": "2000s",
+    "duration": 345,
+    "audioUrl": "https://dn721803.ca.archive.org/0/items/atifaslamsongs/Bakhuda%20Tumhi%20Ho%20-%20www.DJMaza.Com.mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Bollywood Romance",
+    "composer": "Pritam",
+    "lyricist": "Sayeed Quadri",
     "language": "hindi"
   },
   {
-    "id": "sg-kMaBhd82",
-    "artistId": "abida-parveen",
-    "title": "Kuch Iss Ada Se Aaj",
-    "artist": "Abida Parveen",
+    "id": "atif-tere-bin",
+    "artistId": "atif-aslam",
+    "title": "Tere Bin",
+    "artist": "Atif Aslam",
     "artists": [
-      "Abida Parveen"
+      "Atif Aslam"
     ],
-    "movie": "Best of Abida Parveen",
-    "year": 1985,
-    "decade": "80s",
-    "duration": 527,
-    "audioUrl": "https://aac.saavncdn.com/338/aa4b0dcc734dfbfca8b4a81a5a8dcbf2_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/338/Best-Of-Abida-Parveen-Punjabi-2025-20251106053038-500x500.jpg",
-    "genre": "Sufi / Ghazal",
-    "composer": "Abida Parveen",
-    "lyricist": "Sufi Masters",
+    "movie": "Bas Ek Pal",
+    "year": 2006,
+    "decade": "2000s",
+    "duration": 274,
+    "audioUrl": "https://dn721803.ca.archive.org/0/items/atifaslamsongs/Tere%20Bin%20-%20www.DJMaza.Com.mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Bollywood Romantic",
+    "composer": "Mithoon",
+    "lyricist": "Sayeed Quadri",
     "language": "hindi"
   },
   {
-    "id": "sg-QPsLzj-Q",
-    "artistId": "abida-parveen",
-    "title": "Kalam Baba Bulle Shah (Live)",
-    "artist": "Abida Parveen",
+    "id": "atif-tere-liye",
+    "artistId": "atif-aslam",
+    "title": "Tere Liye",
+    "artist": "Atif Aslam, Shreya Ghoshal",
     "artists": [
-      "Abida Parveen"
+      "Atif Aslam",
+      "Shreya Ghoshal"
     ],
-    "movie": "Best of Abida Parveen",
-    "year": 1985,
-    "decade": "80s",
-    "duration": 1092,
-    "audioUrl": "https://aac.saavncdn.com/338/c4e14af72acf4a734d89da81174bc611_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/338/Best-Of-Abida-Parveen-Punjabi-2025-20251106053038-500x500.jpg",
-    "genre": "Sufi / Ghazal",
-    "composer": "Abida Parveen",
-    "lyricist": "Sufi Masters",
+    "movie": "Prince",
+    "year": 2010,
+    "decade": "2010s",
+    "duration": 282,
+    "audioUrl": "https://ia801507.us.archive.org/23/items/atifaslamsongs/Tere%20Liye%20-%20www.DJMaza.Com.mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Bollywood Romance",
+    "composer": "Sachin-Jigar",
+    "lyricist": "Sameer",
     "language": "hindi"
   },
   {
-    "id": "sg-aWt5BqZZ",
-    "artistId": "abida-parveen",
-    "title": "Ik Nukte Wich Gal Mukdi Ae",
-    "artist": "Abida Parveen",
+    "id": "atif-tu-mohabbat-hai",
+    "artistId": "atif-aslam",
+    "title": "Tu Mohabbat Hai",
+    "artist": "Atif Aslam, Monali Thakur",
     "artists": [
-      "Abida Parveen"
+      "Atif Aslam",
+      "Monali Thakur"
     ],
-    "movie": "Best of Abida Parveen",
-    "year": 1985,
-    "decade": "80s",
-    "duration": 844,
-    "audioUrl": "https://aac.saavncdn.com/338/cd31d94d071f187090676314e5afa30b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/338/Best-Of-Abida-Parveen-Punjabi-2025-20251106053038-500x500.jpg",
-    "genre": "Sufi / Ghazal",
-    "composer": "Abida Parveen",
-    "lyricist": "Sufi Masters",
+    "movie": "Tere Naal Love Ho Gaya",
+    "year": 2012,
+    "decade": "2010s",
+    "duration": 334,
+    "audioUrl": "https://dn721803.ca.archive.org/0/items/atifaslamsongs/Tu%20Mohabbat%20Hai-%28Atif%20Aslam%29-%20%5BOnMaza.Com%5D.mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Bollywood Romance",
+    "composer": "Sachin-Jigar",
+    "lyricist": "Priya Panchal",
     "language": "hindi"
   },
   {
-    "id": "sg-nd8mG-2y",
-    "artistId": "abida-parveen",
-    "title": "Maula Hussain",
-    "artist": "Abida Parveen",
+    "id": "atif-kuch-is-tarah",
+    "artistId": "atif-aslam",
+    "title": "Kuch Is Tarah",
+    "artist": "Atif Aslam",
     "artists": [
-      "Abida Parveen"
+      "Atif Aslam"
     ],
-    "movie": "Best of Abida Parveen",
-    "year": 1985,
-    "decade": "80s",
-    "duration": 393,
-    "audioUrl": "https://aac.saavncdn.com/338/72f75d1e59a317a5629eabbb78396c14_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/338/Best-Of-Abida-Parveen-Punjabi-2025-20251106053038-500x500.jpg",
-    "genre": "Sufi / Ghazal",
-    "composer": "Abida Parveen",
-    "lyricist": "Sufi Masters",
+    "movie": "Doorie (Album)",
+    "year": 2006,
+    "decade": "2000s",
+    "duration": 313,
+    "audioUrl": "https://dn721803.ca.archive.org/0/items/atifaslamsongs/Kuch%20Is%20Tarah%20-%20www.Songs.PK.mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Pop / Romantic",
+    "composer": "Mithoon, Atif Aslam",
+    "lyricist": "Sayeed Quadri",
     "language": "hindi"
   },
   {
-    "id": "sg-ZXHZ5Ge5",
-    "artistId": "abida-parveen",
-    "title": "Tera Faqir Houn Maula",
-    "artist": "Abida Parveen",
+    "id": "atif-doorie",
+    "artistId": "atif-aslam",
+    "title": "Doorie",
+    "artist": "Atif Aslam",
     "artists": [
-      "Abida Parveen"
+      "Atif Aslam"
     ],
-    "movie": "Best of Abida Parveen",
-    "year": 1985,
-    "decade": "80s",
-    "duration": 339,
-    "audioUrl": "https://aac.saavncdn.com/338/45fa0e8375a4e0e09018ac6d9d05f5e0_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/338/Best-Of-Abida-Parveen-Punjabi-2025-20251106053038-500x500.jpg",
-    "genre": "Sufi / Ghazal",
-    "composer": "Abida Parveen",
-    "lyricist": "Sufi Masters",
+    "movie": "Doorie (Album)",
+    "year": 2006,
+    "decade": "2000s",
+    "duration": 295,
+    "audioUrl": "https://dn721506.ca.archive.org/0/items/best-of-pop-songs-bollywood/Atif%20Aslam%20-%20Doorie%20-%2001%20-%20Doorie.mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Pop Rock",
+    "composer": "Atif Aslam, Sachin Gupta",
+    "lyricist": "Sameer",
     "language": "hindi"
   },
   {
-    "id": "sg-6E57PEn8",
-    "artistId": "abida-parveen",
-    "title": "Shaam-e-firaq",
-    "artist": "Abida Parveen",
+    "id": "atif-hum-kis-galli",
+    "artistId": "atif-aslam",
+    "title": "Hum Kis Galli Ja Rahe Hain",
+    "artist": "Atif Aslam",
     "artists": [
-      "Abida Parveen"
+      "Atif Aslam"
     ],
-    "movie": "Best of Abida Parveen",
-    "year": 1985,
-    "decade": "80s",
-    "duration": 504,
-    "audioUrl": "https://aac.saavncdn.com/338/bf9a791be11da380ab95f0c149118fcd_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/338/Best-Of-Abida-Parveen-Punjabi-2025-20251106053038-500x500.jpg",
-    "genre": "Sufi / Ghazal",
-    "composer": "Abida Parveen",
-    "lyricist": "Sufi Masters",
+    "movie": "Doorie (Album)",
+    "year": 2006,
+    "decade": "2000s",
+    "duration": 301,
+    "audioUrl": "https://ia601901.us.archive.org/0/items/best-of-pop-songs-bollywood/Atif%20Aslam%20-%20Doorie%20-%2003%20-%20Hum%20Kis%20Galli%20Ja%20Rahe%20Hain.mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Pop Rock",
+    "composer": "Sachin Gupta",
+    "lyricist": "Sameer",
     "language": "hindi"
   },
   {
-    "id": "sg-DFT85nJh",
-    "artistId": "abida-parveen",
-    "title": "Laal Shahbaz Shah Ki",
-    "artist": "Abida Parveen",
+    "id": "atif-dil-diyan-gallan",
+    "artistId": "atif-aslam",
+    "title": "Dil Diyan Gallan",
+    "artist": "Atif Aslam",
     "artists": [
-      "Abida Parveen"
+      "Atif Aslam"
     ],
-    "movie": "Best of Abida Parveen",
-    "year": 1985,
-    "decade": "80s",
-    "duration": 521,
-    "audioUrl": "https://aac.saavncdn.com/338/e969d413cbe1ad3d942426c855cd8dae_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/338/Best-Of-Abida-Parveen-Punjabi-2025-20251106053038-500x500.jpg",
-    "genre": "Sufi / Ghazal",
-    "composer": "Abida Parveen",
-    "lyricist": "Sufi Masters",
+    "movie": "Tiger Zinda Hai",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 260,
+    "audioUrl": "https://dn710707.ca.archive.org/0/items/dildiyangallantigerzindahaiatif190kbps/Dil%20Diyan%20Gallan%20-%20Tiger%20Zinda%20Hai%20(Atif)%20190Kbps.mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Bollywood Romance",
+    "composer": "Vishal-Shekhar",
+    "lyricist": "Irshad Kamil",
     "language": "hindi"
   },
   {
-    "id": "sg-BfLh4dS_",
-    "artistId": "abida-parveen",
-    "title": "Main Nara Mastana",
-    "artist": "Abida Parveen",
+    "id": "atif-tere-sang-yaara",
+    "artistId": "atif-aslam",
+    "title": "Tere Sang Yaara",
+    "artist": "Atif Aslam",
     "artists": [
-      "Abida Parveen"
+      "Atif Aslam"
     ],
-    "movie": "Best of Abida Parveen",
-    "year": 1985,
-    "decade": "80s",
-    "duration": 438,
-    "audioUrl": "https://aac.saavncdn.com/338/6ae7c653ab312647b7077d10c4665e96_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/338/Best-Of-Abida-Parveen-Punjabi-2025-20251106053038-500x500.jpg",
-    "genre": "Sufi / Ghazal",
-    "composer": "Abida Parveen",
-    "lyricist": "Sufi Masters",
+    "movie": "Rustom",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 290,
+    "audioUrl": "https://dn710009.ca.archive.org/0/items/y-2mate.com-tere-sang-yaara-full-audio-rustom-akshay-kumar-ileana-dcruz-arko-atif-aslam-manoj-m/y2mate.com%20-%20Tere%20Sang%20Yaara%20%20Full%20Audio%20%20Rustom%20%20Akshay%20Kumar%20%20Ileana%20Dcruz%20%20Arko%20%20Atif%20Aslam%20%20Manoj%20M.mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Bollywood Romance",
+    "composer": "Arko Pravo Mukherjee",
+    "lyricist": "Manoj Muntashir",
     "language": "hindi"
   },
   {
-    "id": "sg-uqrS0_w_",
-    "artistId": "abida-parveen",
-    "title": "Sanon Ishq Laga Hai",
-    "artist": "Abida Parveen",
+    "id": "atif-tu-chahiye",
+    "artistId": "atif-aslam",
+    "title": "Tu Chahiye",
+    "artist": "Atif Aslam",
     "artists": [
-      "Abida Parveen"
+      "Atif Aslam"
     ],
-    "movie": "Best of Abida Parveen",
-    "year": 1985,
-    "decade": "80s",
-    "duration": 576,
-    "audioUrl": "https://aac.saavncdn.com/338/c341f3f566ddb3b332e08dac6a935d8b_160.mp4",
-    "coverUrl": "https://c.saavncdn.com/338/Best-Of-Abida-Parveen-Punjabi-2025-20251106053038-500x500.jpg",
-    "genre": "Sufi / Ghazal",
-    "composer": "Abida Parveen",
-    "lyricist": "Sufi Masters",
+    "movie": "Bajrangi Bhaijaan",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 272,
+    "audioUrl": "https://dn711003.ca.archive.org/0/items/tu-chahiye-full-video-song-atif-aslam-pritam-bajrangi-bhaijaan-salman-khan-kareena-kapoor/%27Tu%20Chahiye%27%20FULL%20VIDEO%20Song%20-%20Atif%20Aslam%20Pritam%20%20Bajrangi%20Bhaijaan%20%20Salman%20Khan%2C%20Kareena%20Kapoor.mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Bollywood Romance",
+    "composer": "Pritam",
+    "lyricist": "Kausar Munir",
     "language": "hindi"
   },
   {
-      "id": "atif-woh-lamhe",
-      "artistId": "atif-aslam",
-      "title": "Woh Lamhe Woh Baatein",
-      "artist": "Atif Aslam",
-      "artists": [
-          "Atif Aslam"
-      ],
-      "movie": "Zeher",
-      "year": 2005,
-      "decade": "2000s",
-      "duration": 320,
-      "audioUrl": "https://ia801808.us.archive.org/15/items/best-of-2005-bollywood-songs/zeher_-_02_-_woh_lamhe_woh_baatein.mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Bollywood Romantic",
-      "composer": "Mithoon, Roopkumar Rathod",
-      "lyricist": "Sayeed Quadri",
-      "language": "hindi"
+    "id": "atif-tajdar-e-haram",
+    "artistId": "atif-aslam",
+    "title": "Tajdar-E-Haram (Coke Studio)",
+    "artist": "Atif Aslam",
+    "artists": [
+      "Atif Aslam"
+    ],
+    "movie": "Coke Studio Season 8",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 628,
+    "audioUrl": "https://dn721806.ca.archive.org/0/items/AtifAslamTajdarEHaramCokeStudioSeason8Episode1/Atif%20Aslam%20Tajdar-e-Haram%20Coke%20Studio%20Season%208%20Episode%201.mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Sufi Qawwali",
+    "composer": "Sabri Brothers, Strings",
+    "lyricist": "Traditional",
+    "language": "hindi"
   },
   {
-      "id": "atif-aadat-kalyug",
-      "artistId": "atif-aslam",
-      "title": "Aadat (Juda Hoke Bhi)",
-      "artist": "Atif Aslam",
-      "artists": [
-          "Atif Aslam"
-      ],
-      "movie": "Kalyug",
-      "year": 2005,
-      "decade": "2000s",
-      "duration": 334,
-      "audioUrl": "https://dn711408.ca.archive.org/0/items/best-of-2005-bollywood-songs/Kalyug%20(2005)%20-%2002%20-%20Aadat%20(part%201).mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Rock / Romantic",
-      "composer": "Goher Mumtaz, Atif Aslam",
-      "lyricist": "Sayeed Quadri",
-      "language": "hindi"
+    "id": "atif-pehli-dafa",
+    "artistId": "atif-aslam",
+    "title": "Pehli Dafa",
+    "artist": "Atif Aslam",
+    "artists": [
+      "Atif Aslam"
+    ],
+    "movie": "Pehli Dafa (Single)",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 278,
+    "audioUrl": "https://ia801506.us.archive.org/4/items/PehliDafaAtifAslam320Kbps/Pehli%20Dafa%20-%20Atif%20Aslam_320%20Kbps.mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Romantic Pop",
+    "composer": "Shiraz Uppal",
+    "lyricist": "Shakeel Sohail",
+    "language": "hindi"
   },
   {
-      "id": "atif-pehli-nazar",
-      "artistId": "atif-aslam",
-      "title": "Pehli Nazar Mein",
-      "artist": "Atif Aslam",
-      "artists": [
-          "Atif Aslam"
-      ],
-      "movie": "Race",
-      "year": 2008,
-      "decade": "2000s",
-      "duration": 314,
-      "audioUrl": "https://dn711202.ca.archive.org/0/items/best-of-2008-bollywood-songs/Race%20(2008)%20-%2002%20-%20Pehli%20Nazar%20Mein.mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Bollywood Romance",
-      "composer": "Pritam",
-      "lyricist": "Sameer",
-      "language": "hindi"
-  },
-  {
-      "id": "atif-tu-jaane-na",
-      "artistId": "atif-aslam",
-      "title": "Tu Jaane Na",
-      "artist": "Atif Aslam",
-      "artists": [
-          "Atif Aslam"
-      ],
-      "movie": "Ajab Prem Ki Ghazab Kahani",
-      "year": 2009,
-      "decade": "2000s",
-      "duration": 341,
-      "audioUrl": "https://dn721509.ca.archive.org/0/items/best-of-2009-bollywood-songs/Ajab%20Prem%20Ki%20Ghazab%20Kahani%20(2009)%20-%2002%20-%20Tu%20Jaane%20Na.mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Bollywood Romance",
-      "composer": "Pritam",
-      "lyricist": "Irshad Kamil",
-      "language": "hindi"
-  },
-  {
-      "id": "atif-tera-hone-laga",
-      "artistId": "atif-aslam",
-      "title": "Tera Hone Laga Hoon",
-      "artist": "Atif Aslam, Alisha Chinai",
-      "artists": [
-          "Atif Aslam",
-          "Alisha Chinai"
-      ],
-      "movie": "Ajab Prem Ki Ghazab Kahani",
-      "year": 2009,
-      "decade": "2000s",
-      "duration": 299,
-      "audioUrl": "https://dn721509.ca.archive.org/0/items/best-of-2009-bollywood-songs/Ajab%20Prem%20Ki%20Ghazab%20Kahani%20(2009)%20-%2004%20-%20Tera%20Hone%20Laga%20Hoon.mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Bollywood Romance",
-      "composer": "Pritam",
-      "lyricist": "Ashish Pandit",
-      "language": "hindi"
-  },
-  {
-      "id": "atif-bakhuda-tumhi-ho",
-      "artistId": "atif-aslam",
-      "title": "Bakhuda Tumhi Ho",
-      "artist": "Atif Aslam, Alka Yagnik",
-      "artists": [
-          "Atif Aslam",
-          "Alka Yagnik"
-      ],
-      "movie": "Kismat Konnection",
-      "year": 2008,
-      "decade": "2000s",
-      "duration": 345,
-      "audioUrl": "https://dn721803.ca.archive.org/0/items/atifaslamsongs/Bakhuda%20Tumhi%20Ho%20-%20www.DJMaza.Com.mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Bollywood Romance",
-      "composer": "Pritam",
-      "lyricist": "Sayeed Quadri",
-      "language": "hindi"
-  },
-  {
-      "id": "atif-tere-bin",
-      "artistId": "atif-aslam",
-      "title": "Tere Bin",
-      "artist": "Atif Aslam",
-      "artists": [
-          "Atif Aslam"
-      ],
-      "movie": "Bas Ek Pal",
-      "year": 2006,
-      "decade": "2000s",
-      "duration": 274,
-      "audioUrl": "https://dn721803.ca.archive.org/0/items/atifaslamsongs/Tere%20Bin%20-%20www.DJMaza.Com.mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Bollywood Romantic",
-      "composer": "Mithoon",
-      "lyricist": "Sayeed Quadri",
-      "language": "hindi"
-  },
-  {
-      "id": "atif-tere-liye",
-      "artistId": "atif-aslam",
-      "title": "Tere Liye",
-      "artist": "Atif Aslam, Shreya Ghoshal",
-      "artists": [
-          "Atif Aslam",
-          "Shreya Ghoshal"
-      ],
-      "movie": "Prince",
-      "year": 2010,
-      "decade": "2010s",
-      "duration": 282,
-      "audioUrl": "https://ia801507.us.archive.org/23/items/atifaslamsongs/Tere%20Liye%20-%20www.DJMaza.Com.mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Bollywood Romance",
-      "composer": "Sachin-Jigar",
-      "lyricist": "Sameer",
-      "language": "hindi"
-  },
-  {
-      "id": "atif-tu-mohabbat-hai",
-      "artistId": "atif-aslam",
-      "title": "Tu Mohabbat Hai",
-      "artist": "Atif Aslam, Monali Thakur",
-      "artists": [
-          "Atif Aslam",
-          "Monali Thakur"
-      ],
-      "movie": "Tere Naal Love Ho Gaya",
-      "year": 2012,
-      "decade": "2010s",
-      "duration": 334,
-      "audioUrl": "https://dn721803.ca.archive.org/0/items/atifaslamsongs/Tu%20Mohabbat%20Hai-%28Atif%20Aslam%29-%20%5BOnMaza.Com%5D.mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Bollywood Romance",
-      "composer": "Sachin-Jigar",
-      "lyricist": "Priya Panchal",
-      "language": "hindi"
-  },
-  {
-      "id": "atif-kuch-is-tarah",
-      "artistId": "atif-aslam",
-      "title": "Kuch Is Tarah",
-      "artist": "Atif Aslam",
-      "artists": [
-          "Atif Aslam"
-      ],
-      "movie": "Doorie (Album)",
-      "year": 2006,
-      "decade": "2000s",
-      "duration": 313,
-      "audioUrl": "https://dn721803.ca.archive.org/0/items/atifaslamsongs/Kuch%20Is%20Tarah%20-%20www.Songs.PK.mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Pop / Romantic",
-      "composer": "Mithoon, Atif Aslam",
-      "lyricist": "Sayeed Quadri",
-      "language": "hindi"
-  },
-  {
-      "id": "atif-doorie",
-      "artistId": "atif-aslam",
-      "title": "Doorie",
-      "artist": "Atif Aslam",
-      "artists": [
-          "Atif Aslam"
-      ],
-      "movie": "Doorie (Album)",
-      "year": 2006,
-      "decade": "2000s",
-      "duration": 295,
-      "audioUrl": "https://dn721506.ca.archive.org/0/items/best-of-pop-songs-bollywood/Atif%20Aslam%20-%20Doorie%20-%2001%20-%20Doorie.mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Pop Rock",
-      "composer": "Atif Aslam, Sachin Gupta",
-      "lyricist": "Sameer",
-      "language": "hindi"
-  },
-  {
-      "id": "atif-hum-kis-galli",
-      "artistId": "atif-aslam",
-      "title": "Hum Kis Galli Ja Rahe Hain",
-      "artist": "Atif Aslam",
-      "artists": [
-          "Atif Aslam"
-      ],
-      "movie": "Doorie (Album)",
-      "year": 2006,
-      "decade": "2000s",
-      "duration": 301,
-      "audioUrl": "https://ia601901.us.archive.org/0/items/best-of-pop-songs-bollywood/Atif%20Aslam%20-%20Doorie%20-%2003%20-%20Hum%20Kis%20Galli%20Ja%20Rahe%20Hain.mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Pop Rock",
-      "composer": "Sachin Gupta",
-      "lyricist": "Sameer",
-      "language": "hindi"
-  },
-  {
-      "id": "atif-dil-diyan-gallan",
-      "artistId": "atif-aslam",
-      "title": "Dil Diyan Gallan",
-      "artist": "Atif Aslam",
-      "artists": [
-          "Atif Aslam"
-      ],
-      "movie": "Tiger Zinda Hai",
-      "year": 2017,
-      "decade": "2010s",
-      "duration": 260,
-      "audioUrl": "https://dn710707.ca.archive.org/0/items/dildiyangallantigerzindahaiatif190kbps/Dil%20Diyan%20Gallan%20-%20Tiger%20Zinda%20Hai%20(Atif)%20190Kbps.mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Bollywood Romance",
-      "composer": "Vishal-Shekhar",
-      "lyricist": "Irshad Kamil",
-      "language": "hindi"
-  },
-  {
-      "id": "atif-tere-sang-yaara",
-      "artistId": "atif-aslam",
-      "title": "Tere Sang Yaara",
-      "artist": "Atif Aslam",
-      "artists": [
-          "Atif Aslam"
-      ],
-      "movie": "Rustom",
-      "year": 2016,
-      "decade": "2010s",
-      "duration": 290,
-      "audioUrl": "https://dn710009.ca.archive.org/0/items/y-2mate.com-tere-sang-yaara-full-audio-rustom-akshay-kumar-ileana-dcruz-arko-atif-aslam-manoj-m/y2mate.com%20-%20Tere%20Sang%20Yaara%20%20Full%20Audio%20%20Rustom%20%20Akshay%20Kumar%20%20Ileana%20Dcruz%20%20Arko%20%20Atif%20Aslam%20%20Manoj%20M.mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Bollywood Romance",
-      "composer": "Arko Pravo Mukherjee",
-      "lyricist": "Manoj Muntashir",
-      "language": "hindi"
-  },
-  {
-      "id": "atif-tu-chahiye",
-      "artistId": "atif-aslam",
-      "title": "Tu Chahiye",
-      "artist": "Atif Aslam",
-      "artists": [
-          "Atif Aslam"
-      ],
-      "movie": "Bajrangi Bhaijaan",
-      "year": 2015,
-      "decade": "2010s",
-      "duration": 272,
-      "audioUrl": "https://dn711003.ca.archive.org/0/items/tu-chahiye-full-video-song-atif-aslam-pritam-bajrangi-bhaijaan-salman-khan-kareena-kapoor/%27Tu%20Chahiye%27%20FULL%20VIDEO%20Song%20-%20Atif%20Aslam%20Pritam%20%20Bajrangi%20Bhaijaan%20%20Salman%20Khan%2C%20Kareena%20Kapoor.mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Bollywood Romance",
-      "composer": "Pritam",
-      "lyricist": "Kausar Munir",
-      "language": "hindi"
-  },
-  {
-      "id": "atif-tajdar-e-haram",
-      "artistId": "atif-aslam",
-      "title": "Tajdar-E-Haram (Coke Studio)",
-      "artist": "Atif Aslam",
-      "artists": [
-          "Atif Aslam"
-      ],
-      "movie": "Coke Studio Season 8",
-      "year": 2015,
-      "decade": "2010s",
-      "duration": 628,
-      "audioUrl": "https://dn721806.ca.archive.org/0/items/AtifAslamTajdarEHaramCokeStudioSeason8Episode1/Atif%20Aslam%20Tajdar-e-Haram%20Coke%20Studio%20Season%208%20Episode%201.mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Sufi Qawwali",
-      "composer": "Sabri Brothers, Strings",
-      "lyricist": "Traditional",
-      "language": "hindi"
-  },
-  {
-      "id": "atif-pehli-dafa",
-      "artistId": "atif-aslam",
-      "title": "Pehli Dafa",
-      "artist": "Atif Aslam",
-      "artists": [
-          "Atif Aslam"
-      ],
-      "movie": "Pehli Dafa (Single)",
-      "year": 2017,
-      "decade": "2010s",
-      "duration": 278,
-      "audioUrl": "https://ia801506.us.archive.org/4/items/PehliDafaAtifAslam320Kbps/Pehli%20Dafa%20-%20Atif%20Aslam_320%20Kbps.mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Romantic Pop",
-      "composer": "Shiraz Uppal",
-      "lyricist": "Shakeel Sohail",
-      "language": "hindi"
-  },
-  {
-      "id": "atif-paniyon-sa",
-      "artistId": "atif-aslam",
-      "title": "Paniyon Sa",
-      "artist": "Atif Aslam, Tulsi Kumar",
-      "artists": [
-          "Atif Aslam",
-          "Tulsi Kumar"
-      ],
-      "movie": "Satyameva Jayate",
-      "year": 2018,
-      "decade": "2010s",
-      "duration": 236,
-      "audioUrl": "https://dn710807.ca.archive.org/0/items/LyricalPANIYONSASatyamevaJayateJohnAbrahamAishaTulsiKumarAtifAsl/Lyrical%20PANIYON%20SA%20Satyameva%20Jayate%20John%20Abraham%20Aisha%20Tulsi%20Kumar%20Atif%20Asl.mp3",
-      "coverUrl": "/artists/atif-aslam.jpg",
-      "genre": "Bollywood Romance",
-      "composer": "Rochak Kohli",
-      "lyricist": "Kumaar",
-      "language": "hindi"
+    "id": "atif-paniyon-sa",
+    "artistId": "atif-aslam",
+    "title": "Paniyon Sa",
+    "artist": "Atif Aslam, Tulsi Kumar",
+    "artists": [
+      "Atif Aslam",
+      "Tulsi Kumar"
+    ],
+    "movie": "Satyameva Jayate",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 236,
+    "audioUrl": "https://dn710807.ca.archive.org/0/items/LyricalPANIYONSASatyamevaJayateJohnAbrahamAishaTulsiKumarAtifAsl/Lyrical%20PANIYON%20SA%20Satyameva%20Jayate%20John%20Abraham%20Aisha%20Tulsi%20Kumar%20Atif%20Asl.mp3",
+    "coverUrl": "/artists/atif-aslam.jpg",
+    "genre": "Bollywood Romance",
+    "composer": "Rochak Kohli",
+    "lyricist": "Kumaar",
+    "language": "hindi"
   },
   {
     "id": "sg-RETnhyj4",
@@ -45192,25 +38007,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-YVKYyg5a",
-    "artistId": "kk",
-    "title": "Alvida (Sped Up)",
-    "artist": "KK (Krishnakumar Kunnath)",
-    "artists": [
-      "KK (Krishnakumar Kunnath)"
-    ],
-    "movie": "Alvida (Sped Up)",
-    "year": 2024,
-    "decade": "2010s",
-    "duration": 182,
-    "audioUrl": "https://aac.saavncdn.com/178/241e0276087096b4fc658163d5066b81_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/178/Alvida-Sped-Up-Hindi-2024-20240227155008-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Pritam",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-diN7cMTD",
     "artistId": "kk",
     "title": "Tu Hi Meri Shab Hai",
@@ -46028,25 +38824,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-wh_r1SRv",
-    "artistId": "kk",
-    "title": "Tu Aashiqui Hai (Lofi Remix)",
-    "artist": "KK (Krishnakumar Kunnath)",
-    "artists": [
-      "KK (Krishnakumar Kunnath)"
-    ],
-    "movie": "Tu Aashiqui Hai (Lofi Remix)",
-    "year": 2021,
-    "decade": "2010s",
-    "duration": 267,
-    "audioUrl": "https://aac.saavncdn.com/796/a8624dfe28f2fb9616cc1b2a1b233fd3_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/796/Tu-Aashiqui-Hai-Lofi-Remix--Hindi-2021-20211022193531-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Vishal Dadlani, Shekhar Ravjiani",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-FntgznIH",
     "artistId": "kk",
     "title": "Tu Aashiqui Hai",
@@ -46098,25 +38875,6 @@ const rawSongs = [
     "duration": 231,
     "audioUrl": "https://aac.saavncdn.com/562/87e6f0c567a640be299f4d72b2ff9a17_320.mp4",
     "coverUrl": "https://c.saavncdn.com/562/Mat-Aazma-Re-Hindi-2023-20230510192413-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Pritam",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-4U-OTTnz",
-    "artistId": "kk",
-    "title": "Mat Aazma Re (Sped Up)",
-    "artist": "KK (Krishnakumar Kunnath)",
-    "artists": [
-      "KK (Krishnakumar Kunnath)"
-    ],
-    "movie": "Mat Aazma Re (Sped Up)",
-    "year": 2024,
-    "decade": "2010s",
-    "duration": 181,
-    "audioUrl": "https://aac.saavncdn.com/383/f750a791a9f28dd070d5bbcbb53e813c_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/383/Mat-Aazma-Re-Sped-Up-Hindi-2024-20240227163352-500x500.jpg",
     "genre": "bollywood",
     "composer": "Pritam",
     "lyricist": "",
@@ -46408,44 +39166,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-AokBIk0y",
-    "artistId": "rahat-fateh-ali-khan",
-    "title": "O Piya Re Piya",
-    "artist": "Rahat Fateh Ali Khan",
-    "artists": [
-      "Rahat Fateh Ali Khan"
-    ],
-    "movie": "Majnu (Original Motion Picture Soundtrack)",
-    "year": 2013,
-    "decade": "2010s",
-    "duration": 270,
-    "audioUrl": "https://aac.saavncdn.com/923/b9a66a85c145dc4d6fdbc903895c6a5f_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/923/Majnu-Original-Motion-Picture-Soundtrack-Bengali-2013-20251216020402-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Savvy",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-heo_I8NH",
-    "artistId": "rahat-fateh-ali-khan",
-    "title": "O Sathiya O Re Piya",
-    "artist": "Rahat Fateh Ali Khan",
-    "artists": [
-      "Rahat Fateh Ali Khan"
-    ],
-    "movie": "O Sathiya",
-    "year": 2020,
-    "decade": "2010s",
-    "duration": 241,
-    "audioUrl": "https://aac.saavncdn.com/758/815675aef879e8d0079be85e6ce8cdc7_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/758/O-Sathiya-Odia-2020-20200827110949-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Asad Nizam",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-onNUzbjB",
     "artistId": "rahat-fateh-ali-khan",
     "title": "O Re Piya - Instrumental",
@@ -46579,25 +39299,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-bYm3rH-V",
-    "artistId": "rahat-fateh-ali-khan",
-    "title": "Teri Ore (Lo-Fi Flip)",
-    "artist": "Rahat Fateh Ali Khan",
-    "artists": [
-      "Rahat Fateh Ali Khan"
-    ],
-    "movie": "Teri Ore (Lo-Fi Flip)",
-    "year": 2021,
-    "decade": "2010s",
-    "duration": 243,
-    "audioUrl": "https://aac.saavncdn.com/562/15993d00ca31a1ce132940bdf782a07a_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/562/Teri-Ore-Lo-Fi-Flip--Hindi-2021-20211203014335-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Pritam",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-5AfIsGri",
     "artistId": "rahat-fateh-ali-khan",
     "title": "Teri Ore",
@@ -46674,25 +39375,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-BAZOn0LD",
-    "artistId": "rahat-fateh-ali-khan",
-    "title": "Teri Ore (Lo-Fi Instrumental)",
-    "artist": "Rahat Fateh Ali Khan",
-    "artists": [
-      "Rahat Fateh Ali Khan"
-    ],
-    "movie": "Teri Ore (Lo-Fi Instrumental)",
-    "year": 2022,
-    "decade": "2010s",
-    "duration": 185,
-    "audioUrl": "https://aac.saavncdn.com/301/5c1ec482f0b78d4a43ff24807bdcbb54_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/301/Teri-Ore-Lo-Fi-Instrumental-Hindi-2022-20221212073750-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Saugat",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-l50HN1PE",
     "artistId": "rahat-fateh-ali-khan",
     "title": "Teri Ore (LoFi Version By OyeEditorrAnna)",
@@ -46708,44 +39390,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/215/Teri-Ore-LoFi-Version-By-OyeEditorrAnna-Hindi-2026-20260811113247-500x500.jpg",
     "genre": "bollywood",
     "composer": "Shreya Ghoshal, Pritam",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-PKJZV6OJ",
-    "artistId": "rahat-fateh-ali-khan",
-    "title": "Sajda",
-    "artist": "Rahat Fateh Ali Khan",
-    "artists": [
-      "Rahat Fateh Ali Khan"
-    ],
-    "movie": "Sajda",
-    "year": 2017,
-    "decade": "2010s",
-    "duration": 373,
-    "audioUrl": "https://aac.saavncdn.com/553/bdd969bf4af2ad8e0f3493d7fdcc2a8f_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/553/Sajda-Punjabi-2017-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Jatinder Jeetu",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-xklNYB5C",
-    "artistId": "rahat-fateh-ali-khan",
-    "title": "Sajjda",
-    "artist": "Rahat Fateh Ali Khan",
-    "artists": [
-      "Rahat Fateh Ali Khan"
-    ],
-    "movie": "Sajjda",
-    "year": 2018,
-    "decade": "2010s",
-    "duration": 294,
-    "audioUrl": "https://aac.saavncdn.com/766/983255de337c89eb2a07d2715747bf23_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/766/Sajjda-Punjabi-2018-20240815043934-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Tarun Rishi",
     "lyricist": "",
     "language": "hindi"
   },
@@ -47149,25 +39793,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-q-yc35Ub",
-    "artistId": "rahat-fateh-ali-khan",
-    "title": "Afreen",
-    "artist": "Rahat Fateh Ali Khan",
-    "artists": [
-      "Rahat Fateh Ali Khan"
-    ],
-    "movie": "Afreen",
-    "year": 2023,
-    "decade": "2010s",
-    "duration": 198,
-    "audioUrl": "https://aac.saavncdn.com/743/04239b8aaaa09fa80d6e1f24599a2fac_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/743/Afreen-Punjabi-2023-20230913110506-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "G Guri",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg--bZfPSdH",
     "artistId": "rahat-fateh-ali-khan",
     "title": "Aafreen Aafreen",
@@ -47529,25 +40154,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-9pMZlm-P",
-    "artistId": "rahat-fateh-ali-khan",
-    "title": "Dagabaaz Re-Shayri",
-    "artist": "Rahat Fateh Ali Khan",
-    "artists": [
-      "Rahat Fateh Ali Khan"
-    ],
-    "movie": "Shiromani Chintamani-Radhe Radhe",
-    "year": 2021,
-    "decade": "2010s",
-    "duration": 94,
-    "audioUrl": "https://aac.saavncdn.com/128/d060681a162911552663cb79dd35f305_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/128/Shiromani-Chintamani-Radhe-Radhe-Gujarati-2021-20210817171206-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Utpal Jivrajani",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-c6zCqBmG",
     "artistId": "rahat-fateh-ali-khan",
     "title": "Naina Bade Dagabaaz Re",
@@ -47753,25 +40359,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/284/Mera-Jiya-Dhadak-Dhadak-Jaaye-Hindi-2026-20260604194401-500x500.jpg",
     "genre": "bollywood",
     "composer": "Subrata Bhunia",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-pzhsCowl",
-    "artistId": "rahat-fateh-ali-khan",
-    "title": "Jiya Dhadak Dhadak Kare",
-    "artist": "Rahat Fateh Ali Khan",
-    "artists": [
-      "Rahat Fateh Ali Khan"
-    ],
-    "movie": "Jiya Dhadak Dhadak Kare",
-    "year": 2020,
-    "decade": "2010s",
-    "duration": 277,
-    "audioUrl": "https://aac.saavncdn.com/046/617d28f37ca2a2b98e56c56a216f48c6_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/046/Jiya-Dhadak-Dhadak-Kare-Bengali-2020-20220704105954-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Sagun Studio",
     "lyricist": "",
     "language": "hindi"
   },
@@ -48441,25 +41028,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-y24_mC4i",
-    "artistId": "shafqat-amanat-ali",
-    "title": "Mitwaa - Instrumental",
-    "artist": "Shafqat Amanat Ali",
-    "artists": [
-      "Shafqat Amanat Ali"
-    ],
-    "movie": "Mitwaa",
-    "year": 2014,
-    "decade": "2010s",
-    "duration": 292,
-    "audioUrl": "https://aac.saavncdn.com/943/edc891d9af186fb282fe042ed5da4cc0_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/943/Mitwaa-Marathi-2014-20241119160647-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Shankar-Ehsaan-Loy",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-j5FIlEaS",
     "artistId": "shafqat-amanat-ali",
     "title": "Chalo Chale Mitwa",
@@ -48650,25 +41218,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-s5piLcFX",
-    "artistId": "shafqat-amanat-ali",
-    "title": "Shy Mora Saiyaan",
-    "artist": "Shafqat Amanat Ali",
-    "artists": [
-      "Shafqat Amanat Ali"
-    ],
-    "movie": "Shy Mora Saiyaan",
-    "year": 2019,
-    "decade": "2010s",
-    "duration": 250,
-    "audioUrl": "https://aac.saavncdn.com/482/17a690ed4af103af63b41d70944843b5_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/482/Shy-Mora-Saiyaan-Punjabi-2019-20191001003156-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Meet Bros",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-LNO4mypZ",
     "artistId": "shafqat-amanat-ali",
     "title": "Mora Saiyan",
@@ -48722,25 +41271,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/510/Mora-Saiyyan-Mose-Bole-na-Hindi-2025-20250416135340-500x500.jpg",
     "genre": "bollywood",
     "composer": "Abhishek",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-GJPJeQN7",
-    "artistId": "shafqat-amanat-ali",
-    "title": "Morey Saiyaan Ji",
-    "artist": "Shafqat Amanat Ali",
-    "artists": [
-      "Shafqat Amanat Ali"
-    ],
-    "movie": "Morey Saiyaan Ji",
-    "year": 2022,
-    "decade": "2010s",
-    "duration": 275,
-    "audioUrl": "https://aac.saavncdn.com/929/e79e8fd60649c939fb1ccf498c974fe6_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/929/Morey-Saiyaan-Ji-Punjabi-2022-20240820050600-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "B Praak",
     "lyricist": "",
     "language": "hindi"
   },
@@ -48973,25 +41503,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-3ZVX_afG",
-    "artistId": "shafqat-amanat-ali",
-    "title": "Manchala Rayala",
-    "artist": "Shafqat Amanat Ali",
-    "artists": [
-      "Shafqat Amanat Ali"
-    ],
-    "movie": "Meluko Gururaja (Songs On Sri Raghavendra Swamy)",
-    "year": 1992,
-    "decade": "90s",
-    "duration": 185,
-    "audioUrl": "https://aac.saavncdn.com/877/40e707aabcfafaeb0b0b7361b12bd7c8_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/877/Meluko-Gururaja-Songs-On-Sri-Raghavendra-Swamy-Telugu-1992-20220827083339-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Dr. M. Balamuralikrishna, Dr M Balamuralikrishna",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-S1G1aJaD",
     "artistId": "shafqat-amanat-ali",
     "title": "Bin Tere (Reprise)",
@@ -49083,44 +41594,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/614/Majrooh-Sultanpuri-s-Bollywood-Collection-Hindi-2016-20260331205731-500x500.jpg",
     "genre": "bollywood",
     "composer": "Jatin-Lalit",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-PyCjqdJv",
-    "artistId": "shafqat-amanat-ali",
-    "title": "Bin Tere Tere Bin",
-    "artist": "Shafqat Amanat Ali",
-    "artists": [
-      "Shafqat Amanat Ali"
-    ],
-    "movie": "Your Midnight Playlist",
-    "year": 2026,
-    "decade": "2010s",
-    "duration": 314,
-    "audioUrl": "https://aac.saavncdn.com/246/b969cce66a21f51a89a677261c3ca4ca_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/246/Your-Midnight-Playlist-Bengali-2026-20260602010056-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Shree Pritam",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-iQyZpMOF",
-    "artistId": "shafqat-amanat-ali",
-    "title": "Bin Tere Tere Bin (Original)",
-    "artist": "Shafqat Amanat Ali",
-    "artists": [
-      "Shafqat Amanat Ali"
-    ],
-    "movie": "Khoka 420 (Original Motion Picture Soundtrack)",
-    "year": 2024,
-    "decade": "2010s",
-    "duration": 314,
-    "audioUrl": "https://aac.saavncdn.com/255/6ae945c9dbc7469c6eda5d8c9115a0d6_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/255/Khoka-420-Original-Motion-Picture-Soundtrack-Bengali-2024-20260603103149-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Shree Pritam",
     "lyricist": "",
     "language": "hindi"
   },
@@ -49235,63 +41708,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/771/Tu-Hindi-2020-20250222030818-500x500.jpg",
     "genre": "bollywood",
     "composer": "Boss Menn, Sadaat Shafqat Amanat Ali",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-N6McShu7",
-    "artistId": "shafqat-amanat-ali",
-    "title": "Kol Kol",
-    "artist": "Shafqat Amanat Ali",
-    "artists": [
-      "Shafqat Amanat Ali"
-    ],
-    "movie": "Room Files Season 2",
-    "year": 2021,
-    "decade": "2010s",
-    "duration": 221,
-    "audioUrl": "https://aac.saavncdn.com/261/0c7a9b657832f36e1fcbd5489cb7ade5_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/261/Room-Files-Season-2-Punjabi-2021-20260601204554-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Boss Menn",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-ikhXbz2Z",
-    "artistId": "shafqat-amanat-ali",
-    "title": "Deedar (Folk Flute Instrumental)",
-    "artist": "Shafqat Amanat Ali",
-    "artists": [
-      "Shafqat Amanat Ali"
-    ],
-    "movie": "Deedar",
-    "year": 2017,
-    "decade": "2010s",
-    "duration": 255,
-    "audioUrl": "https://aac.saavncdn.com/235/c07376ad35a4fa68682e0092108bc8b5_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/235/Deedar-Punjabi-2017-20191010175248-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Boss Menn",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-JLFAkzKd",
-    "artistId": "shafqat-amanat-ali",
-    "title": "Deedar (Bollywood Flute Instrumental)",
-    "artist": "Shafqat Amanat Ali",
-    "artists": [
-      "Shafqat Amanat Ali"
-    ],
-    "movie": "Deedar",
-    "year": 2017,
-    "decade": "2010s",
-    "duration": 255,
-    "audioUrl": "https://aac.saavncdn.com/235/79802a173cf3f8e26d98edcbf06cde83_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/235/Deedar-Punjabi-2017-20191010175248-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Boss Menn",
     "lyricist": "",
     "language": "hindi"
   },
@@ -49885,44 +42301,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-RHf5yRq5",
-    "artistId": "ali-zafar",
-    "title": "Mulluk | Coke Studio Bangla",
-    "artist": "Ali Zafar",
-    "artists": [
-      "Ali Zafar"
-    ],
-    "movie": "Mulluk | Coke Studio Bangla",
-    "year": 2026,
-    "decade": "2010s",
-    "duration": 319,
-    "audioUrl": "https://aac.saavncdn.com/308/c363224fb0a72add5c4d1c568d5d4a44_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/308/Mulluk-Coke-Studio-Bangla-Bengali-2026-20260819053854-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Shibu Kumer Shill, Folk Song",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-TrWXs-HD",
-    "artistId": "ali-zafar",
-    "title": "Patar Bashori | Coke Studio Bangla",
-    "artist": "Ali Zafar",
-    "artists": [
-      "Ali Zafar"
-    ],
-    "movie": "Patar Bashori | Coke Studio Bangla",
-    "year": 2026,
-    "decade": "2010s",
-    "duration": 209,
-    "audioUrl": "https://aac.saavncdn.com/202/cd62c2dd073f0a6958be7f4877b59ec4_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/202/Patar-Bashori-Coke-Studio-Bangla-Bengali-2026-20260724054459-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Ishaan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-fbMX7Be6",
     "artistId": "ali-zafar",
     "title": "Ishq Bawla | Coke Studio Bharat",
@@ -49961,25 +42339,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-glALNdSz",
-    "artistId": "ali-zafar",
-    "title": "Khalasi | Coke Studio Bharat",
-    "artist": "Ali Zafar",
-    "artists": [
-      "Ali Zafar"
-    ],
-    "movie": "Khalasi | Coke Studio Bharat",
-    "year": 2023,
-    "decade": "2010s",
-    "duration": 258,
-    "audioUrl": "https://aac.saavncdn.com/140/e91bb0ad5498cee0f32e9e27890e1b9b_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/140/Khalasi-Coke-Studio-Bharat-Gujarati-2023-20230703053409-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Achint",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg--Rhg-q1M",
     "artistId": "ali-zafar",
     "title": "Chaudhary",
@@ -49995,44 +42354,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/668/Coke-Studio-S2-Hindi-2023-20260606091636-500x500.jpg",
     "genre": "bollywood",
     "composer": "Amit Trivedi",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-bZTAROSO",
-    "artistId": "ali-zafar",
-    "title": "Long Distance Love | Coke Studio Bangla",
-    "artist": "Ali Zafar",
-    "artists": [
-      "Ali Zafar"
-    ],
-    "movie": "Long Distance Love | Coke Studio Bangla",
-    "year": 2025,
-    "decade": "2010s",
-    "duration": 282,
-    "audioUrl": "https://aac.saavncdn.com/862/18a39d35a826d629a7f2980f0cc454e2_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/862/Long-Distance-Love-Coke-Studio-Bangla-Bengali-2025-20250909053639-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Ankan Kumar, Shuvendu Das Shuvo",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-nAMdwfhx",
-    "artistId": "ali-zafar",
-    "title": "Magic | Coke Studio Bharat",
-    "artist": "Ali Zafar",
-    "artists": [
-      "Ali Zafar"
-    ],
-    "movie": "Magic | Coke Studio Bharat",
-    "year": 2024,
-    "decade": "2010s",
-    "duration": 234,
-    "audioUrl": "https://aac.saavncdn.com/110/6ed7e2001e8819f7d20a978ba67fdfaa_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/110/Magic-Coke-Studio-Bharat-Punjabi-2024-20240206053548-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Inderpal Moga",
     "lyricist": "",
     "language": "hindi"
   },
@@ -50090,25 +42411,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/054/Sonchadi-Coke-Studio-Bharat-Hindi-2024-20240507163244-500x500.jpg",
     "genre": "bollywood",
     "composer": "DigV",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-Ua7SVyqG",
-    "artistId": "ali-zafar",
-    "title": "Meetha Khaara | Coke Studio Bharat",
-    "artist": "Ali Zafar",
-    "artists": [
-      "Ali Zafar"
-    ],
-    "movie": "Meetha Khaara | Coke Studio Bharat",
-    "year": 2025,
-    "decade": "2010s",
-    "duration": 262,
-    "audioUrl": "https://aac.saavncdn.com/400/5e3873400495a4248ce23c45a97d9c1b_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/400/Meetha-Khaara-Coke-Studio-Bharat-Gujarati-2025-20250907053113-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Siddharth Amit Bhavsar",
     "lyricist": "",
     "language": "hindi"
   },
@@ -50322,25 +42624,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-yGbT7gA6",
-    "artistId": "abida-parveen",
-    "title": "Mast Qalandar (Stepping into Light) (Live)",
-    "artist": "Abida Parveen",
-    "artists": [
-      "Abida Parveen"
-    ],
-    "movie": "Mast Qalandar (Stepping into Light) (Live)",
-    "year": 2022,
-    "decade": "2010s",
-    "duration": 276,
-    "audioUrl": "https://aac.saavncdn.com/381/f18698496f2d1a16e58a468e865d982d_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/381/Mast-Qalandar-Stepping-into-Light-Live-Punjabi-2022-20220831152646-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Traditional",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-tCwZ3vna",
     "artistId": "abida-parveen",
     "title": "Mast Kalander",
@@ -50398,25 +42681,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-1WXre4pV",
-    "artistId": "abida-parveen",
-    "title": "Mast Qalandar | Coke Studio Bangla",
-    "artist": "Abida Parveen",
-    "artists": [
-      "Abida Parveen"
-    ],
-    "movie": "Mast Qalandar | Coke Studio Bangla",
-    "year": 2025,
-    "decade": "2010s",
-    "duration": 509,
-    "audioUrl": "https://aac.saavncdn.com/899/c0ab65e4c1a643ac138808d59017f528_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/899/Mast-Qalandar-Coke-Studio-Bangla-Sindhi-2025-20251115053239-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Baba Bulleh Shah, Aashiq Hussain, Shamarin Dewan",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-whxKykFd",
     "artistId": "abida-parveen",
     "title": "Damaa Dam Mast Kalandar",
@@ -50451,25 +42715,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/352/Live-in-London-2016-Arabic-2017-500x500.jpg",
     "genre": "bollywood",
     "composer": "Sami Yusuf",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-qDsybkgn",
-    "artistId": "abida-parveen",
-    "title": "Mast Qalandar (The Sufi Qawali Joint)",
-    "artist": "Abida Parveen",
-    "artists": [
-      "Abida Parveen"
-    ],
-    "movie": "Ruff Around The Edges",
-    "year": 2023,
-    "decade": "2010s",
-    "duration": 306,
-    "audioUrl": "https://aac.saavncdn.com/479/c67b32bfa4ae02778078d886d8e8ef6c_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/479/Ruff-Around-The-Edges-Punjabi-2023-20230309141014-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Traditional",
     "lyricist": "",
     "language": "hindi"
   },
@@ -50626,25 +42871,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-ruMrTTzO",
-    "artistId": "abida-parveen",
-    "title": "Tu Jhoom New Song | Purvi Soni x Abi Dhillon 2026",
-    "artist": "Abida Parveen",
-    "artists": [
-      "Abida Parveen"
-    ],
-    "movie": "Tu Jhoom New Song | Purvi Soni x Abi Dhillon 2026",
-    "year": 2026,
-    "decade": "2010s",
-    "duration": 192,
-    "audioUrl": "https://aac.saavncdn.com/241/abc0de87ff03f42bbafacd256aa5d0be_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/241/Tu-Jhoom-New-Song-Purvi-Soni-x-Abi-Dhillon-2026-Punjabi-2026-20260704155502-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "MR SONI MUKESH",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-QMRQrQ7E",
     "artistId": "abida-parveen",
     "title": "Ankhon Mein Tu",
@@ -50721,25 +42947,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-KwdQkKkf",
-    "artistId": "abida-parveen",
-    "title": "Sohnra Manhoon Sindh Ja",
-    "artist": "Abida Parveen",
-    "artists": [
-      "Abida Parveen"
-    ],
-    "movie": "Sohnra Manhoon Sindh Ja",
-    "year": 2022,
-    "decade": "2010s",
-    "duration": 480,
-    "audioUrl": "https://aac.saavncdn.com/376/8ebaacf3f9df376acf3f7133ad8d4cf2_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/376/Sohnra-Manhoon-Sindh-Ja-Sindhi-2022-20250510105408-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Abida Parveen, Traditional",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-8qtQRjBK",
     "artistId": "abida-parveen",
     "title": "Beet Gaye Din",
@@ -50755,25 +42962,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/294/A-Sampling-of-Ghazal-Poetic-and-Sufi-Devotional-Music-of-India-with-Abida-Parveen-Nusrat-Fateh-Ali-Khan-Shreya-Ghoshal-Rahat-Fateh-Ali-Khan-Talat-Aziz-And-More-English-2014-20160417171033-500x500.jpg",
     "genre": "bollywood",
     "composer": "Abida Parveen, Traditional",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-mZy8AP-C",
-    "artistId": "abida-parveen",
-    "title": "Ho Jamalo (Mashup)",
-    "artist": "Abida Parveen",
-    "artists": [
-      "Abida Parveen"
-    ],
-    "movie": "Ho Jamalo (Mashup)",
-    "year": 2023,
-    "decade": "2010s",
-    "duration": 736,
-    "audioUrl": "https://aac.saavncdn.com/329/d236a2bd438050d157187f8423503b21_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/329/Ho-Jamalo-Mashup-Sindhi-2023-20250620120909-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Mohit Lalwani, Jatin Vaswani",
     "lyricist": "",
     "language": "hindi"
   },
@@ -50812,44 +43000,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/835/Subcontinental-Drift-English-2015-500x500.jpg",
     "genre": "bollywood",
     "composer": "Anwar Khurshid, Waleed Abdulhamid, Chris McKhool, Kevin Laliberte, Rosendo Leon, Drew Birston",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-e24merk1",
-    "artistId": "abida-parveen",
-    "title": "Ho Jamalo Sindhi Mashoor Gana",
-    "artist": "Abida Parveen",
-    "artists": [
-      "Abida Parveen"
-    ],
-    "movie": "Ho Jamalo Sindhi Mashoor Gana",
-    "year": 2022,
-    "decade": "2010s",
-    "duration": 279,
-    "audioUrl": "https://aac.saavncdn.com/118/c8fab81a02e18f298c99e83cd98417bd_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/118/Ho-Jamalo-Sindhi-Mashoor-Gana-Hindi-2022-20220109231003-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Muntaha",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-arL1Qqk2",
-    "artistId": "abida-parveen",
-    "title": "Gayo Ho Jamalo",
-    "artist": "Abida Parveen",
-    "artists": [
-      "Abida Parveen"
-    ],
-    "movie": "Bhali Kare Aayo, Vol. 02",
-    "year": 2026,
-    "decade": "2010s",
-    "duration": 403,
-    "audioUrl": "https://aac.saavncdn.com/461/7e6cebd848f4bc1f8587a73fabc5d51f_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/461/Bhali-Kare-Aayo-Vol-02-Sindhi-2026-20260521203855-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Razaq Jamil",
     "lyricist": "",
     "language": "hindi"
   },
@@ -51097,25 +43247,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/000/default_Saregama-500x500.jpg",
     "genre": "bollywood",
     "composer": "Laxmikant - Pyarelal",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-66N_wONq",
-    "artistId": "ghulam-ali",
-    "title": "Hungama Hai kyon Barpa",
-    "artist": "Ghulam Ali",
-    "artists": [
-      "Ghulam Ali"
-    ],
-    "movie": "Kadi Kadi Mukhra Wikhya Kar",
-    "year": 2022,
-    "decade": "2010s",
-    "duration": 462,
-    "audioUrl": "https://aac.saavncdn.com/480/a26d62fb152a590519c4991b930e6f12_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/480/Kadi-Kadi-Mukhra-Wikhya-Kar-Punjabi-2022-20220727222513-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Talib Hussain Dard",
     "lyricist": "",
     "language": "hindi"
   },
@@ -51817,25 +43948,6 @@ const rawSongs = [
     "duration": 514,
     "audioUrl": "https://aac.saavncdn.com/104/1696c10930242bd00cc9c7a0d2b0732b_320.mp4",
     "coverUrl": "https://c.saavncdn.com/104/Live-in-USA-Mehfil-Series-Hindi-2016-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Ghulam Ali ",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-NrYkYCrO",
-    "artistId": "ghulam-ali",
-    "title": "Pehli Wari: Tribute to Ustaad Ghulam Ali Khan Ji",
-    "artist": "Ghulam Ali",
-    "artists": [
-      "Ghulam Ali"
-    ],
-    "movie": "Pehli Wari: Tribute to Ustaad Ghulam Ali Khan Ji",
-    "year": 2024,
-    "decade": "2010s",
-    "duration": 163,
-    "audioUrl": "https://aac.saavncdn.com/688/0f622340c6c70d29af739fce618c0af5_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/688/Pehli-Wari-Tribute-to-Ustaad-Ghulam-Ali-Khan-Ji-Punjabi-2024-20240524195711-500x500.jpg",
     "genre": "bollywood",
     "composer": "Ghulam Ali ",
     "lyricist": "",
@@ -53343,25 +45455,6 @@ const rawSongs = [
     "language": "hindi"
   },
   {
-    "id": "sg-6BWsXFx5",
-    "artistId": "jubin-nautiyal",
-    "title": "Raataan Lambiyan (Sped Up)",
-    "artist": "Jubin Nautiyal",
-    "artists": [
-      "Jubin Nautiyal"
-    ],
-    "movie": "Raataan Lambiyan (Sped Up)",
-    "year": 2024,
-    "decade": "2010s",
-    "duration": 176,
-    "audioUrl": "https://aac.saavncdn.com/154/89676489a90b48ba44bfaebae8e51e11_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/154/Raataan-Lambiyan-Sped-Up-Hindi-2024-20240215115221-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "Tanishk Bagchi",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
     "id": "sg-e1nLbnVy",
     "artistId": "jubin-nautiyal",
     "title": "Raataan Lambiyan (Synthwave)",
@@ -53643,25 +45736,6 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/476/Bewafa-Tera-Masoom-Chehra-Lofi-Mix-Hindi-2024-20240312141010-500x500.jpg",
     "genre": "bollywood",
     "composer": "Rochak Kohli",
-    "lyricist": "",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-qprAk1C_",
-    "artistId": "jubin-nautiyal",
-    "title": "Love In Lo-Fi Volume 1 - Tujhe Kitna Chahein Aur Hum(Remix By Dj Chetas,Dj Nyk)",
-    "artist": "Jubin Nautiyal",
-    "artists": [
-      "Jubin Nautiyal"
-    ],
-    "movie": "Love In Lo-Fi Volume 1 - Tujhe Kitna Chahein Aur Hum",
-    "year": 2022,
-    "decade": "2010s",
-    "duration": 252,
-    "audioUrl": "https://aac.saavncdn.com/209/378e3fe2a69ea237e0d54ffd4d581462_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/209/Love-In-Lo-Fi-Volume-1-Tujhe-Kitna-Chahein-Aur-Hum-Hindi-2022-20220211171002-500x500.jpg",
-    "genre": "bollywood",
-    "composer": "",
     "lyricist": "",
     "language": "hindi"
   },
@@ -54160,25 +46234,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-qACcAEiA",
-    "artistId": "ed-sheeran",
-    "title": "Photograph (In the Style of Ed Sheeran) [Instrumental Version]",
-    "artist": "Ed Sheeran",
-    "artists": [
-      "Ed Sheeran"
-    ],
-    "movie": "Greatest Karaoke Pop Hits of the Month (August/2015)",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 260,
-    "audioUrl": "https://aac.saavncdn.com/415/97f95f9c64fa88e0c0e031f2229cc962_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/415/Greatest-Karaoke-Pop-Hits-of-the-Month-August-2015--English-2015-20190914033549-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Johnny Mcdaid, Ed Sheeran",
-    "lyricist": ""
-  },
-  {
     "id": "intl-DlcBMBmv",
     "artistId": "ed-sheeran",
     "title": "Castle on the Hill",
@@ -54635,25 +46690,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-4fgQcBlL",
-    "artistId": "ed-sheeran",
-    "title": "Happier (In the Style of Ed Sheeran) [Karaoke Version]",
-    "artist": "Ed Sheeran",
-    "artists": [
-      "Ed Sheeran"
-    ],
-    "movie": "Greatest Karaoke Pop Hits (July.2018)",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 210,
-    "audioUrl": "https://aac.saavncdn.com/167/96503aa97e38fed643b716ac93e6a584_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/167/Greatest-Karaoke-Pop-Hits-July-2018--English-2018-20180727143102-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Ryan Tedder, Ed Sheeran, Benjamin Levin",
-    "lyricist": ""
-  },
-  {
     "id": "intl-H5p7M74f",
     "artistId": "ed-sheeran",
     "title": "Happier (with SuperStar 2021)",
@@ -54825,25 +46861,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-TP0N-YfH",
-    "artistId": "taylor-swift",
-    "title": "Blank Space (Karaoke Version)",
-    "artist": "Taylor Swift",
-    "artists": [
-      "Taylor Swift"
-    ],
-    "movie": "Taylor Swift Karaoke: 1989 (Deluxe)",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 235,
-    "audioUrl": "https://aac.saavncdn.com/305/ea22651ab87f251297e4a94dc1cb9de7_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/305/Taylor-Swift-Karaoke-1989-Deluxe--English-2015-20190420040440-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Shellback, Max Martin, Taylor Swift",
-    "lyricist": ""
-  },
-  {
     "id": "intl-04H7h7Kk",
     "artistId": "taylor-swift",
     "title": "Shake It Off",
@@ -54898,25 +46915,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Taylor Swift, Max Martin, Shellback",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-coFE_5JB",
-    "artistId": "taylor-swift",
-    "title": "Shake It Off (Karaoke Version)",
-    "artist": "Taylor Swift",
-    "artists": [
-      "Taylor Swift"
-    ],
-    "movie": "Taylor Swift Karaoke: 1989 (Deluxe)",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 219,
-    "audioUrl": "https://aac.saavncdn.com/305/5b6ef36e3f1f175287d9475eea321f77_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/305/Taylor-Swift-Karaoke-1989-Deluxe--English-2015-20190420040440-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Shellback, Max Martin, Taylor Swift",
     "lyricist": ""
   },
   {
@@ -55053,44 +47051,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-fT2z7RTU",
-    "artistId": "taylor-swift",
-    "title": "You Belong With Me (Instrumental with BGV)",
-    "artist": "Taylor Swift",
-    "artists": [
-      "Taylor Swift"
-    ],
-    "movie": "Fearless (Karaoke Version)",
-    "year": 2011,
-    "decade": "2000s",
-    "duration": 239,
-    "audioUrl": "https://aac.saavncdn.com/941/582840b40e5d3075eb48a970e756f6eb_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/941/Fearless-Karaoke-Version-2011-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Taylor Swift, Liz Rose",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-ziKqG0PT",
-    "artistId": "taylor-swift",
-    "title": "You Belong with Me (Karaoke Version)",
-    "artist": "Taylor Swift",
-    "artists": [
-      "Taylor Swift"
-    ],
-    "movie": "You Belong with Me (Karaoke Version) (Originally Performed By Taylor Swift)",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 233,
-    "audioUrl": "https://aac.saavncdn.com/767/2a0d868f2b78b7f7f29b204132176640_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/767/You-Belong-with-Me-Karaoke-Version-Originally-Performed-By-Taylor-Swift-English-2015-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Taylor Swift, Liz Rose",
-    "lyricist": ""
-  },
-  {
     "id": "intl-otUnFUAO",
     "artistId": "taylor-swift",
     "title": "cardigan",
@@ -55167,63 +47127,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-N4mI0O4J",
-    "artistId": "taylor-swift",
-    "title": "Style (Karaoke Version)",
-    "artist": "Taylor Swift",
-    "artists": [
-      "Taylor Swift"
-    ],
-    "movie": "Taylor Swift Karaoke: 1989 (Deluxe)",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 229,
-    "audioUrl": "https://aac.saavncdn.com/305/1794078d054bca623ca2ba2b4d7e5371_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/305/Taylor-Swift-Karaoke-1989-Deluxe--English-2015-20190420040440-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Ali Payami, Shellback, Max Martin, Taylor Swift",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-Ev_P6iq9",
-    "artistId": "taylor-swift",
-    "title": "Style (Sped Up)",
-    "artist": "Taylor Swift",
-    "artists": [
-      "Taylor Swift"
-    ],
-    "movie": "Style",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 197,
-    "audioUrl": "https://aac.saavncdn.com/070/0b387522011adb7ea438166e3521dc50_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/070/Style-Instrumental-2021-20230712091253-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Max Martin, Ali Payami, Taylor Swift",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-mDmRmp5I",
-    "artistId": "taylor-swift",
-    "title": "Style (Karaoke Version with Guide Melody)",
-    "artist": "Taylor Swift",
-    "artists": [
-      "Taylor Swift"
-    ],
-    "movie": "Style (Karaoke Version)",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 235,
-    "audioUrl": "https://aac.saavncdn.com/791/810301c20ffb9b79f7e11141951125c6_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/791/Style-Karaoke-Version-English-2015-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Max Martin, Shellback, Ali Payami, Taylor Swift",
-    "lyricist": ""
-  },
-  {
     "id": "intl-6BWhl_LT",
     "artistId": "taylor-swift",
     "title": "Wildest Dreams",
@@ -55259,25 +47162,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Taylor Swift, Shellback, Max Martin",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-cadOwsi5",
-    "artistId": "taylor-swift",
-    "title": "Wildest Dreams (Karaoke Version)",
-    "artist": "Taylor Swift",
-    "artists": [
-      "Taylor Swift"
-    ],
-    "movie": "Taylor Swift Karaoke: 1989 (Deluxe)",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 218,
-    "audioUrl": "https://aac.saavncdn.com/305/6892847726f4e6e59b36db24aa53be58_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/305/Taylor-Swift-Karaoke-1989-Deluxe--English-2015-20190420040440-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Shellback, Max Martin, Taylor Swift",
     "lyricist": ""
   },
   {
@@ -56098,25 +47982,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-flmXY4We",
-    "artistId": "adele",
-    "title": "Adele - Someone Like You (Vocal Version)",
-    "artist": "Adele",
-    "artists": [
-      "Adele"
-    ],
-    "movie": "Adele - Someone Like You (Vocal Version)",
-    "year": 2011,
-    "decade": "2000s",
-    "duration": 289,
-    "audioUrl": "https://aac.saavncdn.com/002/4fca175775124c0831d46aeadb8ad8c7_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/002/Adele-Someone-Like-You-Vocal-Version-English-2011-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Adele Adkins, Dan Wilson",
-    "lyricist": ""
-  },
-  {
     "id": "intl-nDNXbPCN",
     "artistId": "adele",
     "title": "Adele - Someone Like You (Instrumental Version)",
@@ -56149,25 +48014,6 @@ const rawSongs = [
     "duration": 283,
     "audioUrl": "https://aac.saavncdn.com/517/cce1bf82eff16cd1ba79b9f8a776dc85_320.mp4",
     "coverUrl": "https://c.saavncdn.com/517/Pop-Mix-1-English-2018-20180414125525-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Adele",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-tS7l2VLA",
-    "artistId": "adele",
-    "title": "Rolling In the Deep",
-    "artist": "Adele",
-    "artists": [
-      "Adele"
-    ],
-    "movie": "Rolling In the Deep (Karaoke Version In the Style of Adele)",
-    "year": 2011,
-    "decade": "2000s",
-    "duration": 236,
-    "audioUrl": "https://aac.saavncdn.com/106/acaed99044f63eb571f063146599941a_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/106/Rolling-In-the-Deep-Karaoke-Version-In-the-Style-of-Adele-English-2011-500x500.jpg",
     "genre": "international",
     "language": "english",
     "composer": "Adele",
@@ -56304,25 +48150,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Propa Charts",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-x8E3TYSl",
-    "artistId": "adele",
-    "title": "Adele - Set Fire To The Rain (Vocal Version)",
-    "artist": "Adele",
-    "artists": [
-      "Adele"
-    ],
-    "movie": "Adele - Set Fire To The Rain (Vocal Version)",
-    "year": 2012,
-    "decade": "2000s",
-    "duration": 242,
-    "audioUrl": "https://aac.saavncdn.com/039/01b466a0a7e779ce49731906d179facd_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/039/Adele-Set-Fire-To-The-Rain-Vocal-Version-English-2012-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Adele",
     "lyricist": ""
   },
   {
@@ -57099,25 +48926,6 @@ const rawSongs = [
     "duration": 186,
     "audioUrl": "https://aac.saavncdn.com/073/e293b70a702df3ad4386bcd4e53f0828_320.mp4",
     "coverUrl": "https://c.saavncdn.com/073/Here-Comes-The-Sun-Unknown-2025-20250418132833-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "The Beatles",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-TAvYn12g",
-    "artistId": "the-beatles",
-    "title": "Here Comes The Sun (Instrumental Sped Up)",
-    "artist": "The Beatles",
-    "artists": [
-      "The Beatles"
-    ],
-    "movie": "Here Comes The Sun",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 152,
-    "audioUrl": "https://aac.saavncdn.com/381/0177c64f4423a6a51171c6144955382e_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/381/Here-Comes-The-Sun-Unknown-2025-20250418125639-500x500.jpg",
     "genre": "international",
     "language": "english",
     "composer": "The Beatles",
@@ -58264,63 +50072,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-MBeGIrIb",
-    "artistId": "eminem",
-    "title": "Not Afraid (By Eminem) (Melody Karaoke Version)",
-    "artist": "Eminem",
-    "artists": [
-      "Eminem"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.98",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 251,
-    "audioUrl": "https://aac.saavncdn.com/258/5426bd0cbb425e0a9cc5dd5af1c3b12d_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/258/ZZang-KARAOKE-2024-POP-Vol-98-Instrumental-2024-20260512182011-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Eminem",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-w56At1GN",
-    "artistId": "eminem",
-    "title": "Not Afraid (By Eminem) (Instrumental Karaoke Version)",
-    "artist": "Eminem",
-    "artists": [
-      "Eminem"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.98",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 251,
-    "audioUrl": "https://aac.saavncdn.com/258/63f09bd291e0b94e93cd3f0ac82bbdc3_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/258/ZZang-KARAOKE-2024-POP-Vol-98-Instrumental-2024-20260512182011-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Eminem",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-qY6dD8nE",
-    "artistId": "eminem",
-    "title": "Not Afraid (Karaoke) [in the style of Eminem]",
-    "artist": "Eminem",
-    "artists": [
-      "Eminem"
-    ],
-    "movie": "Not Afraid (Karaoke) [in the style of Eminem] - Single",
-    "year": 2010,
-    "decade": "2000s",
-    "duration": 251,
-    "audioUrl": "https://aac.saavncdn.com/472/0b5461c388bdde24e7af1e74130467de_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/472/Not-Afraid-Karaoke-in-the-style-of-Eminem-Single-English-2010-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Eminem",
-    "lyricist": ""
-  },
-  {
     "id": "intl-P4fh0Cvo",
     "artistId": "eminem",
     "title": "Love The Way You Lie",
@@ -58356,25 +50107,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Alexander Grant, Skylar Grey, Marshall Mathers",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-6loSkwTU",
-    "artistId": "eminem",
-    "title": "Love the Way You Lie (Karaoke Version)",
-    "artist": "Eminem",
-    "artists": [
-      "Eminem"
-    ],
-    "movie": "Love the Way You Lie (Karaoke Version) (Originally Performed By Eminem feat. Rihanna)",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 263,
-    "audioUrl": "https://aac.saavncdn.com/780/9618c55fe968f64c630f84460d3e2a2b_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/780/Love-the-Way-You-Lie-Karaoke-Version-Originally-Performed-By-Eminem-feat-Rihanna-English-2015-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Eminem, Holly Brook, Alexander Junior Grant",
     "lyricist": ""
   },
   {
@@ -58568,25 +50300,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-Jz6quXbU",
-    "artistId": "eminem",
-    "title": "The Real Slim Shady (Karaoke Version)",
-    "artist": "Eminem",
-    "artists": [
-      "Eminem"
-    ],
-    "movie": "Rap & Hip Hop Karaoke Hits",
-    "year": 2015,
-    "decade": "2000s",
-    "duration": 263,
-    "audioUrl": "https://aac.saavncdn.com/282/3a347c622377c791b0a57b69ca70d611_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/282/Rap-Hip-Hop-Karaoke-Hits-English-2015-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Dr. Dre, Tom Coster, Jr., Michael A Elizondo, Eminem",
-    "lyricist": ""
-  },
-  {
     "id": "intl-3E8z9Phg",
     "artistId": "eminem",
     "title": "Venom (Music From The Motion Picture)",
@@ -58660,63 +50373,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Marshall Mathers",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-gA-99zZp",
-    "artistId": "eminem",
-    "title": "Venom (Originally Perfomed By Eminem) (Melody Karaoke Version)",
-    "artist": "Eminem",
-    "artists": [
-      "Eminem"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.3",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 270,
-    "audioUrl": "https://aac.saavncdn.com/192/1dfb665b93374bdec15268e3af2a565b_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/192/ZZang-KARAOKE-2024-POP-Vol-3-Instrumental-2024-20260807162615-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Eminem",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-ICu9M1sZ",
-    "artistId": "eminem",
-    "title": "Venom (Originally Perfomed By Eminem) (Instrumental Karaoke Version)",
-    "artist": "Eminem",
-    "artists": [
-      "Eminem"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.3",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 270,
-    "audioUrl": "https://aac.saavncdn.com/192/edcef478ed7c919eb768ff7962e31526_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/192/ZZang-KARAOKE-2024-POP-Vol-3-Instrumental-2024-20260807162615-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Eminem",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-UDHxSyZk",
-    "artistId": "eminem",
-    "title": "Last One Standing (From Venom Let There Be Carnage) (By Skylar Grey, Polo G, Mozzy, Eminem) (Melody Karaoke Version)",
-    "artist": "Eminem",
-    "artists": [
-      "Eminem"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.97",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 262,
-    "audioUrl": "https://aac.saavncdn.com/241/fbf34a1a21be41338250c83f8847ccd8_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/241/ZZang-KARAOKE-2024-POP-Vol-97-Instrumental-2024-20260512155609-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Skylar Grey, Polo G, Mozzy, Eminem",
     "lyricist": ""
   },
   {
@@ -58904,63 +50560,6 @@ const rawSongs = [
     "duration": 249,
     "audioUrl": "https://aac.saavncdn.com/934/9ab3b56aec1e4a8803f51cd6186dff43_320.mp4",
     "coverUrl": "https://c.saavncdn.com/934/Grenade-English-2011-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Bruno Mars",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-DhwNS7dZ",
-    "artistId": "bruno-mars",
-    "title": "Grenade (Karaoke Version) [Originally Performed by Bruno Mars]",
-    "artist": "Bruno Mars",
-    "artists": [
-      "Bruno Mars"
-    ],
-    "movie": "Karaoke Collection, Vol. 36",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 221,
-    "audioUrl": "https://aac.saavncdn.com/478/781096e61b375349479516cc4a217791_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/478/Karaoke-Collection-Vol-36-English-2017-20170825080905-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Andrew Wyatt, Bruno Mars, Brody Brown, Claude Kelly, Ari Levine, Philip Lawrence",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-CExbEtsl",
-    "artistId": "bruno-mars",
-    "title": "Grenade (sped up to perfection)",
-    "artist": "Bruno Mars",
-    "artists": [
-      "Bruno Mars"
-    ],
-    "movie": "Grenade",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 180,
-    "audioUrl": "https://aac.saavncdn.com/762/eececc43e5721c89845e06f23ea99989_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/762/Grenade-Unknown-2023-20260514110756-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Bruno Mars",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-Z3JnjHo-",
-    "artistId": "bruno-mars",
-    "title": "Grenade (Originally Perfomed By Bruno Mars) (Instrumental Karaoke Version)",
-    "artist": "Bruno Mars",
-    "artists": [
-      "Bruno Mars"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.49",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 222,
-    "audioUrl": "https://aac.saavncdn.com/163/f3937a5ad19b8729d49d3650c13f1fc4_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/163/ZZang-KARAOKE-2024-POP-Vol-49-Instrumental-2024-20260201090122-500x500.jpg",
     "genre": "international",
     "language": "english",
     "composer": "Bruno Mars",
@@ -59382,44 +50981,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Justin Bieber, Blake Slatkin, Omer Fedi, Charlie Puth, Charlton Howard, Magnus Høiberg, Michael Mule, Isaac Deboni, Subhaan Rahmaan",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-idS5a57X",
-    "artistId": "justin-bieber",
-    "title": "Stay (Originally Perfomed By The Kid LAROI, Justin Bieber) (Melody Karaoke Version)",
-    "artist": "Justin Bieber",
-    "artists": [
-      "Justin Bieber"
-    ],
-    "movie": "ZZang KARAOKE Greatest POP Vol.9",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 139,
-    "audioUrl": "https://aac.saavncdn.com/543/960a993e6eeedfa63ad9efff2f94b01a_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/543/ZZang-KARAOKE-Greatest-POP-Vol-9-Instrumental-2024-20260120071413-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "The Kid Laroi, Justin Bieber",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-uT0nMSTi",
-    "artistId": "justin-bieber",
-    "title": "Stay (Originally Perfomed By The Kid LAROI, Justin Bieber) (Instrumental Karaoke Version)",
-    "artist": "Justin Bieber",
-    "artists": [
-      "Justin Bieber"
-    ],
-    "movie": "ZZang KARAOKE Greatest POP Vol.9",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 139,
-    "audioUrl": "https://aac.saavncdn.com/543/85e6281b17f132bc9bd24a3eea65c025_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/543/ZZang-KARAOKE-Greatest-POP-Vol-9-Instrumental-2024-20260120071413-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "The Kid Laroi, Justin Bieber",
     "lyricist": ""
   },
   {
@@ -60506,44 +52067,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-Y_DHpZTr",
-    "artistId": "coldplay",
-    "title": "The Scientist (Originally Perfomed By Coldplay) (Instrumental Karaoke Version)",
-    "artist": "Coldplay",
-    "artists": [
-      "Coldplay"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.35",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 307,
-    "audioUrl": "https://aac.saavncdn.com/190/24c7578501c69d92f657e0b2ee55bebf_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/190/ZZang-KARAOKE-2024-POP-Vol-35-Instrumental-2024-20260202171507-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Coldplay",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-qcLaJQEu",
-    "artistId": "coldplay",
-    "title": "The Scientist (Originally Perfomed By Coldplay) (Melody Karaoke Version)",
-    "artist": "Coldplay",
-    "artists": [
-      "Coldplay"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.35",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 307,
-    "audioUrl": "https://aac.saavncdn.com/190/207dcc48dd18dfe4f6046f3864181b65_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/190/ZZang-KARAOKE-2024-POP-Vol-35-Instrumental-2024-20260202171507-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Coldplay",
-    "lyricist": ""
-  },
-  {
     "id": "intl-vfIwwKad",
     "artistId": "coldplay",
     "title": "1.36",
@@ -60614,44 +52137,6 @@ const rawSongs = [
     "duration": 302,
     "audioUrl": "https://aac.saavncdn.com/003/cbb5b51ddda10b87a130b6fd28f7aebc_320.mp4",
     "coverUrl": "https://c.saavncdn.com/003/Live-In-Buenos-Aires-English-2018-20190607041842-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Coldplay",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-JpCc5F6r",
-    "artistId": "coldplay",
-    "title": "Hymn For The Weekend (Originally Perfomed By Coldplay) (Melody Karaoke Version)",
-    "artist": "Coldplay",
-    "artists": [
-      "Coldplay"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.50",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 250,
-    "audioUrl": "https://aac.saavncdn.com/170/70b2601fdf090919bf4ed6cbbb7c38cf_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/170/ZZang-KARAOKE-2024-POP-Vol-50-Instrumental-2024-20260201011020-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Coldplay",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-SS2OT3Pc",
-    "artistId": "coldplay",
-    "title": "Hymn For The Weekend (Originally Perfomed By Coldplay) (Instrumental Karaoke Version)",
-    "artist": "Coldplay",
-    "artists": [
-      "Coldplay"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.50",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 250,
-    "audioUrl": "https://aac.saavncdn.com/170/6fc60f59047f59fdfa30aadb0eea1dc3_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/170/ZZang-KARAOKE-2024-POP-Vol-50-Instrumental-2024-20260201011020-500x500.jpg",
     "genre": "international",
     "language": "english",
     "composer": "Coldplay",
@@ -60883,44 +52368,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Coldplay, Avicii, Chris Martin, Guy Berryman, Jonny Buckland, Will Champion",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-8ZYWKSPM",
-    "artistId": "coldplay",
-    "title": "A Sky Full Of Stars (Originally Perfomed By Coldplay) (Melody Karaoke Version)",
-    "artist": "Coldplay",
-    "artists": [
-      "Coldplay"
-    ],
-    "movie": "ZZang KARAOKE Greatest POP Vol.49",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 268,
-    "audioUrl": "https://aac.saavncdn.com/039/e5d821144dfbd8c27994395c73d22685_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/039/ZZang-KARAOKE-Greatest-POP-Vol-49-Instrumental-2024-20260120121812-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Coldplay",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-99ippqQ0",
-    "artistId": "coldplay",
-    "title": "A Sky Full Of Stars (Originally Perfomed By Coldplay) (Instrumental Karaoke Version)",
-    "artist": "Coldplay",
-    "artists": [
-      "Coldplay"
-    ],
-    "movie": "ZZang KARAOKE Greatest POP Vol.49",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 268,
-    "audioUrl": "https://aac.saavncdn.com/039/a725af26a02480458b5ed6e5a38f39c2_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/039/ZZang-KARAOKE-Greatest-POP-Vol-49-Instrumental-2024-20260120121812-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Coldplay",
     "lyricist": ""
   },
   {
@@ -61912,44 +53359,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-eELfYcHw",
-    "artistId": "shakira",
-    "title": "Can't Remember To Forget You (Ft. Rihanna) (By Shakira) (Instrumental Karaoke Version)",
-    "artist": "Shakira",
-    "artists": [
-      "Shakira"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.209",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 205,
-    "audioUrl": "https://aac.saavncdn.com/876/bd5ec2c89e613e8e5843ce6677338c21_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/876/ZZang-KARAOKE-2024-POP-Vol-209-Instrumental-2024-20260131175450-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Shakira",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-uKSnuTa4",
-    "artistId": "shakira",
-    "title": "Can't Remember To Forget You (Ft. Rihanna) (By Shakira) (Melody Karaoke Version)",
-    "artist": "Shakira",
-    "artists": [
-      "Shakira"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.209",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 205,
-    "audioUrl": "https://aac.saavncdn.com/876/f84c70640c3cba08eabee303910e2ec4_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/876/ZZang-KARAOKE-2024-POP-Vol-209-Instrumental-2024-20260131175450-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Shakira",
-    "lyricist": ""
-  },
-  {
     "id": "intl-nB6KI3kW",
     "artistId": "shakira",
     "title": "Can't Remember To Forget You (Ao Vivo / The Voice Brasil Kids 2017)",
@@ -61963,25 +53372,6 @@ const rawSongs = [
     "duration": 103,
     "audioUrl": "https://aac.saavncdn.com/434/412d383926b24c490953e979232cb423_320.mp4",
     "coverUrl": "https://c.saavncdn.com/434/Can-t-Remember-To-Forget-You-The-Voice-Brasil-Kids-2017--English-2017-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "John Hill, Tom Hull, Daniel Alexander, Erik Hassle, Shakira, Robyn Fenty",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-ltcsDHuM",
-    "artistId": "shakira",
-    "title": "Can't Remember to Forget You (In the Style of Shakira feat. Rihanna) [Karaoke Version]",
-    "artist": "Shakira",
-    "artists": [
-      "Shakira"
-    ],
-    "movie": "Feb 2014 Pop Hits Karaoke",
-    "year": 2014,
-    "decade": "2000s",
-    "duration": 216,
-    "audioUrl": "https://aac.saavncdn.com/927/230d4edd151271767df600f4bf071e41_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/927/Feb-2014-Pop-Hits-Karaoke-English-2014-500x500.jpg",
     "genre": "international",
     "language": "english",
     "composer": "John Hill, Tom Hull, Daniel Alexander, Erik Hassle, Shakira, Robyn Fenty",
@@ -62042,25 +53432,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Shakira, Dizzee Rascal, Edward Bello Pka El Cata, Armando Pérez P/K/A Pitbull, Carlos Crespo Planas",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-YKZjS3PN",
-    "artistId": "shakira",
-    "title": "Loca (Karaoke Version)",
-    "artist": "Shakira",
-    "artists": [
-      "Shakira"
-    ],
-    "movie": "Karaoke: Éxitos Pop (Karaoke Version)",
-    "year": 2014,
-    "decade": "2000s",
-    "duration": 196,
-    "audioUrl": "https://aac.saavncdn.com/872/252397f8c082a5c8cba036d5c874086f_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/872/Karaoke-xitos-Pop-Karaoke-Version-English-2014-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Shakira",
     "lyricist": ""
   },
   {
@@ -62175,44 +53546,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Katy Perry",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-9P6_nUb6",
-    "artistId": "katy-perry",
-    "title": "Last Friday Night (Originally Performed by Katy Perry)",
-    "artist": "Katy Perry",
-    "artists": [
-      "Katy Perry"
-    ],
-    "movie": "Katy Perry Karaoke",
-    "year": 2011,
-    "decade": "2000s",
-    "duration": 235,
-    "audioUrl": "https://aac.saavncdn.com/662/16057a0c8dce367aa55132abfd1e1e4a_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/662/Katy-Perry-Karaoke-English-2011-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Katy Perry",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-KXneJWdg",
-    "artistId": "katy-perry",
-    "title": "Katy Perry - California Gurls feat. Snoop Dogg (Karaoke)",
-    "artist": "Katy Perry",
-    "artists": [
-      "Katy Perry"
-    ],
-    "movie": "Katy Perry - California Gurls feat. Snoop Dogg (Karaoke)",
-    "year": 2010,
-    "decade": "2000s",
-    "duration": 247,
-    "audioUrl": "https://aac.saavncdn.com/278/3ff0eaaa8bfa39a7a2eaabd032d220a4_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/278/Katy-Perry-California-Gurls-feat-Snoop-Dogg-Karaoke-English-2010-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Benjamin Bazzazian, Calvin Cordozar Broadus, Lukasz Gottwald, Katy Perry, Bonnie Mckee, Karl Martin Sandberg",
     "lyricist": ""
   },
   {
@@ -62577,25 +53910,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-EoOSLZfQ",
-    "artistId": "rihanna",
-    "title": "Only Girl in the World",
-    "artist": "Rihanna",
-    "artists": [
-      "Rihanna"
-    ],
-    "movie": "Karaoke Rihanna",
-    "year": 2014,
-    "decade": "2000s",
-    "duration": 233,
-    "audioUrl": "https://aac.saavncdn.com/231/475def72cc408b11323878ec950043cf_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/231/Karaoke-Rihanna-English-2014-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Crystal Johnson, Tor Erik Hermansen, Sandy Wilhelm, Mikkel Eriksen",
-    "lyricist": ""
-  },
-  {
     "id": "intl-22SQ0baC",
     "artistId": "rihanna",
     "title": "Rihanna - Only Girl (In the World)",
@@ -62748,25 +54062,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-9Ijh9w_1",
-    "artistId": "rihanna",
-    "title": "Rihanna feat. Calvin Harris - We Found Love (Vocal Version)",
-    "artist": "Rihanna",
-    "artists": [
-      "Rihanna"
-    ],
-    "movie": "Rihanna feat. Calvin Harris - We Found Love (Vocal Version)",
-    "year": 2011,
-    "decade": "2000s",
-    "duration": 214,
-    "audioUrl": "https://aac.saavncdn.com/949/093af661008d9e38e48dc7dcf80f9869_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/949/Rihanna-feat-Calvin-Harris-We-Found-Love-Vocal-Version-English-2011-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Calvin Harris",
-    "lyricist": ""
-  },
-  {
     "id": "intl-ipMRUKSt",
     "artistId": "rihanna",
     "title": "Stay",
@@ -62824,25 +54119,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-Mb3e-E-v",
-    "artistId": "rihanna",
-    "title": "Stay (In the Style of Rihanna & Mikky Ekko)",
-    "artist": "Rihanna",
-    "artists": [
-      "Rihanna"
-    ],
-    "movie": "Stay (In the Style of Rihanna & Mikky Ekko) (Karaoke Version)",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 235,
-    "audioUrl": "https://aac.saavncdn.com/884/e782b63e5687bac30e9209b3198c3053_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/884/Stay-In-the-Style-of-Rihanna-Mikky-Ekko-Karaoke-Version-English-2013-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Mikky Ekko, Justin Parker",
-    "lyricist": ""
-  },
-  {
     "id": "intl-0zJyFVaj",
     "artistId": "rihanna",
     "title": "Stay (In the Style of Rihanna and Mikky Ekko)",
@@ -62859,44 +54135,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Mikky Ekko, Justin Parker",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-JVYK7xrd",
-    "artistId": "rihanna",
-    "title": "Stay (In the Style of Rihanna Feat. Mikky Ekko)",
-    "artist": "Rihanna",
-    "artists": [
-      "Rihanna"
-    ],
-    "movie": "Stay (In the Style of Rihanna Feat. Mikky Ekko) [Karaoke Version]",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 240,
-    "audioUrl": "https://aac.saavncdn.com/930/b3ae61c071e9b9a02668f817899ec5d6_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/930/Stay-In-the-Style-of-Rihanna-Feat-Mikky-Ekko-Karaoke-Version-English-2013-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Mikky Ekko, Justin Parker",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-PIIEac--",
-    "artistId": "rihanna",
-    "title": "Stay (Originally Performed by Rihanna & Mikky Ekko) [Karaoke Version]",
-    "artist": "Rihanna",
-    "artists": [
-      "Rihanna"
-    ],
-    "movie": "Super Star Karaoke Bar",
-    "year": 2014,
-    "decade": "2000s",
-    "duration": 242,
-    "audioUrl": "https://aac.saavncdn.com/463/e2bffdba813c849230078650fd0278e7_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/463/Super-Star-Karaoke-Bar-English-2014-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Mikky Ekko Justin Parker",
     "lyricist": ""
   },
   {
@@ -62932,25 +54170,6 @@ const rawSongs = [
     "duration": 221,
     "audioUrl": "https://aac.saavncdn.com/407/810f315bc25859767b173a458b9180ff_320.mp4",
     "coverUrl": "https://c.saavncdn.com/407/Work-Originally-Performed-by-Rihanna-feat-Drake-Instrumental-Version-English-2016-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Jahron Anthony Brathwaite, M. Samuels, Allen Ritter, R.Thomas, Aubrey Graham, Robyn Fenty, Monte Moir",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-nEBIsnrJ",
-    "artistId": "rihanna",
-    "title": "Work (Originally Performed by Rihanna & Drake) [Instrumental]",
-    "artist": "Rihanna",
-    "artists": [
-      "Rihanna"
-    ],
-    "movie": "Work (Originally Performed by Rihanna & Drake) [Karaoke Version]",
-    "year": 2016,
-    "decade": "2000s",
-    "duration": 222,
-    "audioUrl": "https://aac.saavncdn.com/459/830dbb148c88a7e0a5e0074185faaf35_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/459/Work-Originally-Performed-by-Rihanna-Drake-Karaoke-Version-English-2016-500x500.jpg",
     "genre": "international",
     "language": "english",
     "composer": "Jahron Anthony Brathwaite, M. Samuels, Allen Ritter, R.Thomas, Aubrey Graham, Robyn Fenty, Monte Moir",
@@ -63147,25 +54366,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-rltVz7KC",
-    "artistId": "celine-dion",
-    "title": "Because You Loved Me (Karaoke Version)",
-    "artist": "Celine Dion",
-    "artists": [
-      "Celine Dion"
-    ],
-    "movie": "Greatest Hits of Celine Dion (Karaoke Version) (Sing the Songs of the Stars)",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 266,
-    "audioUrl": "https://aac.saavncdn.com/505/e7f6cd2087e76a94efcc8f0ed935fd62_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/505/Greatest-Hits-of-Celine-Dion-Karaoke-Version-Sing-the-Songs-of-the-Stars-English-2013-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Celine Dion",
-    "lyricist": ""
-  },
-  {
     "id": "intl-3MLerPQ_",
     "artistId": "celine-dion",
     "title": "Because You Loved Me (Live) (Live)",
@@ -63198,82 +54398,6 @@ const rawSongs = [
     "duration": 142,
     "audioUrl": "https://aac.saavncdn.com/899/f4bae30a1a860a7985a78ff70697753d_320.mp4",
     "coverUrl": "https://c.saavncdn.com/899/Because-You-Loved-Me-Unknown-2024-20241106070806-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Céline Dion",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-hSW0jujo",
-    "artistId": "celine-dion",
-    "title": "Because You Loved Me (Piano Version - Sped Up)",
-    "artist": "Celine Dion",
-    "artists": [
-      "Celine Dion"
-    ],
-    "movie": "Because You Loved Me",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 118,
-    "audioUrl": "https://aac.saavncdn.com/899/c295bda4ca381f0979e333e440d9da69_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/899/Because-You-Loved-Me-Unknown-2024-20241106070806-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Céline Dion",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-dtNGbFlz",
-    "artistId": "celine-dion",
-    "title": "Because You Loved Me (By Celine Dion) (Melody Karaoke Version)",
-    "artist": "Celine Dion",
-    "artists": [
-      "Celine Dion"
-    ],
-    "movie": "ZZang KARAOKE 2024 Celine Dion Vol. 1",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 289,
-    "audioUrl": "https://aac.saavncdn.com/212/78106ddb43104a1c70f3da09cc43b7d7_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/212/ZZang-KARAOKE-2024-Celine-Dion-Vol-1-Instrumental-2024-20260106111326-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Céline Dion",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-pRTZzTYF",
-    "artistId": "celine-dion",
-    "title": "Because You Loved Me (Piano Version - Slowed + Reverb)",
-    "artist": "Celine Dion",
-    "artists": [
-      "Celine Dion"
-    ],
-    "movie": "Because You Loved Me",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 167,
-    "audioUrl": "https://aac.saavncdn.com/899/cb9192fce541a42bf5832ff9617b3693_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/899/Because-You-Loved-Me-Unknown-2024-20241106070806-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Céline Dion",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-QUS9sjPI",
-    "artistId": "celine-dion",
-    "title": "Because You Loved Me (By Celine Dion) (Instrumental Karaoke Version)",
-    "artist": "Celine Dion",
-    "artists": [
-      "Celine Dion"
-    ],
-    "movie": "ZZang KARAOKE 2024 Celine Dion Vol. 1",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 289,
-    "audioUrl": "https://aac.saavncdn.com/212/0662d74091c6f5fa594529ee6a105d11_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/212/ZZang-KARAOKE-2024-Celine-Dion-Vol-1-Instrumental-2024-20260106111326-500x500.jpg",
     "genre": "international",
     "language": "english",
     "composer": "Céline Dion",
@@ -63334,63 +54458,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Jennifer Rush, Mary Susan Applegate, Gunther Mende, Candy De Rouge, Wolfgang Detmann",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-VY1rlWBO",
-    "artistId": "celine-dion",
-    "title": "The Power of Love (Karaoke Version)",
-    "artist": "Celine Dion",
-    "artists": [
-      "Celine Dion"
-    ],
-    "movie": "Greatest Hits of Celine Dion (Karaoke Version) (Sing the Songs of the Stars)",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 274,
-    "audioUrl": "https://aac.saavncdn.com/505/41f20b2fc122e9185c721360d815bf95_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/505/Greatest-Hits-of-Celine-Dion-Karaoke-Version-Sing-the-Songs-of-the-Stars-English-2013-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Celine Dion",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-y6BUC_4v",
-    "artistId": "celine-dion",
-    "title": "The Power Of Love (By Celine Dion) (Instrumental Karaoke Version)",
-    "artist": "Celine Dion",
-    "artists": [
-      "Celine Dion"
-    ],
-    "movie": "ZZang KARAOKE 2024 Celine Dion Vol. 2",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 353,
-    "audioUrl": "https://aac.saavncdn.com/229/5ad31c5b1429e323fec0d257650c84a9_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/229/ZZang-KARAOKE-2024-Celine-Dion-Vol-2-Instrumental-2024-20260106055224-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Céline Dion",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-m6wI2crz",
-    "artistId": "celine-dion",
-    "title": "The Power Of Love (By Celine Dion) (Melody Karaoke Version)",
-    "artist": "Celine Dion",
-    "artists": [
-      "Celine Dion"
-    ],
-    "movie": "ZZang KARAOKE 2024 Celine Dion Vol. 2",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 353,
-    "audioUrl": "https://aac.saavncdn.com/229/7c3fb16b1b2da824d182b4912c8c3f1b_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/229/ZZang-KARAOKE-2024-Celine-Dion-Vol-2-Instrumental-2024-20260106055224-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Céline Dion",
     "lyricist": ""
   },
   {
@@ -63508,120 +54575,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-vjTB5qDj",
-    "artistId": "celine-dion",
-    "title": "All By Myself (Karaoke Version)",
-    "artist": "Celine Dion",
-    "artists": [
-      "Celine Dion"
-    ],
-    "movie": "Greatest Hits of Celine Dion (Karaoke Version) (Sing the Songs of the Stars)",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 284,
-    "audioUrl": "https://aac.saavncdn.com/505/630bc02ec73d9f93f92cd2622977695d_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/505/Greatest-Hits-of-Celine-Dion-Karaoke-Version-Sing-the-Songs-of-the-Stars-English-2013-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Celine Dion",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-ElVyuhPF",
-    "artistId": "celine-dion",
-    "title": "All By Myself (Piano Version - Sped Up)",
-    "artist": "Celine Dion",
-    "artists": [
-      "Celine Dion"
-    ],
-    "movie": "All By Myself",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 106,
-    "audioUrl": "https://aac.saavncdn.com/015/16ad7d92c130c8922cd3f69b520d307a_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/015/All-By-Myself-Unknown-2025-20250423123449-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Céline Dion",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-NbGmFEbH",
-    "artistId": "celine-dion",
-    "title": "All By Myself (By Celine Dion) (Instrumental Karaoke Version)",
-    "artist": "Celine Dion",
-    "artists": [
-      "Celine Dion"
-    ],
-    "movie": "ZZang KARAOKE 2024 Celine Dion Vol. 1",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 318,
-    "audioUrl": "https://aac.saavncdn.com/212/0eeb1a7e604290963cb48f2a88e868de_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/212/ZZang-KARAOKE-2024-Celine-Dion-Vol-1-Instrumental-2024-20260106111326-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Céline Dion",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-2bLToPOj",
-    "artistId": "celine-dion",
-    "title": "All By Myself (By Celine Dion) (Melody Karaoke Version)",
-    "artist": "Celine Dion",
-    "artists": [
-      "Celine Dion"
-    ],
-    "movie": "ZZang KARAOKE 2024 Celine Dion Vol. 1",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 318,
-    "audioUrl": "https://aac.saavncdn.com/212/51f0a3273450dec7f3b5654d1247afb2_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/212/ZZang-KARAOKE-2024-Celine-Dion-Vol-1-Instrumental-2024-20260106111326-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Céline Dion",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-HlUaRkVH",
-    "artistId": "celine-dion",
-    "title": "All By Myself (Piano Version - Slowed + Reverb)",
-    "artist": "Celine Dion",
-    "artists": [
-      "Celine Dion"
-    ],
-    "movie": "All By Myself",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 153,
-    "audioUrl": "https://aac.saavncdn.com/373/b42ab6573f270791372db0c7d1685abb_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/373/All-By-Myself-Unknown-2025-20250423123239-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Céline Dion",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-IxssURBN",
-    "artistId": "celine-dion",
-    "title": "All By Myself (Originally Perfomed By Celine Dion) (Melody Karaoke Version)",
-    "artist": "Celine Dion",
-    "artists": [
-      "Celine Dion"
-    ],
-    "movie": "ZZang KARAOKE Greatest POP Vol.45",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 318,
-    "audioUrl": "https://aac.saavncdn.com/982/b02d9dae5104eeb63f665817738f842d_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/982/ZZang-KARAOKE-Greatest-POP-Vol-45-Instrumental-2024-20260119181143-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Céline Dion",
-    "lyricist": ""
-  },
-  {
     "id": "intl-qrmMJRvt",
     "artistId": "celine-dion",
     "title": "All By Myself (Live at TD Garden, Boston, Massachusetts - 2008)",
@@ -63638,25 +54591,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Sergei Rachmaninoff, Eric Carmen",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-D6zNeYGj",
-    "artistId": "celine-dion",
-    "title": "All By Myself (Originally Perfomed By Celine Dion) (Instrumental Karaoke Version)",
-    "artist": "Celine Dion",
-    "artists": [
-      "Celine Dion"
-    ],
-    "movie": "ZZang KARAOKE Greatest POP Vol.45",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 318,
-    "audioUrl": "https://aac.saavncdn.com/982/073fd5c1cc43899dfd0a0691bf74db82_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/982/ZZang-KARAOKE-Greatest-POP-Vol-45-Instrumental-2024-20260119181143-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Céline Dion",
     "lyricist": ""
   },
   {
@@ -63771,25 +54705,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Jim Steinman",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-gI4E6iFo",
-    "artistId": "celine-dion",
-    "title": "It's All Coming Back to Me Now (Karaoke Version)",
-    "artist": "Celine Dion",
-    "artists": [
-      "Celine Dion"
-    ],
-    "movie": "Greatest Hits of Celine Dion (Karaoke Version) (Sing the Songs of the Stars)",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 345,
-    "audioUrl": "https://aac.saavncdn.com/505/b17110ff395343e30a527bce6b7e1116_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/505/Greatest-Hits-of-Celine-Dion-Karaoke-Version-Sing-the-Songs-of-the-Stars-English-2013-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Celine Dion",
     "lyricist": ""
   },
   {
@@ -64249,25 +55164,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-j1YAhV91",
-    "artistId": "bryan-adams",
-    "title": "Here I Am (Karaoke Version) [originally Performed By Bryan Adams]",
-    "artist": "Bryan Adams",
-    "artists": [
-      "Bryan Adams"
-    ],
-    "movie": "Instrumentals for Musicians & Singers, Vol. 20",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 245,
-    "audioUrl": "https://aac.saavncdn.com/635/ac0d9a582139434fac7b619e64dcc0b6_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/635/Instrumentals-for-Musicians-Singers-Vol-20-English-2017-20170910104128-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Bryan Adams",
-    "lyricist": ""
-  },
-  {
     "id": "intl-YztTAY9C",
     "artistId": "bryan-adams",
     "title": "Here I Am (Epic Version)",
@@ -64534,63 +55430,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-pPkHtJm9",
-    "artistId": "elton-john",
-    "title": "Sacrifice (Karaoke Version) [Originally Performed By Elton John]",
-    "artist": "Elton John",
-    "artists": [
-      "Elton John"
-    ],
-    "movie": "Rock Is My Life, and This Is My Song (Karaoke Classics Sing along your favourite Songs)",
-    "year": 2020,
-    "decade": "2000s",
-    "duration": 281,
-    "audioUrl": "https://aac.saavncdn.com/268/2c3de15a1d03e1f8dd373ec97ac0852a_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/268/Rock-Is-My-Life-and-This-Is-My-Song-Karaoke-Classics-Sing-along-your-favourite-Songs--English-2020-20201026140118-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Elton John, Bernie Taupin",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-ZW76DdCs",
-    "artistId": "elton-john",
-    "title": "Sacrifice (Made Popular By Elton John) [Vocal Version]",
-    "artist": "Elton John",
-    "artists": [
-      "Elton John"
-    ],
-    "movie": "Party Tyme Karaoke - Adult Contemporary 7 (Vocal Versions)",
-    "year": 2020,
-    "decade": "2000s",
-    "duration": 306,
-    "audioUrl": "https://aac.saavncdn.com/207/d7c7eba5ceb9c6140d9709e2e00619b8_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/207/Party-Tyme-Karaoke-Adult-Contemporary-7-Vocal-Versions-English-2020-20240719131809-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Bernie Taupin, Elton John",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-miFW8tHD",
-    "artistId": "elton-john",
-    "title": "Sacrifice (By Elton John) (Melody Karaoke Version)",
-    "artist": "Elton John",
-    "artists": [
-      "Elton John"
-    ],
-    "movie": "ZZang KARAOKE 2024 Elton John Vol. 1",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 318,
-    "audioUrl": "https://aac.saavncdn.com/243/b318d9e3d80f78c27d956cee8f0dc1a4_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/243/ZZang-KARAOKE-2024-Elton-John-Vol-1-Instrumental-2024-20260106195410-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Elton John",
-    "lyricist": ""
-  },
-  {
     "id": "intl-xQcHbx1W",
     "artistId": "elton-john",
     "title": "Candle in the Wind",
@@ -64740,25 +55579,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Mark Taylor, Enrique Iglesias, Paul Barry",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-HGwfEDDN",
-    "artistId": "enrique-iglesias",
-    "title": "Hero (Originally Performed by Enrique Iglesias) [Vocal Version]",
-    "artist": "Enrique Iglesias",
-    "artists": [
-      "Enrique Iglesias"
-    ],
-    "movie": "Hero (Originally Performed by Enrique Iglesias) [Karaoke Version]",
-    "year": 2014,
-    "decade": "2000s",
-    "duration": 263,
-    "audioUrl": "https://aac.saavncdn.com/710/4e9022405d389c1de31fa4c860615fbd_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/710/Hero-Originally-Performed-by-Enrique-Iglesias-Karaoke-Version-English-2014-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Enrique Iglesias, Mark Taylor, Michael Barry",
     "lyricist": ""
   },
   {
@@ -64952,44 +55772,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-5TrD-Mtl",
-    "artistId": "enrique-iglesias",
-    "title": "Tonight I'm Loving You (In the style of Enrique Iglesias feat. Ludacris)",
-    "artist": "Enrique Iglesias",
-    "artists": [
-      "Enrique Iglesias"
-    ],
-    "movie": "2011 Karaoke Classics Volume 2",
-    "year": 2011,
-    "decade": "2000s",
-    "duration": 242,
-    "audioUrl": "https://aac.saavncdn.com/651/bc4a8fbf1618996eaaf3d7ef0756510c_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/651/2011-Karaoke-Classics-Volume-2-English-2011-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Jacob Elisha Luttrell, Enrique Miguel Iglesias Preysler, Christopher Brian Bridges, Lauren Christy, Justin Scott Franks",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-sfY_Z2th",
-    "artistId": "enrique-iglesias",
-    "title": "Tonight I'm Loving You (Tribute to Enrique Iglesias & Ludacris)",
-    "artist": "Enrique Iglesias",
-    "artists": [
-      "Enrique Iglesias"
-    ],
-    "movie": "Tonight I'm Loving You (Originally Performed By Enrique Iglesias & Ludacris) [Karaoke Versions]",
-    "year": 2011,
-    "decade": "2000s",
-    "duration": 241,
-    "audioUrl": "https://aac.saavncdn.com/717/d9a738f2e83cd904e0cfbc109f13f903_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/717/Tonight-I-m-Loving-You-Originally-Performed-By-Enrique-Iglesias-Ludacris-Karaoke-Versions-English-2011-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Jacob Elisha Luttrell, Enrique Miguel Iglesias Preysler, Christopher Brian Bridges, Lauren Christy, Justin Scott Franks",
-    "lyricist": ""
-  },
-  {
     "id": "intl-0i0vqIpp",
     "artistId": "enrique-iglesias",
     "title": "Tonight (I'm Lovin' You) {Enrique Iglesias Tribute} (Instrumental)",
@@ -65142,63 +55924,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-TgfLgp8V",
-    "artistId": "enrique-iglesias",
-    "title": "Escape (Karaoke Version) [originally Performed By Enrique Iglesias]",
-    "artist": "Enrique Iglesias",
-    "artists": [
-      "Enrique Iglesias"
-    ],
-    "movie": "Instrumentals for Musicians & Singers, Vol. 21",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 207,
-    "audioUrl": "https://aac.saavncdn.com/468/3c51fcb51ecd740de8161e908a22e791_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/468/Instrumentals-for-Musicians-Singers-Vol-21-English-2017-20170909082015-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Steve Morales, Enrique Iglesias, David Siegel, Dioguardi",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-Jg0u_l00",
-    "artistId": "enrique-iglesias",
-    "title": "Escape (Karaoke Version)",
-    "artist": "Enrique Iglesias",
-    "artists": [
-      "Enrique Iglesias"
-    ],
-    "movie": "Pop Classics, Vol. 7",
-    "year": 2017,
-    "decade": "2000s",
-    "duration": 206,
-    "audioUrl": "https://aac.saavncdn.com/917/3e8cb46d57cc8c27b6e5a7763ad9a1f8_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/917/Pop-Classics-Vol-7-English-2017-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Kara DioGuardi, David Siegel, Enrique Iglesias, Steve Morales",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-LtmIcxI5",
-    "artistId": "enrique-iglesias",
-    "title": "Escape (By Enrique Iglesias) (Instrumental Karaoke Version)",
-    "artist": "Enrique Iglesias",
-    "artists": [
-      "Enrique Iglesias"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.175",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 209,
-    "audioUrl": "https://aac.saavncdn.com/679/4c833098f918c02821b9b693303c768b_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/679/ZZang-KARAOKE-2024-POP-Vol-175-Instrumental-2024-20260618005803-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Enrique Iglesias",
-    "lyricist": ""
-  },
-  {
     "id": "intl-nZL-15Fj",
     "artistId": "enrique-iglesias",
     "title": "Escape (In the Style of Enrique Iglesias)",
@@ -65215,25 +55940,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Enrique Iglesias, Paul Barry, Mark Taylor",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-8TdkdKAv",
-    "artistId": "enrique-iglesias",
-    "title": "Escape (Made Popular By Enrique Iglesias) [Karaoke Version]",
-    "artist": "Enrique Iglesias",
-    "artists": [
-      "Enrique Iglesias"
-    ],
-    "movie": "Party Tyme Karaoke - Pop Male Hits 2",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 208,
-    "audioUrl": "https://aac.saavncdn.com/309/fe0be819039fbadfd79cc296338a55a5_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/309/Party-Tyme-Karaoke-Pop-Male-Hits-2-English-2018-20180824182916-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Enrique Iglesias, Steve Morales, Kara DioGuardi, David Siegel",
     "lyricist": ""
   },
   {
@@ -65427,44 +56133,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-zIayLCjS",
-    "artistId": "backstreet-boys",
-    "title": "Show Me The Meaning Of Being Lonely (Originally Perfomed By Backstreet Boys) (Instrumental Karaoke Version)",
-    "artist": "Backstreet Boys",
-    "artists": [
-      "Backstreet Boys"
-    ],
-    "movie": "ZZang KARAOKE 2024 Old POP Vol.12",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 247,
-    "audioUrl": "https://aac.saavncdn.com/999/57962a21337fc9478ccacfb2f7db96a5_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/999/ZZang-KARAOKE-2024-Old-POP-Vol-12-Instrumental-2024-20260808073202-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Backstreet Boys",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-CAlrb3Qu",
-    "artistId": "backstreet-boys",
-    "title": "Show Me The Meaning Of Being Lonely (Originally Perfomed By Backstreet Boys) (Melody Karaoke Version)",
-    "artist": "Backstreet Boys",
-    "artists": [
-      "Backstreet Boys"
-    ],
-    "movie": "ZZang KARAOKE 2024 Old POP Vol.12",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 247,
-    "audioUrl": "https://aac.saavncdn.com/999/86a71b98f6a8aa30fecb9a88540c1dfe_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/999/ZZang-KARAOKE-2024-Old-POP-Vol-12-Instrumental-2024-20260808073202-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Backstreet Boys",
-    "lyricist": ""
-  },
-  {
     "id": "intl-JI4UvN1d",
     "artistId": "backstreet-boys",
     "title": "Shape of My Heart",
@@ -65481,44 +56149,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Max Martin, Rami Yacoub, Lisa Miskovsky",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-oXTeN_vB",
-    "artistId": "backstreet-boys",
-    "title": "Shape Of My Heart (By Backstreet Boys) (Instrumental Karaoke Version)",
-    "artist": "Backstreet Boys",
-    "artists": [
-      "Backstreet Boys"
-    ],
-    "movie": "ZZang KARAOKE 2024 Old POP Vol.50",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 223,
-    "audioUrl": "https://aac.saavncdn.com/076/b9cd760b238a75e7a1a88b09c0840019_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/076/ZZang-KARAOKE-2024-Old-POP-Vol-50-Instrumental-2024-20260710133802-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Backstreet Boys",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-KIqpCJJn",
-    "artistId": "backstreet-boys",
-    "title": "Shape Of My Heart (By Backstreet Boys) (Melody Karaoke Version)",
-    "artist": "Backstreet Boys",
-    "artists": [
-      "Backstreet Boys"
-    ],
-    "movie": "ZZang KARAOKE 2024 Old POP Vol.50",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 223,
-    "audioUrl": "https://aac.saavncdn.com/076/6244f2c194ebe14e7d60d50adfd70b53_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/076/ZZang-KARAOKE-2024-Old-POP-Vol-50-Instrumental-2024-20260710133802-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Backstreet Boys",
     "lyricist": ""
   },
   {
@@ -66225,44 +56855,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-X6jQbvbM",
-    "artistId": "alan-walker",
-    "title": "The Spectre (Sped up Remix)",
-    "artist": "Alan Walker",
-    "artists": [
-      "Alan Walker"
-    ],
-    "movie": "Sped up",
-    "year": 2022,
-    "decade": "2000s",
-    "duration": 176,
-    "audioUrl": "https://aac.saavncdn.com/017/e10c184ede7ba1303ff3bc1eec1c75f7_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/017/Sped-up-English-2022-20220718223832-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Alan Walker, Jesper Borgen, Anders Frøen, Lars Kristian Rosness, Marcus Arnbekk",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-rhCzhYCr",
-    "artistId": "alan-walker",
-    "title": "The Spectre (Made Popular By Alan Walker) [Karaoke Version]",
-    "artist": "Alan Walker",
-    "artists": [
-      "Alan Walker"
-    ],
-    "movie": "Party Tyme Karaoke - Pop Male Hits 8",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 187,
-    "audioUrl": "https://aac.saavncdn.com/903/3437992e33d6ace3f95bf767676f2e73_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/903/Party-Tyme-Karaoke-Pop-Male-Hits-8-English-2018-20180906235446-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Alan Walker, Anders Frøen, Gunnar Greve, Jesper Borgen, Lars Rosness, Marcus Arnbekk, Tommy La Verdi",
-    "lyricist": ""
-  },
-  {
     "id": "intl-C2nHSLFv",
     "artistId": "alan-walker",
     "title": "The Spectre (vocal)",
@@ -66491,25 +57083,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-KXvZQ0KY",
-    "artistId": "alan-walker",
-    "title": "On My Way (Sped Up)",
-    "artist": "Alan Walker",
-    "artists": [
-      "Alan Walker"
-    ],
-    "movie": "On My Way",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 181,
-    "audioUrl": "https://aac.saavncdn.com/550/f8af5567b5f197cbc9d9af196a5cceab_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/550/On-My-Way-Instrumental-2026-20260311081538-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Alan Walker, Sabrina Carpenter, Farruko -, Julia Karlsson, Anton Rundberg, Jesper Borgen, Anders Frøen, Gunnar Greve, Fredrik Borch Olsen, Øyvind Sauvik, Carlos Efrén Reyes Rosado, Franklin Jovani Martínez, Marcos G. Pérez",
-    "lyricist": ""
-  },
-  {
     "id": "intl-Y39HW52b",
     "artistId": "alan-walker",
     "title": "Darkside",
@@ -66526,25 +57099,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Alan Walker, Lars Kristian Rosness, Fredrik Borch Olsen, Marcus Arnbekk, Anders Frøen, Gunnar Greve, James Njie, Jesper Borgen, Tommy LaVerdi, Atle Pettersen, William Wiik Larsen, Jamie Aura Stenzel, Andrew Frampton",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-7Hvm0JrD",
-    "artistId": "alan-walker",
-    "title": "Darkside (Sped up Remix)",
-    "artist": "Alan Walker",
-    "artists": [
-      "Alan Walker"
-    ],
-    "movie": "Sped up",
-    "year": 2022,
-    "decade": "2000s",
-    "duration": 189,
-    "audioUrl": "https://aac.saavncdn.com/017/220c869b93b5bdba20ea1802bd7750a0_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/017/Sped-up-English-2022-20220718223832-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Alan Walker, Fredrik Borch Olsen, Anders Frøen, James Njie, Tommy LaVerdi, Lars Kristian Rosness, Marcus Arnbekk, Gunnar Greve, Jesper Borgen, Atle Pettersen, William Wiik Larsen, Jamie Aura Stenzel, Andrew Frampton",
     "lyricist": ""
   },
   {
@@ -66681,25 +57235,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-3UJSTJSe",
-    "artistId": "alan-walker",
-    "title": "Lily (Originally Perfomed By Alan Walker, K-391, Emelie Hollow) (Melody Karaoke Version)",
-    "artist": "Alan Walker",
-    "artists": [
-      "Alan Walker"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.19",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 202,
-    "audioUrl": "https://aac.saavncdn.com/649/07ea6734c8eeee6b9d9fa2efd5aa0612_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/649/ZZang-KARAOKE-2024-POP-Vol-19-Instrumental-2024-20260618121413-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Alan Walker, K-391, Emelie Hollow",
-    "lyricist": ""
-  },
-  {
     "id": "intl-TfFMepHH",
     "artistId": "alan-walker",
     "title": "Lily (Piano Version)",
@@ -66735,25 +57270,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Magnus Bertelsen, Gjovag Evjen, Alan Walker, Didrik Håndlykken, Lars Rosness, Emelie Hollow, Kenneth Nilsen",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-vkGQUGVE",
-    "artistId": "alan-walker",
-    "title": "Lily (Originally Perfomed By Alan Walker, K-391, Emelie Hollow) (Instrumental Karaoke Version)",
-    "artist": "Alan Walker",
-    "artists": [
-      "Alan Walker"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.19",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 202,
-    "audioUrl": "https://aac.saavncdn.com/649/71fffb70640e25ba42857c76adff9580_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/649/ZZang-KARAOKE-2024-POP-Vol-19-Instrumental-2024-20260618121413-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Alan Walker, K-391, Emelie Hollow",
     "lyricist": ""
   },
   {
@@ -66871,25 +57387,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-uv9M2E1z",
-    "artistId": "charlie-puth",
-    "title": "attention - slowed + reverb",
-    "artist": "Charlie Puth",
-    "artists": [
-      "Charlie Puth"
-    ],
-    "movie": "attention - slowed + reverb",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 237,
-    "audioUrl": "https://aac.saavncdn.com/060/6877cfe063562d9b606573d7f635e22e_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/060/attention-slowed-reverb-Unknown-2023-20230323090804-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Charlie Puth",
-    "lyricist": ""
-  },
-  {
     "id": "intl-F7RIFwfx",
     "artistId": "charlie-puth",
     "title": "Attention (Switching Vocals)",
@@ -66985,25 +57482,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-k3cK0X5C",
-    "artistId": "charlie-puth",
-    "title": "We Don't Talk Anymore",
-    "artist": "Charlie Puth",
-    "artists": [
-      "Charlie Puth"
-    ],
-    "movie": "WORDPLAY",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 136,
-    "audioUrl": "https://aac.saavncdn.com/442/99d6f25a89823091af7b93b61df6037a_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/442/WORDPLAY-Punjabi-2025-20250825184312-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Harnoor Singh",
-    "lyricist": ""
-  },
-  {
     "id": "intl-ZTVuLt60",
     "artistId": "charlie-puth",
     "title": "We Don't Talk Anymore (feat. Selena Gomez) (Attom Remix)",
@@ -67058,25 +57536,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Harnoor Singh",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-sFkdUBFC",
-    "artistId": "charlie-puth",
-    "title": "We Don't Talk Anymore [Slowed + Reverb]",
-    "artist": "Charlie Puth",
-    "artists": [
-      "Charlie Puth"
-    ],
-    "movie": "We Don't Talk Anymore [Slowed + Reverb]",
-    "year": 2020,
-    "decade": "2000s",
-    "duration": 251,
-    "audioUrl": "https://aac.saavncdn.com/306/846a97be3bd02559abc682f42aeb69a1_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/306/We-Don-t-Talk-Anymore-Slowed-Reverb-Unknown-2020-20240626093541-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Charlie Puth, Selena Gomez",
     "lyricist": ""
   },
   {
@@ -67308,44 +57767,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-7vszGtt8",
-    "artistId": "charlie-puth",
-    "title": "Left and Right (Sped Up Version) (Sped Up Version)",
-    "artist": "Charlie Puth",
-    "artists": [
-      "Charlie Puth"
-    ],
-    "movie": "Left and Right (Charlie Puth) [feat. Jung Kook of BTS] (Sped Up Version)",
-    "year": 2022,
-    "decade": "2000s",
-    "duration": 135,
-    "audioUrl": "https://aac.saavncdn.com/412/118c739e8e425d32e368a1b0746ea66e_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/412/Left-and-Right-Charlie-Puth-feat-Jung-Kook-of-BTS-Sped-Up-Version-English-2022-20220803110457-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Charlie Puth",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-u4ccTHcN",
-    "artistId": "charlie-puth",
-    "title": "Left and Right (Made Popular By Charlie Puth ft. Jung Kook) [Karaoke Version]",
-    "artist": "Charlie Puth",
-    "artists": [
-      "Charlie Puth"
-    ],
-    "movie": "Party Tyme - Pop Male Hits 14 (Karaoke Versions)",
-    "year": 2022,
-    "decade": "2000s",
-    "duration": 160,
-    "audioUrl": "https://aac.saavncdn.com/303/24e59d3cdd68bd87304bd11e3ca87ed8_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/303/Party-Tyme-Pop-Male-Hits-14-Karaoke-Versions-Unknown-2022-20221124053855-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Charlie Puth, Jacob Kasher Hindlin",
-    "lyricist": ""
-  },
-  {
     "id": "intl-mky3Eu9i",
     "artistId": "charlie-puth",
     "title": "Left and Right (Piano rendition of BTS, Charlie Puth, Jung Kook)",
@@ -67362,44 +57783,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Charles Puth",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-WWb0lEsI",
-    "artistId": "charlie-puth",
-    "title": "Left and Right (Originally Perfomed By Charlie Puth, Jung Kook, BTS) (Melody Karaoke Version)",
-    "artist": "Charlie Puth",
-    "artists": [
-      "Charlie Puth"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.17",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 160,
-    "audioUrl": "https://aac.saavncdn.com/625/7d0e14b62fb0726f80e1cc25b840401e_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/625/ZZang-KARAOKE-2024-POP-Vol-17-Instrumental-2024-20260617050013-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Charlie Puth, Jung Kook, BTS",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-VTD_HdB9",
-    "artistId": "charlie-puth",
-    "title": "Left and Right (Originally Perfomed By Charlie Puth, Jung Kook, BTS) (Instrumental Karaoke Version)",
-    "artist": "Charlie Puth",
-    "artists": [
-      "Charlie Puth"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.17",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 160,
-    "audioUrl": "https://aac.saavncdn.com/625/841a0ea1b80644dab2fcb316f718e976_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/625/ZZang-KARAOKE-2024-POP-Vol-17-Instrumental-2024-20260617050013-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Charlie Puth, Jung Kook, BTS",
     "lyricist": ""
   },
   {
@@ -67973,44 +58356,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-WPlFhWeJ",
-    "artistId": "maroon-5",
-    "title": "She Will Be Loved (By Maroon 5) (Instrumental Karaoke Version)",
-    "artist": "Maroon 5",
-    "artists": [
-      "Maroon 5"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.74",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 253,
-    "audioUrl": "https://aac.saavncdn.com/113/5bbda50cbfcd502f6869c5b9cc507945_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/113/ZZang-KARAOKE-2024-POP-Vol-74-Instrumental-2024-20260507004609-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Maroon 5",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-PvM0amGu",
-    "artistId": "maroon-5",
-    "title": "She Will Be Loved (By Maroon 5) (Melody Karaoke Version)",
-    "artist": "Maroon 5",
-    "artists": [
-      "Maroon 5"
-    ],
-    "movie": "ZZang KARAOKE 2024 POP Vol.74",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 253,
-    "audioUrl": "https://aac.saavncdn.com/113/32f96150d0dca392b38cbab90cd97767_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/113/ZZang-KARAOKE-2024-POP-Vol-74-Instrumental-2024-20260507004609-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Maroon 5",
-    "lyricist": ""
-  },
-  {
     "id": "intl-wd6oqmVH",
     "artistId": "maroon-5",
     "title": "She Will Be Loved (Live at Live 8, Benjamin Franklin Parkway, Philadelphia, 2nd July 2005)",
@@ -68575,44 +58920,6 @@ const rawSongs = [
     "duration": 164,
     "audioUrl": "https://aac.saavncdn.com/708/844611c94584cf227fd4d73977ee185e_320.mp4",
     "coverUrl": "https://c.saavncdn.com/708/Minutes-to-Midnight-English-2007-20231005115041-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Linkin Park",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-0L8llB0n",
-    "artistId": "linkin-park",
-    "title": "Faint (By Linkin Park) (Instrumental Karaoke Version)",
-    "artist": "Linkin Park",
-    "artists": [
-      "Linkin Park"
-    ],
-    "movie": "ZZang KARAOKE 2024 Old POP Vol.55",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 162,
-    "audioUrl": "https://aac.saavncdn.com/974/a28057e0de9680222393c45126605975_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/974/ZZang-KARAOKE-2024-Old-POP-Vol-55-Instrumental-2024-20260710123819-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Linkin Park",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-FjEsLFiA",
-    "artistId": "linkin-park",
-    "title": "Faint (By Linkin Park) (Melody Karaoke Version)",
-    "artist": "Linkin Park",
-    "artists": [
-      "Linkin Park"
-    ],
-    "movie": "ZZang KARAOKE 2024 Old POP Vol.55",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 162,
-    "audioUrl": "https://aac.saavncdn.com/974/50c333cc38a07e80d1ff623c4c756c03_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/974/ZZang-KARAOKE-2024-Old-POP-Vol-55-Instrumental-2024-20260710123819-500x500.jpg",
     "genre": "international",
     "language": "english",
     "composer": "Linkin Park",
@@ -69474,25 +59781,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-uMsVVxQ7",
-    "artistId": "the-weeknd",
-    "title": "Can't Feel My Face (By The Weeknd) (Melody Karaoke Version)",
-    "artist": "The Weeknd",
-    "artists": [
-      "The Weeknd"
-    ],
-    "movie": "ZZang KARAOKE 2024 The Weeknd Vol. 1",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 208,
-    "audioUrl": "https://aac.saavncdn.com/209/e12f1f72da1cdb0b6b9c8a539811616d_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/209/ZZang-KARAOKE-2024-The-Weeknd-Vol-1-Instrumental-2024-20260620201915-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "The Weeknd",
-    "lyricist": ""
-  },
-  {
     "id": "intl-Hpd68_cZ",
     "artistId": "the-weeknd",
     "title": "Die For You (Remix)",
@@ -69506,25 +59794,6 @@ const rawSongs = [
     "duration": 232,
     "audioUrl": "https://aac.saavncdn.com/917/bccf4567807397c797e6a8df2b27543f_320.mp4",
     "coverUrl": "https://c.saavncdn.com/917/Die-For-You-Remix-English-2023-20230224103729-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Abel Tesfaye, Prince 85, Dylan Wiggins, Martin Mckinney, MAGNUS HOIBERG, William Walsh, Henry Walter",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-yeLq667q",
-    "artistId": "the-weeknd",
-    "title": "Die For You (Sped Up)",
-    "artist": "The Weeknd",
-    "artists": [
-      "The Weeknd"
-    ],
-    "movie": "Die For You",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 223,
-    "audioUrl": "https://aac.saavncdn.com/133/602c30ca543b9abf35ecefdf18981fd6_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/133/Die-For-You-English-2023-20230227063244-500x500.jpg",
     "genre": "international",
     "language": "english",
     "composer": "Abel Tesfaye, Prince 85, Dylan Wiggins, Martin Mckinney, MAGNUS HOIBERG, William Walsh, Henry Walter",
@@ -69715,25 +59984,6 @@ const rawSongs = [
     "duration": 225,
     "audioUrl": "https://aac.saavncdn.com/282/beb6a6aa1c46049c7806f782949fccf5_320.mp4",
     "coverUrl": "https://c.saavncdn.com/282/Unstoppable-Perfect-Isn-t-Pretty-Mix-Ariel-Rechtshaid-Version-English-2016-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Sia Furler, Christopher Braide",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-u4swubBo",
-    "artistId": "sia",
-    "title": "Unstoppable (Sped Up)",
-    "artist": "Sia",
-    "artists": [
-      "Sia"
-    ],
-    "movie": "Unstoppable (Sped Up)",
-    "year": 2022,
-    "decade": "2000s",
-    "duration": 198,
-    "audioUrl": "https://aac.saavncdn.com/108/c678c23d689dbcef89758b56054a1de0_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/108/Unstoppable-Sped-Up-English-2022-20231119200820-500x500.jpg",
     "genre": "international",
     "language": "english",
     "composer": "Sia Furler, Christopher Braide",
@@ -70215,44 +60465,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-jw3xlOV-",
-    "artistId": "whitney-houston",
-    "title": "I Have Nothing (2025) (By Whitney Houston) (Instrumental Karaoke Version)",
-    "artist": "Whitney Houston",
-    "artists": [
-      "Whitney Houston"
-    ],
-    "movie": "ZZang KARAOKE 2025 Old POP Vol.200",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 290,
-    "audioUrl": "https://aac.saavncdn.com/203/1e5f1f2d6dde15dc5acc528ffcf5aa8f_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/203/ZZang-KARAOKE-2025-Old-POP-Vol-200-Instrumental-2025-20260614041814-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Whitney Houston",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-IGuiACwB",
-    "artistId": "whitney-houston",
-    "title": "I Have Nothing (2025) (By Whitney Houston) (Melody Karaoke Version)",
-    "artist": "Whitney Houston",
-    "artists": [
-      "Whitney Houston"
-    ],
-    "movie": "ZZang KARAOKE 2025 Old POP Vol.200",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 290,
-    "audioUrl": "https://aac.saavncdn.com/203/5daf35717f83e28fcbb488ae1b730820_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/203/ZZang-KARAOKE-2025-Old-POP-Vol-200-Instrumental-2025-20260614041814-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Whitney Houston",
-    "lyricist": ""
-  },
-  {
     "id": "intl-dFLpAlMh",
     "artistId": "whitney-houston",
     "title": "I Wanna Dance with Somebody (Who Loves Me)",
@@ -70383,63 +60595,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Michael Masser, Linda Creed",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-388-speC",
-    "artistId": "whitney-houston",
-    "title": "Greatest Love Of All (2024) (By Whitney Houston) (Instrumental Karaoke Version)",
-    "artist": "Whitney Houston",
-    "artists": [
-      "Whitney Houston"
-    ],
-    "movie": "ZZang KARAOKE 2024 Old POP Vol.159",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 292,
-    "audioUrl": "https://aac.saavncdn.com/752/e5ce2262befcce8e79c799007729e168_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/752/ZZang-KARAOKE-2024-Old-POP-Vol-159-Instrumental-2024-20260715143916-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Whitney Houston",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-eEwhPmqF",
-    "artistId": "whitney-houston",
-    "title": "Greatest Love Of All (Originally Perfomed By Whitney Houston) (Melody Karaoke Version)",
-    "artist": "Whitney Houston",
-    "artists": [
-      "Whitney Houston"
-    ],
-    "movie": "ZZang KARAOKE 2024 Whitney Houston Vol. 1",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 302,
-    "audioUrl": "https://aac.saavncdn.com/635/2253f275554a40d313e414754a5871b1_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/635/ZZang-KARAOKE-2024-Whitney-Houston-Vol-1-Instrumental-2024-20260620225410-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Whitney Houston",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-bvosaG-8",
-    "artistId": "whitney-houston",
-    "title": "Greatest Love Of All (Originally Perfomed By Whitney Houston) (Instrumental Karaoke Version)",
-    "artist": "Whitney Houston",
-    "artists": [
-      "Whitney Houston"
-    ],
-    "movie": "ZZang KARAOKE 2024 Old POP Vol.27",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 302,
-    "audioUrl": "https://aac.saavncdn.com/133/202ca509badf887937897aff109694be_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/133/ZZang-KARAOKE-2024-Old-POP-Vol-27-Instrumental-2024-20260710162607-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Whitney Houston",
     "lyricist": ""
   },
   {
@@ -70706,63 +60861,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Nikeshia Briscoe, Rapheal Akinyemi",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-UIgoIfSW",
-    "artistId": "britney-spears",
-    "title": "Womanizer (By Britney Spears) (Instrumental Karaoke Version)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "ZZang KARAOKE 2024 Britney Spears Vol. 3",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 227,
-    "audioUrl": "https://aac.saavncdn.com/205/412248d68116f1d5b055341b1c73d044_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/205/ZZang-KARAOKE-2024-Britney-Spears-Vol-3-Instrumental-2024-20260105193423-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-iV4dPDcG",
-    "artistId": "britney-spears",
-    "title": "Womanizer (By Britney Spears) (Melody Karaoke Version)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "ZZang KARAOKE 2024 Britney Spears Vol. 3",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 227,
-    "audioUrl": "https://aac.saavncdn.com/205/c953d51b4a86c5068d994148e1ec6ee4_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/205/ZZang-KARAOKE-2024-Britney-Spears-Vol-3-Instrumental-2024-20260105193423-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-TkOQ3-ui",
-    "artistId": "britney-spears",
-    "title": "Womanizer (Originally Performed By Glee Cast) [Karaoke Version]",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "Karaoke (In the Style of Glee Cast, Vol. 4)",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 213,
-    "audioUrl": "https://aac.saavncdn.com/109/6539d5b74bc96ec20fb8dc5daf30eef3_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/109/Karaoke-In-the-Style-of-Glee-Cast-Vol-4--English-2013-20180603041715-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
     "lyricist": ""
   },
   {
@@ -71051,44 +61149,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-M48-xSCx",
-    "artistId": "britney-spears",
-    "title": "Everytime (Made Popular By Britney Spears) [Instrumental Version]",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "Party Tyme Karaoke - Instrumentals 8",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 220,
-    "audioUrl": "https://aac.saavncdn.com/805/c643870c793106bb6c652903f634e4e1_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/805/Party-Tyme-Karaoke-Instrumentals-8-Unknown-2021-20210708054019-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears, Annette Stamatelatos",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-IwdtnWai",
-    "artistId": "britney-spears",
-    "title": "Everytime (By Britney Spears) (Instrumental Karaoke Version)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "ZZang KARAOKE 2024 Britney Spears Vol. 1",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 224,
-    "audioUrl": "https://aac.saavncdn.com/182/779efdb6230f9ec2c5ba7046d1f465b3_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/182/ZZang-KARAOKE-2024-Britney-Spears-Vol-1-Instrumental-2024-20260106114826-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
-    "lyricist": ""
-  },
-  {
     "id": "intl-OVR7KRDs",
     "artistId": "britney-spears",
     "title": "Everytime (Instrumental)",
@@ -71105,25 +61165,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Annette Stamatelatos, Britney Spears",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-PfcWB1_w",
-    "artistId": "britney-spears",
-    "title": "Everytime (Originally Performed By Glee Cast) [Karaoke Version]",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "Karaoke (In the Style of Glee Cast, Vol. 4)",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 223,
-    "audioUrl": "https://aac.saavncdn.com/109/10843fd2d7ed3f71f772ec7c1ef68ba1_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/109/Karaoke-In-the-Style-of-Glee-Cast-Vol-4--English-2013-20180603041715-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears, Annette Stamatelatos",
     "lyricist": ""
   },
   {
@@ -71162,44 +61203,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Jörgen Elofsson",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-hZdFvoUZ",
-    "artistId": "britney-spears",
-    "title": "Sometimes (By Britney Spears) (Melody Karaoke Version)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "ZZang KARAOKE 2024 Britney Spears Vol. 3",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 240,
-    "audioUrl": "https://aac.saavncdn.com/205/aa13202b2e596df31ed44dfd8244c35f_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/205/ZZang-KARAOKE-2024-Britney-Spears-Vol-3-Instrumental-2024-20260105193423-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-8ajeURx_",
-    "artistId": "britney-spears",
-    "title": "Sometimes (By Britney Spears) (Instrumental Karaoke Version)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "ZZang KARAOKE 2024 Britney Spears Vol. 3",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 240,
-    "audioUrl": "https://aac.saavncdn.com/205/b80f98d6eb7fdc09cf874376c8b96dfa_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/205/ZZang-KARAOKE-2024-Britney-Spears-Vol-3-Instrumental-2024-20260105193423-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
     "lyricist": ""
   },
   {
@@ -71488,44 +61491,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-Ctw8QcKf",
-    "artistId": "britney-spears",
-    "title": "I'm A Slave 4 U (By Britney Spears) (Melody Karaoke Version)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "ZZang KARAOKE 2024 Britney Spears Vol. 1",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 213,
-    "audioUrl": "https://aac.saavncdn.com/182/e9660306ec7f601507355cc9970d2bd5_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/182/ZZang-KARAOKE-2024-Britney-Spears-Vol-1-Instrumental-2024-20260106114826-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-GTCA65q4",
-    "artistId": "britney-spears",
-    "title": "I'm A Slave 4 U (By Britney Spears) (Instrumental Karaoke Version)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "ZZang KARAOKE 2024 Britney Spears Vol. 1",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 213,
-    "audioUrl": "https://aac.saavncdn.com/182/14beb7c3f3230469bd50cdeaea14d819_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/182/ZZang-KARAOKE-2024-Britney-Spears-Vol-1-Instrumental-2024-20260106114826-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
-    "lyricist": ""
-  },
-  {
     "id": "intl-s92rgkva",
     "artistId": "britney-spears",
     "title": "Intimidated (B-side to I'm A Slave 4 U)",
@@ -71754,44 +61719,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-3X-4Yvd_",
-    "artistId": "britney-spears",
-    "title": "Till The World Ends (By Britney Spears) (Instrumental Karaoke Version)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "ZZang KARAOKE 2024 Britney Spears Vol. 2",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 236,
-    "audioUrl": "https://aac.saavncdn.com/199/e7309f62f8063d643d9e57968e33ab8b_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/199/ZZang-KARAOKE-2024-Britney-Spears-Vol-2-Instrumental-2024-20260105234427-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-Mvco3QBn",
-    "artistId": "britney-spears",
-    "title": "Till The World Ends (By Britney Spears) (Melody Karaoke Version)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "ZZang KARAOKE 2024 Britney Spears Vol. 2",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 236,
-    "audioUrl": "https://aac.saavncdn.com/199/50e5f41a8dbd98713933fb3491b651d1_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/199/ZZang-KARAOKE-2024-Britney-Spears-Vol-2-Instrumental-2024-20260105234427-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
-    "lyricist": ""
-  },
-  {
     "id": "intl-nvXKnC_w",
     "artistId": "britney-spears",
     "title": "Hold It Against Me",
@@ -71944,25 +61871,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-fWbyOBrc",
-    "artistId": "britney-spears",
-    "title": "Hold It Against Me (By Britney Spears) (Instrumental Karaoke Version)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "ZZang KARAOKE 2024 Britney Spears Vol. 3",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 231,
-    "audioUrl": "https://aac.saavncdn.com/205/6b4fdeaeceb94e4df95b2a079d6ebd9f_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/205/ZZang-KARAOKE-2024-Britney-Spears-Vol-3-Instrumental-2024-20260105193423-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
-    "lyricist": ""
-  },
-  {
     "id": "intl-kW9ZREOM",
     "artistId": "britney-spears",
     "title": "Hold It Against Me (Adrian Lux & Nause (Radio Remix))",
@@ -71979,25 +61887,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Max Martin, Bonnie Mckee, Łukasz Gottwald, Mathieu Jomphe",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-xFneQqnz",
-    "artistId": "britney-spears",
-    "title": "Hold It Against Me (By Britney Spears) (Melody Karaoke Version)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "ZZang KARAOKE 2024 Britney Spears Vol. 3",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 231,
-    "audioUrl": "https://aac.saavncdn.com/205/f823c1807fb804e7cb1299f2fd395ef7_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/205/ZZang-KARAOKE-2024-Britney-Spears-Vol-3-Instrumental-2024-20260105193423-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
     "lyricist": ""
   },
   {
@@ -72055,139 +61944,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Otto Jettman, Anthony Preston, Britney Spears, Ruth Anne Cunningham, Will Adams, Sebastian Carmine Ingrosso",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-shz6dz7q",
-    "artistId": "britney-spears",
-    "title": "Work Bitch [Karaoke Version]",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "Work Bitch (Originally By Britney Spears) [Karaoke Version]",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 246,
-    "audioUrl": "https://aac.saavncdn.com/736/1b6d786d10943df699c7fdd1d10069a0_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/736/Work-Bitch-Originally-By-Britney-Spears-Karaoke-Version--English-2013-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Otto Jettman, Anthony Preston, Britney Spears, Ruth Anne Cunningham, Will Adams, Sebastian Carmine Ingrosso",
-    "lyricist": ""
-  },
-  {
-    "id": "intl--aKw4OJn",
-    "artistId": "britney-spears",
-    "title": "Work Bitch (No Backing Vocals) [Karaoke Version]",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "Work Bitch (Originally By Britney Spears) [Karaoke Version]",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 246,
-    "audioUrl": "https://aac.saavncdn.com/736/5896cca69b8c361d12800195ef6d19f8_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/736/Work-Bitch-Originally-By-Britney-Spears-Karaoke-Version--English-2013-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Otto Jettman, Anthony Preston, Britney Spears, Ruth Anne Cunningham, Will Adams, Sebastian Carmine Ingrosso",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-WomnmcOV",
-    "artistId": "britney-spears",
-    "title": "Work Bitch (By Britney Spears) (Melody Karaoke Version)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "ZZang KARAOKE 2024 Britney Spears Vol. 1",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 248,
-    "audioUrl": "https://aac.saavncdn.com/182/082fa056a5d63884f9a562b9eab2c5f7_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/182/ZZang-KARAOKE-2024-Britney-Spears-Vol-1-Instrumental-2024-20260106114826-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-u7x5vZ7g",
-    "artistId": "britney-spears",
-    "title": "Work Bitch (By Britney Spears) (Instrumental Karaoke Version)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "ZZang KARAOKE 2024 Britney Spears Vol. 1",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 248,
-    "audioUrl": "https://aac.saavncdn.com/182/086becb9a8cca32a8c4bf574a2966662_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/182/ZZang-KARAOKE-2024-Britney-Spears-Vol-1-Instrumental-2024-20260106114826-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-Kw5FJdy0",
-    "artistId": "britney-spears",
-    "title": "Work Bitch (Originally By Britney Spears) [Karaoke Version]",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "Zoom Karaoke - Pop Chart Picks 18",
-    "year": 2013,
-    "decade": "2000s",
-    "duration": 246,
-    "audioUrl": "https://aac.saavncdn.com/186/3bc8633cbe2ba8777aa42823993dbb6f_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/186/Zoom-Karaoke-Pop-Chart-Picks-18-English-2013-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-i31Yedm7",
-    "artistId": "britney-spears",
-    "title": "Work Bitch (made popular by Britney Spears) [vocal version]",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "Pop Female Hits 10 - Party Tyme (Vocal Versions)",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 248,
-    "audioUrl": "https://aac.saavncdn.com/004/e45dd06be6ed70df77bdd234f3b9c9d9_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/004/Pop-Female-Hits-10-Party-Tyme-Vocal-Versions-English-2024-20240530053353-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Will Adams, Ruth-Anne Cunningham, Sebastian Carmine Ingrosso, Otto Jettman, Anthony Preston, Britney Spears",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-zbRsh4RE",
-    "artistId": "britney-spears",
-    "title": "Work Bitch (Made Popular By Britney Spears) [Karaoke Version]",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "Party Tyme Karaoke - Pop Female Hits 10",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 247,
-    "audioUrl": "https://aac.saavncdn.com/902/a75d7946714cb48bcb669aaf5ec18319_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/902/Party-Tyme-Karaoke-Pop-Female-Hits-10-English-2018-20180808231244-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Anthony Preston, Britney Spears, Otto Jettman, Ruth-Anne Cunningham, Sebastian Ingrosso, Will Adams",
     "lyricist": ""
   },
   {
@@ -72299,63 +62055,6 @@ const rawSongs = [
     "duration": 132,
     "audioUrl": "https://aac.saavncdn.com/461/33eb6e1dd73a14d544829b0a544f5558_320.mp4",
     "coverUrl": "https://c.saavncdn.com/461/IF-U-SEEK-AMY-Instrumental-2023-20231114094833-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-0W3QYFFw",
-    "artistId": "britney-spears",
-    "title": "If U Seek Amy (Karaoke Version)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "Ultimate Slumber Party Super Hits V4 Karaoke",
-    "year": 2010,
-    "decade": "2000s",
-    "duration": 218,
-    "audioUrl": "https://aac.saavncdn.com/827/4ce10cf965557a3fe1682cd5f6d89375_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/827/Ultimate-Slumber-Party-Super-Hits-V4-Karaoke-English-2010-20221216054732-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-eHg-ssKK",
-    "artistId": "britney-spears",
-    "title": "IF U SEEK AMY (HYPERTECHNO SPED UP)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "IF U SEEK AMY",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 114,
-    "audioUrl": "https://aac.saavncdn.com/052/6f2475496fd8e8433d6a7cb3345896fd_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/052/IF-U-SEEK-AMY-Instrumental-2023-20231026112336-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-1ez-85un",
-    "artistId": "britney-spears",
-    "title": "IF U SEEK AMY (TECHNO SPED UP)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "IF U SEEK AMY",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 145,
-    "audioUrl": "https://aac.saavncdn.com/081/a4c89f746cf9a994b5733c0ff38cee51_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/081/IF-U-SEEK-AMY-Instrumental-2023-20231114094821-500x500.jpg",
     "genre": "international",
     "language": "english",
     "composer": "Britney Spears",
@@ -72742,25 +62441,6 @@ const rawSongs = [
     "lyricist": ""
   },
   {
-    "id": "intl-lJAG4YEF",
-    "artistId": "britney-spears",
-    "title": "criminal (sped up)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "criminal",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 189,
-    "audioUrl": "https://aac.saavncdn.com/369/d86e7d00f5dec8546dbd711c271e70b8_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/369/criminal-Unknown-2024-20241114104717-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
-    "lyricist": ""
-  },
-  {
     "id": "intl-mczwPocT",
     "artistId": "britney-spears",
     "title": "Overprotected (Radio Edit)",
@@ -72815,44 +62495,6 @@ const rawSongs = [
     "genre": "international",
     "language": "english",
     "composer": "Rami Yacoub, Max Martin",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-vixjhV9g",
-    "artistId": "britney-spears",
-    "title": "Overprotected (By Britney Spears) (Instrumental Karaoke Version)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "ZZang KARAOKE 2024 Britney Spears Vol. 3",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 209,
-    "audioUrl": "https://aac.saavncdn.com/205/1888f96ed73a3ae8e6037e16ec2c7585_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/205/ZZang-KARAOKE-2024-Britney-Spears-Vol-3-Instrumental-2024-20260105193423-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
-    "lyricist": ""
-  },
-  {
-    "id": "intl-1k0yZCwk",
-    "artistId": "britney-spears",
-    "title": "Overprotected (By Britney Spears) (Melody Karaoke Version)",
-    "artist": "Britney Spears",
-    "artists": [
-      "Britney Spears"
-    ],
-    "movie": "ZZang KARAOKE 2024 Britney Spears Vol. 3",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 209,
-    "audioUrl": "https://aac.saavncdn.com/205/352d8f1fa72344b21178c867c23726e6_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/205/ZZang-KARAOKE-2024-Britney-Spears-Vol-3-Instrumental-2024-20260105193423-500x500.jpg",
-    "genre": "international",
-    "language": "english",
-    "composer": "Britney Spears",
     "lyricist": ""
   },
   {
@@ -73556,42 +63198,6 @@ const rawSongs = [
     "lyricist": "Babul Supriyo"
   },
   {
-    "id": "sg-babul-ysjpDt7M",
-    "title": "Anamika Nayika",
-    "artist": "Babul Supriyo",
-    "artists": [
-      "Babul Supriyo"
-    ],
-    "movie": "Babul Supriyo Hits 1",
-    "year": 2020,
-    "decade": "2000s",
-    "duration": 287,
-    "audioUrl": "https://aac.saavncdn.com/438/166ba9d51d10bfb3f7ec6b531badc5f8_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/438/Babul-Supriyo-Hits-1-Odia-2020-20200130183701-500x500.jpg",
-    "genre": "Bollywood Romantic",
-    "language": "hindi",
-    "composer": "Prem Anand",
-    "lyricist": "Babul Supriyo"
-  },
-  {
-    "id": "sg-babul-R2qnv7Ra",
-    "title": "Chok Tule Dekho Na",
-    "artist": "Babul Supriyo",
-    "artists": [
-      "Babul Supriyo"
-    ],
-    "movie": "Babul Supriyo - Best Bangla Collection",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 280,
-    "audioUrl": "https://aac.saavncdn.com/045/b89e010bb451f17b249ab3195f1bdc2a_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/045/Babul-Supriyo-Best-Bangla-Collection-Bengali-2021-20260615154026-500x500.jpg",
-    "genre": "Bollywood Romantic",
-    "language": "hindi",
-    "composer": "Babul Bose",
-    "lyricist": "Babul Supriyo"
-  },
-  {
     "id": "sg-babul-aEDLj6VK",
     "title": "Main Ishq Uska",
     "artist": "Babul Supriyo",
@@ -73607,42 +63213,6 @@ const rawSongs = [
     "genre": "Bollywood Romantic",
     "language": "hindi",
     "composer": "Himesh Reshammiya",
-    "lyricist": "Babul Supriyo"
-  },
-  {
-    "id": "sg-babul-zfWtViBl",
-    "title": "Esona Aaj Ei Shapat Kori",
-    "artist": "Babul Supriyo",
-    "artists": [
-      "Babul Supriyo"
-    ],
-    "movie": "Babul Supriyo - Best Bangla Collection",
-    "year": 2021,
-    "decade": "2000s",
-    "duration": 286,
-    "audioUrl": "https://aac.saavncdn.com/045/8351265ab6ada544cd58fad09e2838dc_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/045/Babul-Supriyo-Best-Bangla-Collection-Bengali-2021-20260615154026-500x500.jpg",
-    "genre": "Bollywood Romantic",
-    "language": "hindi",
-    "composer": "Babul Bose",
-    "lyricist": "Babul Supriyo"
-  },
-  {
-    "id": "sg-babul-MjkIcJND",
-    "title": "Ajana Bate M",
-    "artist": "Babul Supriyo",
-    "artists": [
-      "Babul Supriyo"
-    ],
-    "movie": "Babul Supriyo Hits 1",
-    "year": 2020,
-    "decade": "2000s",
-    "duration": 349,
-    "audioUrl": "https://aac.saavncdn.com/438/7e5315b94ceb901c7ef5fbf79a8b4bb7_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/438/Babul-Supriyo-Hits-1-Odia-2020-20200130183701-500x500.jpg",
-    "genre": "Bollywood Romantic",
-    "language": "hindi",
-    "composer": "Abhijit Majumdar",
     "lyricist": "Babul Supriyo"
   },
   {
@@ -73682,42 +63252,6 @@ const rawSongs = [
     "lyricist": "Babul Supriyo"
   },
   {
-    "id": "sg-babul-vfxQEKse",
-    "title": "Tomake Kotha Dilam",
-    "artist": "Babul Supriyo",
-    "artists": [
-      "Babul Supriyo"
-    ],
-    "movie": "Bengali Hits of Babul Supriyo",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 280,
-    "audioUrl": "https://aac.saavncdn.com/178/0872104689b0921dbcb764ace34184e2_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/178/Bengali-Hits-of-Babul-Supriyo-Bengali-2026-20260601231211-500x500.jpg",
-    "genre": "Bollywood Romantic",
-    "language": "hindi",
-    "composer": "Jeet Ganguly",
-    "lyricist": "Babul Supriyo"
-  },
-  {
-    "id": "sg-babul-BpT9eDRS",
-    "title": "Bele Bele Ichha Hue M",
-    "artist": "Babul Supriyo",
-    "artists": [
-      "Babul Supriyo"
-    ],
-    "movie": "Babul Supriyo Hits 1",
-    "year": 2020,
-    "decade": "2000s",
-    "duration": 304,
-    "audioUrl": "https://aac.saavncdn.com/438/3ca780326cc6b1e962dd2a4be99c58a8_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/438/Babul-Supriyo-Hits-1-Odia-2020-20200130183701-500x500.jpg",
-    "genre": "Bollywood Romantic",
-    "language": "hindi",
-    "composer": "Prem Anand",
-    "lyricist": "Babul Supriyo"
-  },
-  {
     "id": "sg-babul-LxI3duxV",
     "title": "Dil Ko Zarasa Aaram Denge (Babul Supriyo Version)",
     "artist": "Babul Supriyo",
@@ -73734,186 +63268,6 @@ const rawSongs = [
     "language": "hindi",
     "composer": "Babul Supriyo, Nadeem-Shravan, Sameer Anjaan",
     "lyricist": "Babul Supriyo"
-  },
-  {
-    "id": "sg-babul-9Ra3Tz6K",
-    "title": "Janha Tu Aare",
-    "artist": "Babul Supriyo",
-    "artists": [
-      "Babul Supriyo"
-    ],
-    "movie": "Babul Supriyo Hits 1",
-    "year": 2020,
-    "decade": "2000s",
-    "duration": 268,
-    "audioUrl": "https://aac.saavncdn.com/438/0b22ec9ee89f3e1b343d5dd49a9f4a06_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/438/Babul-Supriyo-Hits-1-Odia-2020-20200130183701-500x500.jpg",
-    "genre": "Bollywood Romantic",
-    "language": "hindi",
-    "composer": "Abhijit Majumdar",
-    "lyricist": "Babul Supriyo"
-  },
-  {
-    "id": "sg-babul-PN8TLNe4",
-    "title": "Bata Chalu Chalu",
-    "artist": "Babul Supriyo",
-    "artists": [
-      "Babul Supriyo"
-    ],
-    "movie": "Babul Supriyo Hits 2",
-    "year": 2020,
-    "decade": "2000s",
-    "duration": 282,
-    "audioUrl": "https://aac.saavncdn.com/439/e0928849f1701b4e94f378ca0230b05d_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/439/Babul-Supriyo-Hits-2-Odia-2020-20200130183701-500x500.jpg",
-    "genre": "Bollywood Romantic",
-    "language": "hindi",
-    "composer": "Krushna Chandra",
-    "lyricist": "Babul Supriyo"
-  },
-  {
-    "id": "sg-babul-5GEQx5Pr",
-    "title": "Tomer Oai Duti Chokhe",
-    "artist": "Babul Supriyo",
-    "artists": [
-      "Babul Supriyo"
-    ],
-    "movie": "Bengali Hits of Babul Supriyo",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 273,
-    "audioUrl": "https://aac.saavncdn.com/178/0492f41a9846d5ec71cf9a4ece0bb571_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/178/Bengali-Hits-of-Babul-Supriyo-Bengali-2026-20260601231211-500x500.jpg",
-    "genre": "Bollywood Romantic",
-    "language": "hindi",
-    "composer": "Ashok Bhadra",
-    "lyricist": "Babul Supriyo"
-  },
-  {
-    "id": "sg-babul-Ic4ugJ7k",
-    "title": "Chupi Chupi",
-    "artist": "Babul Supriyo",
-    "artists": [
-      "Babul Supriyo"
-    ],
-    "movie": "Bengali Hits of Babul Supriyo",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 392,
-    "audioUrl": "https://aac.saavncdn.com/178/139ca0614d0fecc9d50bdae4a4a7e81e_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/178/Bengali-Hits-of-Babul-Supriyo-Bengali-2026-20260601231211-500x500.jpg",
-    "genre": "Bollywood Romantic",
-    "language": "hindi",
-    "composer": "Anu Malik",
-    "lyricist": "Babul Supriyo"
-  },
-  {
-    "id": "sg-honey-_T9eRZms",
-    "title": "Dope Shope",
-    "artist": "Yo Yo Honey Singh",
-    "artists": [
-      "Yo Yo Honey Singh"
-    ],
-    "movie": "International Villager",
-    "year": 2011,
-    "decade": "2000s",
-    "duration": 189,
-    "audioUrl": "https://aac.saavncdn.com/924/30b763b786f4a33402b0441c84bbe305_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/blob/924/International-Villager-Punjabi-2011-20220722144441-500x500.jpg",
-    "genre": "Desi Hip-Hop / Bollywood Dance",
-    "language": "hindi",
-    "composer": "Yo Yo Honey Singh",
-    "lyricist": "Yo Yo Honey Singh"
-  },
-  {
-    "id": "sg-honey-AvxHjML7",
-    "title": "Angreji Beat",
-    "artist": "Yo Yo Honey Singh",
-    "artists": [
-      "Yo Yo Honey Singh"
-    ],
-    "movie": "International Villager",
-    "year": 2011,
-    "decade": "2000s",
-    "duration": 210,
-    "audioUrl": "https://aac.saavncdn.com/924/2814cbf034f813dc262e4cc228ad8256_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/blob/924/International-Villager-Punjabi-2011-20220722144441-500x500.jpg",
-    "genre": "Desi Hip-Hop / Bollywood Dance",
-    "language": "hindi",
-    "composer": "Yo Yo Honey Singh",
-    "lyricist": "Yo Yo Honey Singh"
-  },
-  {
-    "id": "sg-honey-vj2tW1iy",
-    "title": "Brown Rang",
-    "artist": "Yo Yo Honey Singh",
-    "artists": [
-      "Yo Yo Honey Singh"
-    ],
-    "movie": "International Villager",
-    "year": 2011,
-    "decade": "2000s",
-    "duration": 179,
-    "audioUrl": "https://aac.saavncdn.com/924/3cc1b3208e4661a2bcd85ec5f51ea2eb_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/blob/924/International-Villager-Punjabi-2011-20220722144441-500x500.jpg",
-    "genre": "Desi Hip-Hop / Bollywood Dance",
-    "language": "hindi",
-    "composer": "Yo Yo Honey Singh",
-    "lyricist": "Yo Yo Honey Singh"
-  },
-  {
-    "id": "sg-honey-IxPWUF74",
-    "title": "Brown Rang (LoFI Remix)",
-    "artist": "Yo Yo Honey Singh",
-    "artists": [
-      "Yo Yo Honey Singh"
-    ],
-    "movie": "Brown Rang (LoFI Remix)",
-    "year": 2023,
-    "decade": "2000s",
-    "duration": 194,
-    "audioUrl": "https://aac.saavncdn.com/957/6a4a512f419d9fee0bb7ce4ac99835f1_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/957/Brown-Rang-LoFI-Remix-Punjabi-2023-20231031161419-500x500.jpg",
-    "genre": "Desi Hip-Hop / Bollywood Dance",
-    "language": "hindi",
-    "composer": "Yo Yo Honey Singh",
-    "lyricist": "Yo Yo Honey Singh"
-  },
-  {
-    "id": "sg-honey-4lUeqQpQ",
-    "title": "Kudiye Ni Tere Brown (Brown Rang 90s Mix)",
-    "artist": "Yo Yo Honey Singh",
-    "artists": [
-      "Yo Yo Honey Singh"
-    ],
-    "movie": "Kudiye Ni Tere Brown (Brown Rang 90s Mix)",
-    "year": 2024,
-    "decade": "2000s",
-    "duration": 193,
-    "audioUrl": "https://aac.saavncdn.com/963/46fdae730683a02d2e8c24e330ed5cdd_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/963/Kudiye-Ni-Tere-Brown-Brown-Rang-90s-Mix-Punjabi-2024-20260707152447-500x500.jpg",
-    "genre": "Desi Hip-Hop / Bollywood Dance",
-    "language": "hindi",
-    "composer": "Yo Yo Honey Singh",
-    "lyricist": "Yo Yo Honey Singh"
-  },
-  {
-    "id": "sg-honey-DWDSMHh7",
-    "title": "YoYo",
-    "artist": "Yo Yo Honey Singh",
-    "artists": [
-      "Yo Yo Honey Singh"
-    ],
-    "movie": "YoYo",
-    "year": 2019,
-    "decade": "2000s",
-    "duration": 164,
-    "audioUrl": "https://aac.saavncdn.com/144/ab475350ef2b43b75a24d3d720aaa7a4_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/144/YoYo-Punjabi-2019-20190924060934-500x500.jpg",
-    "genre": "Desi Hip-Hop / Bollywood Dance",
-    "language": "hindi",
-    "composer": "Yo Yo Honey Singh",
-    "lyricist": "Yo Yo Honey Singh"
   },
   {
     "id": "sg-honey-GbaIdJ48",
@@ -74384,24 +63738,6 @@ const rawSongs = [
     "lyricist": "Yo Yo Honey Singh"
   },
   {
-    "id": "sg-honey-zsuUEOyp",
-    "title": "Millionaire Remix(Remix By Dj Sunny Singh Uk,Paranox)",
-    "artist": "Yo Yo Honey Singh",
-    "artists": [
-      "Yo Yo Honey Singh"
-    ],
-    "movie": "Millionaire Remix",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 169,
-    "audioUrl": "https://aac.saavncdn.com/707/d9b95fae1bbde873c303e82e5df6aef2_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/707/Millionaire-Remix-Punjabi-2026-20260313161004-500x500.jpg",
-    "genre": "Desi Hip-Hop / Bollywood Dance",
-    "language": "hindi",
-    "composer": "Yo Yo Honey Singh",
-    "lyricist": "Yo Yo Honey Singh"
-  },
-  {
     "id": "sg-honey-3xjlNBUD",
     "title": "De Taali Remix(Remix By Dj Sunny Singh Uk)",
     "artist": "Yo Yo Honey Singh",
@@ -74510,24 +63846,6 @@ const rawSongs = [
     "lyricist": "Yo Yo Honey Singh"
   },
   {
-    "id": "sg-honey-ShgNB_O6",
-    "title": "Makhna Remix(Remix By Zacksnare)",
-    "artist": "Yo Yo Honey Singh",
-    "artists": [
-      "Yo Yo Honey Singh"
-    ],
-    "movie": "Makhna Remix",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 178,
-    "audioUrl": "https://aac.saavncdn.com/260/3e87dd71057847cc0c58b435ca28a638_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/260/Makhna-Remix-Punjabi-2025-20251105141004-500x500.jpg",
-    "genre": "Desi Hip-Hop / Bollywood Dance",
-    "language": "hindi",
-    "composer": "Yo Yo Honey Singh",
-    "lyricist": "Yo Yo Honey Singh"
-  },
-  {
     "id": "sg-honey-PxETWnn6",
     "title": "Kalaastar",
     "artist": "Yo Yo Honey Singh",
@@ -74564,42 +63882,6 @@ const rawSongs = [
     "lyricist": "Yo Yo Honey Singh"
   },
   {
-    "id": "sg-honey-91MIsQsW",
-    "title": "High Heels",
-    "artist": "Yo Yo Honey Singh",
-    "artists": [
-      "Yo Yo Honey Singh"
-    ],
-    "movie": "High Heels",
-    "year": 2012,
-    "decade": "2000s",
-    "duration": 297,
-    "audioUrl": "https://aac.saavncdn.com/067/5ca01d66f59a9fd051c3abeb697a77d6_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/067/High-Heels-Punjabi-2012-20191011032807-500x500.jpg",
-    "genre": "Desi Hip-Hop / Bollywood Dance",
-    "language": "hindi",
-    "composer": "Yo Yo Honey Singh",
-    "lyricist": "Yo Yo Honey Singh"
-  },
-  {
-    "id": "sg-honey-NH-tR1bi",
-    "title": "High Heels Te Nachche (feat. Jaz Dhami, Aditi Singh Sharma)",
-    "artist": "Yo Yo Honey Singh",
-    "artists": [
-      "Yo Yo Honey Singh"
-    ],
-    "movie": "Bollywood Punjabi Chartbusters",
-    "year": 2018,
-    "decade": "2000s",
-    "duration": 212,
-    "audioUrl": "https://aac.saavncdn.com/902/8c48cdaeab4891b5c323e2f5637167b4_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/902/Bollywood-Punjabi-Chartbusters-Hindi-2018-20241204191632-500x500.jpg",
-    "genre": "Desi Hip-Hop / Bollywood Dance",
-    "language": "hindi",
-    "composer": "Yo Yo Honey Singh",
-    "lyricist": "Yo Yo Honey Singh"
-  },
-  {
     "id": "sg-honey-hy5MNytz",
     "title": "High Heels Te Nache - The Remix",
     "artist": "Yo Yo Honey Singh",
@@ -74612,24 +63894,6 @@ const rawSongs = [
     "duration": 213,
     "audioUrl": "https://aac.saavncdn.com/654/a951c502232eaad0953c2adfc88d3578_320.mp4",
     "coverUrl": "https://c.saavncdn.com/654/The-Remix-Amazon-Prime-Original-Episode-6-Hindi-2018-20180427-500x500.jpg",
-    "genre": "Desi Hip-Hop / Bollywood Dance",
-    "language": "hindi",
-    "composer": "Yo Yo Honey Singh",
-    "lyricist": "Yo Yo Honey Singh"
-  },
-  {
-    "id": "sg-honey-UbT0IDjK",
-    "title": "High Heels (DJ Suketu Remix)",
-    "artist": "Yo Yo Honey Singh",
-    "artists": [
-      "Yo Yo Honey Singh"
-    ],
-    "movie": "High Heels (DJ Suketu Remix)",
-    "year": 2012,
-    "decade": "2000s",
-    "duration": 278,
-    "audioUrl": "https://aac.saavncdn.com/439/cdfa90c87eb72421a11a04a1ac1c7e6d_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/439/High-Heels-DJ-Suketu-Remix--Punjabi-2012-20191011032807-500x500.jpg",
     "genre": "Desi Hip-Hop / Bollywood Dance",
     "language": "hindi",
     "composer": "Yo Yo Honey Singh",
@@ -74884,40 +64148,6 @@ const rawSongs = [
     "language": "english"
   },
   {
-    "id": "sg-guru-randhawa-3hTPwXPr",
-    "title": "High Rated Gabru",
-    "artist": "Guru Randhawa - High Rated Gabru",
-    "artists": [
-      "Guru Randhawa - High Rated Gabru"
-    ],
-    "artistId": "guru-randhawa",
-    "movie": "High Rated Gabru",
-    "year": 2017,
-    "decade": "2010s",
-    "duration": 214,
-    "audioUrl": "https://aac.saavncdn.com/344/4e7a96829b1ab444247a2a8db16673a8_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/344/High-Rated-Gabru-Punjabi-2017-500x500.jpg",
-    "genre": "Masterpiece",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-guru-randhawa-L_eY69Bv",
-    "title": "Lahore",
-    "artist": "Guru Randhawa - Lahore",
-    "artists": [
-      "Guru Randhawa - Lahore"
-    ],
-    "artistId": "guru-randhawa",
-    "movie": "Lahore",
-    "year": 2017,
-    "decade": "2010s",
-    "duration": 197,
-    "audioUrl": "https://aac.saavncdn.com/437/a5bf59099a04ed7c10681a1aabfa5ea2_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/437/Lahore-Punjabi-2017-20171214-500x500.jpg",
-    "genre": "Masterpiece",
-    "language": "hindi"
-  },
-  {
     "id": "sg-guru-randhawa-f-x9bxwm",
     "title": "Suit Suit",
     "artist": "Guru Randhawa ft. Arjun - Hindi Medium",
@@ -74948,24 +64178,6 @@ const rawSongs = [
     "duration": 225,
     "audioUrl": "https://aac.saavncdn.com/962/4f670f3162684440b24682ac20636aaf_320.mp4",
     "coverUrl": "https://c.saavncdn.com/962/Tumhari-Sulu-Hindi-2017-20171104121110-500x500.jpg",
-    "genre": "Masterpiece",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-guru-randhawa-GNjFKpP5",
-    "title": "Ishare Tere",
-    "artist": "Guru Randhawa, Dhvani Bhanushali ft. Deep Money - Ishare Tere",
-    "artists": [
-      "Guru Randhawa",
-      "Dhvani Bhanushali ft. Deep Money - Ishare Tere"
-    ],
-    "artistId": "guru-randhawa",
-    "movie": "Ishare Tere",
-    "year": 2018,
-    "decade": "2010s",
-    "duration": 189,
-    "audioUrl": "https://aac.saavncdn.com/161/2f4d371246f8de0edd0da13f701144df_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/161/Ishare-Tere-Punjabi-2018-20180724123848-500x500.jpg",
     "genre": "Masterpiece",
     "language": "hindi"
   },
@@ -75190,23 +64402,6 @@ const rawSongs = [
     "duration": 266,
     "audioUrl": "https://aac.saavncdn.com/238/9520cefb65e0fb210591ba92781c897e_320.mp4",
     "coverUrl": "https://c.saavncdn.com/238/Shershaah-Original-Motion-Picture-Soundtrack--Hindi-2021-20210815181610-500x500.jpg",
-    "genre": "Masterpiece",
-    "language": "hindi"
-  },
-  {
-    "id": "sg-b-praak-NvAgYZmZ",
-    "title": "Filhall Ft. Akshay Kumar & Nupur Sanon",
-    "artist": "B Praak - Filhall",
-    "artists": [
-      "B Praak - Filhall"
-    ],
-    "artistId": "b-praak",
-    "movie": "Filhall",
-    "year": 2019,
-    "decade": "2010s",
-    "duration": 255,
-    "audioUrl": "https://aac.saavncdn.com/972/0206f9992772499eb7b0e5013959fd45_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/972/Filhall-Punjabi-2019-20191108174428-500x500.jpg",
     "genre": "Masterpiece",
     "language": "hindi"
   },
@@ -75616,8 +64811,7 @@ const rawSongs = [
     "coverUrl": "https://c.saavncdn.com/203/This-Is-Acting-English-2016-500x500.jpg",
     "genre": "Masterpiece",
     "language": "english"
-  }
-,
+  },
   {
     "id": "sg-VaNhRJHr",
     "title": "Die With A Smile",
@@ -75634,7 +64828,8 @@ const rawSongs = [
     "artistId": "lady-gaga",
     "artists": [
       "Lady Gaga"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-jDIdaYzX",
@@ -75652,7 +64847,8 @@ const rawSongs = [
     "artistId": "lady-gaga",
     "artists": [
       "Lady Gaga"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-naLcqtDD",
@@ -75670,7 +64866,8 @@ const rawSongs = [
     "artistId": "lady-gaga",
     "artists": [
       "Lady Gaga"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-02PSMYiH",
@@ -75688,7 +64885,8 @@ const rawSongs = [
     "artistId": "lady-gaga",
     "artists": [
       "Lady Gaga"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-f_Zavbdy",
@@ -75706,7 +64904,8 @@ const rawSongs = [
     "artistId": "lady-gaga",
     "artists": [
       "Lady Gaga"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-hUYvg16I",
@@ -75724,7 +64923,8 @@ const rawSongs = [
     "artistId": "lady-gaga",
     "artists": [
       "Lady Gaga"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-kkCrBGSk",
@@ -75742,7 +64942,8 @@ const rawSongs = [
     "artistId": "ariana-grande",
     "artists": [
       "Ariana Grande"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-PozZdpLD",
@@ -75760,7 +64961,8 @@ const rawSongs = [
     "artistId": "ariana-grande",
     "artists": [
       "Ariana Grande"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-Q845e03P",
@@ -75778,7 +64980,8 @@ const rawSongs = [
     "artistId": "ariana-grande",
     "artists": [
       "Ariana Grande"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-92wE6Utk",
@@ -75796,7 +64999,8 @@ const rawSongs = [
     "artistId": "ariana-grande",
     "artists": [
       "Ariana Grande"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-_jfkwDR2",
@@ -75814,7 +65018,8 @@ const rawSongs = [
     "artistId": "ariana-grande",
     "artists": [
       "Ariana Grande"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-Kk0_FnkK",
@@ -75832,7 +65037,8 @@ const rawSongs = [
     "artistId": "ariana-grande",
     "artists": [
       "Ariana Grande"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-IF2UR2N2",
@@ -75850,7 +65056,8 @@ const rawSongs = [
     "artistId": "post-malone",
     "artists": [
       "Post Malone"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-w8KLqFb0",
@@ -75868,7 +65075,8 @@ const rawSongs = [
     "artistId": "post-malone",
     "artists": [
       "Post Malone"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-SEtIZIJu",
@@ -75886,7 +65094,8 @@ const rawSongs = [
     "artistId": "post-malone",
     "artists": [
       "Post Malone"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-zi3T8TWY",
@@ -75904,7 +65113,8 @@ const rawSongs = [
     "artistId": "post-malone",
     "artists": [
       "Post Malone"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-BKR_Vk9u",
@@ -75922,7 +65132,8 @@ const rawSongs = [
     "artistId": "post-malone",
     "artists": [
       "Post Malone"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-uYSO2Zqc",
@@ -75940,7 +65151,8 @@ const rawSongs = [
     "artistId": "post-malone",
     "artists": [
       "Post Malone"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-xKlnh38y",
@@ -75958,7 +65170,8 @@ const rawSongs = [
     "artistId": "drake",
     "artists": [
       "Drake"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-ufIKv01V",
@@ -75976,7 +65189,8 @@ const rawSongs = [
     "artistId": "drake",
     "artists": [
       "Drake"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-TY9AiNdp",
@@ -75994,7 +65208,8 @@ const rawSongs = [
     "artistId": "drake",
     "artists": [
       "Drake"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-9cP0csMY",
@@ -76012,7 +65227,8 @@ const rawSongs = [
     "artistId": "drake",
     "artists": [
       "Drake"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-76bC4aac",
@@ -76030,7 +65246,8 @@ const rawSongs = [
     "artistId": "drake",
     "artists": [
       "Drake"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-_wBHAYYk",
@@ -76048,7 +65265,8 @@ const rawSongs = [
     "artistId": "drake",
     "artists": [
       "Drake"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-lTL17P6t",
@@ -76066,7 +65284,8 @@ const rawSongs = [
     "artistId": "beyonce",
     "artists": [
       "Beyoncé"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-mVRDuiE_",
@@ -76084,7 +65303,8 @@ const rawSongs = [
     "artistId": "beyonce",
     "artists": [
       "Beyoncé"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-8Brq4kIV",
@@ -76102,7 +65322,8 @@ const rawSongs = [
     "artistId": "beyonce",
     "artists": [
       "Beyoncé"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-3KWp7WEo",
@@ -76120,7 +65341,8 @@ const rawSongs = [
     "artistId": "beyonce",
     "artists": [
       "Beyoncé"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-MVBMw-f5",
@@ -76138,7 +65360,8 @@ const rawSongs = [
     "artistId": "beyonce",
     "artists": [
       "Beyoncé"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-77BB6RPa",
@@ -76156,7 +65379,8 @@ const rawSongs = [
     "artistId": "beyonce",
     "artists": [
       "Beyoncé"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-UF6tbTyG",
@@ -76174,7 +65398,8 @@ const rawSongs = [
     "artistId": "madonna",
     "artists": [
       "Madonna"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-LP87L8jT",
@@ -76192,7 +65417,8 @@ const rawSongs = [
     "artistId": "madonna",
     "artists": [
       "Madonna"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-Nzzg7PV7",
@@ -76210,7 +65436,8 @@ const rawSongs = [
     "artistId": "madonna",
     "artists": [
       "Madonna"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-WTOOD9M7",
@@ -76228,7 +65455,8 @@ const rawSongs = [
     "artistId": "madonna",
     "artists": [
       "Madonna"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-9lyR9gug",
@@ -76246,7 +65474,8 @@ const rawSongs = [
     "artistId": "madonna",
     "artists": [
       "Madonna"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-fdg78JwC",
@@ -76264,7 +65493,8 @@ const rawSongs = [
     "artistId": "madonna",
     "artists": [
       "Madonna"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-Dia1C1t1",
@@ -76282,7 +65512,8 @@ const rawSongs = [
     "artistId": "zayn-malik",
     "artists": [
       "Zayn Malik"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-cHPaH9UC",
@@ -76300,7 +65531,8 @@ const rawSongs = [
     "artistId": "zayn-malik",
     "artists": [
       "Zayn Malik"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-2XaxlkH1",
@@ -76318,7 +65550,8 @@ const rawSongs = [
     "artistId": "zayn-malik",
     "artists": [
       "Zayn Malik"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-BJ1T28Eo",
@@ -76336,7 +65569,8 @@ const rawSongs = [
     "artistId": "zayn-malik",
     "artists": [
       "Zayn Malik"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-42ubIosR",
@@ -76354,7 +65588,8 @@ const rawSongs = [
     "artistId": "zayn-malik",
     "artists": [
       "Zayn Malik"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-K1bVEVrx",
@@ -76372,7 +65607,8 @@ const rawSongs = [
     "artistId": "zayn-malik",
     "artists": [
       "Zayn Malik"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-It96yG1r",
@@ -76390,7 +65626,8 @@ const rawSongs = [
     "artistId": "harry-styles",
     "artists": [
       "Harry Styles"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-n3D96OBP",
@@ -76408,7 +65645,8 @@ const rawSongs = [
     "artistId": "harry-styles",
     "artists": [
       "Harry Styles"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-FKxcUXFT",
@@ -76426,7 +65664,8 @@ const rawSongs = [
     "artistId": "harry-styles",
     "artists": [
       "Harry Styles"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-N34NxTO9",
@@ -76444,7 +65683,8 @@ const rawSongs = [
     "artistId": "harry-styles",
     "artists": [
       "Harry Styles"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-aWteYLQM",
@@ -76462,7 +65702,8 @@ const rawSongs = [
     "artistId": "harry-styles",
     "artists": [
       "Harry Styles"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-H6A6L20W",
@@ -76480,7 +65721,8 @@ const rawSongs = [
     "artistId": "harry-styles",
     "artists": [
       "Harry Styles"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-OrqK0Yx5",
@@ -76498,7 +65740,8 @@ const rawSongs = [
     "artistId": "sam-smith",
     "artists": [
       "Sam Smith"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-Qu612MlN",
@@ -76516,7 +65759,8 @@ const rawSongs = [
     "artistId": "sam-smith",
     "artists": [
       "Sam Smith"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-RfohprcX",
@@ -76534,7 +65778,8 @@ const rawSongs = [
     "artistId": "sam-smith",
     "artists": [
       "Sam Smith"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-cV0-Xvlf",
@@ -76552,7 +65797,8 @@ const rawSongs = [
     "artistId": "sam-smith",
     "artists": [
       "Sam Smith"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-sF0Mqb81",
@@ -76570,7 +65816,8 @@ const rawSongs = [
     "artistId": "sam-smith",
     "artists": [
       "Sam Smith"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-Gs10WPEn",
@@ -76588,25 +65835,8 @@ const rawSongs = [
     "artistId": "sam-smith",
     "artists": [
       "Sam Smith"
-    ]
-  },
-  {
-    "id": "sg-84BZPMVk",
-    "title": "Ranjha",
-    "artist": "Diljit Dosanjh, Sia, David Guetta - Ranjha",
-    "movie": "Ranjha",
-    "year": 2026,
-    "decade": "2000s",
-    "duration": 184,
-    "audioUrl": "https://aac.saavncdn.com/488/3d642ff2ade872561e1130723a8e514e_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/488/Ranjha-Punjabi-2026-20260309193221-500x500.jpg",
-    "genre": "punjabi",
-    "composer": "Johnny Goldstein, Diljit Dosanjh, Sia, David Guetta, Raj Ranjodh, Bebe Rexha, Jake Torrey",
-    "lyricist": "",
-    "artistId": "david-guetta",
-    "artists": [
-      "David Guetta"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-0zvIT8G6",
@@ -76624,7 +65854,8 @@ const rawSongs = [
     "artistId": "david-guetta",
     "artists": [
       "David Guetta"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-ZSbAzFTm",
@@ -76642,7 +65873,8 @@ const rawSongs = [
     "artistId": "david-guetta",
     "artists": [
       "David Guetta"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-fM8Jm54m",
@@ -76660,7 +65892,8 @@ const rawSongs = [
     "artistId": "david-guetta",
     "artists": [
       "David Guetta"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-LBD3LQnG",
@@ -76678,7 +65911,8 @@ const rawSongs = [
     "artistId": "david-guetta",
     "artists": [
       "David Guetta"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-Ckrw3AZS",
@@ -76696,7 +65930,8 @@ const rawSongs = [
     "artistId": "david-guetta",
     "artists": [
       "David Guetta"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-sIK0DHYF",
@@ -76714,7 +65949,8 @@ const rawSongs = [
     "artistId": "marshmello",
     "artists": [
       "Marshmello"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-WoWxpDoI",
@@ -76732,7 +65968,8 @@ const rawSongs = [
     "artistId": "marshmello",
     "artists": [
       "Marshmello"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-aqI04aHE",
@@ -76750,7 +65987,8 @@ const rawSongs = [
     "artistId": "marshmello",
     "artists": [
       "Marshmello"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-2oWa2CKB",
@@ -76768,7 +66006,8 @@ const rawSongs = [
     "artistId": "marshmello",
     "artists": [
       "Marshmello"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-WTayZCYB",
@@ -76786,7 +66025,8 @@ const rawSongs = [
     "artistId": "marshmello",
     "artists": [
       "Marshmello"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-PIzj75J8",
@@ -76804,7 +66044,8 @@ const rawSongs = [
     "artistId": "marshmello",
     "artists": [
       "Marshmello"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-kpY_C-zm",
@@ -76822,7 +66063,8 @@ const rawSongs = [
     "artistId": "bon-jovi",
     "artists": [
       "Bon Jovi"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-wheUg7Qu",
@@ -76840,7 +66082,8 @@ const rawSongs = [
     "artistId": "bon-jovi",
     "artists": [
       "Bon Jovi"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-VTaazhtd",
@@ -76858,7 +66101,8 @@ const rawSongs = [
     "artistId": "bon-jovi",
     "artists": [
       "Bon Jovi"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-n0mPVAxy",
@@ -76876,7 +66120,8 @@ const rawSongs = [
     "artistId": "bon-jovi",
     "artists": [
       "Bon Jovi"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-Ioo2Eimw",
@@ -76894,7 +66139,8 @@ const rawSongs = [
     "artistId": "bon-jovi",
     "artists": [
       "Bon Jovi"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-i62mHYRc",
@@ -76912,7 +66158,8 @@ const rawSongs = [
     "artistId": "bon-jovi",
     "artists": [
       "Bon Jovi"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-h22m6LBp",
@@ -76930,7 +66177,8 @@ const rawSongs = [
     "artistId": "guns-n-roses",
     "artists": [
       "Guns N' Roses"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-duaCo6Do",
@@ -76948,7 +66196,8 @@ const rawSongs = [
     "artistId": "guns-n-roses",
     "artists": [
       "Guns N' Roses"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-yRo2tTGx",
@@ -76966,7 +66215,8 @@ const rawSongs = [
     "artistId": "guns-n-roses",
     "artists": [
       "Guns N' Roses"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-8h5iZMxD",
@@ -76984,7 +66234,8 @@ const rawSongs = [
     "artistId": "guns-n-roses",
     "artists": [
       "Guns N' Roses"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-3fSpiZKv",
@@ -77002,7 +66253,8 @@ const rawSongs = [
     "artistId": "guns-n-roses",
     "artists": [
       "Guns N' Roses"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-k9jl-x5y",
@@ -77020,7 +66272,8 @@ const rawSongs = [
     "artistId": "guns-n-roses",
     "artists": [
       "Guns N' Roses"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-iOWVL_K3",
@@ -77038,7 +66291,8 @@ const rawSongs = [
     "artistId": "avril-lavigne",
     "artists": [
       "Avril Lavigne"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-NCQjm6ay",
@@ -77056,7 +66310,8 @@ const rawSongs = [
     "artistId": "avril-lavigne",
     "artists": [
       "Avril Lavigne"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-2h-R1i-s",
@@ -77074,7 +66329,8 @@ const rawSongs = [
     "artistId": "avril-lavigne",
     "artists": [
       "Avril Lavigne"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-XpIzxV3b",
@@ -77092,7 +66348,8 @@ const rawSongs = [
     "artistId": "avril-lavigne",
     "artists": [
       "Avril Lavigne"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-9GsIqRqp",
@@ -77110,7 +66367,8 @@ const rawSongs = [
     "artistId": "avril-lavigne",
     "artists": [
       "Avril Lavigne"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-SEIZ26Bk",
@@ -77128,7 +66386,8 @@ const rawSongs = [
     "artistId": "avril-lavigne",
     "artists": [
       "Avril Lavigne"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-P3qdsetQ",
@@ -77146,7 +66405,8 @@ const rawSongs = [
     "artistId": "armaan-malik",
     "artists": [
       "Armaan Malik"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-SM-rvz75",
@@ -77164,7 +66424,8 @@ const rawSongs = [
     "artistId": "armaan-malik",
     "artists": [
       "Armaan Malik"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-UuGteRjX",
@@ -77182,7 +66443,8 @@ const rawSongs = [
     "artistId": "armaan-malik",
     "artists": [
       "Armaan Malik"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-fme85vQj",
@@ -77200,25 +66462,8 @@ const rawSongs = [
     "artistId": "armaan-malik",
     "artists": [
       "Armaan Malik"
-    ]
-  },
-  {
-    "id": "sg-ClWk-SLl",
-    "title": "Vibe Undi (From \"Mirai\") [Telugu]",
-    "artist": "Krishna Kanth, GowraHari, Armaan Malik - Vibe Undi (From &quot;Mirai&quot;) [Telugu]",
-    "movie": "Vibe Undi (From &quot;Mirai&quot;) [Telugu]",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 202,
-    "audioUrl": "https://aac.saavncdn.com/551/8a714f98cbcb955ac0ab17def8378cc6_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/551/Vibe-Undi-From-Mirai-Telugu-Telugu-2025-20250725170803-500x500.jpg",
-    "genre": "telugu",
-    "composer": "GowraHari, Armaan Malik, Krishna Kanth",
-    "lyricist": "",
-    "artistId": "armaan-malik",
-    "artists": [
-      "Armaan Malik"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-uhohkyxE",
@@ -77236,7 +66481,8 @@ const rawSongs = [
     "artistId": "armaan-malik",
     "artists": [
       "Armaan Malik"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-zg0PHndH",
@@ -77254,7 +66500,8 @@ const rawSongs = [
     "artistId": "ankit-tiwari",
     "artists": [
       "Ankit Tiwari"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-NC_D7z-C",
@@ -77272,7 +66519,8 @@ const rawSongs = [
     "artistId": "ankit-tiwari",
     "artists": [
       "Ankit Tiwari"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-LW77_zJn",
@@ -77290,25 +66538,8 @@ const rawSongs = [
     "artistId": "ankit-tiwari",
     "artists": [
       "Ankit Tiwari"
-    ]
-  },
-  {
-    "id": "sg-hvTEqHoh",
-    "title": "Sanam Teri Kasam",
-    "artist": "Himesh Reshammiya, Ankit Tiwari, Palak Muchhal - Sanam Teri Kasam",
-    "movie": "Sanam Teri Kasam",
-    "year": 2025,
-    "decade": "2000s",
-    "duration": 314,
-    "audioUrl": "https://aac.saavncdn.com/150/459cf049f5cad9677640e6cda6a2e265_320.mp4",
-    "coverUrl": "https://c.saavncdn.com/150/Sanam-Teri-Kasam-Hindi-2025-20260404111304-500x500.jpg",
-    "genre": "hindi",
-    "composer": "Himesh Reshammiya",
-    "lyricist": "",
-    "artistId": "ankit-tiwari",
-    "artists": [
-      "Ankit Tiwari"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-f8mUyKki",
@@ -77326,7 +66557,8 @@ const rawSongs = [
     "artistId": "ankit-tiwari",
     "artists": [
       "Ankit Tiwari"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-0ysoGSOr",
@@ -77344,7 +66576,8 @@ const rawSongs = [
     "artistId": "ankit-tiwari",
     "artists": [
       "Ankit Tiwari"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-TY2Jg1eC",
@@ -77362,7 +66595,8 @@ const rawSongs = [
     "artistId": "shawn-mendes",
     "artists": [
       "Shawn Mendes"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-TD2pCV6N",
@@ -77380,7 +66614,8 @@ const rawSongs = [
     "artistId": "shawn-mendes",
     "artists": [
       "Shawn Mendes"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-HslR2WOF",
@@ -77398,7 +66633,8 @@ const rawSongs = [
     "artistId": "shawn-mendes",
     "artists": [
       "Shawn Mendes"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-HSFOMXox",
@@ -77416,7 +66652,8 @@ const rawSongs = [
     "artistId": "shawn-mendes",
     "artists": [
       "Shawn Mendes"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-8vtWd2tF",
@@ -77434,7 +66671,8 @@ const rawSongs = [
     "artistId": "shawn-mendes",
     "artists": [
       "Shawn Mendes"
-    ]
+    ],
+    "language": "hindi"
   },
   {
     "id": "sg-JrNXtwWk",
@@ -77452,8 +66690,10291 @@ const rawSongs = [
     "artistId": "shawn-mendes",
     "artists": [
       "Shawn Mendes"
-    ]
+    ],
+    "language": "hindi"
+  },
+  {
+    "id": "sg-babul-supriyo-mtocscfa-8ybh",
+    "artistId": "art-babul-supriyo",
+    "title": "Dil Ne Dil Ko Pukara-Babul Supriyo And Chorus",
+    "artist": "Babul Supriyo",
+    "artists": [
+      "Babul Supriyo"
+    ],
+    "movie": "Kaho Naa Pyar Hai",
+    "year": 2000,
+    "decade": "2000s",
+    "duration": 476,
+    "audioUrl": "https://aac.saavncdn.com/446/5d099dbec443bd060f68da61c4be5569_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/446/Kaho-Naa-Pyar-Hai-Hindi-2000-20200901153916-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Babul Supriyo, Rajesh Roshan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-babul-supriyo-mtocscfr-rg4b",
+    "artistId": "art-babul-supriyo",
+    "title": "Main Ishq Uska",
+    "artist": "Babul Supriyo, Alka Yagnik",
+    "artists": [
+      "Babul Supriyo",
+      "Alka Yagnik"
+    ],
+    "movie": "Vaada",
+    "year": 2004,
+    "decade": "2000s",
+    "duration": 261,
+    "audioUrl": "https://aac.saavncdn.com/705/32765a819855c790432ffaf1e66cefb4_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/984/Vaada-2005-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Himesh Reshammiya",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-babul-supriyo-mtocscfu-mibz",
+    "artistId": "art-babul-supriyo",
+    "title": "Meri Tarah Tum Bhi",
+    "artist": "Babul Supriyo, Alka Yagnik",
+    "artists": [
+      "Babul Supriyo",
+      "Alka Yagnik"
+    ],
+    "movie": "Kya Yehi Pyaar Hai",
+    "year": 2002,
+    "decade": "2000s",
+    "duration": 298,
+    "audioUrl": "https://aac.saavncdn.com/592/0513ed119692c09295ebcc6834569c57_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/592/Kya-Yehi-Pyaar-Hai-Hindi-2002-20240408222505-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Alka Yagnik, Babul Supriyo, Sajid Khan, Wajid Khan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-babul-supriyo-mtocscfx-4exr",
+    "artistId": "art-babul-supriyo",
+    "title": "Hamne Tumko Dil Ye De Diya",
+    "artist": "Anand Raaj Anand, Alka Yagnik, Babul Supriyo",
+    "artists": [
+      "Anand Raaj Anand",
+      "Alka Yagnik",
+      "Babul Supriyo"
+    ],
+    "movie": "Ishq Hai Tumse",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 322,
+    "audioUrl": "https://aac.saavncdn.com/522/9e41515f46630369f27b4ff4009f5ca7_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/522/Ishq-Hai-Tumse-Hindi-2005-20260120201218-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Anand Raaj Anand",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-babul-supriyo-mtocscfz-8emn",
+    "artistId": "art-babul-supriyo",
+    "title": "Dil Ko Zarasa Aaram Denge (Babul Supriyo Version)",
+    "artist": "Anand Raaj Anand, Alka Yagnik, Babul Supriyo",
+    "artists": [
+      "Anand Raaj Anand",
+      "Alka Yagnik",
+      "Babul Supriyo"
+    ],
+    "movie": "Ekka Raja Rani",
+    "year": 1994,
+    "decade": "90s",
+    "duration": 384,
+    "audioUrl": "https://aac.saavncdn.com/732/dd6f1a2041bc600e18a1f3110d6582f6_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/732/Ekka-Raja-Rani-Hindi-1994-20240408214022-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Babul Supriyo, Nadeem-Shravan, Sameer Anjaan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-babul-supriyo-mtocscg0-29r8",
+    "artistId": "art-babul-supriyo",
+    "title": "Do Lafzo Mein",
+    "artist": "Anuradha Paudwal, Babul Supriyo",
+    "artists": [
+      "Anuradha Paudwal",
+      "Babul Supriyo"
+    ],
+    "movie": "Dhaai Akshar Prem Ke",
+    "year": 2000,
+    "decade": "2000s",
+    "duration": 297,
+    "audioUrl": "https://aac.saavncdn.com/523/489af44a9a0ba0dfed2b8c16182a6be4_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/523/Dhaai-Akshar-Prem-Ke-Hindi-2000-20221125224552-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Jatin-Lalit",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-babul-supriyo-mtocscg1-irqr",
+    "artistId": "art-babul-supriyo",
+    "title": "Hum Tum",
+    "artist": "Babul Supriyo, Alka Yagnik",
+    "artists": [
+      "Babul Supriyo",
+      "Alka Yagnik"
+    ],
+    "movie": "Hum Tum",
+    "year": 2004,
+    "decade": "2000s",
+    "duration": 329,
+    "audioUrl": "https://aac.saavncdn.com/543/cac52c617302c2556e0a0cf95587b40a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/543/Hum-Tum-Hindi-2004-20190329150857-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Jatin-Lalit",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-babul-supriyo-mtocscg3-8qfw",
+    "artistId": "art-babul-supriyo",
+    "title": "Dus Bahane",
+    "artist": "Sunidhi Chauhan, Sonu Nigam, KK, Shaan, Babul Supriyo",
+    "artists": [
+      "Sunidhi Chauhan",
+      "Sonu Nigam",
+      "KK",
+      "Shaan",
+      "Babul Supriyo"
+    ],
+    "movie": "Dus",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 317,
+    "audioUrl": "https://aac.saavncdn.com/441/e47a32711e63aedfcf666d72136d55dd_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/759/Dus-Hindi-2005-20241205141700-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Vishal & Shekhar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-babul-supriyo-mtocscg6-i9m2",
+    "artistId": "art-babul-supriyo",
+    "title": "Jeena Sirf Merre Liye",
+    "artist": "Sunidhi Chauhan, Sonu Nigam, KK, Shaan, Babul Supriyo",
+    "artists": [
+      "Sunidhi Chauhan",
+      "Sonu Nigam",
+      "KK",
+      "Shaan",
+      "Babul Supriyo"
+    ],
+    "movie": "Jeena Sirf Mere Liye",
+    "year": 2002,
+    "decade": "2000s",
+    "duration": 337,
+    "audioUrl": "https://aac.saavncdn.com/724/69d4ab3f75f1a32fe2bc98eeef6cc64c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/724/Jeena-Sirf-Mere-Liye-Hindi-2002-20240925133822-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Alka Yagnik, Babul Supriyo, Kavita Krishnamurthy, Nadeem-Shravan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-babul-supriyo-mtocscg9-09xn",
+    "artistId": "art-babul-supriyo",
+    "title": "Jeena Sirf Merre Liye (From \"Jeena Sirf Mere Liye\")",
+    "artist": "Sunidhi Chauhan, Sonu Nigam, KK, Shaan, Babul Supriyo",
+    "artists": [
+      "Sunidhi Chauhan",
+      "Sonu Nigam",
+      "KK",
+      "Shaan",
+      "Babul Supriyo"
+    ],
+    "movie": "Bollywood Addicts",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 337,
+    "audioUrl": "https://aac.saavncdn.com/596/382c6eddee649e95e3fd5a3189df39f2_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/596/Bollywood-Addicts-Hindi-2025-20251106182606-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Alka Yagnik, Babul Supriyo, Kavita Krishnamurthy, Nadeem-Shravan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-babul-supriyo-mtocscgb-7vzj",
+    "artistId": "art-babul-supriyo",
+    "title": "Kitni Chahat Chupaye Baitha",
+    "artist": "Sadhana Sargam, Babul Supriyo",
+    "artists": [
+      "Sadhana Sargam",
+      "Babul Supriyo"
+    ],
+    "movie": "Love Express",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 282,
+    "audioUrl": "https://aac.saavncdn.com/733/87afb140c9b74a877891e3c4623e24eb_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/733/Love-Express-Hindi-2015-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Nadeem-Shravan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-babul-supriyo-mtocscgd-drsh",
+    "artistId": "art-babul-supriyo",
+    "title": "Chori Chori Chupke Chupke (From \"Chori Chori Chupke Chupke\")",
+    "artist": "Alka Yagnik, Babul Supriyo",
+    "artists": [
+      "Alka Yagnik",
+      "Babul Supriyo"
+    ],
+    "movie": "Chori Chori Chupke Chupke",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 452,
+    "audioUrl": "https://aac.saavncdn.com/227/749555a739c0d293bee4795f68daf7d5_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/227/Chori-Chori-Chupke-Chupke-English-2009-20210414170329-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Anu Malik",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-babul-supriyo-mtocscgf-oknk",
+    "artistId": "art-babul-supriyo",
+    "title": "Tumhi Ne Meri Zindagi",
+    "artist": "Babul Supriyo",
+    "artists": [
+      "Babul Supriyo"
+    ],
+    "movie": "Naseeb",
+    "year": 1998,
+    "decade": "90s",
+    "duration": 364,
+    "audioUrl": "https://aac.saavncdn.com/364/0daf4e162fd23db6a5eb54fffcc90384_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/364/Naseeb-Hindi-1998-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Nadeem-Shravan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-babul-supriyo-mtocscgh-hadd",
+    "artistId": "art-babul-supriyo",
+    "title": "Ye Mehadi Ke Boote",
+    "artist": "Udit Narayan, Alka Yagnik, Babul Supriyo",
+    "artists": [
+      "Udit Narayan",
+      "Alka Yagnik",
+      "Babul Supriyo"
+    ],
+    "movie": "Humko Tumse Pyar Hai",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 386,
+    "audioUrl": "https://aac.saavncdn.com/819/916123913b9f07a126efbfb1d0df60db_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/819/Humko-Tumse-Pyar-Hai-Hindi-2005-20221128124535-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Anand Raaj Anand",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-babul-supriyo-mtocscgi-ufzq",
+    "artistId": "art-babul-supriyo",
+    "title": "Hamari Shaadi Mein",
+    "artist": "Babul Supriyo, Shreya Ghoshal",
+    "artists": [
+      "Babul Supriyo",
+      "Shreya Ghoshal"
+    ],
+    "movie": "Vivah",
+    "year": 2006,
+    "decade": "2000s",
+    "duration": 314,
+    "audioUrl": "https://aac.saavncdn.com/991/1706f53d3c8b62a59f8d0986978ba4d8_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/991/Vivah-Hindi-2006-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ravindra Jain",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suresh-wadkar-mtocscli-s9ss",
+    "artistId": "suresh-wadkar",
+    "title": "O Rabba Koi To Bataye",
+    "artist": "Anuradha Paudwal, Suresh Wadkar",
+    "artists": [
+      "Anuradha Paudwal",
+      "Suresh Wadkar"
+    ],
+    "movie": "Sangeet",
+    "year": 1991,
+    "decade": "90s",
+    "duration": 444,
+    "audioUrl": "https://aac.saavncdn.com/600/d25b024fec3c44373cd8b20de4b7d203_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/600/Sangeet-Hindi-1991-20221207160427-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Anand-Milind",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suresh-wadkar-mtocscll-d71e",
+    "artistId": "suresh-wadkar",
+    "title": "Lagi Aaj Sawan Ki",
+    "artist": "Suresh Wadkar, Anupama Deshpande",
+    "artists": [
+      "Suresh Wadkar",
+      "Anupama Deshpande"
+    ],
+    "movie": "Chandni",
+    "year": 1989,
+    "decade": "80s",
+    "duration": 215,
+    "audioUrl": "https://aac.saavncdn.com/721/f712da388112af3c67d526be68645f72_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/721/Chandni-Hindi-1989-20180409-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shiv-Hari",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suresh-wadkar-mtocscln-0kee",
+    "artistId": "suresh-wadkar",
+    "title": "Mangal Murti Maruti Nandan",
+    "artist": "Suresh Wadkar, Anupama Deshpande",
+    "artists": [
+      "Suresh Wadkar",
+      "Anupama Deshpande"
+    ],
+    "movie": "Hanuman Chalisa",
+    "year": 2022,
+    "decade": "2010s",
+    "duration": 372,
+    "audioUrl": "https://aac.saavncdn.com/069/15eaca6e5cf25a18a354bcd833e6226d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/069/Hanuman-Chalisa-Hindi-2022-20260701165723-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Traditional",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suresh-wadkar-mtocsclp-clrd",
+    "artistId": "suresh-wadkar",
+    "title": "Mujhse Shaadi Karogi",
+    "artist": "Suresh Wadkar, Anupama Deshpande",
+    "artists": [
+      "Suresh Wadkar",
+      "Anupama Deshpande"
+    ],
+    "movie": "Dulhan Hum Le Jayenge",
+    "year": 2000,
+    "decade": "2000s",
+    "duration": 276,
+    "audioUrl": "https://aac.saavncdn.com/664/5f534fa92a38931b19fd568ba3ccf001_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/664/Dulhan-Hum-Le-Jayenge-Hindi-2000-20240408213751-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Alka Yagnik, Suresh Wadkar, Shankar Mahadevan, Kumar Sanu, Himesh Reshammiya",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suresh-wadkar-mtocsclq-f2d8",
+    "artistId": "suresh-wadkar",
+    "title": "Om Gan Ganpate Namo Namah",
+    "artist": "Suresh Wadkar, Anupama Deshpande",
+    "artists": [
+      "Suresh Wadkar",
+      "Anupama Deshpande"
+    ],
+    "movie": "Ganesh Maha Mantra",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 2746,
+    "audioUrl": "https://aac.saavncdn.com/280/075f2cb2a8d75309207c7a9e275c7709_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/280/Ganesh-Maha-Mantra-Hindi-2018-20260609234455-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Sanjayraj Gaurinandan (SRG)",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suresh-wadkar-mtocscls-ltrf",
+    "artistId": "suresh-wadkar",
+    "title": "Haath Jod Ke Khadee Hoon Maiyya",
+    "artist": "Sonu Nigam, Suresh Wadkar, Anuradha Paudwal",
+    "artists": [
+      "Sonu Nigam",
+      "Suresh Wadkar",
+      "Anuradha Paudwal"
+    ],
+    "movie": "Jai Maa Vaishno Devi",
+    "year": 1999,
+    "decade": "90s",
+    "duration": 351,
+    "audioUrl": "https://aac.saavncdn.com/745/cfc86c98cd6508ae6d4f9791e9a98ac9_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/791/Jai-Maa-Vaishno-Devi-Hindi-1999-20250401130824-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Surender Kohli, Saiyad Ali",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suresh-wadkar-mtocsclt-alzo",
+    "artistId": "suresh-wadkar",
+    "title": "O Priya Priya",
+    "artist": "Suresh Wadkar, Anuradha Paudwal",
+    "artists": [
+      "Suresh Wadkar",
+      "Anuradha Paudwal"
+    ],
+    "movie": "Dil",
+    "year": 1990,
+    "decade": "90s",
+    "duration": 362,
+    "audioUrl": "https://aac.saavncdn.com/531/051a44b8d3c9ebc92573cb883ece844d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/blob/531/Dil-Hindi-1990-20221101132525-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Anand-Milind",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suresh-wadkar-mtocsclv-rzdk",
+    "artistId": "suresh-wadkar",
+    "title": "O Priya Priya (From \"Dil\")",
+    "artist": "Suresh Wadkar, Anuradha Paudwal",
+    "artists": [
+      "Suresh Wadkar",
+      "Anuradha Paudwal"
+    ],
+    "movie": "Bollywood Classic Hits",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 359,
+    "audioUrl": "https://aac.saavncdn.com/066/bc2e7e045afeb608e156303546ae0420_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/066/Bollywood-Classic-Hits-Hindi-2026-20260423161003-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Anand-Milind",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suresh-wadkar-mtocsclx-ha2h",
+    "artistId": "suresh-wadkar",
+    "title": "Hare Ram Hare Krishna",
+    "artist": "Suresh Wadkar, Lalitya Munshaw",
+    "artists": [
+      "Suresh Wadkar",
+      "Lalitya Munshaw"
+    ],
+    "movie": "Devotional Gems By Suresh Wadkar",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 262,
+    "audioUrl": "https://aac.saavncdn.com/493/e7825e9ca7c28f0193ba35e0e1912a57_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/493/Devotional-Gems-By-Suresh-Wadkar-Hindi-2019-20190806182109-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Kamlesh Shaamaniya",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suresh-wadkar-mtocsclz-bvmj",
+    "artistId": "suresh-wadkar",
+    "title": "Hare Ram Hare Krishna (Dhun)",
+    "artist": "Suresh Wadkar, Lalitya Munshaw",
+    "artists": [
+      "Suresh Wadkar",
+      "Lalitya Munshaw"
+    ],
+    "movie": "Celebrating Suresh Wadkar",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 262,
+    "audioUrl": "https://aac.saavncdn.com/629/b4bbe5398d8d57761aab35659c93fe0b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/629/Celebrating-Suresh-Wadkar-Hindi-2018-20180806-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Kamlesh Shaamaniya",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suresh-wadkar-mtocscm1-5rlx",
+    "artistId": "suresh-wadkar",
+    "title": "Likhne Wale Ne Likh Dale",
+    "artist": "Suresh Wadkar, Lalitya Munshaw",
+    "artists": [
+      "Suresh Wadkar",
+      "Lalitya Munshaw"
+    ],
+    "movie": "Arpan",
+    "year": 1983,
+    "decade": "80s",
+    "duration": 466,
+    "audioUrl": "https://aac.saavncdn.com/911/e38b5d6181e90ac93dfe913f3bf9dbae_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/911/Arpan-Hindi-1983-20210203073212-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Lata Mangeshkar, Suresh Wadkar, Laxmikant - Pyarelal",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suresh-wadkar-mtocscm2-t6ot",
+    "artistId": "suresh-wadkar",
+    "title": "Sapne Mein",
+    "artist": "Asha Bhosle, Suresh Wadkar",
+    "artists": [
+      "Asha Bhosle",
+      "Suresh Wadkar"
+    ],
+    "movie": "Satya",
+    "year": 1998,
+    "decade": "90s",
+    "duration": 362,
+    "audioUrl": "https://aac.saavncdn.com/478/2680efba83514a0b977b23b2399cac43_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/478/Satya-Hindi-1998-20210407130950-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Vishal Bhardwaj",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suresh-wadkar-mtocscm4-885i",
+    "artistId": "suresh-wadkar",
+    "title": "Der Na Ho Jaye Kahin",
+    "artist": "Lata Mangeshkar, Suresh Wadkar, Mohd. Sayeed, Farid Sabri, Satish",
+    "artists": [
+      "Lata Mangeshkar",
+      "Suresh Wadkar",
+      "Mohd. Sayeed",
+      "Farid Sabri",
+      "Satish"
+    ],
+    "movie": "Bikhre Moti",
+    "year": 1971,
+    "decade": "70s",
+    "duration": 503,
+    "audioUrl": "https://aac.saavncdn.com/111/4957d9d3081d1bd8e9fcd1c9727962eb_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/878/Bikhre-Moti-Hindi-1971-20200901173937-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ravindra Jain",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suresh-wadkar-mtocscm6-bvuh",
+    "artistId": "suresh-wadkar",
+    "title": "Govind Bolo",
+    "artist": "Suresh Wadkar",
+    "artists": [
+      "Suresh Wadkar"
+    ],
+    "movie": "Suresh Wadkar Devotional Songs",
+    "year": 2024,
+    "decade": "2010s",
+    "duration": 887,
+    "audioUrl": "https://aac.saavncdn.com/853/b81695b48848904338511f5bd3a7d5d5_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/853/Suresh-Wadkar-Devotional-Songs-Sanskrit-2024-20241210122634-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Dinesh Kumar Dube",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suresh-wadkar-mtocscm7-3uju",
+    "artistId": "suresh-wadkar",
+    "title": "Meri Kismat Mein Tu Nahin Shayad",
+    "artist": "Lata Mangeshkar, Suresh Wadkar",
+    "artists": [
+      "Lata Mangeshkar",
+      "Suresh Wadkar"
+    ],
+    "movie": "Prem Rog",
+    "year": 1982,
+    "decade": "80s",
+    "duration": 436,
+    "audioUrl": "https://aac.saavncdn.com/882/4cd97c962f13c4798ef93f66ca1b138d_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/882/Prem-Rog-Hindi-1982-20180518-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Laxmikant - Pyarelal",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-amit-kumar-mtocscr3-part",
+    "artistId": "amit-kumar",
+    "title": "Rang De Lal (Oye Oye) (From \"Dhurandhar The Revenge\")",
+    "artist": "Shashwat Sachdev, Jasmine Sandlas, Afsana Khan, Amit Kumar, Sapna Mukherjee, Kalyanji-Anandji, Anand Bakshi, Reble",
+    "artists": [
+      "Shashwat Sachdev",
+      "Jasmine Sandlas",
+      "Afsana Khan",
+      "Amit Kumar",
+      "Sapna Mukherjee",
+      "Kalyanji-Anandji",
+      "Anand Bakshi",
+      "Reble"
+    ],
+    "movie": "Rang De Lal (Oye Oye) (From \"Dhurandhar The Revenge\")",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 200,
+    "audioUrl": "https://aac.saavncdn.com/604/fbe98892618fd158b08b08e246448870_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/604/Rang-De-Lal-Oye-Oye-From-Dhurandhar-The-Revenge-Hindi-2026-20260319181005-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shashwat Sachdev, Kalyanji-Anandji",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-amit-kumar-mtocscr4-rssl",
+    "artistId": "amit-kumar",
+    "title": "Rang De Lal (Oye Oye)",
+    "artist": "Shashwat Sachdev, Jasmine Sandlas, Afsana Khan, Amit Kumar, Sapna Mukherjee, Kalyanji-Anandji, Anand Bakshi, Reble",
+    "artists": [
+      "Shashwat Sachdev",
+      "Jasmine Sandlas",
+      "Afsana Khan",
+      "Amit Kumar",
+      "Sapna Mukherjee",
+      "Kalyanji-Anandji",
+      "Anand Bakshi",
+      "Reble"
+    ],
+    "movie": "Dhurandhar The Revenge",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 200,
+    "audioUrl": "https://aac.saavncdn.com/581/ef8393b187b3bab8ccbf8ad099489ba1_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/581/Dhurandhar-The-Revenge-Hindi-2026-20260409161002-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shashwat Sachdev, Kalyanji-Anandji",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-amit-kumar-mtocscr5-ldys",
+    "artistId": "amit-kumar",
+    "title": "Dushman Na Kare Dost Ne Wo Kaam Kiya Hai",
+    "artist": "Lata Mangeshkar, Amit Kumar",
+    "artists": [
+      "Lata Mangeshkar",
+      "Amit Kumar"
+    ],
+    "movie": "Aakhir Kyon?",
+    "year": 1985,
+    "decade": "80s",
+    "duration": 361,
+    "audioUrl": "https://aac.saavncdn.com/140/5b625efa4d8b89946db783d47aad9fe3_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/140/Aakhir-Kyon-Hindi-1985-20221210153855-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Rajesh Roshan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-amit-kumar-mtocscr5-mbrk",
+    "artistId": "amit-kumar",
+    "title": "Bole Chudiyan",
+    "artist": "Lata Mangeshkar, Amit Kumar",
+    "artists": [
+      "Lata Mangeshkar",
+      "Amit Kumar"
+    ],
+    "movie": "Kabhi Khushi Kabhie Gham",
+    "year": 2001,
+    "decade": "2000s",
+    "duration": 410,
+    "audioUrl": "https://aac.saavncdn.com/778/899d95d44fe4a91db0100fb23d24257f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/778/Kabhi-Khushi-Kabhie-Gham-Hindi-2001-20190516150535-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Jatin Pandit, Lalit Pandit",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-amit-kumar-mtocscr6-6s7t",
+    "artistId": "amit-kumar",
+    "title": "Bade Achhe Lagte Hain",
+    "artist": "Amit Kumar",
+    "artists": [
+      "Amit Kumar"
+    ],
+    "movie": "Balika Badhu",
+    "year": 1976,
+    "decade": "70s",
+    "duration": 312,
+    "audioUrl": "https://aac.saavncdn.com/886/4527407ff3eb2f153ed7335f9a08da3b_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/886/Balika-Badhu-Hindi-1976-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "R.D. Burman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-amit-kumar-mtocscr7-yqih",
+    "artistId": "amit-kumar",
+    "title": "Tirchi Topiwale (Part 1)",
+    "artist": "Amit Kumar, Sapna Mukherjee",
+    "artists": [
+      "Amit Kumar",
+      "Sapna Mukherjee"
+    ],
+    "movie": "Tridev",
+    "year": 1989,
+    "decade": "80s",
+    "duration": 392,
+    "audioUrl": "https://aac.saavncdn.com/315/90fb757a0e3ea6687284341ea03719bf_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/315/Tridev-1989-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Kalyanji-Anandji",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-amit-kumar-mtocscr8-imsv",
+    "artistId": "amit-kumar",
+    "title": "Makhna",
+    "artist": "Amit Kumar, Sapna Mukherjee",
+    "artists": [
+      "Amit Kumar",
+      "Sapna Mukherjee"
+    ],
+    "movie": "Bade Miyan Chote Miyan",
+    "year": 1998,
+    "decade": "90s",
+    "duration": 301,
+    "audioUrl": "https://aac.saavncdn.com/145/559923b50489faf7f1d6594f179affa9_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/145/Bade-Miyan-Chote-Miyan-Hindi-1998-20240408222507-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Alka Yagnik, Amit Kumar, Udit Narayan, Viju Shah",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-amit-kumar-mtocscr8-9jmd",
+    "artistId": "amit-kumar",
+    "title": "Roj Roj Aankhon Tale",
+    "artist": "R.D. Burman, Asha Bhosle, Amit Kumar",
+    "artists": [
+      "R.D. Burman",
+      "Asha Bhosle",
+      "Amit Kumar"
+    ],
+    "movie": "Jeeva",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 479,
+    "audioUrl": "https://aac.saavncdn.com/619/ad34006fd99366a16b911ecaf221739a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/619/Jeeva-Hindi-2016-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "R.D. Burman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-amit-kumar-mtocscr9-3e34",
+    "artistId": "amit-kumar",
+    "title": "Dil Mein Baji Guitar (Amit Kumar Version)",
+    "artist": "R.D. Burman, Asha Bhosle, Amit Kumar",
+    "artists": [
+      "R.D. Burman",
+      "Asha Bhosle",
+      "Amit Kumar"
+    ],
+    "movie": "Apna Sapna Money Money",
+    "year": 2006,
+    "decade": "2000s",
+    "duration": 262,
+    "audioUrl": "https://aac.saavncdn.com/171/a1d327b34795cd02ef10b82c45491e67_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/171/Apna-Sapna-Money-Money-Hindi-2006-20240408213839-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Amit Kumar, Pritam",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-amit-kumar-mtocscr9-jav0",
+    "artistId": "amit-kumar",
+    "title": "Jeena Nahi",
+    "artist": "Amit Kumar, Anuradha Paudwal",
+    "artists": [
+      "Amit Kumar",
+      "Anuradha Paudwal"
+    ],
+    "movie": "Tezaab",
+    "year": 1988,
+    "decade": "80s",
+    "duration": 475,
+    "audioUrl": "https://aac.saavncdn.com/792/93ffdecdb685c4dea1c70d7dc73d4cc3_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/792/Tezaab-Hindi-1988-20221211113410-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Laxmikant - Pyarelal",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-amit-kumar-mtocscra-9ha0",
+    "artistId": "amit-kumar",
+    "title": "Jaane Jaan",
+    "artist": "Kishore Kumar, R.D. Burman, Amit Kumar, Harshdeep Kaur, Shamir Tandon",
+    "artists": [
+      "Kishore Kumar",
+      "R.D. Burman",
+      "Amit Kumar",
+      "Harshdeep Kaur",
+      "Shamir Tandon"
+    ],
+    "movie": "Jaane Jaan",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 181,
+    "audioUrl": "https://aac.saavncdn.com/100/791abed0eea9a20561d4ff3c9f9cee4e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/100/Jaane-Jaan-Hindi-2025-20250904174054-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shamir Tandon, R.D. Burman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-amit-kumar-mtocscrb-tuvg",
+    "artistId": "amit-kumar",
+    "title": "Aa Chal Ke Tujhe",
+    "artist": "Kishore Kumar, R.D. Burman, Amit Kumar, Harshdeep Kaur, Shamir Tandon",
+    "artists": [
+      "Kishore Kumar",
+      "R.D. Burman",
+      "Amit Kumar",
+      "Harshdeep Kaur",
+      "Shamir Tandon"
+    ],
+    "movie": "Door Gagan Ki Chhaon Mein",
+    "year": 1964,
+    "decade": "60s",
+    "duration": 279,
+    "audioUrl": "https://aac.saavncdn.com/643/45be8ecccc5667cd988a4e0e6bbad11b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/643/Door-Gagan-Ki-Chhaon-Mein-Hindi-1964-20250612173646-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Kishore Kumar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-amit-kumar-mtocscrc-iqaz",
+    "artistId": "amit-kumar",
+    "title": "Ye Zamin Gaa Rahi Hai (Teri Kasam / Soundtrack Version)",
+    "artist": "Kishore Kumar, R.D. Burman, Amit Kumar, Harshdeep Kaur, Shamir Tandon",
+    "artists": [
+      "Kishore Kumar",
+      "R.D. Burman",
+      "Amit Kumar",
+      "Harshdeep Kaur",
+      "Shamir Tandon"
+    ],
+    "movie": "Teri Kasam",
+    "year": 2008,
+    "decade": "2000s",
+    "duration": 323,
+    "audioUrl": "https://aac.saavncdn.com/535/17e6413275388b19cbd94850b1a700bb_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/535/Teri-Kasam-Hindi-2008-20240902144520-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "R.D. Burman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-amit-kumar-mtocscrd-lbe4",
+    "artistId": "amit-kumar",
+    "title": "Toofan",
+    "artist": "Kishore Kumar, R.D. Burman, Amit Kumar, Harshdeep Kaur, Shamir Tandon",
+    "artists": [
+      "Kishore Kumar",
+      "R.D. Burman",
+      "Amit Kumar",
+      "Harshdeep Kaur",
+      "Shamir Tandon"
+    ],
+    "movie": "Vishwatma",
+    "year": 1991,
+    "decade": "90s",
+    "duration": 460,
+    "audioUrl": "https://aac.saavncdn.com/760/15af344fc55f8ad56a6401a36c55ec07_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/760/Vishwatma-Hindi-1991-20200901153942-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Sadhana Sargam, Amit Kumar, Alka Yagnik, Sapna Mukherjee, Boney, Viju Shah",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-amit-kumar-mtocscrf-zd7o",
+    "artistId": "amit-kumar",
+    "title": "Dekho Maine Dekha Hai Ek Sapna",
+    "artist": "Lata Mangeshkar, Amit Kumar",
+    "artists": [
+      "Lata Mangeshkar",
+      "Amit Kumar"
+    ],
+    "movie": "Love Story",
+    "year": 1981,
+    "decade": "80s",
+    "duration": 257,
+    "audioUrl": "https://aac.saavncdn.com/616/158567bbc8a28cb0f4c8b1bcb49a7ec2_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/616/Love-Story-Hindi-1981-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "R.D. Burman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-honey-singh-mtocscw6-i6qj",
+    "artistId": "art-honey-singh",
+    "title": "Millionaire",
+    "artist": "Yo Yo Honey Singh",
+    "artists": [
+      "Yo Yo Honey Singh"
+    ],
+    "movie": "GLORY",
+    "year": 2024,
+    "decade": "2010s",
+    "duration": 199,
+    "audioUrl": "https://aac.saavncdn.com/173/af61d1cf779677cd767692c0a7f3301f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/173/GLORY-Hindi-2024-20250117161048-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-honey-singh-mtocscw7-lkjc",
+    "artistId": "art-honey-singh",
+    "title": "Desi Kalakaar",
+    "artist": "Yo Yo Honey Singh",
+    "artists": [
+      "Yo Yo Honey Singh"
+    ],
+    "movie": "Desi Kalakaar",
+    "year": 2014,
+    "decade": "2010s",
+    "duration": 257,
+    "audioUrl": "https://aac.saavncdn.com/304/f31ba5ffe986d0feb95b3059ad05f4d5_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/304/Desi-Kalakaar-Hindi-2014-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-honey-singh-mtocscw8-fqfu",
+    "artistId": "art-honey-singh",
+    "title": "One Bottle Down",
+    "artist": "Yo Yo Honey Singh",
+    "artists": [
+      "Yo Yo Honey Singh"
+    ],
+    "movie": "One Bottle Down",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 197,
+    "audioUrl": "https://aac.saavncdn.com/834/4d5df4c0ed281380a1bcd358e5d095c1_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/834/One-Bottle-Down-Hindi-2015-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-honey-singh-mtocscw9-ibsi",
+    "artistId": "art-honey-singh",
+    "title": "Love Dose",
+    "artist": "Yo Yo Honey Singh",
+    "artists": [
+      "Yo Yo Honey Singh"
+    ],
+    "movie": "Desi Kalakaar",
+    "year": 2014,
+    "decade": "2010s",
+    "duration": 227,
+    "audioUrl": "https://aac.saavncdn.com/304/ed6b172300cca9a418be31a511728f81_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/304/Desi-Kalakaar-Hindi-2014-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-honey-singh-mtocscwa-qo8j",
+    "artistId": "art-honey-singh",
+    "title": "Blue Eyes (From \"Blue Eyes\")",
+    "artist": "Yo Yo Honey Singh",
+    "artists": [
+      "Yo Yo Honey Singh"
+    ],
+    "movie": "World Music Day - Best Of Bollywood Hits",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 220,
+    "audioUrl": "https://aac.saavncdn.com/179/9128ba1e3d66f0a8e4117f71ca4f36a7_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/179/World-Music-Day-Best-Of-Bollywood-Hits-Hindi-2026-20260622111029-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-honey-singh-mtocscwb-2m0z",
+    "artistId": "art-honey-singh",
+    "title": "Blue Eyes",
+    "artist": "Yo Yo Honey Singh",
+    "artists": [
+      "Yo Yo Honey Singh"
+    ],
+    "movie": "Blue Eyes",
+    "year": 2013,
+    "decade": "2010s",
+    "duration": 210,
+    "audioUrl": "https://aac.saavncdn.com/279/a78933aef735d02cae046117490e4f5c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/279/Blue-Eyes-2013-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-honey-singh-mtocscwb-nk1t",
+    "artistId": "art-honey-singh",
+    "title": "Payal",
+    "artist": "Yo Yo Honey Singh, Paradox",
+    "artists": [
+      "Yo Yo Honey Singh",
+      "Paradox"
+    ],
+    "movie": "GLORY",
+    "year": 2024,
+    "decade": "2010s",
+    "duration": 226,
+    "audioUrl": "https://aac.saavncdn.com/173/ad5df053bfb2a4755cbb6c74e6183406_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/173/GLORY-Hindi-2024-20250117161048-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-honey-singh-mtocscwc-lu9z",
+    "artistId": "art-honey-singh",
+    "title": "Payal (From \"Glory\")",
+    "artist": "Yo Yo Honey Singh, Paradox",
+    "artists": [
+      "Yo Yo Honey Singh",
+      "Paradox"
+    ],
+    "movie": "World Music Day - Best Of Bollywood Hits",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 226,
+    "audioUrl": "https://aac.saavncdn.com/179/b2632324e1f84869ad75375c442e6839_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/179/World-Music-Day-Best-Of-Bollywood-Hits-Hindi-2026-20260622111029-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-honey-singh-mtocscwe-ut1f",
+    "artistId": "art-honey-singh",
+    "title": "Yaar Naa Miley",
+    "artist": "Yo Yo Honey Singh, Jasmine Sandlas",
+    "artists": [
+      "Yo Yo Honey Singh",
+      "Jasmine Sandlas"
+    ],
+    "movie": "Kick",
+    "year": 2014,
+    "decade": "2010s",
+    "duration": 244,
+    "audioUrl": "https://aac.saavncdn.com/801/8bebbf05cc08a97adffaa3affebc0780_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/801/Kick-Hindi-2014-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-honey-singh-mtocscwf-iea2",
+    "artistId": "art-honey-singh",
+    "title": "Dheere Dheere",
+    "artist": "Yo Yo Honey Singh",
+    "artists": [
+      "Yo Yo Honey Singh"
+    ],
+    "movie": "Dheere Dheere",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 202,
+    "audioUrl": "https://aac.saavncdn.com/808/5c496bb498185f7b0148f1650a051d89_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/808/Dheere-Dheere-Hindi-2015-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-honey-singh-mtocscwg-4a26",
+    "artistId": "art-honey-singh",
+    "title": "Dheere Dheere (From \"Dheere Dheere\")",
+    "artist": "Yo Yo Honey Singh",
+    "artists": [
+      "Yo Yo Honey Singh"
+    ],
+    "movie": "World Music Day - Best Of Bollywood Hits",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 212,
+    "audioUrl": "https://aac.saavncdn.com/179/cfa709b3843f2063da608c609380d398_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/179/World-Music-Day-Best-Of-Bollywood-Hits-Hindi-2026-20260622111029-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-honey-singh-mtocscwh-b1b8",
+    "artistId": "art-honey-singh",
+    "title": "Aankhon Aankhon",
+    "artist": "Yo Yo Honey Singh",
+    "artists": [
+      "Yo Yo Honey Singh"
+    ],
+    "movie": "Bhaag Johnny",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 244,
+    "audioUrl": "https://aac.saavncdn.com/924/bf55f4b915952daa8e3a15635a27ff74_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/924/Bhaag-Johnny-Hindi-2015-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-honey-singh-mtocscwj-3sn3",
+    "artistId": "art-honey-singh",
+    "title": "Makhna",
+    "artist": "Yo Yo Honey Singh, Neha Kakkar, Singhsta, Pinaki, Sean, Allistair",
+    "artists": [
+      "Yo Yo Honey Singh",
+      "Neha Kakkar",
+      "Singhsta",
+      "Pinaki",
+      "Sean",
+      "Allistair"
+    ],
+    "movie": "Makhna",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 191,
+    "audioUrl": "https://aac.saavncdn.com/164/9f538b68c89395ec93c80a4b384b6d07_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/164/Makhna-Hindi-2018-20231116171053-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-honey-singh-mtocscwk-z1vl",
+    "artistId": "art-honey-singh",
+    "title": "Laal Pari (From \"Housefull 5\")",
+    "artist": "Yo Yo Honey Singh, Neha Kakkar, Singhsta, Pinaki, Sean, Allistair",
+    "artists": [
+      "Yo Yo Honey Singh",
+      "Neha Kakkar",
+      "Singhsta",
+      "Pinaki",
+      "Sean",
+      "Allistair"
+    ],
+    "movie": "World Music Day - Best Of Bollywood Hits",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 256,
+    "audioUrl": "https://aac.saavncdn.com/179/23f4b67697f84ebea9b10836f734196b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/179/World-Music-Day-Best-Of-Bollywood-Hits-Hindi-2026-20260622111029-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-honey-singh-mtocscwm-xv4i",
+    "artistId": "art-honey-singh",
+    "title": "Laal Pari",
+    "artist": "Yo Yo Honey Singh, Simar Kaur",
+    "artists": [
+      "Yo Yo Honey Singh",
+      "Simar Kaur"
+    ],
+    "movie": "Housefull 5",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 256,
+    "audioUrl": "https://aac.saavncdn.com/658/394471f41f7d93240e7a829d882e6d69_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/658/Housefull-5-Hindi-2025-20250606151003-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-noor-jehan-mtocsd28-biqn",
+    "artistId": "noor-jehan",
+    "title": "Ab Na Jabba-Saai Hay Na Jaza, Mastana Bana Dey (Ghazal)",
+    "artist": "Asha Bhosle, Mohammed Rafi",
+    "artists": [
+      "Asha Bhosle",
+      "Mohammed Rafi"
+    ],
+    "movie": "Hindustani Classical Gems Vol-15",
+    "year": 2022,
+    "decade": "2010s",
+    "duration": 189,
+    "audioUrl": "https://aac.saavncdn.com/133/d0bf147294f58fcc78165cb4f1bbcb9e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/133/Hindustani-Classical-Gems-Vol-15-Hindi-2022-20230302173350-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Miss Noor Jehan, Traditional",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kl-saigal-mtocsdxj-p2ls",
+    "artistId": "kl-saigal",
+    "title": "Gam Diya Mustaquil",
+    "artist": "K.L.Saigal",
+    "artists": [
+      "K.L.Saigal"
+    ],
+    "movie": "Dil Se - Unforgettable Hits of K.L. Saigal",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 183,
+    "audioUrl": "https://aac.saavncdn.com/125/5e6fc121f41e534f86979d96e1e692c0_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/125/Dil-Se-Unforgettable-Hits-of-K-L-Saigal-Hindi-2017-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Naushad",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kl-saigal-mtocsdxk-el8y",
+    "artistId": "kl-saigal",
+    "title": "Nukta Cheen",
+    "artist": "K.L.Saigal",
+    "artists": [
+      "K.L.Saigal"
+    ],
+    "movie": "Ghazalain Of K.L. Saigal - Vol-01-02",
+    "year": 1934,
+    "decade": "50s",
+    "duration": 192,
+    "audioUrl": "https://aac.saavncdn.com/541/96886c5d759d6fcb5f2abe8e655b88d9_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/541/Ghazalain-Of-K-L-Saigal-Vol-01-02-1934-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pankaj Mullick",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kl-saigal-mtocsdxl-65v8",
+    "artistId": "kl-saigal",
+    "title": "Aye Dil E Beqraar Jhoom",
+    "artist": "K.L.Saigal",
+    "artists": [
+      "K.L.Saigal"
+    ],
+    "movie": "Dil Se - Unforgettable Hits of K.L. Saigal",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 181,
+    "audioUrl": "https://aac.saavncdn.com/125/146885617a81426fec441945ff484453_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/125/Dil-Se-Unforgettable-Hits-of-K-L-Saigal-Hindi-2017-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Naushad",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kl-saigal-mtocsdxl-1tkb",
+    "artistId": "kl-saigal",
+    "title": "Do Naina Matware",
+    "artist": "K.L.Saigal",
+    "artists": [
+      "K.L.Saigal"
+    ],
+    "movie": "Dil Se - Unforgettable Hits of K.L. Saigal",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 177,
+    "audioUrl": "https://aac.saavncdn.com/125/46eca3003b205895299303134d3e1c9d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/125/Dil-Se-Unforgettable-Hits-of-K-L-Saigal-Hindi-2017-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pankaj Kumar Mullick",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kl-saigal-mtocsdxm-y5u5",
+    "artistId": "kl-saigal",
+    "title": "Har Ek Baat Pe",
+    "artist": "K.L.Saigal",
+    "artists": [
+      "K.L.Saigal"
+    ],
+    "movie": "Ghazalain Of K.L. Saigal - Vol-01-02",
+    "year": 1934,
+    "decade": "50s",
+    "duration": 194,
+    "audioUrl": "https://aac.saavncdn.com/541/a9b7055d8e52764a71223afd5c1ccf44_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/541/Ghazalain-Of-K-L-Saigal-Vol-01-02-1934-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pankaj Kumar Mullick",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kl-saigal-mtocsdxm-0moj",
+    "artistId": "kl-saigal",
+    "title": "Diya Jisne Dil",
+    "artist": "K.L.Saigal, Uma Devi",
+    "artists": [
+      "K.L.Saigal",
+      "Uma Devi"
+    ],
+    "movie": "Dil Se - Unforgettable Hits of K.L. Saigal",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 213,
+    "audioUrl": "https://aac.saavncdn.com/125/17f41c2d0b61d062b0a34890253b7b81_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/125/Dil-Se-Unforgettable-Hits-of-K-L-Saigal-Hindi-2017-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Khemchand Prakash",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kl-saigal-mtocsdxn-ezih",
+    "artistId": "kl-saigal",
+    "title": "Aye Qatib E-Taqadeer Mujhe",
+    "artist": "K.L.Saigal",
+    "artists": [
+      "K.L.Saigal"
+    ],
+    "movie": "Ghazalain Of K.L. Saigal - Vol-01-02",
+    "year": 1934,
+    "decade": "50s",
+    "duration": 216,
+    "audioUrl": "https://aac.saavncdn.com/541/1c0360d2c69addabdcf5c74228b94f10_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/541/Ghazalain-Of-K-L-Saigal-Vol-01-02-1934-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pankaj Mullick",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kl-saigal-mtocsdxo-yv7k",
+    "artistId": "kl-saigal",
+    "title": "Hum Apna Unhey",
+    "artist": "K.L.Saigal",
+    "artists": [
+      "K.L.Saigal"
+    ],
+    "movie": "Ghazalain Of K.L. Saigal - Vol-01-02",
+    "year": 1934,
+    "decade": "50s",
+    "duration": 207,
+    "audioUrl": "https://aac.saavncdn.com/541/e49b5d8028e46b7d2af42d4f21f55d53_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/541/Ghazalain-Of-K-L-Saigal-Vol-01-02-1934-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Khemchand Prakash",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kl-saigal-mtocsdxo-4it8",
+    "artistId": "kl-saigal",
+    "title": "Woh Aake Khwab Men",
+    "artist": "K.L.Saigal",
+    "artists": [
+      "K.L.Saigal"
+    ],
+    "movie": "Ghazalain Of K.L. Saigal - Vol-01-02",
+    "year": 1934,
+    "decade": "50s",
+    "duration": 202,
+    "audioUrl": "https://aac.saavncdn.com/541/a1155158d672e80da595f479a0860592_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/541/Ghazalain-Of-K-L-Saigal-Vol-01-02-1934-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Khemchand Prakash",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kl-saigal-mtocsdxp-38q7",
+    "artistId": "kl-saigal",
+    "title": "Rahamat Pe Teri",
+    "artist": "K.L.Saigal",
+    "artists": [
+      "K.L.Saigal"
+    ],
+    "movie": "Ghazalain Of K.L. Saigal - Vol-01-02",
+    "year": 1934,
+    "decade": "50s",
+    "duration": 189,
+    "audioUrl": "https://aac.saavncdn.com/541/486d52d77ba1703c89de7327f3c847d3_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/541/Ghazalain-Of-K-L-Saigal-Vol-01-02-1934-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Khemchand Prakash",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kl-saigal-mtocsdxq-l2el",
+    "artistId": "kl-saigal",
+    "title": "Ishq Mujhko Nahi",
+    "artist": "K.L.Saigal",
+    "artists": [
+      "K.L.Saigal"
+    ],
+    "movie": "Ghazalain Of K.L. Saigal - Vol-01-02",
+    "year": 1934,
+    "decade": "50s",
+    "duration": 201,
+    "audioUrl": "https://aac.saavncdn.com/541/d757eceaa462fcf9f2cf20519c4f016c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/541/Ghazalain-Of-K-L-Saigal-Vol-01-02-1934-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Khemchand Prakash",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kl-saigal-mtocsdxr-7ijn",
+    "artistId": "kl-saigal",
+    "title": "Us Mast Nazar Pe",
+    "artist": "K.L.Saigal",
+    "artists": [
+      "K.L.Saigal"
+    ],
+    "movie": "Dil Se - Unforgettable Hits of K.L. Saigal",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 173,
+    "audioUrl": "https://aac.saavncdn.com/125/3d74d888a695da1a242aa5abcca99cf3_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/125/Dil-Se-Unforgettable-Hits-of-K-L-Saigal-Hindi-2017-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Khurshid Anwar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kl-saigal-mtocsdxr-6r72",
+    "artistId": "kl-saigal",
+    "title": "Chhoopona Chhoopona",
+    "artist": "K.L.Saigal",
+    "artists": [
+      "K.L.Saigal"
+    ],
+    "movie": "Dil Se - Unforgettable Hits of K.L. Saigal",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 169,
+    "audioUrl": "https://aac.saavncdn.com/125/62baa477731b65101a104d0630207bee_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/125/Dil-Se-Unforgettable-Hits-of-K-L-Saigal-Hindi-2017-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pankaj Kumar Mullick",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kl-saigal-mtocsdxs-ic0c",
+    "artistId": "kl-saigal",
+    "title": "Apni Hasti Ka",
+    "artist": "K.L.Saigal",
+    "artists": [
+      "K.L.Saigal"
+    ],
+    "movie": "Ghazalain Of K.L. Saigal - Vol-01-02",
+    "year": 1934,
+    "decade": "50s",
+    "duration": 200,
+    "audioUrl": "https://aac.saavncdn.com/541/f1e0eda13e875a0416a6a3ac35522664_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/541/Ghazalain-Of-K-L-Saigal-Vol-01-02-1934-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pankaj Kumar Mullick",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kl-saigal-mtocsdxs-hl98",
+    "artistId": "kl-saigal",
+    "title": "Main Unhe Chhedun",
+    "artist": "K.L.Saigal",
+    "artists": [
+      "K.L.Saigal"
+    ],
+    "movie": "Ghazalain Of K.L. Saigal - Vol-01-02",
+    "year": 1934,
+    "decade": "50s",
+    "duration": 202,
+    "audioUrl": "https://aac.saavncdn.com/541/9afba62ce24215be1aee9f13911305c9_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/541/Ghazalain-Of-K-L-Saigal-Vol-01-02-1934-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pankaj Kumar Mullick",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suraiya-mtocse2f-p67h",
+    "artistId": "suraiya",
+    "title": "Dil Ko Teri Tasveer Se",
+    "artist": "Suraiya, Mohammed Rafi",
+    "artists": [
+      "Suraiya",
+      "Mohammed Rafi"
+    ],
+    "movie": "Dastaan",
+    "year": 1950,
+    "decade": "50s",
+    "duration": 204,
+    "audioUrl": "https://aac.saavncdn.com/091/34e10139270489b1544265442db105ee_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/091/Dastaan-Hindi-1950-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Naushad",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suraiya-mtocse2h-7zow",
+    "artistId": "suraiya",
+    "title": "Dil E Nadan Tujhe Hua Kya Hai",
+    "artist": "Suraiya, Talat Mahmood",
+    "artists": [
+      "Suraiya",
+      "Talat Mahmood"
+    ],
+    "movie": "Mirza Ghalib",
+    "year": 1954,
+    "decade": "50s",
+    "duration": 190,
+    "audioUrl": "https://aac.saavncdn.com/455/043db7dd75070e79a391913a074f250e_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/060/Mirza-Ghalib-Hindi-1954-20200919143920-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Husnlal-Bhagatram",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suraiya-mtocse2h-svm8",
+    "artistId": "suraiya",
+    "title": "O Door Jaanewale",
+    "artist": "Suraiya",
+    "artists": [
+      "Suraiya"
+    ],
+    "movie": "Pyar Ki Jeet",
+    "year": 1948,
+    "decade": "50s",
+    "duration": 189,
+    "audioUrl": "https://aac.saavncdn.com/701/5f62d2ddef22263cb4afe60ff1b40d4d_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/701/Pyar-Ki-Jeet-Hindi-1948-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Husnlal-Bhagatram",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suraiya-mtocse2h-ji4k",
+    "artistId": "suraiya",
+    "title": "Woh Paas Rahe Ya Door",
+    "artist": "Suraiya",
+    "artists": [
+      "Suraiya"
+    ],
+    "movie": "Badi Behen",
+    "year": 1949,
+    "decade": "50s",
+    "duration": 168,
+    "audioUrl": "https://aac.saavncdn.com/930/32bbfd76512e569ca43c8b29d5e6f058_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/930/Badi-Behen-1949-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Husnalal Bhagatram",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suraiya-mtocse2i-mdag",
+    "artistId": "suraiya",
+    "title": "Tu Mera Chand",
+    "artist": "Suraiya",
+    "artists": [
+      "Suraiya"
+    ],
+    "movie": "Dillagi",
+    "year": 1949,
+    "decade": "50s",
+    "duration": 230,
+    "audioUrl": "https://aac.saavncdn.com/275/aadd1acb3c45b01b1fe438cdee3a2866_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/275/Dillagi-Hindi-1949-20260807073821-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Naushad",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suraiya-mtocse2i-wqhw",
+    "artistId": "suraiya",
+    "title": "Tere Nainon Ne Chori Kiya",
+    "artist": "Suraiya",
+    "artists": [
+      "Suraiya"
+    ],
+    "movie": "Pyar Ki Jeet",
+    "year": 1948,
+    "decade": "50s",
+    "duration": 164,
+    "audioUrl": "https://aac.saavncdn.com/701/e3297c9f09444b95ddcbea6f81d36c83_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/701/Pyar-Ki-Jeet-Hindi-1948-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Husnlal-Bhagatram",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suraiya-mtocse2i-7axc",
+    "artistId": "suraiya",
+    "title": "Tum Mujh Ko Bhool Jao",
+    "artist": "Suraiya",
+    "artists": [
+      "Suraiya"
+    ],
+    "movie": "Badi Bahen",
+    "year": 1949,
+    "decade": "50s",
+    "duration": 183,
+    "audioUrl": "https://aac.saavncdn.com/529/35d95b9d8230ef58c7713b45a4b41748_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/529/Badi-Bahen-Hindi-1949-20200901173936-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Suraiya, Husnlal-Bhagatram",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suraiya-mtocse2j-pzwb",
+    "artistId": "suraiya",
+    "title": "Dhadakte Dil Ki Tamanna",
+    "artist": "Suraiya",
+    "artists": [
+      "Suraiya"
+    ],
+    "movie": "Mirza Ghalib",
+    "year": 1954,
+    "decade": "50s",
+    "duration": 251,
+    "audioUrl": "https://aac.saavncdn.com/455/b3105995774427382b1a4a6af20e0ee8_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/060/Mirza-Ghalib-Hindi-1954-20200919143920-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ghulam Mohammed",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suraiya-mtocse2l-wswd",
+    "artistId": "suraiya",
+    "title": "Aah Ko Chahiye Ek Umar",
+    "artist": "Shamshad Begum",
+    "artists": [
+      "Shamshad Begum"
+    ],
+    "movie": "Mirza Ghalib",
+    "year": 1954,
+    "decade": "50s",
+    "duration": 197,
+    "audioUrl": "https://aac.saavncdn.com/060/a8fbd7b17ee0f7f0c22f347218c79e77_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/060/Mirza-Ghalib-Hindi-1954-20200919143920-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Suraiya, Ghulam Mohammed",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suraiya-mtocse2m-yvwz",
+    "artistId": "suraiya",
+    "title": "Na Tadapne Ki Ijazzat Hai",
+    "artist": "Suraiya",
+    "artists": [
+      "Suraiya"
+    ],
+    "movie": "Pyar Ki Jeet",
+    "year": 1948,
+    "decade": "50s",
+    "duration": 202,
+    "audioUrl": "https://aac.saavncdn.com/701/40fb9e2fb4732c57d3e38c2f1453e3cc_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/701/Pyar-Ki-Jeet-Hindi-1948-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Husnlal-Bhagatram",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suraiya-mtocse2m-hrzh",
+    "artistId": "suraiya",
+    "title": "Bigdi Bananewale",
+    "artist": "Suraiya",
+    "artists": [
+      "Suraiya"
+    ],
+    "movie": "Badi Bahen",
+    "year": 1949,
+    "decade": "50s",
+    "duration": 177,
+    "audioUrl": "https://aac.saavncdn.com/529/b3154b2bc31b1a3c9e23b9a280646788_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/529/Badi-Bahen-Hindi-1949-20200901173936-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Suraiya, Husnlal-Bhagatram",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suraiya-mtocse2n-i1c0",
+    "artistId": "suraiya",
+    "title": "Ham The Tumhare Tum The Hamare",
+    "artist": "Suraiya",
+    "artists": [
+      "Suraiya"
+    ],
+    "movie": "Dard",
+    "year": 1947,
+    "decade": "50s",
+    "duration": 163,
+    "audioUrl": "https://aac.saavncdn.com/520/6e72888690ec5f09f52bd87c8925df2e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/520/Dard-Hindi-1947-20200819165050-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Naushad",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suraiya-mtocse2n-ah3u",
+    "artistId": "suraiya",
+    "title": "Aap Se Pyar Hua Jata Hai",
+    "artist": "Suraiya",
+    "artists": [
+      "Suraiya"
+    ],
+    "movie": "Mirza Ghalib",
+    "year": 1954,
+    "decade": "50s",
+    "duration": 189,
+    "audioUrl": "https://aac.saavncdn.com/455/2bf658024d7ffff035464593aa8b21d1_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/060/Mirza-Ghalib-Hindi-1954-20200919143920-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ghulam Mohammed",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suraiya-mtocse2n-mep5",
+    "artistId": "suraiya",
+    "title": "Tarari Tarari",
+    "artist": "Suraiya, Mohammed Rafi",
+    "artists": [
+      "Suraiya",
+      "Mohammed Rafi"
+    ],
+    "movie": "Dastaan",
+    "year": 1950,
+    "decade": "50s",
+    "duration": 170,
+    "audioUrl": "https://aac.saavncdn.com/091/3ef9d359906327fca5120f40f34cfa29_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/091/Dastaan-Hindi-1950-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Naushad",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-suraiya-mtocse2o-cqcc",
+    "artistId": "suraiya",
+    "title": "Milney Ko Din",
+    "artist": "K. L. Saigal, Suraiya",
+    "artists": [
+      "K. L. Saigal",
+      "Suraiya"
+    ],
+    "movie": "Tadbir",
+    "year": 2021,
+    "decade": "2010s",
+    "duration": 163,
+    "audioUrl": "https://aac.saavncdn.com/863/a5b53825d3057b68c547861ef8481c56_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/863/Tadbir-Hindi-2021-20210608214824-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Lal Mohamad",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kj-yesudas-mtocse6z-0gpc",
+    "artistId": "kj-yesudas",
+    "title": "Dil Ke Tukde Tukde Karke",
+    "artist": "K.J. Yesudas",
+    "artists": [
+      "K.J. Yesudas"
+    ],
+    "movie": "Dada",
+    "year": 1979,
+    "decade": "70s",
+    "duration": 240,
+    "audioUrl": "https://aac.saavncdn.com/060/0fa40d488a8079633b4e70393974b3b2_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/060/Dada-Hindi-1979-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Usha Khanna",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kj-yesudas-mtocse70-whus",
+    "artistId": "kj-yesudas",
+    "title": "Jaaneman Jaaneman Tere Do Nain",
+    "artist": "K.J. Yesudas, Asha Bhosle",
+    "artists": [
+      "K.J. Yesudas",
+      "Asha Bhosle"
+    ],
+    "movie": "Chhoti Si Baat",
+    "year": 1975,
+    "decade": "70s",
+    "duration": 311,
+    "audioUrl": "https://aac.saavncdn.com/087/46c9a7a080aee3f7539a94a4ea5007e9_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/087/Chhoti-Si-Baat-Hindi-1975-20180314-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Salil Chowdhury",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kj-yesudas-mtocse70-2pb6",
+    "artistId": "kj-yesudas",
+    "title": "Aaj Se Pehle Aaj Se Jyada",
+    "artist": "K.J. Yesudas",
+    "artists": [
+      "K.J. Yesudas"
+    ],
+    "movie": "Chitchor",
+    "year": 1976,
+    "decade": "70s",
+    "duration": 304,
+    "audioUrl": "https://aac.saavncdn.com/821/04c68d2c0845e076fd9cda6ebac0cfb2_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/821/Chitchor-Hindi-1976-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ravindra Jain",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kj-yesudas-mtocse70-rxjq",
+    "artistId": "kj-yesudas",
+    "title": "Mohabbat Bade Kaam Ki Cheez Hai",
+    "artist": "Lata Mangeshkar, Kishore Kumar, K.J. Yesudas",
+    "artists": [
+      "Lata Mangeshkar",
+      "Kishore Kumar",
+      "K.J. Yesudas"
+    ],
+    "movie": "Trishul",
+    "year": 1978,
+    "decade": "70s",
+    "duration": 279,
+    "audioUrl": "https://aac.saavncdn.com/918/bdfeebd8acc8a14e64745b88ff697558_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/918/Trishul-Hindi-1978-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Khayyam",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kj-yesudas-mtocse71-41rl",
+    "artistId": "kj-yesudas",
+    "title": "Chand Jaise Mukhde Pe - Jhankar Beats",
+    "artist": "K.J. Yesudas",
+    "artists": [
+      "K.J. Yesudas"
+    ],
+    "movie": "Sawan Ko Aane Do - Jhankar Beats",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 240,
+    "audioUrl": "https://aac.saavncdn.com/307/505ae90cf23ae8da2e30bd07d3120e5b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/307/Sawan-Ko-Aane-Do-Jhankar-Beats-Hindi-2023-20250130073109-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Hero And King Of Jhankar Studio, K.J. Yesudas, Raj Kamal",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kj-yesudas-mtocse71-i2eo",
+    "artistId": "kj-yesudas",
+    "title": "Gori Tera Gaon Bada Pyara - Jhankar Beats",
+    "artist": "K.J. Yesudas",
+    "artists": [
+      "K.J. Yesudas"
+    ],
+    "movie": "Gori Tera Gaon Bada Pyara - Jhankar Beats",
+    "year": 2024,
+    "decade": "2010s",
+    "duration": 295,
+    "audioUrl": "https://aac.saavncdn.com/700/c8de08437a4118cd7e452386471ede8b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/700/Gori-Tera-Gaon-Bada-Pyara-Jhankar-Beats-Hindi-2024-20250130073159-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "DJ Harshit Shah, K.J. Yesudas, Ravindra Jain",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kj-yesudas-mtocse71-wnxf",
+    "artistId": "kj-yesudas",
+    "title": "Kahan Se Aaye Badra",
+    "artist": "Haimanti Sukla, K.J. Yesudas",
+    "artists": [
+      "Haimanti Sukla",
+      "K.J. Yesudas"
+    ],
+    "movie": "Chashme Buddoor",
+    "year": 1981,
+    "decade": "80s",
+    "duration": 459,
+    "audioUrl": "https://aac.saavncdn.com/875/62cc030acabe03bcd2c42b22e08a94ce_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/875/Chashme-Buddoor-Hindi-1981-20180314-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Raj Kamal",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kj-yesudas-mtocse72-zrw3",
+    "artistId": "kj-yesudas",
+    "title": "O Goriya Re",
+    "artist": "K.J. Yesudas",
+    "artists": [
+      "K.J. Yesudas"
+    ],
+    "movie": "Naiyya",
+    "year": 1979,
+    "decade": "70s",
+    "duration": 339,
+    "audioUrl": "https://aac.saavncdn.com/708/05757e59941751af2f469c3b21c49e93_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/708/Naiyya-Hindi-1979-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ravindra Jain",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kj-yesudas-mtocse72-9mak",
+    "artistId": "kj-yesudas",
+    "title": "Tujhe Dekh Kar Jagwale",
+    "artist": "K.J. Yesudas",
+    "artists": [
+      "K.J. Yesudas"
+    ],
+    "movie": "Sawan Ko Aane Do",
+    "year": 1979,
+    "decade": "70s",
+    "duration": 215,
+    "audioUrl": "https://aac.saavncdn.com/222/9a2ddccce0cc1ec811d0e068fafea683_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/222/Sawan-Ko-Aane-Do-1979-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Rajkamal",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kj-yesudas-mtocse72-3nmq",
+    "artistId": "kj-yesudas",
+    "title": "Tu Jo Mere Sur Men Sur Milaye",
+    "artist": "K.J. Yesudas, Hemlata",
+    "artists": [
+      "K.J. Yesudas",
+      "Hemlata"
+    ],
+    "movie": "Chitchor",
+    "year": 1976,
+    "decade": "70s",
+    "duration": 307,
+    "audioUrl": "https://aac.saavncdn.com/821/f1951a805658bf05cfdb108ba8721f75_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/821/Chitchor-Hindi-1976-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ravindra Jain",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kj-yesudas-mtocse73-lo0b",
+    "artistId": "kj-yesudas",
+    "title": "Ka Karoon Sajani Aaye Na Balam",
+    "artist": "K.J. Yesudas",
+    "artists": [
+      "K.J. Yesudas"
+    ],
+    "movie": "Swami",
+    "year": 1977,
+    "decade": "70s",
+    "duration": 271,
+    "audioUrl": "https://aac.saavncdn.com/558/185d59cead1745168f2fc4d6ddaa6d63_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/558/Swami-Hindi-1977-20190315154339-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Rajesh Roshan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kj-yesudas-mtocse73-xwpl",
+    "artistId": "kj-yesudas",
+    "title": "Sunayanasunayana - Aa In Nazaron Ko Tum",
+    "artist": "K.J. Yesudas",
+    "artists": [
+      "K.J. Yesudas"
+    ],
+    "movie": "Sunayana",
+    "year": 1978,
+    "decade": "70s",
+    "duration": 357,
+    "audioUrl": "https://aac.saavncdn.com/411/03142d0e10c21f29485b0c87b6b31f9c_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/411/Sunayana-Hindi-1978-20190315154016-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ravindra Jain",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kj-yesudas-mtocse73-oc0r",
+    "artistId": "kj-yesudas",
+    "title": "Shyam Rang Ranga Re",
+    "artist": "K.J. Yesudas",
+    "artists": [
+      "K.J. Yesudas"
+    ],
+    "movie": "Apne Paraye",
+    "year": 1980,
+    "decade": "80s",
+    "duration": 340,
+    "audioUrl": "https://aac.saavncdn.com/657/97b139a943cbb4b270eae1fb0057e0d5_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/657/Apne-Paraye-Hindi-1980-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Bappi Lahiri",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kj-yesudas-mtocse74-ii2c",
+    "artistId": "kj-yesudas",
+    "title": "Teri Tasveer Ko",
+    "artist": "K.J. Yesudas",
+    "artists": [
+      "K.J. Yesudas"
+    ],
+    "movie": "Sawan Ko Aane Do",
+    "year": 1979,
+    "decade": "70s",
+    "duration": 300,
+    "audioUrl": "https://aac.saavncdn.com/222/5a3b242d8bc8bf769664cce27ca557ca_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/222/Sawan-Ko-Aane-Do-1979-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Rajkamal",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kj-yesudas-mtocse74-r8fh",
+    "artistId": "kj-yesudas",
+    "title": "Maalik Mere Hoton Pe Sab Ke",
+    "artist": "K.J. Yesudas",
+    "artists": [
+      "K.J. Yesudas"
+    ],
+    "movie": "Aakhri Ghulam",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 474,
+    "audioUrl": "https://aac.saavncdn.com/703/8c6c21359a547daaaf4332972aab2a94_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/637/Aakhri-Ghulam-Hindi-2020-20210421170202-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Bappi Lahiri",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-darshan-raval-mtocsec2-mfex",
+    "artistId": "darshan-raval",
+    "title": "Mahiye Jinna Sohna",
+    "artist": "Darshan Raval",
+    "artists": [
+      "Darshan Raval"
+    ],
+    "movie": "Dard",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 181,
+    "audioUrl": "https://aac.saavncdn.com/504/ab55ab7eaee34d823adf73e167675124_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/504/Dard-Hindi-2023-20230807105001-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Darshan Raval",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-darshan-raval-mtocsec2-hsni",
+    "artistId": "darshan-raval",
+    "title": "Is Qadar",
+    "artist": "Tulsi Kumar, Darshan Raval, Sachet-Parampara",
+    "artists": [
+      "Tulsi Kumar",
+      "Darshan Raval",
+      "Sachet-Parampara"
+    ],
+    "movie": "Is Qadar",
+    "year": 2021,
+    "decade": "2010s",
+    "duration": 226,
+    "audioUrl": "https://aac.saavncdn.com/349/e4f2ff8ff6de2204fa2cb1d816b8da75_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/349/Is-Qadar-Hindi-2021-20210408051001-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Darshan Raval",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-darshan-raval-mtocsec3-myhw",
+    "artistId": "darshan-raval",
+    "title": "Nafrat",
+    "artist": "Tulsi Kumar, Darshan Raval, Sachet-Parampara",
+    "artists": [
+      "Tulsi Kumar",
+      "Darshan Raval",
+      "Sachet-Parampara"
+    ],
+    "movie": "I Loved You",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 214,
+    "audioUrl": "https://aac.saavncdn.com/631/68b92737e8d1700764c555d22f6ff579_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/631/I-Loved-You-Hindi-2025-20251013195634-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Darshan Raval",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-darshan-raval-mtocsec4-ag6k",
+    "artistId": "darshan-raval",
+    "title": "Barsaat Lagdi Ae",
+    "artist": "Tulsi Kumar, Darshan Raval, Sachet-Parampara",
+    "artists": [
+      "Tulsi Kumar",
+      "Darshan Raval",
+      "Sachet-Parampara"
+    ],
+    "movie": "Barsaat Lagdi Ae",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 186,
+    "audioUrl": "https://aac.saavncdn.com/418/56fe79fcb0027343270df73d2341fd13_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/418/Barsaat-Lagdi-Ae-Hindi-2026-20260729022553-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Darshan Raval",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-darshan-raval-mtocsec5-sq1o",
+    "artistId": "darshan-raval",
+    "title": "Mere Nishan",
+    "artist": "Tulsi Kumar, Darshan Raval, Sachet-Parampara",
+    "artists": [
+      "Tulsi Kumar",
+      "Darshan Raval",
+      "Sachet-Parampara"
+    ],
+    "movie": "Mere Nishan",
+    "year": 2022,
+    "decade": "2010s",
+    "duration": 250,
+    "audioUrl": "https://aac.saavncdn.com/181/95559d0065320324e98c9247be49ea09_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/181/Mere-Nishan-Hindi-2022-20230227230631-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Mohammed, Darshan Raval",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-darshan-raval-mtocsec6-9g2s",
+    "artistId": "darshan-raval",
+    "title": "Preet Re",
+    "artist": "Tulsi Kumar, Darshan Raval, Sachet-Parampara",
+    "artists": [
+      "Tulsi Kumar",
+      "Darshan Raval",
+      "Sachet-Parampara"
+    ],
+    "movie": "Heartbeats Bollywood",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 196,
+    "audioUrl": "https://aac.saavncdn.com/195/2ea5cd6285cf7d6e7b3eabfd716cc4e4_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/195/Heartbeats-Bollywood-Hindi-2026-20260813104641-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Rochak Kohli",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-darshan-raval-mtocsec8-hlpg",
+    "artistId": "darshan-raval",
+    "title": "Teri Aankhon Mein",
+    "artist": "Darshan Raval, Neha Kakkar, Manan Bhardwaj",
+    "artists": [
+      "Darshan Raval",
+      "Neha Kakkar",
+      "Manan Bhardwaj"
+    ],
+    "movie": "Teri Aankhon Mein",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 261,
+    "audioUrl": "https://aac.saavncdn.com/099/8de95cb53e1dcad466edcd3ce69669fa_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/099/Teri-Aankhon-Mein-Hindi-2020-20201007061000-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Rochak Kohli",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-darshan-raval-mtocsecb-a35i",
+    "artistId": "darshan-raval",
+    "title": "Bekhudi",
+    "artist": "Darshan Raval, Aditi Singh Sharma",
+    "artists": [
+      "Darshan Raval",
+      "Aditi Singh Sharma"
+    ],
+    "movie": "Teraa Surroor",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 348,
+    "audioUrl": "https://aac.saavncdn.com/042/765e67224346e3489831edebce3e2954_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/042/Teraa-Surroor-Hindi-2016-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Himesh Reshammiya",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-darshan-raval-mtocsecc-uyih",
+    "artistId": "darshan-raval",
+    "title": "Chogada (From \"Loveyatri - A Journey Of Love\")",
+    "artist": "Darshan Raval, Asees Kaur",
+    "artists": [
+      "Darshan Raval",
+      "Asees Kaur"
+    ],
+    "movie": "World Music Day - Best Of Bollywood Hits",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 249,
+    "audioUrl": "https://aac.saavncdn.com/179/e8ad06963c729cc7e29fcbf3de9cedd4_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/179/World-Music-Day-Best-Of-Bollywood-Hits-Hindi-2026-20260622111029-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Lijo George-Dj Chetas",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-darshan-raval-mtocsece-kyly",
+    "artistId": "darshan-raval",
+    "title": "Mehrama",
+    "artist": "Pritam, Darshan Raval, Antara Mitra",
+    "artists": [
+      "Pritam",
+      "Darshan Raval",
+      "Antara Mitra"
+    ],
+    "movie": "Love Aaj Kal",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 249,
+    "audioUrl": "https://aac.saavncdn.com/862/3a36773fb96a2f1232ba4463c6fb5a91_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/862/Love-Aaj-Kal-Hindi-2020-20200214140423-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pritam",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-darshan-raval-mtocsecf-k20z",
+    "artistId": "darshan-raval",
+    "title": "Soni Soni (From \"Ishq Vishk Rebound\")",
+    "artist": "Pritam, Darshan Raval, Antara Mitra",
+    "artists": [
+      "Pritam",
+      "Darshan Raval",
+      "Antara Mitra"
+    ],
+    "movie": "Ishq Vishk Rebound",
+    "year": 2024,
+    "decade": "2010s",
+    "duration": 176,
+    "audioUrl": "https://aac.saavncdn.com/658/3d36e35d56b7d41af96c51244621c756_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/658/Ishq-Vishk-Rebound-Hindi-2024-20240730165347-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Darshan Raval, Jonita Gandhi, Rochak Kohli, Gurpreet Saini",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-darshan-raval-mtocsecg-mcfe",
+    "artistId": "darshan-raval",
+    "title": "Kabhii Tumhhe",
+    "artist": "Pritam, Darshan Raval, Antara Mitra",
+    "artists": [
+      "Pritam",
+      "Darshan Raval",
+      "Antara Mitra"
+    ],
+    "movie": "Shershaah",
+    "year": 2021,
+    "decade": "2010s",
+    "duration": 230,
+    "audioUrl": "https://aac.saavncdn.com/238/a4275f57b40672067b2ad094c0f73f70_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/238/Shershaah-Original-Motion-Picture-Soundtrack--Hindi-2021-20210815181610-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Javed Khan, Mohsin Shaikh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-darshan-raval-mtocsech-p9gv",
+    "artistId": "darshan-raval",
+    "title": "Saathiya",
+    "artist": "Pritam, Darshan Raval, Antara Mitra",
+    "artists": [
+      "Pritam",
+      "Darshan Raval",
+      "Antara Mitra"
+    ],
+    "movie": "Saathiya",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 193,
+    "audioUrl": "https://aac.saavncdn.com/694/de6cea5703ff195d00a96e70b9ff7018_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/694/Saathiya-Hindi-2026-20260220193432-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Darshan Raval",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-darshan-raval-mtocsech-0ueo",
+    "artistId": "darshan-raval",
+    "title": "Asal Mein",
+    "artist": "Darshan Raval",
+    "artists": [
+      "Darshan Raval"
+    ],
+    "movie": "Asal Mein - Single",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 224,
+    "audioUrl": "https://aac.saavncdn.com/534/252678c5d5982e92eb8f9d6406c36fd9_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/534/Asal-Mein-Single-Hindi-2020-20200215121006-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Darshan Raval, Gurpreet Saini, Gautam Sharma",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-darshan-raval-mtocseci-dqez",
+    "artistId": "darshan-raval",
+    "title": "Main Woh Chaand",
+    "artist": "Darshan Raval",
+    "artists": [
+      "Darshan Raval"
+    ],
+    "movie": "Teraa Surroor",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 322,
+    "audioUrl": "https://aac.saavncdn.com/042/08fb30c6e69482c13ae05de8e4749aa6_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/042/Teraa-Surroor-Hindi-2016-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Himesh Reshammiya",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-papon-mtocsegr-ro11",
+    "artistId": "papon",
+    "title": "Bulleya",
+    "artist": "Papon",
+    "artists": [
+      "Papon"
+    ],
+    "movie": "Sultan",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 355,
+    "audioUrl": "https://aac.saavncdn.com/778/d3a4b97df0a5df5bfb437c194313eccb_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/778/Sultan-Hindi-2016-20190329150247-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Vishal & Shekhar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-papon-mtocsegs-q92t",
+    "artistId": "papon",
+    "title": "Humnava",
+    "artist": "Mithoon, Papon, Sayeed Quadri",
+    "artists": [
+      "Mithoon",
+      "Papon",
+      "Sayeed Quadri"
+    ],
+    "movie": "Hamari Adhuri Kahani",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 328,
+    "audioUrl": "https://aac.saavncdn.com/656/9784c9299849e2c26d63e44eb1bb7579_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/577/Hamari-Adhuri-Kahani-Hindi-2015-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Mithoon",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-papon-mtocsegt-heei",
+    "artistId": "papon",
+    "title": "Moh Moh Ke Dhaage - Male (From \"Dum Laga Ke Haisha\")",
+    "artist": "Anu Malik, Papon, Varun Grover",
+    "artists": [
+      "Anu Malik",
+      "Papon",
+      "Varun Grover"
+    ],
+    "movie": "Pyaar, Forever and Ever",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 322,
+    "audioUrl": "https://aac.saavncdn.com/347/6dd115cf2f4334795f50069e62168d08_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/347/Pyaar-Forever-and-Ever-Hindi-2026-20260205082719-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Anu Malik",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-papon-mtocsegu-n7l5",
+    "artistId": "papon",
+    "title": "Jiyein Kyun",
+    "artist": "Papon",
+    "artists": [
+      "Papon"
+    ],
+    "movie": "Dum Maaro Dum",
+    "year": 2011,
+    "decade": "2010s",
+    "duration": 264,
+    "audioUrl": "https://aac.saavncdn.com/599/b679c19fc347f0b2ac84faca30e8f2bb_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/599/Dum-Maaro-Dum-Hindi-2011-20260414181240-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pritam",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-papon-mtocsegv-gpwe",
+    "artistId": "papon",
+    "title": "Qayde Se - Film Version",
+    "artist": "Pritam, Papon, Amitabh Bhattacharya",
+    "artists": [
+      "Pritam",
+      "Papon",
+      "Amitabh Bhattacharya"
+    ],
+    "movie": "Metro ... In Dino (Side B)",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 215,
+    "audioUrl": "https://aac.saavncdn.com/341/76c5f4c6e9bd1edda95bb6f48f770c87_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/341/Metro-In-Dino-Side-B-Hindi-2025-20250718131014-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pritam",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-papon-mtocsegx-ji5b",
+    "artistId": "papon",
+    "title": "Hummein Tummein Jo Tha",
+    "artist": "Palak Muchhal, Papon",
+    "artists": [
+      "Palak Muchhal",
+      "Papon"
+    ],
+    "movie": "Raaz Reboot",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 178,
+    "audioUrl": "https://aac.saavncdn.com/311/b921ad64475cb3a9095a3f8387f2a340_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/311/Raaz-Reboot-2-Hindi-2016-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Jeet Gannguli",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-papon-mtocsegz-fb5d",
+    "artistId": "papon",
+    "title": "Ul Jalool Ishq (From \"Gustaakh Ishq\")",
+    "artist": "Palak Muchhal, Papon",
+    "artists": [
+      "Palak Muchhal",
+      "Papon"
+    ],
+    "movie": "Ul Jalool Ishq (From \"Gustaakh Ishq\")",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 290,
+    "audioUrl": "https://aac.saavncdn.com/557/f0536e86db3f5cb0b4f83382ce691a1b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/557/Ul-Jalool-Ishq-From-Gustaakh-Ishq-Hindi-2025-20250915092538-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Vishal Bhardwaj, Papon, Shilpa Rao, Gulzar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-papon-mtocseh0-7l2z",
+    "artistId": "papon",
+    "title": "Ul Jalool Ishq",
+    "artist": "Palak Muchhal, Papon",
+    "artists": [
+      "Palak Muchhal",
+      "Papon"
+    ],
+    "movie": "Slow Romantic Hits",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 290,
+    "audioUrl": "https://aac.saavncdn.com/600/88d5305bb89754c9f9cb36dfdd637613_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/600/Slow-Romantic-Hits-Hindi-2026-20260616172943-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Vishal Bhardwaj",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-papon-mtocseh2-lgnl",
+    "artistId": "papon",
+    "title": "Tere Ho Jaaye",
+    "artist": "Palak Muchhal, Papon",
+    "artists": [
+      "Palak Muchhal",
+      "Papon"
+    ],
+    "movie": "Tere Ho Jaaye",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 243,
+    "audioUrl": "https://aac.saavncdn.com/561/c92c68d14fb62ab78c0a935fca8c2c88_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/561/Tere-Ho-Jaaye-Hindi-2025-20250620042930-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Mithoon, Papon, Sayeed Quadri",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-papon-mtocseh3-ulhn",
+    "artistId": "papon",
+    "title": "Tu Meri Poori Kahani - Male Version",
+    "artist": "Palak Muchhal, Papon",
+    "artists": [
+      "Palak Muchhal",
+      "Papon"
+    ],
+    "movie": "Tu Meri Poori Kahani",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 371,
+    "audioUrl": "https://aac.saavncdn.com/712/1c3abcf2424c7c0ab39de385033d3afb_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/712/Tu-Meri-Poori-Kahani-Hindi-2025-20251007154034-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Anu Malik, Papon, Shweta Bothra",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-papon-mtocseh3-ncbc",
+    "artistId": "papon",
+    "title": "Rimjhim Gire Saawan",
+    "artist": "Papon, Shreya Ghoshal",
+    "artists": [
+      "Papon",
+      "Shreya Ghoshal"
+    ],
+    "movie": "Music Teacher",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 263,
+    "audioUrl": "https://aac.saavncdn.com/701/f09721687c44f888641785f93948218b_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/701/Music-Teacher-Hindi-2019-20190418130138-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Rochak Kohli",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-papon-mtocseh4-di1w",
+    "artistId": "papon",
+    "title": "Bulleya (MTV Unplugged)",
+    "artist": "Papon",
+    "artists": [
+      "Papon"
+    ],
+    "movie": "Bulleya (MTV Unplugged)",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 373,
+    "audioUrl": "https://aac.saavncdn.com/438/f3a18753f1b503d28e01088406006da8_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/438/Bulleya-MTV-Unplugged--Hindi-2019-20190606121536-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Vishal & Shekhar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-papon-mtocseh5-k0qh",
+    "artistId": "papon",
+    "title": "Nawazish",
+    "artist": "Papon",
+    "artists": [
+      "Papon"
+    ],
+    "movie": "Nawazish",
+    "year": 2024,
+    "decade": "2010s",
+    "duration": 204,
+    "audioUrl": "https://aac.saavncdn.com/343/f38bdd124e62758db71d3fcaace85584_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/343/Nawazish-Hindi-2024-20260607104240-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Saurabh Das",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-papon-mtocseh6-yw1h",
+    "artistId": "papon",
+    "title": "Mujhe Kaise, Pata Na Chala",
+    "artist": "Papon",
+    "artists": [
+      "Papon"
+    ],
+    "movie": "Mujhe Kaise, Pata Na Chala",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 322,
+    "audioUrl": "https://aac.saavncdn.com/451/c314ae3251974660469946568248d067_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/451/Mujhe-Kaise-Pata-Na-Chala-Hindi-2019-20191210121021-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Meet Bros",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-papon-mtocseh7-fexe",
+    "artistId": "papon",
+    "title": "Kanha Mere Kanha",
+    "artist": "Papon",
+    "artists": [
+      "Papon"
+    ],
+    "movie": "Kanha Mere Kanha",
+    "year": 2024,
+    "decade": "2010s",
+    "duration": 311,
+    "audioUrl": "https://aac.saavncdn.com/796/0bda80ff5b16a5dc27d49d6610d08c2b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/796/Kanha-Mere-Kanha-Hindi-2024-20240824063523-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Papon, Shreyas Puranik, Ashutosh Agnihotri",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-badshah-mtocsen5-82ys",
+    "artistId": "badshah",
+    "title": "Inaam",
+    "artist": "Jasleen Royal, Badshah, Ansh Chahal",
+    "artists": [
+      "Jasleen Royal",
+      "Badshah",
+      "Ansh Chahal"
+    ],
+    "movie": "Inaam",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 178,
+    "audioUrl": "https://aac.saavncdn.com/195/86c75f2e41a30ff5c71e3b078b6dbe14_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/195/Inaam-Hindi-2026-20260308053452-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Jasleen Royal",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-badshah-mtocsen6-awkd",
+    "artistId": "badshah",
+    "title": "Soulmate",
+    "artist": "Badshah, Arijit Singh",
+    "artists": [
+      "Badshah",
+      "Arijit Singh"
+    ],
+    "movie": "Ek Tha Raja",
+    "year": 2024,
+    "decade": "2010s",
+    "duration": 214,
+    "audioUrl": "https://aac.saavncdn.com/406/af57a9b63876b01fd3fa611bcd221706_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/406/Ek-Tha-Raja-Hindi-2024-20240318125601-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Badshah",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-badshah-mtocsen7-1jbg",
+    "artistId": "badshah",
+    "title": "Ban Ja Tu",
+    "artist": "Badshah, Arijit Singh",
+    "artists": [
+      "Badshah",
+      "Arijit Singh"
+    ],
+    "movie": "Ban Ja Tu",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 228,
+    "audioUrl": "https://aac.saavncdn.com/856/04dde629bbf8c61d226f46c6a295fce3_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/856/Ban-Ja-Tu-Hindi-2026-20260523053437-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Badshah, Charanpreet Singh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-badshah-mtocsen7-c439",
+    "artistId": "badshah",
+    "title": "Buzz",
+    "artist": "Aastha Gill",
+    "artists": [
+      "Aastha Gill"
+    ],
+    "movie": "Buzz",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 193,
+    "audioUrl": "https://aac.saavncdn.com/323/7841e41803276551540d6d77b475ca5e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/323/Buzz-Hindi-2018-20180411055603-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Badshah",
+    "lyricist": "Badshah",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-badshah-mtocsen8-x4eh",
+    "artistId": "badshah",
+    "title": "Dariya",
+    "artist": "Aastha Gill",
+    "artists": [
+      "Aastha Gill"
+    ],
+    "movie": "Wedding Love Songs",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 217,
+    "audioUrl": "https://aac.saavncdn.com/809/983f3351d28f29009c13f5d5a4d5a60c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/809/Wedding-Love-Songs-Hindi-2026-20251230172703-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Arko, Badshah, Prem Hardeep",
+    "lyricist": "Badshah",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-badshah-mtocsewk-hbh4",
+    "artistId": "badshah",
+    "title": "Tareefan",
+    "artist": "Badshah, Aastha",
+    "artists": [
+      "Badshah",
+      "Aastha"
+    ],
+    "movie": "House Party Hits",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 186,
+    "audioUrl": "https://aac.saavncdn.com/811/1617b4c3e353e906873a7b73ed65769d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/811/House-Party-Hits-Hindi-2026-20260508130720-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "QARAN",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-badshah-mtocsewl-jypf",
+    "artistId": "badshah",
+    "title": "Chandigarh Mein",
+    "artist": "Badshah, Aastha",
+    "artists": [
+      "Badshah",
+      "Aastha"
+    ],
+    "movie": "Holi Party Mix",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 205,
+    "audioUrl": "https://aac.saavncdn.com/455/89e82b27e8387ef4020f2c6af8efb361_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/455/Holi-Party-Mix-Hindi-2026-20260226192255-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Badshah, Harrdy Sandhu, Lisa Mishra, Asees Kaur, Tanishk Bagchi",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-badshah-mtocsewm-mxjz",
+    "artistId": "badshah",
+    "title": "Nachde Ne Saare",
+    "artist": "Badshah, Aastha",
+    "artists": [
+      "Badshah",
+      "Aastha"
+    ],
+    "movie": "Bollywood Zumba Party",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 194,
+    "audioUrl": "https://aac.saavncdn.com/303/63947b73b1e5b26d640d6b10c02a2780_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/303/Bollywood-Zumba-Party-Hindi-2026-20260623182740-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Badshah, Prem Hardeep",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-badshah-mtocsewn-n02i",
+    "artistId": "badshah",
+    "title": "Bachelor Party Non-Stop Mix(Remix By Dj Sunny Singh Uk)",
+    "artist": "Yo Yo Honey Singh, Mohit Sharma, Badshah, Aastha, Arijit Singh, Neha Kakkar, Meet Bros, Bappi Lahiri, Anuradha Paudwal, Sunidhi Chauhan, Neeraj Shridhar, Tulsi Kumar, Daler Mehndi, Richa Sharma, Simar Kaur, Ishers, Harshdeep Kaur, Kanika Kapoor, Jaz Dhami, Aditi Singh Sharma, Zack Knight, Jasmin Walia, Altamash Faridi, Benny Dayal, Navraj Hans, Palak Muchhal, Shefali Alvares, Romy, Tanishk Bagchi, Naresh Iyer, Satish Chakravarthy, Aslam, Blaaze, Tanvi Shah, Bhargavi",
+    "artists": [
+      "Yo Yo Honey Singh",
+      "Mohit Sharma",
+      "Badshah",
+      "Aastha",
+      "Arijit Singh",
+      "Neha Kakkar",
+      "Meet Bros",
+      "Bappi Lahiri",
+      "Anuradha Paudwal",
+      "Sunidhi Chauhan",
+      "Neeraj Shridhar",
+      "Tulsi Kumar",
+      "Daler Mehndi",
+      "Richa Sharma",
+      "Simar Kaur",
+      "Ishers",
+      "Harshdeep Kaur",
+      "Kanika Kapoor",
+      "Jaz Dhami",
+      "Aditi Singh Sharma",
+      "Zack Knight",
+      "Jasmin Walia",
+      "Altamash Faridi",
+      "Benny Dayal",
+      "Navraj Hans",
+      "Palak Muchhal",
+      "Shefali Alvares",
+      "Romy",
+      "Tanishk Bagchi",
+      "Naresh Iyer",
+      "Satish Chakravarthy",
+      "Aslam",
+      "Blaaze",
+      "Tanvi Shah",
+      "Bhargavi"
+    ],
+    "movie": "Shagna Di Raat",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 2775,
+    "audioUrl": "https://aac.saavncdn.com/151/109b1023b4702721f2c1515c57197b5a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/151/Shagna-Di-Raat-Hindi-2025-20251128191003-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh, Mohit Sharma, Badshah, Sourav Roy, Sohrabuddin, Bappi Lahiri, Tanishk Bagchi, Pritam, Meet Bros Anjjan, Anand Raaj Anand, Dr Zeus, Zack Knight, Shankar-Ehsaan-Loy, Sandeep Shirodkar, Panjabi MC, Anu Malik, A.R. Rahman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-badshah-mtocsewo-d75s",
+    "artistId": "badshah",
+    "title": "Ghar Pe Party Hai",
+    "artist": "Yo Yo Honey Singh, Mohit Sharma, Badshah, Aastha, Arijit Singh, Neha Kakkar, Meet Bros, Bappi Lahiri, Anuradha Paudwal, Sunidhi Chauhan, Neeraj Shridhar, Tulsi Kumar, Daler Mehndi, Richa Sharma, Simar Kaur, Ishers, Harshdeep Kaur, Kanika Kapoor, Jaz Dhami, Aditi Singh Sharma, Zack Knight, Jasmin Walia, Altamash Faridi, Benny Dayal, Navraj Hans, Palak Muchhal, Shefali Alvares, Romy, Tanishk Bagchi, Naresh Iyer, Satish Chakravarthy, Aslam, Blaaze, Tanvi Shah, Bhargavi",
+    "artists": [
+      "Yo Yo Honey Singh",
+      "Mohit Sharma",
+      "Badshah",
+      "Aastha",
+      "Arijit Singh",
+      "Neha Kakkar",
+      "Meet Bros",
+      "Bappi Lahiri",
+      "Anuradha Paudwal",
+      "Sunidhi Chauhan",
+      "Neeraj Shridhar",
+      "Tulsi Kumar",
+      "Daler Mehndi",
+      "Richa Sharma",
+      "Simar Kaur",
+      "Ishers",
+      "Harshdeep Kaur",
+      "Kanika Kapoor",
+      "Jaz Dhami",
+      "Aditi Singh Sharma",
+      "Zack Knight",
+      "Jasmin Walia",
+      "Altamash Faridi",
+      "Benny Dayal",
+      "Navraj Hans",
+      "Palak Muchhal",
+      "Shefali Alvares",
+      "Romy",
+      "Tanishk Bagchi",
+      "Naresh Iyer",
+      "Satish Chakravarthy",
+      "Aslam",
+      "Blaaze",
+      "Tanvi Shah",
+      "Bhargavi"
+    ],
+    "movie": "Diwali Party Mix",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 160,
+    "audioUrl": "https://aac.saavncdn.com/872/924a51030f3bbcae387df3fcdc1ca4f3_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/872/Diwali-Party-Mix-Hindi-2025-20251226211740-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Sachin-Jigar, Badshah, Aastha Gill, Mellow D",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-badshah-mtocsewp-dwu2",
+    "artistId": "badshah",
+    "title": "Abhi Toh Party Shuru Hui Hai Remix(Remix By Dj Sunny Singh Uk)",
+    "artist": "Badshah, Aastha Gill",
+    "artists": [
+      "Badshah",
+      "Aastha Gill"
+    ],
+    "movie": "Abhi Toh Party Shuru Hui Hai Remix",
+    "year": 2024,
+    "decade": "2010s",
+    "duration": 176,
+    "audioUrl": "https://aac.saavncdn.com/199/de2b23423840c1a061eaa9109de8982f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/199/Abhi-Toh-Party-Shuru-Hui-Hai-Remix-Hindi-2024-20241224201004-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Badshah",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-badshah-mtocsewp-hi57",
+    "artistId": "badshah",
+    "title": "Paani Paani - Club Mix",
+    "artist": "Daler Mehndi, Kalpana Patowary, Sunidhi Chauhan, Ritu Pathak, Mamta Sharma, Javed Ali, Benny Dayal, Shefali Alvares, Vishal Dadlani, Shalmali, Arijit Singh, Nakash Aziz, Pritam, Badshah, Devi Sri Prasad, MM Manasi, Yo Yo Honey Singh, Dev Negi, Neha Kakkar, Monali Thakur, Ikka, Sunanda Sharma, Garry Sandhu, Mellow D, Romy, Tanishk Bagchi, Amitabh Bachchan, Sukhwinder Singh, Alka Yagnik, Udit Narayan, Anu Malik, Aadesh Shrivastava, Nitin Raikwar, Irshad Kamil, Amitabh Bhattacharya, Kumaar, Mayur Puri, Shabbir Ahmed, Neeraj Rajawat, Sameer",
+    "artists": [
+      "Daler Mehndi",
+      "Kalpana Patowary",
+      "Sunidhi Chauhan",
+      "Ritu Pathak",
+      "Mamta Sharma",
+      "Javed Ali",
+      "Benny Dayal",
+      "Shefali Alvares",
+      "Vishal Dadlani",
+      "Shalmali",
+      "Arijit Singh",
+      "Nakash Aziz",
+      "Pritam",
+      "Badshah",
+      "Devi Sri Prasad",
+      "MM Manasi",
+      "Yo Yo Honey Singh",
+      "Dev Negi",
+      "Neha Kakkar",
+      "Monali Thakur",
+      "Ikka",
+      "Sunanda Sharma",
+      "Garry Sandhu",
+      "Mellow D",
+      "Romy",
+      "Tanishk Bagchi",
+      "Amitabh Bachchan",
+      "Sukhwinder Singh",
+      "Alka Yagnik",
+      "Udit Narayan",
+      "Anu Malik",
+      "Aadesh Shrivastava",
+      "Nitin Raikwar",
+      "Irshad Kamil",
+      "Amitabh Bhattacharya",
+      "Kumaar",
+      "Mayur Puri",
+      "Shabbir Ahmed",
+      "Neeraj Rajawat",
+      "Sameer"
+    ],
+    "movie": "Hindi Weekend Party Hits",
+    "year": 2022,
+    "decade": "2010s",
+    "duration": 211,
+    "audioUrl": "https://aac.saavncdn.com/297/b996142d2ff197314f9c81052b96d192_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/297/Hindi-Weekend-Party-Hits-Hindi-2022-20220929063953-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Badshah, Aastha Gill",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-badshah-mtocsewq-v8k7",
+    "artistId": "badshah",
+    "title": "Holi Party Mix 2021(Remix By Kedrock,Sd Style)",
+    "artist": "Vishal Dadlani, Shalmali, Dev Negi, Neha Kakkar, Monali Thakur, Ikka, Labh Janjua, Sonu Kakkar, Nakash Aziz, Pritam, Badshah, Benny Dayal, Shefali Alvares, Yash Narvekar, Parampara Tandon, Arijit Singh, Sunidhi Chauhan, Lehmber Hussainpuri, Aadesh Shrivastava, Tanishk Bagchi, Amit Trivedi, A.R. Rahman, Krsna Solo",
+    "artists": [
+      "Vishal Dadlani",
+      "Shalmali",
+      "Dev Negi",
+      "Neha Kakkar",
+      "Monali Thakur",
+      "Ikka",
+      "Labh Janjua",
+      "Sonu Kakkar",
+      "Nakash Aziz",
+      "Pritam",
+      "Badshah",
+      "Benny Dayal",
+      "Shefali Alvares",
+      "Yash Narvekar",
+      "Parampara Tandon",
+      "Arijit Singh",
+      "Sunidhi Chauhan",
+      "Lehmber Hussainpuri",
+      "Aadesh Shrivastava",
+      "Tanishk Bagchi",
+      "Amit Trivedi",
+      "A.R. Rahman",
+      "Krsna Solo"
+    ],
+    "movie": "Holi Party Mix 2021",
+    "year": 2021,
+    "decade": "2010s",
+    "duration": 871,
+    "audioUrl": "https://aac.saavncdn.com/250/8bf3d22e858f7abcccf64130340762f6_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/250/Holi-Party-Mix-2021-Hindi-2021-20210325181021-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pritam",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-guru-randhawa-mtocsf1k-g3yr",
+    "artistId": "guru-randhawa",
+    "title": "Ishare Tere (From \"Ishare Tere\")",
+    "artist": "Guru Randhawa, Dhvani Bhanushali",
+    "artists": [
+      "Guru Randhawa",
+      "Dhvani Bhanushali"
+    ],
+    "movie": "World Music Day - Best Of Bollywood Hits",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 189,
+    "audioUrl": "https://aac.saavncdn.com/179/5e50e80750b8896eab8b332ca4f38729_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/179/World-Music-Day-Best-Of-Bollywood-Hits-Hindi-2026-20260622111029-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Guru Randhawa",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-guru-randhawa-mtocsf1k-os09",
+    "artistId": "guru-randhawa",
+    "title": "Om Jai Jagdish Hare",
+    "artist": "Tulsi Kumar, Neha Kakkar, Dhvani Bhanushali, Parampara Tandon, Jubin Nautiyal, Sachet Tandon, Guru Randhawa, Millind Gaba",
+    "artists": [
+      "Tulsi Kumar",
+      "Neha Kakkar",
+      "Dhvani Bhanushali",
+      "Parampara Tandon",
+      "Jubin Nautiyal",
+      "Sachet Tandon",
+      "Guru Randhawa",
+      "Millind Gaba"
+    ],
+    "movie": "Om Jai Jagdish Hare",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 288,
+    "audioUrl": "https://aac.saavncdn.com/997/68b00133db67201a39a71c718d7c788a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/997/Om-Jai-Jagdish-Hare-Hindi-2020-20201112111005-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Manan Bhardwaj",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-guru-randhawa-mtocsf1l-vth1",
+    "artistId": "guru-randhawa",
+    "title": "Lagdi Lahore Di",
+    "artist": "Sachin-Jigar, Guru Randhawa, Tulsi Kumar",
+    "artists": [
+      "Sachin-Jigar",
+      "Guru Randhawa",
+      "Tulsi Kumar"
+    ],
+    "movie": "Street Dancer 3D",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 215,
+    "audioUrl": "https://aac.saavncdn.com/088/6f16f26a71b0b73e609b4cf6a07688a0_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/088/Street-Dancer-3D-Hindi-2020-20241223191058-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Sachin-Jigar, Guru Randhawa",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-guru-randhawa-mtocsf1l-p7gp",
+    "artistId": "guru-randhawa",
+    "title": "Morni Banke",
+    "artist": "Guru Randhawa, Arjun",
+    "artists": [
+      "Guru Randhawa",
+      "Arjun"
+    ],
+    "movie": "Badhaai Ho",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 198,
+    "audioUrl": "https://aac.saavncdn.com/494/cf685d648323f3ad9bc82d6b198d3fb3_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/494/Badhaai-Ho-Hindi-2018-20260724181006-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Tanishk Bagchi, Panjabi MC",
+    "lyricist": "Arjun",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-guru-randhawa-mtocsf1l-gb1n",
+    "artistId": "guru-randhawa",
+    "title": "Patola",
+    "artist": "Guru Randhawa",
+    "artists": [
+      "Guru Randhawa"
+    ],
+    "movie": "Blackmail",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 184,
+    "audioUrl": "https://aac.saavncdn.com/180/ee3ee781659207810bacd7fc37ef5549_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/180/Blackmail-Hindi-2018-20180323-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Guru Randhawa",
+    "lyricist": "Arjun",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-guru-randhawa-mtocsf1m-7srn",
+    "artistId": "guru-randhawa",
+    "title": "Garmi Non Stop Dance Mix(Remix By Kedrock,Sd Style)",
+    "artist": "Parampara Tandon, Vishal, Shekhar, KK, Shaan, Tulsi Kumar, Mika Singh, Meet Bros, Jubin Nautiyal, Dhvani Bhanushali, Nitin Mukesh, Guru Randhawa, Arijit Singh, Armaan Malik, B Praak, Mehul Vyas, Adarsh Shinde, Yo Yo Honey Singh, Romy, Bombay Rockers, Neha Kakkar, Tanishk Bagchi, A.R. Rahman, Pritam, Amaal Mallik, Sachet-Parampara, Tony Kakkar, Mithoon, Lijo George, Dj Chetas, Badshah, Vishal & Shekhar, Laxmikant - Pyarelal, Viju Shah, Sachin-Jigar, Vee",
+    "artists": [
+      "Parampara Tandon",
+      "Vishal",
+      "Shekhar",
+      "KK",
+      "Shaan",
+      "Tulsi Kumar",
+      "Mika Singh",
+      "Meet Bros",
+      "Jubin Nautiyal",
+      "Dhvani Bhanushali",
+      "Nitin Mukesh",
+      "Guru Randhawa",
+      "Arijit Singh",
+      "Armaan Malik",
+      "B Praak",
+      "Mehul Vyas",
+      "Adarsh Shinde",
+      "Yo Yo Honey Singh",
+      "Romy",
+      "Bombay Rockers",
+      "Neha Kakkar",
+      "Tanishk Bagchi",
+      "A.R. Rahman",
+      "Pritam",
+      "Amaal Mallik",
+      "Sachet-Parampara",
+      "Tony Kakkar",
+      "Mithoon",
+      "Lijo George",
+      "Dj Chetas",
+      "Badshah",
+      "Vishal & Shekhar",
+      "Laxmikant - Pyarelal",
+      "Viju Shah",
+      "Sachin-Jigar",
+      "Vee"
+    ],
+    "movie": "Garmi Non Stop Dance Mix",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 3600,
+    "audioUrl": "https://aac.saavncdn.com/500/f386a5c0dcb2f43494b25e1ff45da594_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/500/Garmi-Non-Stop-Dance-Mix-Hindi-2020-20201228161048-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh, Guru Randhawa",
+    "lyricist": "Arjun",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-guru-randhawa-mtocsf1m-cfq1",
+    "artistId": "guru-randhawa",
+    "title": "Crazy Habibi Vs Decent Munda",
+    "artist": "Guru Randhawa, Benny Dayal",
+    "artists": [
+      "Guru Randhawa",
+      "Benny Dayal"
+    ],
+    "movie": "Arjun Patiala",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 183,
+    "audioUrl": "https://aac.saavncdn.com/883/4a9ab9331d285506deabf42880595b3e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/883/Arjun-Patiala-Hindi-2019-20190720104001-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Sachin-Jigar",
+    "lyricist": "Arjun",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-guru-randhawa-mtocsf1n-w0uj",
+    "artistId": "guru-randhawa",
+    "title": "High Rated Gabru",
+    "artist": "Guru Randhawa",
+    "artists": [
+      "Guru Randhawa"
+    ],
+    "movie": "Nawabzaade",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 179,
+    "audioUrl": "https://aac.saavncdn.com/326/279b9d0d8d5706150f01e12a50034789_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/326/Nawabzaade-Hindi-2018-20180717-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Guru Randhawa",
+    "lyricist": "Arjun",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-guru-randhawa-mtocsf1n-18sv",
+    "artistId": "guru-randhawa",
+    "title": "Naach Meri Rani",
+    "artist": "Guru Randhawa, Tanishk Bagchi, Nikhita Gandhi",
+    "artists": [
+      "Guru Randhawa",
+      "Tanishk Bagchi",
+      "Nikhita Gandhi"
+    ],
+    "movie": "Naach Meri Rani",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 212,
+    "audioUrl": "https://aac.saavncdn.com/248/e60a214fe3385eac95ef3d8fb09bb140_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/248/Naach-Meri-Rani-Hindi-2020-20201020051001-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Guru Randhawa",
+    "lyricist": "Arjun",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-guru-randhawa-mtocsf1n-8cxb",
+    "artistId": "guru-randhawa",
+    "title": "Kaun Nachdi",
+    "artist": "Guru Randhawa, Neeti Mohan",
+    "artists": [
+      "Guru Randhawa",
+      "Neeti Mohan"
+    ],
+    "movie": "Sonu Ke Titu Ki Sweety",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 183,
+    "audioUrl": "https://aac.saavncdn.com/074/26a548ed3ca8b223c116aabcd43f14ab_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/074/Sonu-Ke-Titu-Ki-Sweety-Hindi-2018-20180214153942-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Guru Randhawa, Rajat Nagpal",
+    "lyricist": "Arjun",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-guru-randhawa-mtocsf1o-oazt",
+    "artistId": "guru-randhawa",
+    "title": "Mehendi Wale Haath (Feat. Sanjana Sanghi)",
+    "artist": "Sachet-Parampara, Guru Randhawa",
+    "artists": [
+      "Sachet-Parampara",
+      "Guru Randhawa"
+    ],
+    "movie": "Mehendi Wale Haath (Feat. Sanjana Sanghi)",
+    "year": 2021,
+    "decade": "2010s",
+    "duration": 210,
+    "audioUrl": "https://aac.saavncdn.com/923/c2c9c47d8c8a51ce2a61ba7ca79e48ca_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/923/Mehendi-Wale-Haath-feat-Sanjana-Sanghi--Hindi-2021-20210114051001-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Sachet-Parampara, Guru Randhawa",
+    "lyricist": "Sanjana Sanghi",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-guru-randhawa-mtocsf1p-2hro",
+    "artistId": "guru-randhawa",
+    "title": "Enni Soni",
+    "artist": "Guru Randhawa, Tulsi Kumar",
+    "artists": [
+      "Guru Randhawa",
+      "Tulsi Kumar"
+    ],
+    "movie": "Saaho",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 258,
+    "audioUrl": "https://aac.saavncdn.com/890/5dafad9c515cd33195d080c87bde3ab7_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/890/Saaho-Hindi-2019-20231019181019-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Guru Randhawa",
+    "lyricist": "Sanjana Sanghi",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-guru-randhawa-mtocsf1q-0q3n",
+    "artistId": "guru-randhawa",
+    "title": "Raat Kamaal Hai",
+    "artist": "Guru Randhawa, Tulsi Kumar",
+    "artists": [
+      "Guru Randhawa",
+      "Tulsi Kumar"
+    ],
+    "movie": "Raat Kamaal Hai",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 197,
+    "audioUrl": "https://aac.saavncdn.com/767/344e94b974ab43b7759e575461730ef5_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/767/Raat-Kamaal-Hai-Hindi-2018-20180426053108-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Guru Randhawa",
+    "lyricist": "Sanjana Sanghi",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-guru-randhawa-mtocsf1r-ijx6",
+    "artistId": "guru-randhawa",
+    "title": "Roop Di Rani (From \"Pati Patni Aur Woh Do\")",
+    "artist": "Guru Randhawa, Tulsi Kumar",
+    "artists": [
+      "Guru Randhawa",
+      "Tulsi Kumar"
+    ],
+    "movie": "Roop Di Rani (From \"Pati Patni Aur Woh Do\")",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 219,
+    "audioUrl": "https://aac.saavncdn.com/654/4024597ea62948bd43a1189545e99389_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/654/Roop-Di-Rani-From-Pati-Patni-Aur-Woh-Do-Hindi-2026-20260422111003-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Tanishk Bagchi",
+    "lyricist": "Sanjana Sanghi",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-guru-randhawa-mtocsf1r-g524",
+    "artistId": "guru-randhawa",
+    "title": "QEHER (From \"Dhamaal 4\")",
+    "artist": "Guru Randhawa, Tulsi Kumar",
+    "artists": [
+      "Guru Randhawa",
+      "Tulsi Kumar"
+    ],
+    "movie": "QEHER (From \"Dhamaal 4\")",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 155,
+    "audioUrl": "https://aac.saavncdn.com/967/07f240a0cad4fe916af69aec4c388854_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/967/QEHER-From-Dhamaal-4-Hindi-2026-20260618121058-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Guru Randhawa, Gill Machhrai, Rony Ajnali",
+    "lyricist": "Sanjana Sanghi",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-mika-singh-mtocsf6i-s79m",
+    "artistId": "mika-singh",
+    "title": "Aapka Kya Hoga (Dhanno)",
+    "artist": "Mika Singh, Sunidhi Chauhan, Sajid Khan",
+    "artists": [
+      "Mika Singh",
+      "Sunidhi Chauhan",
+      "Sajid Khan"
+    ],
+    "movie": "Housefull",
+    "year": 2010,
+    "decade": "2010s",
+    "duration": 307,
+    "audioUrl": "https://aac.saavncdn.com/921/9644519a8165979460c261c1f3867258_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/921/Housefull-Hindi-2010-20221211101724-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Ehsaan-Loy",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-mika-singh-mtocsf6j-5m1q",
+    "artistId": "mika-singh",
+    "title": "Pungi",
+    "artist": "Mika Singh, Pritam, Nakash Aziz, Amitabh Bhattacharya, Nakash, Javed Jaffrey",
+    "artists": [
+      "Mika Singh",
+      "Pritam",
+      "Nakash Aziz",
+      "Amitabh Bhattacharya",
+      "Nakash",
+      "Javed Jaffrey"
+    ],
+    "movie": "Agent Vinod",
+    "year": 2012,
+    "decade": "2010s",
+    "duration": 250,
+    "audioUrl": "https://aac.saavncdn.com/603/f26cf40cb16400e5e92c1cee45c24099_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/603/Agent-Vinod-2012-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pritam",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-mika-singh-mtocsf6k-ydbn",
+    "artistId": "mika-singh",
+    "title": "Gandi Baat",
+    "artist": "Pritam, Mika Singh, Kalpana Patowary",
+    "artists": [
+      "Pritam",
+      "Mika Singh",
+      "Kalpana Patowary"
+    ],
+    "movie": "R...Rajkumar",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 248,
+    "audioUrl": "https://aac.saavncdn.com/134/b96c4e0123917cea7ea102cb1616c7d4_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/134/R-Rajkumar-Hindi-2025-20250930143440-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pritam",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-mika-singh-mtocsf6l-mmww",
+    "artistId": "mika-singh",
+    "title": "440 Volt",
+    "artist": "Mika Singh",
+    "artists": [
+      "Mika Singh"
+    ],
+    "movie": "Sultan",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 268,
+    "audioUrl": "https://aac.saavncdn.com/778/0433d4b526a3d367b2b15a77c0330e89_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/778/Sultan-Hindi-2016-20190329150247-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Vishal & Shekhar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-mika-singh-mtocsf6l-q1q2",
+    "artistId": "mika-singh",
+    "title": "Long Drive",
+    "artist": "Mika Singh",
+    "artists": [
+      "Mika Singh"
+    ],
+    "movie": "Khiladi 786",
+    "year": 2012,
+    "decade": "2010s",
+    "duration": 268,
+    "audioUrl": "https://aac.saavncdn.com/485/fb403caac9c4f7b91f1c384295e216bc_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/485/Khiladi-786-Hindi-2012-20221213035019-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Himesh Reshammiya",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-mika-singh-mtocsf6m-kku8",
+    "artistId": "mika-singh",
+    "title": "Garmi Non Stop Dance Mix(Remix By Kedrock,Sd Style)",
+    "artist": "Parampara Tandon, Vishal, Shekhar, KK, Shaan, Tulsi Kumar, Mika Singh, Meet Bros, Jubin Nautiyal, Dhvani Bhanushali, Nitin Mukesh, Guru Randhawa, Arijit Singh, Armaan Malik, B Praak, Mehul Vyas, Adarsh Shinde, Yo Yo Honey Singh, Romy, Bombay Rockers, Neha Kakkar, Tanishk Bagchi, A.R. Rahman, Pritam, Amaal Mallik, Sachet-Parampara, Tony Kakkar, Mithoon, Lijo George, Dj Chetas, Badshah, Vishal & Shekhar, Laxmikant - Pyarelal, Viju Shah, Sachin-Jigar, Vee",
+    "artists": [
+      "Parampara Tandon",
+      "Vishal",
+      "Shekhar",
+      "KK",
+      "Shaan",
+      "Tulsi Kumar",
+      "Mika Singh",
+      "Meet Bros",
+      "Jubin Nautiyal",
+      "Dhvani Bhanushali",
+      "Nitin Mukesh",
+      "Guru Randhawa",
+      "Arijit Singh",
+      "Armaan Malik",
+      "B Praak",
+      "Mehul Vyas",
+      "Adarsh Shinde",
+      "Yo Yo Honey Singh",
+      "Romy",
+      "Bombay Rockers",
+      "Neha Kakkar",
+      "Tanishk Bagchi",
+      "A.R. Rahman",
+      "Pritam",
+      "Amaal Mallik",
+      "Sachet-Parampara",
+      "Tony Kakkar",
+      "Mithoon",
+      "Lijo George",
+      "Dj Chetas",
+      "Badshah",
+      "Vishal & Shekhar",
+      "Laxmikant - Pyarelal",
+      "Viju Shah",
+      "Sachin-Jigar",
+      "Vee"
+    ],
+    "movie": "Garmi Non Stop Dance Mix",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 3600,
+    "audioUrl": "https://aac.saavncdn.com/500/f386a5c0dcb2f43494b25e1ff45da594_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/500/Garmi-Non-Stop-Dance-Mix-Hindi-2020-20201228161048-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Yo Yo Honey Singh, Guru Randhawa",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-mika-singh-mtocsf6n-ojl9",
+    "artistId": "mika-singh",
+    "title": "Go Go Govinda",
+    "artist": "Mika Singh, Shreya Ghoshal",
+    "artists": [
+      "Mika Singh",
+      "Shreya Ghoshal"
+    ],
+    "movie": "Oh My God",
+    "year": 2012,
+    "decade": "2010s",
+    "duration": 305,
+    "audioUrl": "https://aac.saavncdn.com/631/3a2846b9658f94b0f62610ad8b765eb9_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/631/Oh-My-God-Hindi-2012-20221212170044-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Himesh Reshammiya",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-mika-singh-mtocsf6o-b7mu",
+    "artistId": "mika-singh",
+    "title": "Pushpa Pushpa",
+    "artist": "Devi Sri Prasad, Mika Singh, Nakash Aziz, Raqueeb Alam",
+    "artists": [
+      "Devi Sri Prasad",
+      "Mika Singh",
+      "Nakash Aziz",
+      "Raqueeb Alam"
+    ],
+    "movie": "Pushpa 2 The Rule",
+    "year": 2024,
+    "decade": "2010s",
+    "duration": 256,
+    "audioUrl": "https://aac.saavncdn.com/306/14fabd68de4410cee4b822c89f37abd8_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/306/Pushpa-2-The-Rule-Hindi-2024-20241205211002-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Devi Sri Prasad",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-mika-singh-mtocsf6o-je0n",
+    "artistId": "mika-singh",
+    "title": "Rani Tu Mein Raja",
+    "artist": "Mika Singh, Bhavya Pandit, Yo Yo Honey Singh",
+    "artists": [
+      "Mika Singh",
+      "Bhavya Pandit",
+      "Yo Yo Honey Singh"
+    ],
+    "movie": "Son Of Sardaar",
+    "year": 2012,
+    "decade": "2010s",
+    "duration": 225,
+    "audioUrl": "https://aac.saavncdn.com/119/3f70f5ec7754c6551d2a342f4c436d06_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/119/Son-Of-Sardaar-Hindi-2012-20221212230946-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Himesh Reshammiya",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-mika-singh-mtocsf6p-jwki",
+    "artistId": "mika-singh",
+    "title": "Jadoo Ki Jhappi",
+    "artist": "Mika Singh, Bhavya Pandit, Yo Yo Honey Singh",
+    "artists": [
+      "Mika Singh",
+      "Bhavya Pandit",
+      "Yo Yo Honey Singh"
+    ],
+    "movie": "Ramaiya Vastavaiya",
+    "year": 2013,
+    "decade": "2010s",
+    "duration": 217,
+    "audioUrl": "https://aac.saavncdn.com/637/443e01fe9c54c6c7b92193833f5c694a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/637/Ramaiya-Vastavaiya-Hindi-2013-20240408213717-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Sachin-Jigar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-mika-singh-mtocsf6q-rwyv",
+    "artistId": "mika-singh",
+    "title": "Hawa Hawa",
+    "artist": "Mika Singh, Prakriti Kakar",
+    "artists": [
+      "Mika Singh",
+      "Prakriti Kakar"
+    ],
+    "movie": "Mubarakan",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 273,
+    "audioUrl": "https://aac.saavncdn.com/627/555d3cf883d26a3f2fc43515b9ba9680_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/627/Mubarakan-Hindi-2017-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Gourov-Roshin",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-mika-singh-mtocsf6q-090b",
+    "artistId": "mika-singh",
+    "title": "Piya More",
+    "artist": "Mika Singh, Neeti Mohan",
+    "artists": [
+      "Mika Singh",
+      "Neeti Mohan"
+    ],
+    "movie": "Baadshaho",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 257,
+    "audioUrl": "https://aac.saavncdn.com/689/95fbab3f143334ca075b79f95453c735_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/689/Baadshaho-Hindi-2017-20170819135132-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ankit Tiwari",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-mika-singh-mtocsf6r-21q4",
+    "artistId": "mika-singh",
+    "title": "Laila",
+    "artist": "Anand Raaj Anand, Mika Singh",
+    "artists": [
+      "Anand Raaj Anand",
+      "Mika Singh"
+    ],
+    "movie": "Shootout At Wadala",
+    "year": 2013,
+    "decade": "2010s",
+    "duration": 216,
+    "audioUrl": "https://aac.saavncdn.com/045/935286dfbbd06be94c2d6b0db46b0958_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/045/Shootout-At-Wadala-Hindi-2013-20200715045738-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Anand Raaj Anand",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-mika-singh-mtocsf6s-4qa5",
+    "artistId": "mika-singh",
+    "title": "Dhinka Chika",
+    "artist": "Anand Raaj Anand, Mika Singh",
+    "artists": [
+      "Anand Raaj Anand",
+      "Mika Singh"
+    ],
+    "movie": "Ready",
+    "year": 2011,
+    "decade": "2010s",
+    "duration": 271,
+    "audioUrl": "https://aac.saavncdn.com/933/1d4e08b55510da89c14376ce69db7ba3_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/933/Ready-Hindi-2011-20260724191112-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Devi Sri Prasad",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-mika-singh-mtocsf6t-5jud",
+    "artistId": "mika-singh",
+    "title": "Chinta Ta Ta Chita Chita",
+    "artist": "Sajid Wajid, Mika Singh, Wajid Khan",
+    "artists": [
+      "Sajid Wajid",
+      "Mika Singh",
+      "Wajid Khan"
+    ],
+    "movie": "Rowdy Rathore",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 261,
+    "audioUrl": "https://aac.saavncdn.com/781/c4bda2773156b56b8aa3ec39a5d7270c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/781/Rowdy-Rathore-Hindi-2012-20200627135501-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Wajid Khan, Sajid Khan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-b-praak-mtocsfba-xn60",
+    "artistId": "b-praak",
+    "title": "Mahakaal",
+    "artist": "B Praak, Jaani",
+    "artists": [
+      "B Praak",
+      "Jaani"
+    ],
+    "movie": "Mahakaal",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 284,
+    "audioUrl": "https://aac.saavncdn.com/978/25195473f5de75ff30ef492b133c1c81_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/978/Mahakaal-Hindi-2025-20250215053510-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Jaani",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-b-praak-mtocsfba-xoqj",
+    "artistId": "b-praak",
+    "title": "Braj Ras",
+    "artist": "B Praak, Jaani",
+    "artists": [
+      "B Praak",
+      "Jaani"
+    ],
+    "movie": "Braj Ras",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 822,
+    "audioUrl": "https://aac.saavncdn.com/184/366d5273227a458c91566f319a5b2bbe_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/184/Braj-Ras-Hindi-2026-20260405053500-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "B Praak",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-b-praak-mtocsfbb-i0yr",
+    "artistId": "b-praak",
+    "title": "Pachtaoge (From \"Jaani Ve\")",
+    "artist": "Arijit Singh",
+    "artists": [
+      "Arijit Singh"
+    ],
+    "movie": "Nora's Global Grooves",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 226,
+    "audioUrl": "https://aac.saavncdn.com/652/4c5cf4fd6a0b4dff77017e26b4f45a8a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/652/Nora-s-Global-Grooves-Hindi-2025-20250207121050-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "B Praak",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-b-praak-mtocsfbb-yp3c",
+    "artistId": "b-praak",
+    "title": "Dil Tod Ke",
+    "artist": "B Praak",
+    "artists": [
+      "B Praak"
+    ],
+    "movie": "Dil Tod Ke",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 239,
+    "audioUrl": "https://aac.saavncdn.com/997/3cddb2052a60e07f92bea839c394d0f3_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/997/Dil-Tod-Ke-Hindi-2020-20200714234001-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Rochak Kohli",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-b-praak-mtocsfbc-553z",
+    "artistId": "b-praak",
+    "title": "Tiranga",
+    "artist": "Tanishk Bagchi, Manoj Muntashir, B Praak",
+    "artists": [
+      "Tanishk Bagchi",
+      "Manoj Muntashir",
+      "B Praak"
+    ],
+    "movie": "Yodha",
+    "year": 2024,
+    "decade": "2010s",
+    "duration": 262,
+    "audioUrl": "https://aac.saavncdn.com/276/bf7381b71edf33a4a3a0dcd11105b6b6_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/276/Yodha-Hindi-2024-20240328171003-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Tanishk Bagchi",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-b-praak-mtocsfbd-w6d3",
+    "artistId": "b-praak",
+    "title": "Filhaal2 Mohabbat",
+    "artist": "B Praak",
+    "artists": [
+      "B Praak"
+    ],
+    "movie": "Love Hurts",
+    "year": 2022,
+    "decade": "2010s",
+    "duration": 300,
+    "audioUrl": "https://aac.saavncdn.com/113/b413388615504a869454e5d0d1376630_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/113/Love-Hurts-Hindi-2022-20250124193407-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Jaani",
+    "lyricist": "Akshay Kumar, Nupur Sanon, Ammy Virk",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-b-praak-mtocsfbd-cezd",
+    "artistId": "b-praak",
+    "title": "Chandni",
+    "artist": "Sachet Tandon, Parampara Tandon, Jaani, B Praak",
+    "artists": [
+      "Sachet Tandon",
+      "Parampara Tandon",
+      "Jaani",
+      "B Praak"
+    ],
+    "movie": "Chandni",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 248,
+    "audioUrl": "https://aac.saavncdn.com/596/83de4dfa3ea262f00d6e91c916a1b84b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/596/Chandni-Hindi-2023-20230729195544-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "B Praak",
+    "lyricist": "Akshay Kumar, Nupur Sanon, Ammy Virk",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-b-praak-mtocsfbe-3wy0",
+    "artistId": "b-praak",
+    "title": "Heer Aasmani",
+    "artist": "B Praak, Vishal Dadlani, Sheykhar Ravjiani, Vishal & Shekhar, Kumaar",
+    "artists": [
+      "B Praak",
+      "Vishal Dadlani",
+      "Sheykhar Ravjiani",
+      "Vishal & Shekhar",
+      "Kumaar"
+    ],
+    "movie": "Fighter",
+    "year": 2024,
+    "decade": "2010s",
+    "duration": 204,
+    "audioUrl": "https://aac.saavncdn.com/142/301503d8cf5e4558a0690a0809084371_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/142/Fighter-Hindi-2024-20240701191023-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Vishal & Shekhar",
+    "lyricist": "Akshay Kumar, Nupur Sanon, Ammy Virk",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-b-praak-mtocsfbf-6lcs",
+    "artistId": "b-praak",
+    "title": "O Saki Saki (From \"Batla House\")",
+    "artist": "Neha Kakkar, Tulsi Kumar, B Praak",
+    "artists": [
+      "Neha Kakkar",
+      "Tulsi Kumar",
+      "B Praak"
+    ],
+    "movie": "Nora's Global Grooves",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 191,
+    "audioUrl": "https://aac.saavncdn.com/652/ecb340f3d9caa064d82b212b0aab1a4e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/652/Nora-s-Global-Grooves-Hindi-2025-20250207121050-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Tanishk Bagchi, Vishal & Shekhar",
+    "lyricist": "Akshay Kumar, Nupur Sanon, Ammy Virk",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-b-praak-mtocsfbg-6hmv",
+    "artistId": "b-praak",
+    "title": "O Saki Saki",
+    "artist": "Vishal & Shekhar, Neha Kakkar, Tulsi Kumar, B Praak",
+    "artists": [
+      "Vishal & Shekhar",
+      "Neha Kakkar",
+      "Tulsi Kumar",
+      "B Praak"
+    ],
+    "movie": "Batla House",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 191,
+    "audioUrl": "https://aac.saavncdn.com/906/6a3c584a9e4fde2096d6b702d37a1a5a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/906/Batla-House-Hindi-2019-20241205142148-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Tanishk Bagchi, Vishal & Shekhar",
+    "lyricist": "Akshay Kumar, Nupur Sanon, Ammy Virk",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-b-praak-mtocsfbh-an22",
+    "artistId": "b-praak",
+    "title": "Pyaro Vrindavan",
+    "artist": "Indresh Upadhyay, B Praak",
+    "artists": [
+      "Indresh Upadhyay",
+      "B Praak"
+    ],
+    "movie": "Pyaro Vrindavan",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 801,
+    "audioUrl": "https://aac.saavncdn.com/389/23775d8a6e6354012c6b44a17c52e54a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/389/Pyaro-Vrindavan-Hindi-2025-20250414053535-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Traditional",
+    "lyricist": "Akshay Kumar, Nupur Sanon, Ammy Virk",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-b-praak-mtocsfbi-rxr3",
+    "artistId": "b-praak",
+    "title": "Yaar Ka Sataya Hua Hai",
+    "artist": "B Praak, Jaani",
+    "artists": [
+      "B Praak",
+      "Jaani"
+    ],
+    "movie": "Zohrajabeen",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 268,
+    "audioUrl": "https://aac.saavncdn.com/592/c0c5298c186ce68be9d8bc67c8dabb66_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/592/Zohrajabeen-Hindi-2023-20230722053350-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Jaani",
+    "lyricist": "Nawazuddin Siddiqui",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-b-praak-mtocsfbj-6r0f",
+    "artistId": "b-praak",
+    "title": "Saari Duniya Jalaa Denge",
+    "artist": "B Praak, Jaani",
+    "artists": [
+      "B Praak",
+      "Jaani"
+    ],
+    "movie": "ANIMAL",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 182,
+    "audioUrl": "https://aac.saavncdn.com/092/cf9264c30cadec46f1846d8bd4c40f49_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/092/ANIMAL-Hindi-2023-20260724191152-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Jaani",
+    "lyricist": "Nawazuddin Siddiqui",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-b-praak-mtocsfbk-lzdd",
+    "artistId": "b-praak",
+    "title": "Dil Kaat Ke",
+    "artist": "Jaani, B Praak, Bunny",
+    "artists": [
+      "Jaani",
+      "B Praak",
+      "Bunny"
+    ],
+    "movie": "Dil Kaat Ke",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 263,
+    "audioUrl": "https://aac.saavncdn.com/579/e13618b9e6c536d419a19feeeed9ec30_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/579/Dil-Kaat-Ke-Hindi-2025-20251205054121-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Jaani",
+    "lyricist": "Nawazuddin Siddiqui",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-b-praak-mtocsfbl-efls",
+    "artistId": "b-praak",
+    "title": "Baarish Ki Jaaye",
+    "artist": "B Praak",
+    "artists": [
+      "B Praak"
+    ],
+    "movie": "#GoodTimes",
+    "year": 2022,
+    "decade": "2010s",
+    "duration": 251,
+    "audioUrl": "https://aac.saavncdn.com/908/acb73dce8deb5f9d5099a71584968e92_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/908/GoodTimes-Hindi-2022-20250516161255-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Jaani",
+    "lyricist": "Nawazuddin Siddiqui, Sunanda Sharma",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-armaan-malik-mtocsfgd-5co8",
+    "artistId": "armaan-malik",
+    "title": "Rom Rom Romantic",
+    "artist": "Mika Singh, Armaan Malik",
+    "artists": [
+      "Mika Singh",
+      "Armaan Malik"
+    ],
+    "movie": "Mastizaade",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 270,
+    "audioUrl": "https://aac.saavncdn.com/226/199b7bb4a57add13d406f3189dd8bd68_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/226/Mastizaade-Hindi-2015-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Amaal Mallik",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-armaan-malik-mtocsfgd-dvw1",
+    "artistId": "armaan-malik",
+    "title": "Bol Do Na Zara (From \"Azhar\")",
+    "artist": "Armaan Malik, Amaal Mallik, Rashmi-Virag",
+    "artists": [
+      "Armaan Malik",
+      "Amaal Mallik",
+      "Rashmi-Virag"
+    ],
+    "movie": "Pov - You're Romantic",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 292,
+    "audioUrl": "https://aac.saavncdn.com/271/870405d46673b42c5957c1fae0534218_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/271/Pov-You-re-Romantic-Hindi-2023-20251206151126-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Amaal Mallik",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-armaan-malik-mtocsfge-cclr",
+    "artistId": "armaan-malik",
+    "title": "Jab Tak (From \"M.S.Dhoni - The Untold Story\")",
+    "artist": "Armaan Malik, Amaal Mallik, Manoj Muntashir",
+    "artists": [
+      "Armaan Malik",
+      "Amaal Mallik",
+      "Manoj Muntashir"
+    ],
+    "movie": "Pov - You're Romantic",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 174,
+    "audioUrl": "https://aac.saavncdn.com/271/e87c041a0e93f11f1fa000d4660faa2b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/271/Pov-You-re-Romantic-Hindi-2023-20251206151126-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Amaal Mallik",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-armaan-malik-mtocsfgf-bdel",
+    "artistId": "armaan-malik",
+    "title": "Main Rahoon Ya Na Rahoon (From \"Main Rahoon Ya Na Rahoon\")",
+    "artist": "Armaan Malik, Amaal Mallik, Rashmi-Virag",
+    "artists": [
+      "Armaan Malik",
+      "Amaal Mallik",
+      "Rashmi-Virag"
+    ],
+    "movie": "Pov - You're Romantic",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 309,
+    "audioUrl": "https://aac.saavncdn.com/271/956e67a82f60941a625a3c6d6635b61c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/271/Pov-You-re-Romantic-Hindi-2023-20251206151126-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Amaal Mallik",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-armaan-malik-mtocsfgf-nry1",
+    "artistId": "armaan-malik",
+    "title": "Sab Tera (From \"Baaghi\")",
+    "artist": "Armaan Malik, Shraddha Kapoor, Amaal Mallik, Sanjeev Chaturvedi",
+    "artists": [
+      "Armaan Malik",
+      "Shraddha Kapoor",
+      "Amaal Mallik",
+      "Sanjeev Chaturvedi"
+    ],
+    "movie": "Pov - You're Romantic",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 228,
+    "audioUrl": "https://aac.saavncdn.com/271/7a5caf116af1ae7bbcee1ffd8198b5dd_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/271/Pov-You-re-Romantic-Hindi-2023-20251206151126-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Amaal Mallik",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-armaan-malik-mtocsfgg-j892",
+    "artistId": "armaan-malik",
+    "title": "Mujhko Barsaat Bana Lo (From \"Junooniyat\")",
+    "artist": "Armaan Malik, Jeet Gannguli, Rashmi-Virag",
+    "artists": [
+      "Armaan Malik",
+      "Jeet Gannguli",
+      "Rashmi-Virag"
+    ],
+    "movie": "Pov - You're Romantic",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 263,
+    "audioUrl": "https://aac.saavncdn.com/271/1ff81ec40671a16db9150302b64e24fb_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/271/Pov-You-re-Romantic-Hindi-2023-20251206151126-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Jeet Gannguli",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-armaan-malik-mtocsfgg-ymy1",
+    "artistId": "armaan-malik",
+    "title": "Chale Aana (From \"De De Pyaar De\")",
+    "artist": "Armaan Malik, Amaal Mallik, Kunaal Vermaa",
+    "artists": [
+      "Armaan Malik",
+      "Amaal Mallik",
+      "Kunaal Vermaa"
+    ],
+    "movie": "Pov - You're Romantic",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 271,
+    "audioUrl": "https://aac.saavncdn.com/271/e94bef23da92838fcf5e7bdd60d81ab4_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/271/Pov-You-re-Romantic-Hindi-2023-20251206151126-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Amaal Mallik",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-armaan-malik-mtocsfgh-l3gw",
+    "artistId": "armaan-malik",
+    "title": "Kuch To Hai (From \"Do Lafzon Ki Kahani\")",
+    "artist": "Armaan Malik, Amaal Mallik, Manoj Muntashir",
+    "artists": [
+      "Armaan Malik",
+      "Amaal Mallik",
+      "Manoj Muntashir"
+    ],
+    "movie": "Pov - You're Romantic",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 248,
+    "audioUrl": "https://aac.saavncdn.com/271/a796b1b32fb481cee6b66cadc832d887_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/271/Pov-You-re-Romantic-Hindi-2023-20251206151126-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Amaal Mallik",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-armaan-malik-mtocsfgh-6vae",
+    "artistId": "armaan-malik",
+    "title": "Wajah Tum Ho (From \"Hate Story 3\")",
+    "artist": "Armaan Malik, Baman, Manoj Muntashir",
+    "artists": [
+      "Armaan Malik",
+      "Baman",
+      "Manoj Muntashir"
+    ],
+    "movie": "Pov - You're Romantic",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 357,
+    "audioUrl": "https://aac.saavncdn.com/271/6d8f12733a403857ca761847804369b1_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/271/Pov-You-re-Romantic-Hindi-2023-20251206151126-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Baman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-armaan-malik-mtocsfgi-8tuk",
+    "artistId": "armaan-malik",
+    "title": "Dil Mein Ho Tum (From \"Why Cheat India\")",
+    "artist": "Armaan Malik, Rochak Kohli, Bappi Lahiri, Manoj Muntashir, Farooq Qaiser",
+    "artists": [
+      "Armaan Malik",
+      "Rochak Kohli",
+      "Bappi Lahiri",
+      "Manoj Muntashir",
+      "Farooq Qaiser"
+    ],
+    "movie": "Pov - You're Romantic",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 326,
+    "audioUrl": "https://aac.saavncdn.com/271/dd8c998a1a9de8325d7f7c079b87eb12_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/271/Pov-You-re-Romantic-Hindi-2023-20251206151126-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Rochak Kohli, Bappi Lahiri",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-armaan-malik-mtocsfgi-vbb3",
+    "artistId": "armaan-malik",
+    "title": "Wajah Tum Ho",
+    "artist": "Armaan Malik",
+    "artists": [
+      "Armaan Malik"
+    ],
+    "movie": "Bollywood Romantic Songs With Armaan Malik",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 358,
+    "audioUrl": "https://aac.saavncdn.com/082/0db99e0571c7bc2437a78495a1ce0a29_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/082/Bollywood-Romantic-Songs-With-Armaan-Malik-Hindi-2017-20170721151805-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Baman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-armaan-malik-mtocsfgj-yedi",
+    "artistId": "armaan-malik",
+    "title": "Tumhe Apna Banane Ka (From \"Hate Story 3\")",
+    "artist": "Armaan Malik, Neeti Mohan, Amaal Mallik, Rashmi-Virag",
+    "artists": [
+      "Armaan Malik",
+      "Neeti Mohan",
+      "Amaal Mallik",
+      "Rashmi-Virag"
+    ],
+    "movie": "Pov - You're Romantic",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 310,
+    "audioUrl": "https://aac.saavncdn.com/271/f096bbe45e06d84197ca2af6c479962a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/271/Pov-You-re-Romantic-Hindi-2023-20251206151126-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Amaal Mallik",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-armaan-malik-mtocsfgj-l783",
+    "artistId": "armaan-malik",
+    "title": "Pehla Pyaar (From \"Kabir Singh\")",
+    "artist": "Armaan Malik, Vishal Mishra, Irshad Kamil",
+    "artists": [
+      "Armaan Malik",
+      "Vishal Mishra",
+      "Irshad Kamil"
+    ],
+    "movie": "Pov - You're Romantic",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 272,
+    "audioUrl": "https://aac.saavncdn.com/271/61d7302bf45d70ad16244d5879456f75_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/271/Pov-You-re-Romantic-Hindi-2023-20251206151126-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Vishal Mishra",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-armaan-malik-mtocsfgk-k9ay",
+    "artistId": "armaan-malik",
+    "title": "Tumhe Apna Banane Ka",
+    "artist": "Armaan Malik, Neeti Mohan",
+    "artists": [
+      "Armaan Malik",
+      "Neeti Mohan"
+    ],
+    "movie": "Bollywood Romantic Songs With Armaan Malik",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 310,
+    "audioUrl": "https://aac.saavncdn.com/082/0161293e25b6e2bcba65a029e8bd8e25_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/082/Bollywood-Romantic-Songs-With-Armaan-Malik-Hindi-2017-20170721151805-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Amaal Mallik",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-armaan-malik-mtocsfgk-gt42",
+    "artistId": "armaan-malik",
+    "title": "Kaun Tujhe (Armaan Malik Version) [From \"Kaun Tujhe (Armaan Malik Version)\"]",
+    "artist": "Armaan Malik, Amaal Mallik, Manoj Muntashir",
+    "artists": [
+      "Armaan Malik",
+      "Amaal Mallik",
+      "Manoj Muntashir"
+    ],
+    "movie": "Pov - You're Romantic",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 160,
+    "audioUrl": "https://aac.saavncdn.com/271/50d7575214f20848e93ecd8e35d8570a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/271/Pov-You-re-Romantic-Hindi-2023-20251206151126-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Amaal Mallik",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-ankit-tiwari-mtocsfl8-82ok",
+    "artistId": "ankit-tiwari",
+    "title": "Galliyan",
+    "artist": "Ankit Tiwari",
+    "artists": [
+      "Ankit Tiwari"
+    ],
+    "movie": "Ek Villain",
+    "year": 2014,
+    "decade": "2010s",
+    "duration": 341,
+    "audioUrl": "https://aac.saavncdn.com/151/83d9815e1d6129ff644dc9575ef6db7e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/151/Ek-Villain-Hindi-2014-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ankit Tiwari",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-ankit-tiwari-mtocsfl8-o84q",
+    "artistId": "ankit-tiwari",
+    "title": "Sunn Raha Hai (Female)",
+    "artist": "Shreya Ghoshal",
+    "artists": [
+      "Shreya Ghoshal"
+    ],
+    "movie": "Aashiqui 2",
+    "year": 2013,
+    "decade": "2010s",
+    "duration": 314,
+    "audioUrl": "https://aac.saavncdn.com/430/d262bf981e14140383c36698e2e7730e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/430/Aashiqui-2-Hindi-2013-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ankit Tiwari",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-ankit-tiwari-mtocsfl9-ozi4",
+    "artistId": "ankit-tiwari",
+    "title": "Galliyan Returns",
+    "artist": "Shreya Ghoshal",
+    "artists": [
+      "Shreya Ghoshal"
+    ],
+    "movie": "Ek Villain Returns",
+    "year": 2022,
+    "decade": "2010s",
+    "duration": 350,
+    "audioUrl": "https://aac.saavncdn.com/651/f0972415ecb05ddc6eeb9cd1529610f6_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/651/Ek-Villain-Returns-Hindi-2022-20260724181024-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ankit Tiwari",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-ankit-tiwari-mtocsfl9-m8sf",
+    "artistId": "ankit-tiwari",
+    "title": "Tu Hai Ki Nahi",
+    "artist": "Ankit Tiwari",
+    "artists": [
+      "Ankit Tiwari"
+    ],
+    "movie": "Roy",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 334,
+    "audioUrl": "https://aac.saavncdn.com/647/77e78764dcbcf5d2966352329b3b764c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/647/Roy-Hindi-2015-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ankit Tiwari",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-ankit-tiwari-mtocsfla-rvl5",
+    "artistId": "ankit-tiwari",
+    "title": "Shaamat",
+    "artist": "Ankit Tiwari",
+    "artists": [
+      "Ankit Tiwari"
+    ],
+    "movie": "Ek Villain Returns",
+    "year": 2022,
+    "decade": "2010s",
+    "duration": 334,
+    "audioUrl": "https://aac.saavncdn.com/651/ea6a30f231c5f099907222d5fe3a718c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/651/Ek-Villain-Returns-Hindi-2022-20260724181024-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ankit Tiwari",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-ankit-tiwari-mtocsfla-v4ek",
+    "artistId": "ankit-tiwari",
+    "title": "Dekh Lena",
+    "artist": "Arijit Singh, Tulsi Kumar",
+    "artists": [
+      "Arijit Singh",
+      "Tulsi Kumar"
+    ],
+    "movie": "Tum Bin 2",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 282,
+    "audioUrl": "https://aac.saavncdn.com/737/5e9fb41ebbde19ce64f7ba5d9b5d56a8_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/737/Tum-Bin-2-Full-Hindi-2016-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ankit Tiwari",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-ankit-tiwari-mtocsflb-vmhl",
+    "artistId": "ankit-tiwari",
+    "title": "Dil Cheez Tujhe Dedi",
+    "artist": "Ankit Tiwari, Arijit Singh",
+    "artists": [
+      "Ankit Tiwari",
+      "Arijit Singh"
+    ],
+    "movie": "Airlift",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 271,
+    "audioUrl": "https://aac.saavncdn.com/026/fb57bc28fbefbcbcfed5403d875eec93_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/451/Airlift-Hindi-2015-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ankit Tiwari",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-ankit-tiwari-mtocsflb-unqn",
+    "artistId": "ankit-tiwari",
+    "title": "Katra Katra",
+    "artist": "Prakriti Kakar, Ankit Tiwari",
+    "artists": [
+      "Prakriti Kakar",
+      "Ankit Tiwari"
+    ],
+    "movie": "Alone",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 381,
+    "audioUrl": "https://aac.saavncdn.com/794/14c021952dd2d7ea1a7f662de73f5c2d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/794/Alone-Hindi-2014-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ankit Tiwari",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-ankit-tiwari-mtocsflc-1lsz",
+    "artistId": "ankit-tiwari",
+    "title": "Galliyan (Unplugged)",
+    "artist": "Shraddha Kapoor, Ankit Tiwari",
+    "artists": [
+      "Shraddha Kapoor",
+      "Ankit Tiwari"
+    ],
+    "movie": "Ek Villain",
+    "year": 2014,
+    "decade": "2010s",
+    "duration": 255,
+    "audioUrl": "https://aac.saavncdn.com/151/66153675b11b39213d6260cda4f288fd_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/151/Ek-Villain-Hindi-2014-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ankit Tiwari",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-ankit-tiwari-mtocsflc-ibkv",
+    "artistId": "ankit-tiwari",
+    "title": "Piya More",
+    "artist": "Mika Singh, Neeti Mohan",
+    "artists": [
+      "Mika Singh",
+      "Neeti Mohan"
+    ],
+    "movie": "Baadshaho",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 257,
+    "audioUrl": "https://aac.saavncdn.com/689/95fbab3f143334ca075b79f95453c735_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/689/Baadshaho-Hindi-2017-20170819135132-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ankit Tiwari",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-ankit-tiwari-mtocsflc-475b",
+    "artistId": "ankit-tiwari",
+    "title": "Tay Hai",
+    "artist": "Ankit Tiwari",
+    "artists": [
+      "Ankit Tiwari"
+    ],
+    "movie": "Rustom",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 228,
+    "audioUrl": "https://aac.saavncdn.com/298/e0bb1d4ca5a01a59dde2eedb581f557c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/340/Rustom-Hindi-2018-20250617070806-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ankit Tiwari",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-ankit-tiwari-mtocsfld-aod0",
+    "artistId": "ankit-tiwari",
+    "title": "Mohabbat Bula Rahi Hai",
+    "artist": "Payal Dev, Ankit Tiwari, Kunaal Vermaa",
+    "artists": [
+      "Payal Dev",
+      "Ankit Tiwari",
+      "Kunaal Vermaa"
+    ],
+    "movie": "Mohabbat Bula Rahi Hai",
+    "year": 2024,
+    "decade": "2010s",
+    "duration": 252,
+    "audioUrl": "https://aac.saavncdn.com/019/fcd2203cf09871b1b232a28a49aea08b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/019/Mohabbat-Bula-Rahi-Hai-Hindi-2024-20240203051907-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Payal Dev, Ankit Tiwari",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-ankit-tiwari-mtocsfle-gye2",
+    "artistId": "ankit-tiwari",
+    "title": "Agar Tu Hota",
+    "artist": "Ankit Tiwari",
+    "artists": [
+      "Ankit Tiwari"
+    ],
+    "movie": "Baaghi",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 328,
+    "audioUrl": "https://aac.saavncdn.com/944/df22adef132b6baa03ed35d653f45542_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/944/Baaghi-Hindi-2016-20220420171003-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ankit Tiwari",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-ankit-tiwari-mtocsfle-7mfo",
+    "artistId": "ankit-tiwari",
+    "title": "Alif Se",
+    "artist": "Ankit Tiwari, Neeti Mohan",
+    "artists": [
+      "Ankit Tiwari",
+      "Neeti Mohan"
+    ],
+    "movie": "Mr. X",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 277,
+    "audioUrl": "https://aac.saavncdn.com/931/1de2d460cc09f2df0107543e6c7128b3_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/931/Mr-X-Hindi-2015-20190516131941-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ankit Tiwari",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-ankit-tiwari-mtocsflg-8xrv",
+    "artistId": "ankit-tiwari",
+    "title": "Tum Se Hi",
+    "artist": "Ankit Tiwari, Leena Bose",
+    "artists": [
+      "Ankit Tiwari",
+      "Leena Bose"
+    ],
+    "movie": "Sadak 2",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 283,
+    "audioUrl": "https://aac.saavncdn.com/344/f67608de1bc4328bbbbde5e46659c34b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/344/Sadak-2-Hindi-2020-20200828123041-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Ankit Tiwari",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sameer-anjaan-mtocsfpu-nujh",
+    "artistId": "sameer-anjaan",
+    "title": "Jo Bhi Kasmein",
+    "artist": "Kishore Kumar, Asha Bhosle",
+    "artists": [
+      "Kishore Kumar",
+      "Asha Bhosle"
+    ],
+    "movie": "Raaz",
+    "year": 2002,
+    "decade": "2000s",
+    "duration": 339,
+    "audioUrl": "https://aac.saavncdn.com/998/0bf5698dc25f242f3c2c56b74a27b4f2_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/998/Raaz-Hindi-2002-20260309193542-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Nadeem Akhtar Saifi, Shravan Kumar Rathod",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sameer-anjaan-mtocsfpv-41gh",
+    "artistId": "sameer-anjaan",
+    "title": "Aapke Pyaar Mein Hum",
+    "artist": "Kishore Kumar, Asha Bhosle",
+    "artists": [
+      "Kishore Kumar",
+      "Asha Bhosle"
+    ],
+    "movie": "Raaz",
+    "year": 2002,
+    "decade": "2000s",
+    "duration": 328,
+    "audioUrl": "https://aac.saavncdn.com/998/e0756f8074c1de82d29339b4862026ea_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/998/Raaz-Hindi-2002-20260309193542-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Nadeem Akhtar Saifi, Shravan Kumar Rathod",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sameer-anjaan-mtocsfpw-du9g",
+    "artistId": "sameer-anjaan",
+    "title": "Dil Laga Liya Maine",
+    "artist": "Kishore Kumar, Asha Bhosle",
+    "artists": [
+      "Kishore Kumar",
+      "Asha Bhosle"
+    ],
+    "movie": "Dil Hai Tumhaara",
+    "year": 2002,
+    "decade": "2000s",
+    "duration": 271,
+    "audioUrl": "https://aac.saavncdn.com/541/59bfba2473eaea017ddb59ab5f876982_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/541/Dil-Hai-Tumhaara-Hindi-2002-20240408213901-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Nadeem-Shravan, Alka Yagnik, Udit Narayan, Sameer Anjaan, Nadeem Akhtar Saifi, Shravan Kumar Rathod",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sameer-anjaan-mtocsfpw-oau4",
+    "artistId": "sameer-anjaan",
+    "title": "Hum Pyaar Karne Wale (From \"Dhurandhar The Revenge\")",
+    "artist": "Shashwat Sachdev, Qveen Herby, Anuradha Paudwal, Udit Narayan, Anand-Milind, Sameer Anjaan",
+    "artists": [
+      "Shashwat Sachdev",
+      "Qveen Herby",
+      "Anuradha Paudwal",
+      "Udit Narayan",
+      "Anand-Milind",
+      "Sameer Anjaan"
+    ],
+    "movie": "Hum Pyaar Karne Wale (From \"Dhurandhar The Revenge\")",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 208,
+    "audioUrl": "https://aac.saavncdn.com/642/83178b52b59f64c825b68a52e3f46133_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/642/Hum-Pyaar-Karne-Wale-From-Dhurandhar-The-Revenge-Hindi-2026-20260319161014-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shashwat Sachdev, Anand-Milind",
+    "lyricist": "Sameer Anjaan, Mickey Skyro",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sameer-anjaan-mtocsfpx-g1j3",
+    "artistId": "sameer-anjaan",
+    "title": "Hum Pyaar Karne Wale",
+    "artist": "Shashwat Sachdev, Qveen Herby, Anuradha Paudwal, Udit Narayan, Anand-Milind, Sameer Anjaan",
+    "artists": [
+      "Shashwat Sachdev",
+      "Qveen Herby",
+      "Anuradha Paudwal",
+      "Udit Narayan",
+      "Anand-Milind",
+      "Sameer Anjaan"
+    ],
+    "movie": "Dhurandhar The Revenge",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 208,
+    "audioUrl": "https://aac.saavncdn.com/581/71b955db8bd8889fab8e651e5c573bac_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/581/Dhurandhar-The-Revenge-Hindi-2026-20260409161002-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shashwat Sachdev, Anand-Milind",
+    "lyricist": "Sameer Anjaan, Mickey Skyro",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sameer-anjaan-mtocsfpx-d45a",
+    "artistId": "sameer-anjaan",
+    "title": "Kitni Hasrat Hai Humein",
+    "artist": "Shashwat Sachdev, Qveen Herby, Anuradha Paudwal, Udit Narayan, Anand-Milind, Sameer Anjaan",
+    "artists": [
+      "Shashwat Sachdev",
+      "Qveen Herby",
+      "Anuradha Paudwal",
+      "Udit Narayan",
+      "Anand-Milind",
+      "Sameer Anjaan"
+    ],
+    "movie": "Sainik",
+    "year": 1993,
+    "decade": "90s",
+    "duration": 392,
+    "audioUrl": "https://aac.saavncdn.com/179/cb59ec805f3846d8db1d6ace2b499d0e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/179/Sainik-Hindi-1993-20240408213840-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Kumar Sanu, Sadhana Sargam, Nadeem-Shravan, Sameer Anjaan",
+    "lyricist": "Sameer Anjaan, Mickey Skyro",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sameer-anjaan-mtocsfpy-8ysi",
+    "artistId": "sameer-anjaan",
+    "title": "Kitna Pyaara Hai",
+    "artist": "Shashwat Sachdev, Qveen Herby, Anuradha Paudwal, Udit Narayan, Anand-Milind, Sameer Anjaan",
+    "artists": [
+      "Shashwat Sachdev",
+      "Qveen Herby",
+      "Anuradha Paudwal",
+      "Udit Narayan",
+      "Anand-Milind",
+      "Sameer Anjaan"
+    ],
+    "movie": "Raaz",
+    "year": 2002,
+    "decade": "2000s",
+    "duration": 261,
+    "audioUrl": "https://aac.saavncdn.com/998/7d47269df4c3a0bc44de4905cce807ee_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/998/Raaz-Hindi-2002-20260309193542-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Nadeem Akhtar Saifi, Shravan Kumar Rathod",
+    "lyricist": "Sameer Anjaan, Mickey Skyro",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sameer-anjaan-mtocsfpy-gs9u",
+    "artistId": "sameer-anjaan",
+    "title": "Ek Dilruba Hai",
+    "artist": "Shashwat Sachdev, Qveen Herby, Anuradha Paudwal, Udit Narayan, Anand-Milind, Sameer Anjaan",
+    "artists": [
+      "Shashwat Sachdev",
+      "Qveen Herby",
+      "Anuradha Paudwal",
+      "Udit Narayan",
+      "Anand-Milind",
+      "Sameer Anjaan"
+    ],
+    "movie": "Bewafaa",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 408,
+    "audioUrl": "https://aac.saavncdn.com/244/eaab55be0c3c94d2f8c055efe79e6dd1_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/244/Bewafaa-Hindi-2005-20240408213904-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Nadeem-Shravan",
+    "lyricist": "Sameer Anjaan, Mickey Skyro",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sameer-anjaan-mtocsfpy-8w0z",
+    "artistId": "sameer-anjaan",
+    "title": "Malang - Extended Version",
+    "artist": "Siddharth Mahadevan, Shilpa Rao",
+    "artists": [
+      "Siddharth Mahadevan",
+      "Shilpa Rao"
+    ],
+    "movie": "Malang - Extended Version",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 361,
+    "audioUrl": "https://aac.saavncdn.com/636/74e5def03b21f9ac8f9d280455059882_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/636/Malang-Extended-Version-Hindi-2023-20230718200424-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pritam",
+    "lyricist": "Sameer Anjaan, Mickey Skyro",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sameer-anjaan-mtocsfpz-85c1",
+    "artistId": "sameer-anjaan",
+    "title": "Malang",
+    "artist": "Siddharth Mahadevan, Shilpa Rao",
+    "artists": [
+      "Siddharth Mahadevan",
+      "Shilpa Rao"
+    ],
+    "movie": "Dhoom:3",
+    "year": 2013,
+    "decade": "2010s",
+    "duration": 277,
+    "audioUrl": "https://aac.saavncdn.com/183/4635d015f7d83fbe94447bb1e339fbdc_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/183/Dhoom-3-Hindi-2013-20190329151006-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pritam",
+    "lyricist": "Sameer Anjaan, Mickey Skyro",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sameer-anjaan-mtocsfpz-f32l",
+    "artistId": "sameer-anjaan",
+    "title": "Malang (From \"Dhoom:3\")",
+    "artist": "Pritam, Siddharth Mahadevan, Shilpa Rao, Sameer Anjaan",
+    "artists": [
+      "Pritam",
+      "Siddharth Mahadevan",
+      "Shilpa Rao",
+      "Sameer Anjaan"
+    ],
+    "movie": "Pyaar, Forever and Ever",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 277,
+    "audioUrl": "https://aac.saavncdn.com/347/839def8fc03535de131a7e78ae50819e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/347/Pyaar-Forever-and-Ever-Hindi-2026-20260205082719-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pritam",
+    "lyricist": "Sameer Anjaan, Mickey Skyro",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sameer-anjaan-mtocsfq0-8a00",
+    "artistId": "sameer-anjaan",
+    "title": "Mohabbat Dil Ka Sakoon",
+    "artist": "Pritam, Siddharth Mahadevan, Shilpa Rao, Sameer Anjaan",
+    "artists": [
+      "Pritam",
+      "Siddharth Mahadevan",
+      "Shilpa Rao",
+      "Sameer Anjaan"
+    ],
+    "movie": "Dil Hai Tumhaara",
+    "year": 2002,
+    "decade": "2000s",
+    "duration": 337,
+    "audioUrl": "https://aac.saavncdn.com/541/7134d6ad8fc09e36f8ff5944e3fd8fd7_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/541/Dil-Hai-Tumhaara-Hindi-2002-20240408213901-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Nadeem-Shravan, Alka Yagnik, Kumar Sanu, Udit Narayan, Sameer Anjaan, Nadeem Akhtar Saifi, Shravan Kumar Rathod",
+    "lyricist": "Sameer Anjaan, Mickey Skyro",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sameer-anjaan-mtocsfq0-1o35",
+    "artistId": "sameer-anjaan",
+    "title": "Dil Ka Rishta",
+    "artist": "Pritam, Siddharth Mahadevan, Shilpa Rao, Sameer Anjaan",
+    "artists": [
+      "Pritam",
+      "Siddharth Mahadevan",
+      "Shilpa Rao",
+      "Sameer Anjaan"
+    ],
+    "movie": "Dil Ka Rishta",
+    "year": 2003,
+    "decade": "2000s",
+    "duration": 304,
+    "audioUrl": "https://aac.saavncdn.com/589/d772a34986b56f2cd6fd7325513ff6ea_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/589/Dil-Ka-Rishta-Hindi-2003-20240408213944-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Nadeem-Shravan, Alka Yagnik, Udit Narayan, Kumar Sanu, Sameer Anjaan, Nadeem Akhtar Saifi, Shravan Kumar Rathod",
+    "lyricist": "Sameer Anjaan, Mickey Skyro",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sameer-anjaan-mtocsfq1-an5h",
+    "artistId": "sameer-anjaan",
+    "title": "Aankhon Se Tune Kya Keh Diya",
+    "artist": "Pritam, Siddharth Mahadevan, Shilpa Rao, Sameer Anjaan",
+    "artists": [
+      "Pritam",
+      "Siddharth Mahadevan",
+      "Shilpa Rao",
+      "Sameer Anjaan"
+    ],
+    "movie": "Ghulam",
+    "year": 1998,
+    "decade": "90s",
+    "duration": 305,
+    "audioUrl": "https://aac.saavncdn.com/599/de653c146d3032144048d35cdb098e65_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/599/Ghulam-Hindi-1998-20240408222031-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Jatin Pandit, Lalit Pandit",
+    "lyricist": "Sameer Anjaan, Mickey Skyro",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sameer-anjaan-mtocsfq2-p7ir",
+    "artistId": "sameer-anjaan",
+    "title": "Aa Jaana Aa Jaana",
+    "artist": "Pritam, Siddharth Mahadevan, Shilpa Rao, Sameer Anjaan",
+    "artists": [
+      "Pritam",
+      "Siddharth Mahadevan",
+      "Shilpa Rao",
+      "Sameer Anjaan"
+    ],
+    "movie": "Coolie No.1",
+    "year": 1995,
+    "decade": "90s",
+    "duration": 385,
+    "audioUrl": "https://aac.saavncdn.com/442/55f28cfc2306c8c597c91102ba1a1e7a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/442/Coolie-No-1-Hindi-1995-20240408213912-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Anand-Milind, Alka Yagnik, Kumar Sanu, Sameer Anjaan, Anand, Milind",
+    "lyricist": "Sameer Anjaan, Mickey Skyro",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-abba-mtocsftx-bm64",
+    "artistId": "abba",
+    "title": "The Winner Takes It All",
+    "artist": "Abba",
+    "artists": [
+      "Abba"
+    ],
+    "movie": "Chill Rock Pop Vibes",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 296,
+    "audioUrl": "https://aac.saavncdn.com/542/39393612649a1988dce2785792d3cd6a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/542/Chill-Rock-Pop-Vibes-English-2026-20260430053709-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Benny Andersson, Bjorn Ulvaeus",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-abba-mtocsfxs-awh1",
+    "artistId": "abba",
+    "title": "Dancing Queen",
+    "artist": "Abba",
+    "artists": [
+      "Abba"
+    ],
+    "movie": "Saturday Night Party 80's",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 231,
+    "audioUrl": "https://aac.saavncdn.com/152/d7a98c36861ae6523825bf52f9f53958_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/152/Saturday-Night-Party-80-s-English-2026-20260409053623-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Bjorn Ulvaeus, Benny Andersson, Stig Anderson",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-abba-mtocsg23-ews8",
+    "artistId": "abba",
+    "title": "Mamma Mia",
+    "artist": "Abba",
+    "artists": [
+      "Abba"
+    ],
+    "movie": "Abba",
+    "year": 2001,
+    "decade": "2000s",
+    "duration": 212,
+    "audioUrl": "https://aac.saavncdn.com/221/837b925e50057bcb374e49733e10e88b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/221/Abba-Digitally-Remastered-2003-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Benny Andersson, Bjorn Ulvaeus, Stig Anderson",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-abba-mtocsg5t-01an",
+    "artistId": "abba",
+    "title": "Waterloo",
+    "artist": "Abba",
+    "artists": [
+      "Abba"
+    ],
+    "movie": "The Singles (The First Fifty Years)",
+    "year": 2024,
+    "decade": "2010s",
+    "duration": 166,
+    "audioUrl": "https://aac.saavncdn.com/484/54c5b0e590fdf1fa197edebaa6e47c19_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/484/The-Singles-The-First-Fifty-Years-English-2024-20241024053829-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Benny Andersson, Bjorn Ulvaeus, Stig Anderson",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-abba-mtocsg5u-o7qq",
+    "artistId": "abba",
+    "title": "Waterloo (Swedish Version)",
+    "artist": "Abba",
+    "artists": [
+      "Abba"
+    ],
+    "movie": "Waterloo",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 165,
+    "audioUrl": "https://aac.saavncdn.com/122/087a7e90deedd5a9804bb2f6734879f5_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/122/Waterloo-Digitally-Remastered-2009-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Benny Andersson, Bjorn Ulvaeus, Stig Anderson",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-abba-mtocsg5u-7ztg",
+    "artistId": "abba",
+    "title": "Waterloo (Live)",
+    "artist": "Abba",
+    "artists": [
+      "Abba"
+    ],
+    "movie": "Live At Wembley Arena",
+    "year": 2014,
+    "decade": "2010s",
+    "duration": 231,
+    "audioUrl": "https://aac.saavncdn.com/250/8ba46db195ef291d4da7470ed751755f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/250/Live-At-Wembley-Arena-English-2014-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Benny Andersson, Bjorn Ulvaeus, Stig Anderson",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-abba-mtocsg5u-rfec",
+    "artistId": "abba",
+    "title": "Waterloo (Alternative Mix)",
+    "artist": "Karaoke Diamonds",
+    "artists": [
+      "Karaoke Diamonds"
+    ],
+    "movie": "Pop & Rock Classics",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 163,
+    "audioUrl": "https://aac.saavncdn.com/472/ba5912794b25c21614b0d49e66b583d8_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/472/Pop-Rock-Classics-English-2025-20260602045019-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Benny Andersson, Bjorn Ulvaeus, Stig Anderson",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-abba-mtocsg5u-lfa1",
+    "artistId": "abba",
+    "title": "Hasta Manana",
+    "artist": "Karaoke Diamonds",
+    "artists": [
+      "Karaoke Diamonds"
+    ],
+    "movie": "Waterloo",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 185,
+    "audioUrl": "https://aac.saavncdn.com/122/c8174550f87d979d4cce98807a1c849b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/122/Waterloo-Digitally-Remastered-2009-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Benny Andersson, Bjorn Ulvaeus, Stig Anderson",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-lady-gaga-mtocsh21-hsfe",
+    "artistId": "lady-gaga",
+    "title": "Bad Romance",
+    "artist": "Lady Gaga",
+    "artists": [
+      "Lady Gaga"
+    ],
+    "movie": "The Fame Monster",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 294,
+    "audioUrl": "https://aac.saavncdn.com/276/14663f522760207da95256f5b5192652_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/276/The-Fame-Monster-English-2019-20260424142013-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Redone, Lady Gaga",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-lady-gaga-mtocsh22-3n7j",
+    "artistId": "lady-gaga",
+    "title": "Bad Romance (Starsmith Remix)",
+    "artist": "Lady Gaga",
+    "artists": [
+      "Lady Gaga"
+    ],
+    "movie": "The Remix",
+    "year": 2010,
+    "decade": "2010s",
+    "duration": 296,
+    "audioUrl": "https://aac.saavncdn.com/943/a398f7a6c0abe5dc2c94b70967d7be17_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/943/The-Remix-English-2010-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Redone, Lady Gaga",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-lady-gaga-mtocsh5x-b53n",
+    "artistId": "lady-gaga",
+    "title": "Poker Face",
+    "artist": "Lady Gaga",
+    "artists": [
+      "Lady Gaga"
+    ],
+    "movie": "Poker Face",
+    "year": 2008,
+    "decade": "2000s",
+    "duration": 237,
+    "audioUrl": "https://aac.saavncdn.com/326/85befbb950ae48a8e686c71658f95631_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/326/Poker-Face-2008-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Original Sound",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-lady-gaga-mtocsh9y-pa8v",
+    "artistId": "lady-gaga",
+    "title": "Shallow",
+    "artist": "Lady Gaga, Bradley Cooper",
+    "artists": [
+      "Lady Gaga",
+      "Bradley Cooper"
+    ],
+    "movie": "A Star Is Born Soundtrack",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 216,
+    "audioUrl": "https://aac.saavncdn.com/861/47056f7d329a7010daf5a24d2c617fe6_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/861/A-Star-Is-Born-Soundtrack-English-2018-20260605183027-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Lady Gaga, Mark Ronson, Anthony Rossomando, Andrew Wyatt",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-lady-gaga-mtocsh9z-1hvk",
+    "artistId": "lady-gaga",
+    "title": "Shallow (Radio Edit)",
+    "artist": "Lady Gaga, Bradley Cooper",
+    "artists": [
+      "Lady Gaga",
+      "Bradley Cooper"
+    ],
+    "movie": "A Star Is Born Soundtrack (Without Dialogue)",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 216,
+    "audioUrl": "https://aac.saavncdn.com/742/e0a6a61e367876f15a4d9a043d68aa7a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/742/A-Star-Is-Born-Soundtrack-Without-Dialogue--English-2018-20181004234940-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Lady Gaga, Mark Ronson, Anthony Rossomando, Andrew Wyatt",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-lady-gaga-mtocsh9z-r0d9",
+    "artistId": "lady-gaga",
+    "title": "Shallow (BBC Radio 1 Live Lounge)",
+    "artist": "Lewis Capaldi",
+    "artists": [
+      "Lewis Capaldi"
+    ],
+    "movie": "To Tell The Truth I Can't Believe We Got This Far EP",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 228,
+    "audioUrl": "https://aac.saavncdn.com/664/f920777ee6f45cf8b97ceaffab426d7b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/664/To-Tell-The-Truth-I-Can-t-Believe-We-Got-This-Far-EP-English-2020-20200514000343-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Lady Gaga, Mark Ronson, Anthony Rossomando, Andrew Wyatt",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-lady-gaga-mtocsh9z-detn",
+    "artistId": "lady-gaga",
+    "title": "SHALLOW (A Star Is Born)",
+    "artist": "Karen, Joe",
+    "artists": [
+      "Karen",
+      "Joe"
+    ],
+    "movie": "SHALLOW (A Star Is Born)",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 204,
+    "audioUrl": "https://aac.saavncdn.com/850/fb4f49422ea8ffc0081cca4561d1b31c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/850/SHALLOW-A-Star-Is-Born--English-2019-20190227022308-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Lady Gaga",
+    "lyricist": "Joe",
+    "language": "english"
+  },
+  {
+    "id": "sg-lady-gaga-mtocsha0-dofm",
+    "artistId": "lady-gaga",
+    "title": "Shallow (Live)",
+    "artist": "Polina Gagarina, 耿斯汉",
+    "artists": [
+      "Polina Gagarina",
+      "耿斯汉"
+    ],
+    "movie": "歌手2019 (歌王冲刺夜 Live)",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 294,
+    "audioUrl": "https://aac.saavncdn.com/496/04218135529567ecfe37b05d2dacd062_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/496/2019-Live--Chinese-2019-20210201093628-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Lady Gaga, Andrew Wyatt, Athony Rossomando, Mark Ronson",
+    "lyricist": "Nour Helou",
+    "language": "english"
+  },
+  {
+    "id": "sg-lady-gaga-mtocsha1-3dhg",
+    "artistId": "lady-gaga",
+    "title": "Shallow (Acoustic)",
+    "artist": "Camilla K",
+    "artists": [
+      "Camilla K"
+    ],
+    "movie": "Shallow (Acoustic)",
+    "year": 2021,
+    "decade": "2010s",
+    "duration": 203,
+    "audioUrl": "https://aac.saavncdn.com/727/2639ab01efc5f47388263ab66408c81f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/727/Shallow-Acoustic--English-2021-20210828072818-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Mark Ronson, Andrew Wyat, Anthony Rossomondo, Lady Gaga",
+    "lyricist": "Nour Helou",
+    "language": "english"
+  },
+  {
+    "id": "sg-lady-gaga-mtocsha1-mi7h",
+    "artistId": "lady-gaga",
+    "title": "Shallow (Dub Reggae Version)",
+    "artist": "Noise Brothers",
+    "artists": [
+      "Noise Brothers"
+    ],
+    "movie": "Reggae Blends (Jamaicans Flavors Collection)",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 162,
+    "audioUrl": "https://aac.saavncdn.com/304/62036e442b470b8abb62c6180be199b2_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/304/Reggae-Blends-Jamaicans-Flavors-Collection-Unknown-2026-20260813040905-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Mark Ronson, Andrew Wyatt, Anthony Rossomando, Lady Gaga",
+    "lyricist": "Sawa Kobayashi, Leo Cledon Marset",
+    "language": "english"
+  },
+  {
+    "id": "sg-ariana-grande-mtocshec-a0fq",
+    "artistId": "ariana-grande",
+    "title": "7 rings (Remix)",
+    "artist": "Ariana Grande",
+    "artists": [
+      "Ariana Grande"
+    ],
+    "movie": "7 rings (Remix)",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 177,
+    "audioUrl": "https://aac.saavncdn.com/301/a3be3ffb3ecc8ffd6bab46d161691904_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/301/7-rings-Remix--English-2019-20190131231737-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Charles Anderson, Michael Foster, Tommy Brown, Victoria Monet, Tayla Parx, Ariana Grande, Kimberly Krysiuk, Njomza Vitia, Richard Rogers, Oscar Hammerstein Ii, Tauheed Epps",
+    "lyricist": "2 Chainz",
+    "language": "english"
+  },
+  {
+    "id": "sg-ariana-grande-mtocshec-fp6i",
+    "artistId": "ariana-grande",
+    "title": "7 rings (live)",
+    "artist": "Ariana Grande",
+    "artists": [
+      "Ariana Grande"
+    ],
+    "movie": "k bye for now (swt live)",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 235,
+    "audioUrl": "https://aac.saavncdn.com/381/546e1f35ed77184a428e9b6bef2bfbcc_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/381/k-bye-for-now-swt-live--English-2019-20191223061150-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Ariana Grande, Victoria Monet, Tayla Parx, Njomza Vitia, Richard Rogers, Oscar Hammerstein Ii, Kimberly Krysiuk, Tommy Brown, Michael Foster, Charles Anderson",
+    "lyricist": "2 Chainz",
+    "language": "english"
+  },
+  {
+    "id": "sg-ariana-grande-mtocshi3-m3n1",
+    "artistId": "ariana-grande",
+    "title": "positions",
+    "artist": "Ariana Grande",
+    "artists": [
+      "Ariana Grande"
+    ],
+    "movie": "Positions",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 172,
+    "audioUrl": "https://aac.saavncdn.com/894/4cb423da7605475b2b0f6e5bc0dd5721_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/894/Positions-English-2020-20240117015101-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Tommy Brown, Ariana Grande, James Jarvis, Killah B, Nija Charles, Angelina Barrett, Steven Franks, London Tyler Holmes",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-ariana-grande-mtocshi4-x61a",
+    "artistId": "ariana-grande",
+    "title": "34+35",
+    "artist": "Ariana Grande",
+    "artists": [
+      "Ariana Grande"
+    ],
+    "movie": "Positions",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 173,
+    "audioUrl": "https://aac.saavncdn.com/894/f9cb231e4530202c59997e15c3339e5d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/894/Positions-English-2020-20240117015101-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Tommy Brown, Peter Lee Johnson, Ariana Grande, Scott Nicholson, Victoria Monet, Tayla Parx, Courageous Xavier Herrera, Steven Franks, Albert Stanaj",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-ariana-grande-mtocshi5-avlh",
+    "artistId": "ariana-grande",
+    "title": "pov",
+    "artist": "Ariana Grande",
+    "artists": [
+      "Ariana Grande"
+    ],
+    "movie": "Positions",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 201,
+    "audioUrl": "https://aac.saavncdn.com/894/249843cdab875681347a306eae882eea_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/894/Positions-English-2020-20240117015101-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Tommy Brown, Ariana Grande, Tayla Parx, Steven Franks, Oliver Frid",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-ariana-grande-mtocshi6-rqks",
+    "artistId": "ariana-grande",
+    "title": "motive",
+    "artist": "Ariana Grande, Doja Cat",
+    "artists": [
+      "Ariana Grande",
+      "Doja Cat"
+    ],
+    "movie": "Positions",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 167,
+    "audioUrl": "https://aac.saavncdn.com/894/b9f4f97e0edaeb2dcf55d0bc730cc496_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/894/Positions-English-2020-20240117015101-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Tommy Brown, Ariana Grande, Steven Franks, Shane Lindstrom, Jeremy Mcintyre, Amala Zandile Dlamini, Victoria Monet, Nija Charles",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-ariana-grande-mtocshi7-7qwd",
+    "artistId": "ariana-grande",
+    "title": "safety net",
+    "artist": "Ariana Grande",
+    "artists": [
+      "Ariana Grande"
+    ],
+    "movie": "Positions",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 208,
+    "audioUrl": "https://aac.saavncdn.com/894/99a22c6b2cdc4cbd64a5ffeb5acaaff5_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/894/Positions-English-2020-20240117015101-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Tommy Brown, Ariana Grande, Tyrone Griffin, Leon Thomas Iii, Khristopher Riddick-Tynes, Silas Doss",
+    "lyricist": "Ty Dolla $ign",
+    "language": "english"
+  },
+  {
+    "id": "sg-ariana-grande-mtocshi8-hmzw",
+    "artistId": "ariana-grande",
+    "title": "off the table",
+    "artist": "Ariana Grande, The Weeknd",
+    "artists": [
+      "Ariana Grande",
+      "The Weeknd"
+    ],
+    "movie": "Positions",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 239,
+    "audioUrl": "https://aac.saavncdn.com/894/8222b9082d5312842316c4fd7c32245e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/894/Positions-English-2020-20240117015101-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Tommy Brown, Travis Sayles, Ariana Grande, Abel Tesfaye, Steven Franks, Shintaro Yasuda",
+    "lyricist": "Ty Dolla $ign",
+    "language": "english"
+  },
+  {
+    "id": "sg-ariana-grande-mtocshi9-7kdg",
+    "artistId": "ariana-grande",
+    "title": "just like magic",
+    "artist": "Ariana Grande",
+    "artists": [
+      "Ariana Grande"
+    ],
+    "movie": "Positions",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 149,
+    "audioUrl": "https://aac.saavncdn.com/894/7935b1e8eac966f20ca27792b6073974_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/894/Positions-English-2020-20240117015101-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Tommy Brown, Ariana Grande, Priscilla Renea Hamilton, Robert Shea Taylor, Steven Franks",
+    "lyricist": "Ty Dolla $ign",
+    "language": "english"
+  },
+  {
+    "id": "sg-ariana-grande-mtocshia-3mei",
+    "artistId": "ariana-grande",
+    "title": "shut up",
+    "artist": "Ariana Grande",
+    "artists": [
+      "Ariana Grande"
+    ],
+    "movie": "Positions",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 157,
+    "audioUrl": "https://aac.saavncdn.com/894/0cf60c9fdc79671228a8da1dcff30a2a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/894/Positions-English-2020-20240117015101-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Tommy Brown, Peter Lee Johnson, Travis Sayles, Ariana Grande, Tayla Parx, Steven Franks, Michael Foster",
+    "lyricist": "Ty Dolla $ign",
+    "language": "english"
+  },
+  {
+    "id": "sg-ariana-grande-mtocshib-pqa7",
+    "artistId": "ariana-grande",
+    "title": "obvious",
+    "artist": "Ariana Grande",
+    "artists": [
+      "Ariana Grande"
+    ],
+    "movie": "Positions",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 146,
+    "audioUrl": "https://aac.saavncdn.com/894/8d9b14d5557abe0a996cefd088dbe84d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/894/Positions-English-2020-20240117015101-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Tommy Brown, Travis Sayles, Josh Conerly, Ariana Grande, Ryan Tedder, Nija Charles, Steven Franks, Peter Lee Johnson",
+    "lyricist": "Ty Dolla $ign",
+    "language": "english"
+  },
+  {
+    "id": "sg-ariana-grande-mtocshid-vyol",
+    "artistId": "ariana-grande",
+    "title": "west side",
+    "artist": "Ariana Grande",
+    "artists": [
+      "Ariana Grande"
+    ],
+    "movie": "Positions",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 132,
+    "audioUrl": "https://aac.saavncdn.com/894/e40641bbacb5b1daf3d9802d44ed8afc_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/894/Positions-English-2020-20240117015101-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Tommy Brown, Ammar Junedi, Ariana Grande, Victoria Monet, Courageous Xavier Herrera",
+    "lyricist": "Ty Dolla $ign",
+    "language": "english"
+  },
+  {
+    "id": "sg-ariana-grande-mtocshie-ti92",
+    "artistId": "ariana-grande",
+    "title": "34+35 [Originally Performed by Ariana Grande] (Positions Version)",
+    "artist": "Kellie Buff",
+    "artists": [
+      "Kellie Buff"
+    ],
+    "movie": "Mu5Ic, Vol. 2",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 167,
+    "audioUrl": "https://aac.saavncdn.com/816/acbebba517f3a137cb63dcd843ae55d1_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/816/Mu5Ic-Vol-2-English-2020-20201106140911-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Victoria Monet, Tayla Parx, Scott Nicholson, Peter Lee Johnson, Ariana Grande, Steve Franks, Thomas Lee Brown, Xavi Herrera",
+    "lyricist": "Ty Dolla $ign",
+    "language": "english"
+  },
+  {
+    "id": "sg-ariana-grande-mtocshif-a37p",
+    "artistId": "ariana-grande",
+    "title": "nasty",
+    "artist": "Ariana Grande",
+    "artists": [
+      "Ariana Grande"
+    ],
+    "movie": "Positions",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 200,
+    "audioUrl": "https://aac.saavncdn.com/894/c2f791aead7e4941b1fa489352135a24_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/894/Positions-English-2020-20240117015101-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Tommy Brown, Travis Sayles, Nami, Ariana Grande, Victoria Monet, Leon Thomas Iii, Khristopher Riddick-Tynes",
+    "lyricist": "Ty Dolla $ign",
+    "language": "english"
+  },
+  {
+    "id": "sg-ariana-grande-mtocshig-0iqi",
+    "artistId": "ariana-grande",
+    "title": "my hair",
+    "artist": "Ariana Grande",
+    "artists": [
+      "Ariana Grande"
+    ],
+    "movie": "Positions",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 158,
+    "audioUrl": "https://aac.saavncdn.com/894/f6e76c854d212cee8317081328f232de_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/894/Positions-English-2020-20240117015101-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Tommy Brown, Scott Storch, Anthony M. Jones, Charles Anderson, Ariana Grande, Victoria Monet, Tayla Parx",
+    "lyricist": "Ty Dolla $ign",
+    "language": "english"
+  },
+  {
+    "id": "sg-shawn-mendes-mtocshmv-8625",
+    "artistId": "shawn-mendes",
+    "title": "Treat You Better",
+    "artist": "Shawn Mendes",
+    "artists": [
+      "Shawn Mendes"
+    ],
+    "movie": "Shower Sessions",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 188,
+    "audioUrl": "https://aac.saavncdn.com/095/8ef39d6423f0f8e8877baef34de4cbba_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/095/Shower-Sessions-English-2026-20260723053608-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Teddy Geiger, Shawn Mendes, Scott Harris",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-shawn-mendes-mtocshx2-beph",
+    "artistId": "shawn-mendes",
+    "title": "Stitches",
+    "artist": "Shawn Mendes",
+    "artists": [
+      "Shawn Mendes"
+    ],
+    "movie": "energetic and hyper songs",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 206,
+    "audioUrl": "https://aac.saavncdn.com/682/7b2cf9f9cef56d14c1ff23bfbff0146c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/682/energetic-and-hyper-songs-English-2026-20260818151830-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Teddy Geiger, Danny Parker, Daniel Kyriakides",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-post-malone-mtocsi5y-vhvp",
+    "artistId": "post-malone",
+    "title": "Sunflower (Remix)",
+    "artist": "Post Malone, Swae Lee",
+    "artists": [
+      "Post Malone",
+      "Swae Lee"
+    ],
+    "movie": "Spider-Man: Into the Spider-Verse (Deluxe Edition / Soundtrack From & Inspired By The Motion Picture)",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 210,
+    "audioUrl": "https://aac.saavncdn.com/280/9f0e6960b436c3d073f2d25ae31315a0_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/280/Spider-Man-Into-the-Spider-Verse-Deluxe-Edition-Soundtrack-From-Inspired-By-The-Motion-Picture-English-2019-20250805024215-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Louis Bell, Carter Lang, Jean Rodriguez, Austin Post, Billy Walsh, Geoffrey Royce Rojas, Khalif Malikibnsham Brown, Nick Rivera Caminero",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-post-malone-mtocsi5y-v5om",
+    "artistId": "post-malone",
+    "title": "Sunflower (From \"Spider-Man Into The Spider-Verse\")",
+    "artist": "Just Superheroes",
+    "artists": [
+      "Just Superheroes"
+    ],
+    "movie": "Sunflower (From \"Spider-Man Into The Spider-Verse\")",
+    "year": 2022,
+    "decade": "2010s",
+    "duration": 157,
+    "audioUrl": "https://aac.saavncdn.com/642/c256eb75fe005a1200077501635ebebd_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/642/Sunflower-From-Spider-Man-Into-The-Spider-Verse-English-2022-20220901012619-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Post Malone, Swae Lee",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-post-malone-mtocsia7-s7j1",
+    "artistId": "post-malone",
+    "title": "Congratulations",
+    "artist": "Post Malone",
+    "artists": [
+      "Post Malone"
+    ],
+    "movie": "Stoney",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 221,
+    "audioUrl": "https://aac.saavncdn.com/677/5869c1087fbab5ce0b3b8ea0acdd2a01_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/677/Stoney-English-2016-20200328185419-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Louis Bell, Adam Feeney, Leland Wayne, Austin Post, Quavious Marshall, Carl Rosen",
+    "lyricist": "Quavo",
+    "language": "english"
+  },
+  {
+    "id": "sg-post-malone-mtocsia7-jna7",
+    "artistId": "post-malone",
+    "title": "Congratulations (Remix)",
+    "artist": "Post Malone",
+    "artists": [
+      "Post Malone"
+    ],
+    "movie": "Congratulations (Remix)",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 284,
+    "audioUrl": "https://aac.saavncdn.com/655/c75da3a69768841c2a6e72ed645a1bbe_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/655/Congratulations-Remix--English-2017-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Louis Bell, Adam Feeney, Leland Wayne, Austin Post, Quavious Marshall, Carl Rosen",
+    "lyricist": "Quavo, Future",
+    "language": "english"
+  },
+  {
+    "id": "sg-post-malone-mtocsia8-6d7n",
+    "artistId": "post-malone",
+    "title": "Congratulations (feat. MARCVS)",
+    "artist": "Pianaura",
+    "artists": [
+      "Pianaura"
+    ],
+    "movie": "American Girl",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 187,
+    "audioUrl": "https://aac.saavncdn.com/735/22b50eb573a60bb4f86ee48bac36009f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/735/American-Girl-English-2026-20260409183645-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Adam Draper, Post Malone, Quavious Marshall, Metro Boomin, Frank Dukes, Carl Rosen",
+    "lyricist": "Quavo",
+    "language": "english"
+  },
+  {
+    "id": "sg-drake-mtocsids-yhu6",
+    "artistId": "drake",
+    "title": "Hotline Bling",
+    "artist": "Drake",
+    "artists": [
+      "Drake"
+    ],
+    "movie": "Views",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 267,
+    "audioUrl": "https://aac.saavncdn.com/521/16a6ac712181a76ccfeba92b7369ca16_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/521/Views-English-2016-20240201113111-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Aubrey Graham, Paul Jefferies, Timmy Thomas",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-drake-mtocsilg-t09c",
+    "artistId": "drake",
+    "title": "One Dance (Club Mix)",
+    "artist": "ALMIGHTY1, Dr Black Sheep, GreenFlamez",
+    "artists": [
+      "ALMIGHTY1",
+      "Dr Black Sheep",
+      "GreenFlamez"
+    ],
+    "movie": "One Dance",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 293,
+    "audioUrl": "https://aac.saavncdn.com/710/5aa06445d00011aaa7eac391f92a6a17_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/710/One-Dance-English-2023-20231114204715-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Wizkid, Nineteen85, Logan Sama, Drake, DJ Maphorisa, Crazy Cousinz, China Black, 40, Kyla",
+    "lyricist": "Wizkid, Kyla",
+    "language": "english"
+  },
+  {
+    "id": "sg-drake-mtocsilh-7rxx",
+    "artistId": "drake",
+    "title": "One Dance (Radio Edit)",
+    "artist": "ALMIGHTY1, Dr Black Sheep, GreenFlamez",
+    "artists": [
+      "ALMIGHTY1",
+      "Dr Black Sheep",
+      "GreenFlamez"
+    ],
+    "movie": "One Dance",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 217,
+    "audioUrl": "https://aac.saavncdn.com/710/1d2988620f7ce812bbc66b055c7bdd84_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/710/One-Dance-English-2023-20231114204715-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Wizkid, Nineteen85, Logan Sama, Drake, DJ Maphorisa, Crazy Cousinz, China Black, 40, Kyla",
+    "lyricist": "Wizkid, Kyla",
+    "language": "english"
+  },
+  {
+    "id": "sg-beyonce-mtocsipa-hn81",
+    "artistId": "beyonce",
+    "title": "Halo",
+    "artist": "Beyoncé",
+    "artists": [
+      "Beyoncé"
+    ],
+    "movie": "I AM...SASHA FIERCE - Platinum Edition",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 262,
+    "audioUrl": "https://aac.saavncdn.com/991/270ac2e719342003920558de77d85ee6_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/991/I-AM-SASHA-FIERCE-Platinum-Edition-2009-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Ryan Tedder, Beyonce Knowles, Evan Kidd Bogart",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-beyonce-mtocsipa-dzbh",
+    "artistId": "beyonce",
+    "title": "Halo (Radio Edit)",
+    "artist": "Beyoncé",
+    "artists": [
+      "Beyoncé"
+    ],
+    "movie": "Halo - Single & Remixes",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 224,
+    "audioUrl": "https://aac.saavncdn.com/182/28981fd33f94dfc96a817dae9fa42f1b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/182/Halo-Single-Remixes-2009-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Beyonce Knowles, Ryan Tedder, Evan Kidd Bogart",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-beyonce-mtocsipb-7kix",
+    "artistId": "beyonce",
+    "title": "Halo (Gomi Club Remix)",
+    "artist": "Beyoncé",
+    "artists": [
+      "Beyoncé"
+    ],
+    "movie": "Halo - Single & Remixes",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 536,
+    "audioUrl": "https://aac.saavncdn.com/182/3f730cd7e371a9558a2e4512f5d664e6_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/182/Halo-Single-Remixes-2009-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Beyonce Knowles, Ryan Tedder, Evan Kidd Bogart",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-beyonce-mtocsipb-723a",
+    "artistId": "beyonce",
+    "title": "Halo (Dave Audé Club Remix)",
+    "artist": "Beyoncé",
+    "artists": [
+      "Beyoncé"
+    ],
+    "movie": "Halo - Single & Remixes",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 533,
+    "audioUrl": "https://aac.saavncdn.com/182/5e4bb2356357a996d4caaf840a65ec3f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/182/Halo-Single-Remixes-2009-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Beyonce Knowles, Ryan Tedder, Evan Kidd Bogart",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-beyonce-mtocsipc-egte",
+    "artistId": "beyonce",
+    "title": "Halo (The Perch Session)",
+    "artist": "Ruti",
+    "artists": [
+      "Ruti"
+    ],
+    "movie": "Halo (The Perch Session)",
+    "year": 2024,
+    "decade": "2010s",
+    "duration": 215,
+    "audioUrl": "https://aac.saavncdn.com/182/7ce7823f0a1b0fc425566eacad90d4c0_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/182/Halo-The-Perch-Session-English-2024-20241203220740-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Evan Bogart, Ryan Tedder, Beyoncé",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-beyonce-mtocsipc-sl56",
+    "artistId": "beyonce",
+    "title": "Halo (Karmatronic Club Remix)",
+    "artist": "Beyoncé",
+    "artists": [
+      "Beyoncé"
+    ],
+    "movie": "Halo - Single & Remixes",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 432,
+    "audioUrl": "https://aac.saavncdn.com/182/b123c9c3277aa443c040526d18df44ba_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/182/Halo-Single-Remixes-2009-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Beyonce Knowles, Ryan Tedder, Evan Kidd Bogart",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-beyonce-mtocsitp-aniv",
+    "artistId": "beyonce",
+    "title": "Single Ladies (Put a Ring on It)",
+    "artist": "Beyoncé",
+    "artists": [
+      "Beyoncé"
+    ],
+    "movie": "I AM...SASHA FIERCE - Platinum Edition",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 193,
+    "audioUrl": "https://aac.saavncdn.com/991/11348c8a354380f25b6722236ea7efa3_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/991/I-AM-SASHA-FIERCE-Platinum-Edition-2009-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Christopher \"tricky\" Stewart, Terius \"the-Dream\" Nash, Thaddis Harrell, Beyonce Knowles",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-beyonce-mtocsitq-qexb",
+    "artistId": "beyonce",
+    "title": "Single Ladies (Put a Ring on It) (Homecoming Live)",
+    "artist": "Beyoncé",
+    "artists": [
+      "Beyoncé"
+    ],
+    "movie": "HOMECOMING: THE LIVE ALBUM",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 207,
+    "audioUrl": "https://aac.saavncdn.com/669/38c4a9c6bbaef0350ebf79f5f8e12e8a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/669/HOMECOMING-THE-LIVE-ALBUM-English-2019-20230531232027-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Christopher \"tricky\" Stewart, Terius \"the-Dream\" Nash, Thaddis Harrell, Beyonce Knowles",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-beyonce-mtocsitq-sl99",
+    "artistId": "beyonce",
+    "title": "Single Ladies",
+    "artist": "Brian A. Britt, University Of Oklahoma Marching Band",
+    "artists": [
+      "Brian A. Britt",
+      "University Of Oklahoma Marching Band"
+    ],
+    "movie": "The Pride of Oklahoma 2009",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 86,
+    "audioUrl": "https://aac.saavncdn.com/173/db649dc169cf4311eac63c6b61c02762_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/173/The-Pride-of-Oklahoma-2009-English-2009-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Beyoncé Knowles",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-beyonce-mtocsitr-zmzq",
+    "artistId": "beyonce",
+    "title": "Single Ladies (Put a Ring on It) (The Japanese Popstars Remix)",
+    "artist": "Beyoncé",
+    "artists": [
+      "Beyoncé"
+    ],
+    "movie": "Single Ladies (Put A Ring On It) - Dance Remixes",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 467,
+    "audioUrl": "https://aac.saavncdn.com/101/cf93918a666242ddc25d7391cf9174bc_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/101/Single-Ladies-Put-A-Ring-On-It-Dance-Remixes-2009-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Christopher \"tricky\" Stewart, Terius \"the-Dream\" Nash, Thaddis Harrell, Beyonce Knowles",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-beyonce-mtocsitr-29o4",
+    "artistId": "beyonce",
+    "title": "Single Ladies (Put a Ring on It) (My Digital Enemy Remix)",
+    "artist": "Beyoncé",
+    "artists": [
+      "Beyoncé"
+    ],
+    "movie": "Single Ladies (Put A Ring On It) - Dance Remixes",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 400,
+    "audioUrl": "https://aac.saavncdn.com/101/602516d9dfb3df25e44e1a519739f40c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/101/Single-Ladies-Put-A-Ring-On-It-Dance-Remixes-2009-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Christopher \"tricky\" Stewart, Terius \"the-Dream\" Nash, Thaddis Harrell, Beyonce Knowles",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-beyonce-mtocsits-rmbr",
+    "artistId": "beyonce",
+    "title": "Single Ladies (Put a Ring on It) (Karmatronic Remix - Club Version)",
+    "artist": "Beyoncé",
+    "artists": [
+      "Beyoncé"
+    ],
+    "movie": "Single Ladies (Put A Ring On It) Dance Remixes",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 356,
+    "audioUrl": "https://aac.saavncdn.com/435/8db2f8b1f673b5ddac6e5fb32d7946d4_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/435/Single-Ladies-Put-A-Ring-On-It-Dance-Remixes-2009-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Christopher \"tricky\" Stewart, Terius \"the-Dream\" Nash, Thaddis Harrell, Beyonce Knowles",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-beyonce-mtocsits-dn32",
+    "artistId": "beyonce",
+    "title": "Single Ladies (Put a Ring on It) (RedTop Remix - Club Version)",
+    "artist": "Beyoncé",
+    "artists": [
+      "Beyoncé"
+    ],
+    "movie": "Single Ladies (Put A Ring On It) Dance Remixes",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 414,
+    "audioUrl": "https://aac.saavncdn.com/435/bfde7402370126a18a069953631bf446_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/435/Single-Ladies-Put-A-Ring-On-It-Dance-Remixes-2009-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Christopher \"tricky\" Stewart, Terius \"the-Dream\" Nash, Thaddis Harrell, Beyonce Knowles",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-beyonce-mtocsitt-t38v",
+    "artistId": "beyonce",
+    "title": "Single Ladies (Put a Ring on It) (RedTop Remix - Radio Edit)",
+    "artist": "Beyoncé",
+    "artists": [
+      "Beyoncé"
+    ],
+    "movie": "Single Ladies (Put A Ring On It) - Dance Remixes",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 214,
+    "audioUrl": "https://aac.saavncdn.com/101/064d7a8b19815f8c3608c63d1d2dbffc_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/101/Single-Ladies-Put-A-Ring-On-It-Dance-Remixes-2009-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Christopher \"tricky\" Stewart, Terius \"the-Dream\" Nash, Thaddis Harrell, Beyonce Knowles",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-beyonce-mtocsiyf-ff9l",
+    "artistId": "beyonce",
+    "title": "Crazy In Love (Remix)",
+    "artist": "Beyoncé",
+    "artists": [
+      "Beyoncé"
+    ],
+    "movie": "Crazy In Love (Remix)",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 227,
+    "audioUrl": "https://aac.saavncdn.com/566/3cab26dfb3d56c846cf6fd3a92a19709_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/566/Crazy-in-Love-English-2015-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Beyonce Knowles, Rich Harrison, Shawn Carter, Eugene Record",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-madonna-mtocsj2o-g9my",
+    "artistId": "madonna",
+    "title": "Like a Prayer",
+    "artist": "Madonna",
+    "artists": [
+      "Madonna"
+    ],
+    "movie": "Celebration (Deluxe Version)",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 342,
+    "audioUrl": "https://aac.saavncdn.com/955/b24ef9cb7ddf3822d4ec32f416caa2de_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/955/Celebration-Deluxe-Version-English-2009-20260210120725-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Pierre Bordacarre",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-madonna-mtocsj2p-ukb2",
+    "artistId": "madonna",
+    "title": "Like a Prayer (Live)",
+    "artist": "Miley Cyrus",
+    "artists": [
+      "Miley Cyrus"
+    ],
+    "movie": "ATTENTION: MILEY LIVE",
+    "year": 2022,
+    "decade": "2010s",
+    "duration": 207,
+    "audioUrl": "https://aac.saavncdn.com/313/f62d5594065febe796851eddbfb268eb_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/313/ATTENTION-MILEY-LIVE-English-2022-20220425231434-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Madonna, Patrick Leonard",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-madonna-mtocsj2q-qm2q",
+    "artistId": "madonna",
+    "title": "Like a Prayer (Battle Royale Mix from “Deadpool & Wolverine”)",
+    "artist": "Madonna",
+    "artists": [
+      "Madonna"
+    ],
+    "movie": "Deadpool & Wolverine: Madonna's \"Like a Prayer\" EP",
+    "year": 2024,
+    "decade": "2010s",
+    "duration": 168,
+    "audioUrl": "https://aac.saavncdn.com/805/3f7a12ed77fd01259f777f51a8697c0a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/805/Deadpool-Wolverine-Madonna-s-Like-a-Prayer-EP-English-2024-20240810080217-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Pierre Bordacarre",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-madonna-mtocsj7f-kilp",
+    "artistId": "madonna",
+    "title": "Vogue",
+    "artist": "Madonna",
+    "artists": [
+      "Madonna"
+    ],
+    "movie": "Celebration (Deluxe Version)",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 316,
+    "audioUrl": "https://aac.saavncdn.com/955/a208780081814dda9291a27c4f530886_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/955/Celebration-Deluxe-Version-English-2009-20260210120725-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Madonna Ciccone, Shep Pettibone",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-madonna-mtocsj7f-mva7",
+    "artistId": "madonna",
+    "title": "Vogue (Edit)",
+    "artist": "Madonna",
+    "artists": [
+      "Madonna"
+    ],
+    "movie": "I'm Breathless",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 289,
+    "audioUrl": "https://aac.saavncdn.com/963/97fd027cb226c7074b96b484623ad666_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/963/I-m-Breathless-English-1990-20240423082647-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Madonna Ciccone, Shep Pettibone",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-madonna-mtocsj7g-yq2f",
+    "artistId": "madonna",
+    "title": "Vogue (Single Version) [2022 Remaster]",
+    "artist": "Madonna",
+    "artists": [
+      "Madonna"
+    ],
+    "movie": "Finally Enough Love",
+    "year": 2022,
+    "decade": "2010s",
+    "duration": 260,
+    "audioUrl": "https://aac.saavncdn.com/813/738399f8db9286c657489f5a8f03fca9_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/813/Finally-Enough-Love-English-2022-20220623232251-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Madonna Ciccone, Shep Pettibone",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-madonna-mtocsj7g-39j2",
+    "artistId": "madonna",
+    "title": "Vogue (Single Version)",
+    "artist": "Madonna",
+    "artists": [
+      "Madonna"
+    ],
+    "movie": "Vogue",
+    "year": 1990,
+    "decade": "90s",
+    "duration": 263,
+    "audioUrl": "https://aac.saavncdn.com/583/db0d833239b2600f065c031aaa59362e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/583/Vogue-English-1990-20200804180126-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Madonna Ciccone, Shep Pettibone",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-madonna-mtocsj7h-epfx",
+    "artistId": "madonna",
+    "title": "Vogue (Glee Cast Version)",
+    "artist": "Madonna",
+    "artists": [
+      "Madonna"
+    ],
+    "movie": "Glee: The Music, The Power Of Madonna",
+    "year": 2010,
+    "decade": "2010s",
+    "duration": 314,
+    "audioUrl": "https://aac.saavncdn.com/762/8e8d48849762d9116c6b4fa6352492ea_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/762/Glee-The-Music-The-Power-Of-Madonna-English-2010-20191223225033-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Madonna, Shep Pettibone",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-madonna-mtocsj7i-603j",
+    "artistId": "madonna",
+    "title": "Vogue (Live)",
+    "artist": "Madonna",
+    "artists": [
+      "Madonna"
+    ],
+    "movie": "Where's The Party",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 327,
+    "audioUrl": "https://aac.saavncdn.com/416/ef862df199646bb2af1be6dec70785b2_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/416/Where-s-The-Party-English-2020-20210203195233-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Madonna",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-madonna-mtocsj7i-on5i",
+    "artistId": "madonna",
+    "title": "Vogue (Re-Mastered Radio Recording)",
+    "artist": "Madonna",
+    "artists": [
+      "Madonna"
+    ],
+    "movie": "The Very Best Of - Radio Waves 1984-1995, Vol. 1",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 327,
+    "audioUrl": "https://aac.saavncdn.com/304/486a3f227773098d09c9f16a4eb7a9bf_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/304/The-Very-Best-Of-Radio-Waves-1984-1995-Vol-1-English-2016-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Madonna/Pettibone",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-madonna-mtocsj7j-e247",
+    "artistId": "madonna",
+    "title": "Vogue (Running Mix)",
+    "artist": "Workout Music",
+    "artists": [
+      "Workout Music"
+    ],
+    "movie": "Running 90's Workout",
+    "year": 2022,
+    "decade": "2010s",
+    "duration": 195,
+    "audioUrl": "https://aac.saavncdn.com/345/e55f747310152ad85cd29d7198f6ee6a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/345/Running-90-s-Workout-English-2022-20220210131025-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Madonna Ciccone, Shep Pettibone",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-madonna-mtocsj7j-g1mn",
+    "artistId": "madonna",
+    "title": "Vogue (Strike-A-Pose Dub)",
+    "artist": "Madonna",
+    "artists": [
+      "Madonna"
+    ],
+    "movie": "Vogue",
+    "year": 1990,
+    "decade": "90s",
+    "duration": 456,
+    "audioUrl": "https://aac.saavncdn.com/583/590919ac7849258e1d7e1a12642d0d42_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/583/Vogue-English-1990-20200804180126-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Madonna Ciccone, Shep Pettibone",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-madonna-mtocsj7k-4a0u",
+    "artistId": "madonna",
+    "title": "Vogue (12\" Version)",
+    "artist": "Madonna",
+    "artists": [
+      "Madonna"
+    ],
+    "movie": "Vogue",
+    "year": 1990,
+    "decade": "90s",
+    "duration": 501,
+    "audioUrl": "https://aac.saavncdn.com/583/3e0357ef4f9636b1cc654ddfa39e0d0c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/583/Vogue-English-1990-20200804180126-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Madonna Ciccone, Shep Pettibone",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-madonna-mtocsj7k-zpmp",
+    "artistId": "madonna",
+    "title": "Vogue (Live at the Coliseu dos Recreios, Lisbon, Portugal, 1/12-23/2020)",
+    "artist": "Madonna",
+    "artists": [
+      "Madonna"
+    ],
+    "movie": "Madame X - Music From The Theater Xperience (Live)",
+    "year": 2021,
+    "decade": "2010s",
+    "duration": 251,
+    "audioUrl": "https://aac.saavncdn.com/141/9f07375ca6b4cd21f540aa2b0ef70680_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/141/Madame-X-Music-From-The-Theater-Xperience-Live--English-2021-20211008041805-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Madonna Ciccone, Shep Pettibone",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-madonna-mtocsj7l-74pn",
+    "artistId": "madonna",
+    "title": "Vogue (MDNA World Tour / Live 2012)",
+    "artist": "Madonna",
+    "artists": [
+      "Madonna"
+    ],
+    "movie": "MDNA World Tour (Live)",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 248,
+    "audioUrl": "https://aac.saavncdn.com/413/7d29df22d74a32ca388320db876505b4_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/413/MDNA-World-Tour-Live-English-2026-20251229113610-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Madonna Ciccone, Shep Pettibone",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-zayn-malik-mtocsjbi-hy25",
+    "artistId": "zayn-malik",
+    "title": "PILLOWTALK",
+    "artist": "ZAYN",
+    "artists": [
+      "ZAYN"
+    ],
+    "movie": "Mind Of Mine (Deluxe Edition)",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 203,
+    "audioUrl": "https://aac.saavncdn.com/895/8a58e59d4a783d939c56379275d5a680_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/895/Mind-Of-Mine-Deluxe-Edition-English-2016-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Levi Lennox, Mike Hannides, Anthony Hannides, Zayn Malik",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-zayn-malik-mtocsjbi-ipke",
+    "artistId": "zayn-malik",
+    "title": "PILLOWTALK (the living room session)",
+    "artist": "ZAYN",
+    "artists": [
+      "ZAYN"
+    ],
+    "movie": "PILLOWTALK (the living room session)",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 145,
+    "audioUrl": "https://aac.saavncdn.com/080/58843d3812a5f5ab1eaa7ad4832d123a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/080/PILLOWTALK-the-living-room-session-English-2016-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Zayn Malik, Levi Lennox, Mike Hannides, Anthony Hannides",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-zayn-malik-mtocsjbj-1444",
+    "artistId": "zayn-malik",
+    "title": "Pillowtalk (Rp Mix)",
+    "artist": "D'Mixmasters",
+    "artists": [
+      "D'Mixmasters"
+    ],
+    "movie": "30 Top Hits Summer 2016",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 275,
+    "audioUrl": "https://aac.saavncdn.com/790/fb4bff1271952ba033a18422dbd5a6e9_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/790/30-Top-Hits-Summer-2016-English-2016-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Zayn Malik",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-zayn-malik-mtocsjbj-w86d",
+    "artistId": "zayn-malik",
+    "title": "PILLOWTALK (The Voice Performance)",
+    "artist": "Selena Brando",
+    "artists": [
+      "Selena Brando"
+    ],
+    "movie": "PILLOWTALK (The Voice Performance)",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 126,
+    "audioUrl": "https://aac.saavncdn.com/684/b99f4a77fe67806d87c3594b7458c545_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/684/PILLOWTALK-The-Voice-Performance-English-2017-20260423205455-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Zayn Malik, Levi Lennox, Mike Hannides, Anthony Hannides, Joe Garrett",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-zayn-malik-mtocsjbk-p1w3",
+    "artistId": "zayn-malik",
+    "title": "Pillowtalk (BBC Session)",
+    "artist": "Selena Brando",
+    "artists": [
+      "Selena Brando"
+    ],
+    "movie": "BBC Session",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 241,
+    "audioUrl": "https://aac.saavncdn.com/605/f513422cd2bd2d7aa357894bb565db34_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/605/BBC-Session-English-2016-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Zayn Malik, Levi Malundama, Joe Garrett, Anthony Hannides",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-zayn-malik-mtocsjgc-lxsh",
+    "artistId": "zayn-malik",
+    "title": "Dusk Till Dawn (Radio Edit)",
+    "artist": "ZAYN",
+    "artists": [
+      "ZAYN"
+    ],
+    "movie": "Icarus Falls",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 239,
+    "audioUrl": "https://aac.saavncdn.com/352/61d7714e0ba4051ec54670cba76a1197_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/352/Icarus-Falls-English-2020-20200909044056-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Greg Kurstin, Zayn Malik, Sia Furler, Alex Oriet, David Phelan",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-zayn-malik-mtocsjgd-oo3q",
+    "artistId": "zayn-malik",
+    "title": "Dusk Till Dawn (Brooks Remix)",
+    "artist": "ZAYN",
+    "artists": [
+      "ZAYN"
+    ],
+    "movie": "Dusk Till Dawn (The Remixes)",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 202,
+    "audioUrl": "https://aac.saavncdn.com/643/c717ee394dda3fbba0e1762cb1ff936f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/643/Dusk-Till-Dawn-The-Remixes--English-2017-20170927012006-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Zayn Malik, Greg Kurstin, Sia Furler, Alex Oriet, David Phelan",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-zayn-malik-mtocsjge-g1h0",
+    "artistId": "zayn-malik",
+    "title": "Dusk Till Dawn (Luca Lush Remix)",
+    "artist": "ZAYN, Luca Lush",
+    "artists": [
+      "ZAYN",
+      "Luca Lush"
+    ],
+    "movie": "Dusk Till Dawn (The Remixes)",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 209,
+    "audioUrl": "https://aac.saavncdn.com/643/7f8f04da016beda0b367e7582bfc93f0_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/643/Dusk-Till-Dawn-The-Remixes--English-2017-20170927012006-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Zayn Malik, Greg Kurstin, Sia Furler, Alex Oriet, David Phelan",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-zayn-malik-mtocsjge-cdga",
+    "artistId": "zayn-malik",
+    "title": "Dusk Till Dawn (John \"J-C\" Carr Mix)",
+    "artist": "ZAYN",
+    "artists": [
+      "ZAYN"
+    ],
+    "movie": "Dusk Till Dawn (The Remixes)",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 202,
+    "audioUrl": "https://aac.saavncdn.com/643/f519535a2b9a5bf519d0c1d03d8d576a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/643/Dusk-Till-Dawn-The-Remixes--English-2017-20170927012006-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Zayn Malik, Greg Kurstin, Sia Furler, Alex Oriet, David Phelan",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-zayn-malik-mtocsjgf-4pez",
+    "artistId": "zayn-malik",
+    "title": "Dusk Till Dawn",
+    "artist": "Anne-Caroline Joy, Maxence Luchi",
+    "artists": [
+      "Anne-Caroline Joy",
+      "Maxence Luchi"
+    ],
+    "movie": "The Best Pop Dance 2018",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 237,
+    "audioUrl": "https://aac.saavncdn.com/289/9cfad9ed257d19d792b2983dec379670_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/289/The-Best-Pop-Dance-2018-English-2018-20180208123157-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Zayn Malik, Alex Orlet, Sia, David Phelan, Greg Kurstin",
+    "lyricist": "Maxence Luchi",
+    "language": "english"
+  },
+  {
+    "id": "sg-zayn-malik-mtocsjka-iz9z",
+    "artistId": "zayn-malik",
+    "title": "Night Changes",
+    "artist": "One Direction",
+    "artists": [
+      "One Direction"
+    ],
+    "movie": "FOUR (Deluxe)",
+    "year": 2014,
+    "decade": "2010s",
+    "duration": 226,
+    "audioUrl": "https://aac.saavncdn.com/851/d3f6d5e7ae7c9050697a779f85eaabe8_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/851/FOUR-Deluxe--English-2014-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "John Ryan, Julian Bunetta, Jamie Scott, Liam Payne, Louis Tomlinson, Niall Horan, Zayn Malik, Harry Styles",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-zayn-malik-mtocsjkb-4apv",
+    "artistId": "zayn-malik",
+    "title": "Let Me",
+    "artist": "ZAYN",
+    "artists": [
+      "ZAYN"
+    ],
+    "movie": "Icarus Falls",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 181,
+    "audioUrl": "https://aac.saavncdn.com/352/b91698eeea316143f26d32524ab6e1c2_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/352/Icarus-Falls-English-2020-20200909044056-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Khaled Rohaim, Michael Hannides, Zayn Malik, Anthony Hannides, Alan Sampson",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-zayn-malik-mtocsjkb-l1tt",
+    "artistId": "zayn-malik",
+    "title": "Sideways",
+    "artist": "ZAYN",
+    "artists": [
+      "ZAYN"
+    ],
+    "movie": "Sideways",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 192,
+    "audioUrl": "https://aac.saavncdn.com/999/8f1bec16755caff37e32434410c4c452_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/999/Sideways-English-2026-20260327063520-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Jesse Shatkin, Stefan Johnson, Jordan K. Johnson, Oliver Peterhof, Mozella, Zayn Malik",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-zayn-malik-mtocsjkc-mavp",
+    "artistId": "zayn-malik",
+    "title": "Entertainer",
+    "artist": "Jisoo, ZAYN",
+    "artists": [
+      "Jisoo",
+      "ZAYN"
+    ],
+    "movie": "Icarus Falls",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 203,
+    "audioUrl": "https://aac.saavncdn.com/352/510047bfd3cf516f281911e117d2ce7f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/352/Icarus-Falls-English-2020-20200909044056-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Zayn Malik, Henrique Andrade, Alexandre Bursztyn, Iliana Nedialkova",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-zayn-malik-mtocsjkc-qtr7",
+    "artistId": "zayn-malik",
+    "title": "Tightrope",
+    "artist": "ZAYN",
+    "artists": [
+      "ZAYN"
+    ],
+    "movie": "Nobody Is Listening",
+    "year": 2021,
+    "decade": "2010s",
+    "duration": 205,
+    "audioUrl": "https://aac.saavncdn.com/052/6c139f8ef166c936481f91e18661fe33_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/052/Nobody-Is-Listening-English-2021-20210114210552-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Zayn Malik, David Ryan Harris, Ernest Keith Smith, Jacob Durrett, Ravi Badayuni, Shakeel Badayuni",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-harry-styles-mtocsjvu-qzig",
+    "artistId": "harry-styles",
+    "title": "Watermelon Sugar (High) [Originally Performed by Harry Styles]",
+    "artist": "Kimber Ross",
+    "artists": [
+      "Kimber Ross"
+    ],
+    "movie": "Global Domain, Vol. 2",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 173,
+    "audioUrl": "https://aac.saavncdn.com/927/4ededd6999e05dd46dd0b00b1a80d422_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/927/Global-Domain-Vol-2-English-2019-20191126115638-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Tyler Johnson, Mitch Rowland, Tom Hull, Harry Styles",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-harry-styles-mtocsk20-ubcm",
+    "artistId": "harry-styles",
+    "title": "Sign Of The Times (From \"Project Hail Mary\") (Epic Version)",
+    "artist": "Geek Music",
+    "artists": [
+      "Geek Music"
+    ],
+    "movie": "Sign Of The Times (From \"Project Hail Mary\") (Epic Version)",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 236,
+    "audioUrl": "https://aac.saavncdn.com/000/d9dbe52b649b402561e984865c472f58_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/000/Sign-Of-The-Times-From-Project-Hail-Mary-Epic-Version-English-2025-20250708224117-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Harry Styles, Jeff Bhasker, Mitch Rowland, Ryan Nasci, Alex Salibian, Tyler Johnson",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-harry-styles-mtocsk21-qjdy",
+    "artistId": "harry-styles",
+    "title": "Sign of the Times (Piano Version)",
+    "artist": "Michael Forster",
+    "artists": [
+      "Michael Forster"
+    ],
+    "movie": "Sign of the Times (Piano Version)",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 168,
+    "audioUrl": "https://aac.saavncdn.com/832/e5dc6008be336a5819c7ae1f75764ad8_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/832/Sign-of-the-Times-Piano-Version--English-2018-20180120025305-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Harry Styles, Jeff Bhasker, Mitch Rowland, Ryan Nasci, Alex Salibian, Tyler Johnson",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-sam-smith-mtocsk6k-ipmp",
+    "artistId": "sam-smith",
+    "title": "Sam Smith's Stay with Me (Piano Version)",
+    "artist": "Romantic Piano Song Masters",
+    "artists": [
+      "Romantic Piano Song Masters"
+    ],
+    "movie": "Valentine's Day: Awesome Mix Tape - Love Songs",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 177,
+    "audioUrl": "https://aac.saavncdn.com/611/cf2503917ff2042c214c25a6af186a21_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/611/Valentine-s-Day-Awesome-Mix-Tape-Love-Songs-English-2015-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Original Sound",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-sam-smith-mtocskko-ipn2",
+    "artistId": "sam-smith",
+    "title": "I'm Not The Only One",
+    "artist": "Sam Smith",
+    "artists": [
+      "Sam Smith"
+    ],
+    "movie": "En mi era Aesthetic",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 239,
+    "audioUrl": "https://aac.saavncdn.com/308/3a69d84ee9a0976f7745827e3050076f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/308/En-mi-era-Aesthetic-English-2025-20260427205137-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Sam Smith, James Napier",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-sam-smith-mtocskkp-gzgr",
+    "artistId": "sam-smith",
+    "title": "I'm Not The Only One (Radio Edit)",
+    "artist": "Sam Smith",
+    "artists": [
+      "Sam Smith"
+    ],
+    "movie": "I'm Not The Only One",
+    "year": 2014,
+    "decade": "2010s",
+    "duration": 204,
+    "audioUrl": "https://aac.saavncdn.com/669/aaf5ed4995dd93d52dc844d000792e3d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/669/I-m-Not-The-Only-One-English-2014-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Sam Smith, James Napier",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-sam-smith-mtocskkq-gk4b",
+    "artistId": "sam-smith",
+    "title": "I'm Not The Only One (Armand Van Helden’s DAT SHIZNIT IZ SLAMMIN’ Remix)",
+    "artist": "Sam Smith",
+    "artists": [
+      "Sam Smith"
+    ],
+    "movie": "I'm Not The Only One",
+    "year": 2014,
+    "decade": "2010s",
+    "duration": 244,
+    "audioUrl": "https://aac.saavncdn.com/669/938b7f67d1d333565c10415c9bc7683a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/669/I-m-Not-The-Only-One-English-2014-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Sam Smith, James Napier",
+    "lyricist": "A$AP Rocky",
+    "language": "english"
+  },
+  {
+    "id": "sg-sam-smith-mtocskkr-7jm2",
+    "artistId": "sam-smith",
+    "title": "I'm Not The Only One (Armand Van Helden Remix)",
+    "artist": "Sam Smith",
+    "artists": [
+      "Sam Smith"
+    ],
+    "movie": "I'm Not The Only One",
+    "year": 2014,
+    "decade": "2010s",
+    "duration": 395,
+    "audioUrl": "https://aac.saavncdn.com/669/5182d96a470158485e44c3ec6c09e1c3_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/669/I-m-Not-The-Only-One-English-2014-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Sam Smith, James Napier",
+    "lyricist": "A$AP Rocky",
+    "language": "english"
+  },
+  {
+    "id": "sg-david-guetta-mtocskoy-v2vf",
+    "artistId": "david-guetta",
+    "title": "Titanium (feat. Sia)",
+    "artist": "David Guetta",
+    "artists": [
+      "David Guetta"
+    ],
+    "movie": "Nothing but the Beat (Ultimate Edition)",
+    "year": 2012,
+    "decade": "2010s",
+    "duration": 245,
+    "audioUrl": "https://aac.saavncdn.com/550/d0726c0a7601c4b2c122aa37b1bc040f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/550/Nothing-but-the-Beat-Ultimate-Edition-English-2012-20260302224433-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Original Sound",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-david-guetta-mtocskoz-ujlu",
+    "artistId": "david-guetta",
+    "title": "Titanium (feat. Sia) [David Guetta & MORTEN Future Rave Remix] (David Guetta & MORTEN Future Rave Remix)",
+    "artist": "David Guetta",
+    "artists": [
+      "David Guetta"
+    ],
+    "movie": "Titanium (feat. Sia) (David Guetta & MORTEN Future Rave Remix)",
+    "year": 2021,
+    "decade": "2010s",
+    "duration": 211,
+    "audioUrl": "https://aac.saavncdn.com/425/fd07b139507aadc6fb4838c7f6e4d7ea_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/425/Titanium-feat-Sia-David-Guetta-MORTEN-Future-Rave-Remix--English-2021-20210817122153-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Original Sound",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-david-guetta-mtocskoz-w943",
+    "artistId": "david-guetta",
+    "title": "Titanium",
+    "artist": "David Guetta",
+    "artists": [
+      "David Guetta"
+    ],
+    "movie": "Now That's What I Call Music 2012-13",
+    "year": 2012,
+    "decade": "2010s",
+    "duration": 245,
+    "audioUrl": "https://aac.saavncdn.com/459/fe75470a6cceb688b33a2b5911ffe58e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/459/Now-That-s-What-I-Call-Music-2012-13-English-2012-20260513081148-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "David Guetta, Giorgio Tuinfort, Sia Furler, Nick Van De Wall",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-david-guetta-mtocskp0-mug7",
+    "artistId": "david-guetta",
+    "title": "Titanium (feat. Sia) [Extended] (Extended)",
+    "artist": "David Guetta",
+    "artists": [
+      "David Guetta"
+    ],
+    "movie": "Titanium (feat. Sia)",
+    "year": 2011,
+    "decade": "2010s",
+    "duration": 312,
+    "audioUrl": "https://aac.saavncdn.com/752/2485d494ed0b956ff8fce6a2219532e2_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/752/Titanium-feat-Sia--English-2011-20190607045907-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "David Guetta, Giorgio Tuinfort, Sia Furler, Nick Van De Wall",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-david-guetta-mtocskp0-vwdr",
+    "artistId": "david-guetta",
+    "title": "Titanium (feat. Sia) [David Guetta & MORTEN Future Rave Extended Mix] (David Guetta & MORTEN Future Rave Extended Mix)",
+    "artist": "David Guetta",
+    "artists": [
+      "David Guetta"
+    ],
+    "movie": "Titanium (feat. Sia) (David Guetta & MORTEN Future Rave Remix)",
+    "year": 2021,
+    "decade": "2010s",
+    "duration": 345,
+    "audioUrl": "https://aac.saavncdn.com/425/037c26dc199624d3e81e4391a71cc964_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/425/Titanium-feat-Sia-David-Guetta-MORTEN-Future-Rave-Remix--English-2021-20210817122153-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "David Guetta, Giorgio Tuinfort, Sia Furler, Nick Van De Wall",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-david-guetta-mtocskp1-l8bm",
+    "artistId": "david-guetta",
+    "title": "Titanium (feat. Sia) [Alesso Remix] (Alesso Remix)",
+    "artist": "David Guetta",
+    "artists": [
+      "David Guetta"
+    ],
+    "movie": "Titanium (feat. Sia)",
+    "year": 2011,
+    "decade": "2010s",
+    "duration": 403,
+    "audioUrl": "https://aac.saavncdn.com/752/2e07f9dbcfc6118fe372761057ce2345_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/752/Titanium-feat-Sia--English-2011-20190607045907-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "David Guetta, Giorgio Tuinfort, Sia Furler, Nick Van De Wall",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-david-guetta-mtocskp1-2s6m",
+    "artistId": "david-guetta",
+    "title": "Titanium (feat. Sia) [Nicky Romero Remix] (Nicky Romero Remix)",
+    "artist": "David Guetta",
+    "artists": [
+      "David Guetta"
+    ],
+    "movie": "Titanium (feat. Sia)",
+    "year": 2011,
+    "decade": "2010s",
+    "duration": 340,
+    "audioUrl": "https://aac.saavncdn.com/752/a5f36ad73ac3d270102390bdae627e63_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/752/Titanium-feat-Sia--English-2011-20190607045907-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "David Guetta, Giorgio Tuinfort, Sia Furler, Nick Van De Wall",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-david-guetta-mtocskp2-yl05",
+    "artistId": "david-guetta",
+    "title": "Titanium (feat. Sia) [Gregori Klosman Remix] (Gregori Klosman Remix)",
+    "artist": "David Guetta",
+    "artists": [
+      "David Guetta"
+    ],
+    "movie": "Titanium (feat. Sia)",
+    "year": 2011,
+    "decade": "2010s",
+    "duration": 383,
+    "audioUrl": "https://aac.saavncdn.com/752/3e2bdb1ffe00f9af00408423435a1dee_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/752/Titanium-feat-Sia--English-2011-20190607045907-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "David Guetta",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-david-guetta-mtocskp2-unm4",
+    "artistId": "david-guetta",
+    "title": "Titanium (Megan's V3rsion)",
+    "artist": "Sia",
+    "artists": [
+      "Sia"
+    ],
+    "movie": "Titanium (Megan's V3rsion)",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 243,
+    "audioUrl": "https://aac.saavncdn.com/278/c6674ee90331d9099e35681acd58c418_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/278/Titanium-Megan-s-V3rsion-English-2023-20230109223215-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "David Guetta",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-david-guetta-mtocskp3-pdju",
+    "artistId": "david-guetta",
+    "title": "Titanium (Backing Track)",
+    "artist": "Ely Jaffe",
+    "artists": [
+      "Ely Jaffe"
+    ],
+    "movie": "On the Voice of Guitar, Vol. II (The Backing Tracks)",
+    "year": 2013,
+    "decade": "2010s",
+    "duration": 280,
+    "audioUrl": "https://aac.saavncdn.com/894/8c7eaf218795bbf8b7e2988f8685f73d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/894/On-the-Voice-of-Guitar-Vol-II-The-Backing-Tracks--English-2013-20171112053207-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Giorgio Tuinfort, David Guetta, Sia Furler, Nick Van De Wall",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-david-guetta-mtocskp4-yrc9",
+    "artistId": "david-guetta",
+    "title": "Titanium (Club Remix)",
+    "artist": "Gentleman's Rule",
+    "artists": [
+      "Gentleman's Rule"
+    ],
+    "movie": "Act Accordingly",
+    "year": 2012,
+    "decade": "2010s",
+    "duration": 212,
+    "audioUrl": "https://aac.saavncdn.com/938/1fdd8a6171d4bd655043d546dea7f441_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/938/Act-Accordingly-English-2012-20180104013306-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Giorgio Tuinfort, David Guetta, Sia Furler, Nick Wall Van De",
+    "lyricist": "Sia",
+    "language": "english"
+  },
+  {
+    "id": "sg-david-guetta-mtocskwt-y235",
+    "artistId": "david-guetta",
+    "title": "Memories (feat. Kid Cudi)",
+    "artist": "David Guetta",
+    "artists": [
+      "David Guetta"
+    ],
+    "movie": "Memories (feat. Kid Cudi)",
+    "year": 2010,
+    "decade": "2010s",
+    "duration": 210,
+    "audioUrl": "https://aac.saavncdn.com/755/88b8b41e86034bfcff139bce3be7d1e1_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/755/Memories-feat-Kid-Cudi-English-2010-20260722233217-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Original Sound",
+    "lyricist": "Kid Cudi",
+    "language": "english"
+  },
+  {
+    "id": "sg-david-guetta-mtocskwu-5zin",
+    "artistId": "david-guetta",
+    "title": "Bad Memories (David Guetta Remix)",
+    "artist": "David Guetta, Meduza, James Carter",
+    "artists": [
+      "David Guetta",
+      "Meduza",
+      "James Carter"
+    ],
+    "movie": "Bad Memories (The Remixes)",
+    "year": 2022,
+    "decade": "2010s",
+    "duration": 243,
+    "audioUrl": "https://aac.saavncdn.com/936/3d9899f74dabecc8e453bffe102c5130_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/936/Bad-Memories-The-Remixes-English-2022-20221216063741-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Luca De Gregorio, Mattia Vitale, Simone Giani, James Robert Carter, Lucas Hain, Felix Hain, Darren Patrick Flynn, Elley Frances Duhe, Chris Mears",
+    "lyricist": "Elley Duhe, Fast Boy",
+    "language": "english"
+  },
+  {
+    "id": "sg-david-guetta-mtocskwv-hrpb",
+    "artistId": "david-guetta",
+    "title": "Memories (feat. Kid Cudi) [Extended]",
+    "artist": "David Guetta",
+    "artists": [
+      "David Guetta"
+    ],
+    "movie": "Memories (feat. Kid Cudi)",
+    "year": 2010,
+    "decade": "2010s",
+    "duration": 320,
+    "audioUrl": "https://aac.saavncdn.com/755/33a7caf8dfe9893015c5e1d8a7f06abe_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/755/Memories-feat-Kid-Cudi-English-2010-20260722233217-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Luca De Gregorio, Mattia Vitale, Simone Giani, James Robert Carter, Lucas Hain, Felix Hain, Darren Patrick Flynn, Elley Frances Duhe, Chris Mears",
+    "lyricist": "Kid Cudi",
+    "language": "english"
+  },
+  {
+    "id": "sg-marshmello-mtocsl4g-o7h5",
+    "artistId": "marshmello",
+    "title": "Happier",
+    "artist": "Marshmello, Bastille",
+    "artists": [
+      "Marshmello",
+      "Bastille"
+    ],
+    "movie": "Happier",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 214,
+    "audioUrl": "https://aac.saavncdn.com/393/ee028a4fba0c8c983b322be8142df939_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/393/Happier-English-2018-20230906001632-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Original Sound",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-marshmello-mtocsl4g-xk8k",
+    "artistId": "marshmello",
+    "title": "Happier (Stripped)",
+    "artist": "Marshmello, Bastille",
+    "artists": [
+      "Marshmello",
+      "Bastille"
+    ],
+    "movie": "Happier (Stripped)",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 250,
+    "audioUrl": "https://aac.saavncdn.com/730/fe7b3f573f4618629db6c5a2de99639c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/730/Happier-Stripped-English-2018-20230906190144-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Original Sound",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-marshmello-mtocsl4h-16yx",
+    "artistId": "marshmello",
+    "title": "Happier (Breathe Carolina Remix)",
+    "artist": "Marshmello, Bastille",
+    "artists": [
+      "Marshmello",
+      "Bastille"
+    ],
+    "movie": "Happier (Remixes)",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 158,
+    "audioUrl": "https://aac.saavncdn.com/321/4185f4b5af9117d7ccc9e62b4c4f1862_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/321/Happier-Remixes-English-2018-20230906201400-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Marshmello, Dan Smith, Steve Mac",
+    "lyricist": "Anne-Caroline Joy",
+    "language": "english"
+  },
+  {
+    "id": "sg-marshmello-mtocsl4j-78if",
+    "artistId": "marshmello",
+    "title": "Happier (Frank Walker Remix)",
+    "artist": "Marshmello, Bastille",
+    "artists": [
+      "Marshmello",
+      "Bastille"
+    ],
+    "movie": "Happier (Remixes)",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 196,
+    "audioUrl": "https://aac.saavncdn.com/321/fdcaf02399158a8d25d6bbbf6ef66cb1_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/321/Happier-Remixes-English-2018-20230906201400-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Marshmello, Steve Mac, Dan Smith",
+    "lyricist": "Anne-Caroline Joy",
+    "language": "english"
+  },
+  {
+    "id": "sg-marshmello-mtocsl4k-e23s",
+    "artistId": "marshmello",
+    "title": "Happier (Blanke Remix)",
+    "artist": "Marshmello, Bastille",
+    "artists": [
+      "Marshmello",
+      "Bastille"
+    ],
+    "movie": "Happier (Remixes)",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 201,
+    "audioUrl": "https://aac.saavncdn.com/321/70c996bb2837fcc2c224f13fd2407b4e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/321/Happier-Remixes-English-2018-20230906201400-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Marshmello, Steve Mac, Dan Smith",
+    "lyricist": "Anne-Caroline Joy",
+    "language": "english"
+  },
+  {
+    "id": "sg-marshmello-mtocsl4k-mqfx",
+    "artistId": "marshmello",
+    "title": "Happier (SPENCE Remix)",
+    "artist": "Marshmello, Bastille",
+    "artists": [
+      "Marshmello",
+      "Bastille"
+    ],
+    "movie": "Happier (Remixes)",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 195,
+    "audioUrl": "https://aac.saavncdn.com/321/1dc6554c5c1da6983e6da1db13cb3f15_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/321/Happier-Remixes-English-2018-20230906201400-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Benjamin Joseph Levin, Christopher Comstock, Daniel Campbell Smith, Edward Christopher Sheeran, Mac Steve, Ryan Tedder",
+    "lyricist": "Anne-Caroline Joy",
+    "language": "english"
+  },
+  {
+    "id": "sg-marshmello-mtocslbb-w18g",
+    "artistId": "marshmello",
+    "title": "FRIENDS (Borgeous Remix)",
+    "artist": "Marshmello, Anne-Marie, Borgeous",
+    "artists": [
+      "Marshmello",
+      "Anne-Marie",
+      "Borgeous"
+    ],
+    "movie": "FRIENDS (Borgeous Remix)",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 202,
+    "audioUrl": "https://aac.saavncdn.com/082/9efcc0d8d7aace2e8c2e51160bf3e444_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/082/FRIENDS-Borgeous-Remix-English-2018-20250421221329-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Natalie Dunn, Anne-Marie Nicholson, Marshmello",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-marshmello-mtocslbc-5aaj",
+    "artistId": "marshmello",
+    "title": "FRIENDS (A Boogie Wit Da Hoodie Remix)",
+    "artist": "Marshmello, Anne-Marie, A Boogie Wit Da Hoodie",
+    "artists": [
+      "Marshmello",
+      "Anne-Marie",
+      "A Boogie Wit Da Hoodie"
+    ],
+    "movie": "FRIENDS (A Boogie Wit Da Hoodie Remix)",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 202,
+    "audioUrl": "https://aac.saavncdn.com/845/42218bd919c850e8211aebb8a220a6f4_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/845/FRIENDS-A-Boogie-Wit-Da-Hoodie-Remix-English-2018-20250421220914-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Natalie Dunn, Anne-Marie Nicholson, Marshmello",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-marshmello-mtocslbe-tom1",
+    "artistId": "marshmello",
+    "title": "FRIENDS (SikDope Remix)",
+    "artist": "Marshmello, Anne-Marie, Sikdope",
+    "artists": [
+      "Marshmello",
+      "Anne-Marie",
+      "Sikdope"
+    ],
+    "movie": "FRIENDS (Sikdope Remix)",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 163,
+    "audioUrl": "https://aac.saavncdn.com/075/51399a20ea0d0482c449d18a552e2dae_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/075/FRIENDS-Sikdope-Remix-English-2018-20250421221403-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Anne-Marie Rose Nicholson, Natalie Maree Dunn, Pablo Bowman, Richard Boardman, Sarah Elizabeth Blanchard, Marshmello",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-marshmello-mtocslbf-8es3",
+    "artistId": "marshmello",
+    "title": "FRIENDS (R3HAB Remix)",
+    "artist": "Marshmello, Anne-Marie, R3HAB",
+    "artists": [
+      "Marshmello",
+      "Anne-Marie",
+      "R3HAB"
+    ],
+    "movie": "FRIENDS (R3hab Remix)",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 157,
+    "audioUrl": "https://aac.saavncdn.com/704/6e87dac1f9f90a14fee77516821b0563_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/704/FRIENDS-R3hab-Remix-English-2018-20250421221205-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Anne-Marie Rose Nicholson, Natalie Maree Dunn, Pablo Bowman, Richard Boardman, Sarah Elizabeth Blanchard, Marshmello",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-bon-jovi-mtocslg3-kzj9",
+    "artistId": "bon-jovi",
+    "title": "Livin' On A Prayer",
+    "artist": "Bon Jovi",
+    "artists": [
+      "Bon Jovi"
+    ],
+    "movie": "Romance Veraniego",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 250,
+    "audioUrl": "https://aac.saavncdn.com/479/d6589888a23aecc2c0ea22a9caa72d3b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/479/Romance-Veraniego-English-2026-20260608213134-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Jon Bon Jovi, Richie Sambora, Desmond Child",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-bon-jovi-mtocslp6-kngo",
+    "artistId": "bon-jovi",
+    "title": "Always",
+    "artist": "Bon Jovi",
+    "artists": [
+      "Bon Jovi"
+    ],
+    "movie": "Rock Ballads (The Greatest Rock and Power Ballads of the 70s 80s 90s 00s 10s 20s)",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 352,
+    "audioUrl": "https://aac.saavncdn.com/407/102e0063c83909671582ae0726f88e58_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/407/Rock-Ballads-The-Greatest-Rock-and-Power-Ballads-of-the-70s-80s-90s-00s-10s-20s-English-2026-20260424132126-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Jon Bon Jovi",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-bon-jovi-mtocslp7-2ts6",
+    "artistId": "bon-jovi",
+    "title": "Always (Radio Edit)",
+    "artist": "Bon Jovi",
+    "artists": [
+      "Bon Jovi"
+    ],
+    "movie": "Soft Rock Greatest Hits",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 288,
+    "audioUrl": "https://aac.saavncdn.com/438/13e26c5429018cc851c88c8c923b5c9b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/438/Soft-Rock-Greatest-Hits-English-2026-20260818152403-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Jon Bon Jovi",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-guns-n-roses-mtocslu8-bt49",
+    "artistId": "guns-n-roses",
+    "title": "Sweet Child O' Mine (Live In Paris / 1992)",
+    "artist": "Guns N' Roses",
+    "artists": [
+      "Guns N' Roses"
+    ],
+    "movie": "Live Era '87-'93",
+    "year": 1999,
+    "decade": "90s",
+    "duration": 445,
+    "audioUrl": "https://aac.saavncdn.com/127/609c42e7a559cc3e11d8e469f9342bd2_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/127/Live-Era-87-93-English-1999-20251029083544-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Stephen Adler, Axl Rose, Duff Mckagan, Izzy Stradlin, Slash",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-guns-n-roses-mtocslu9-6jzl",
+    "artistId": "guns-n-roses",
+    "title": "Sweet Child O Mine (Live)",
+    "artist": "Guns N' Roses",
+    "artists": [
+      "Guns N' Roses"
+    ],
+    "movie": "Roam Free (Live)",
+    "year": 2021,
+    "decade": "2010s",
+    "duration": 423,
+    "audioUrl": "https://aac.saavncdn.com/711/95860fb9df54e177e653497655db4eff_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/711/Roam-Free-Live--English-2021-20210217213346-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Guns N' Roses",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-guns-n-roses-mtocsm09-i9qs",
+    "artistId": "guns-n-roses",
+    "title": "November Rain (Album Version)",
+    "artist": "Guns N' Roses",
+    "artists": [
+      "Guns N' Roses"
+    ],
+    "movie": "Greatest Hits (U.S. Version; WW Excluding Europe)",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 539,
+    "audioUrl": "https://aac.saavncdn.com/696/a7229bacac560da58d27127c22c37249_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/696/Greatest-Hits-U-S-Version-WW-Excluding-Europe-2005-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "W. Axl Rose, Jeffrey Isbell, Saul Hudson, Michael Mckagan",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-guns-n-roses-mtocsm0a-4xzd",
+    "artistId": "guns-n-roses",
+    "title": "November Rain (Live In Japan / 1992)",
+    "artist": "Guns N' Roses",
+    "artists": [
+      "Guns N' Roses"
+    ],
+    "movie": "Live Era '87-'93",
+    "year": 1999,
+    "decade": "90s",
+    "duration": 749,
+    "audioUrl": "https://aac.saavncdn.com/426/37f757e37fa6d971bb0cfae7bab6fb78_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/426/Live-Era-87-93-English-1999-20251029083544-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "W. Axl Rose, Matt Sorum, Darren Reed, Axl Rose, Duff Mckagan, Izzy Stradlin, Slash",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-guns-n-roses-mtocsm0a-vh8q",
+    "artistId": "guns-n-roses",
+    "title": "November Rain (Live)",
+    "artist": "Guns N' Roses",
+    "artists": [
+      "Guns N' Roses"
+    ],
+    "movie": "Live.. Buenos Aires 1993",
+    "year": 1993,
+    "decade": "90s",
+    "duration": 518,
+    "audioUrl": "https://aac.saavncdn.com/540/ebed4dade25c33c08306d6e25755cd6c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/540/Live-Buenos-Aires-1993-English-1993-20251008213854-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "W. Axl Rose, Jeffrey Isbell, Saul Hudson, Michael Mckagan",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-guns-n-roses-mtocsm0b-gxzt",
+    "artistId": "guns-n-roses",
+    "title": "November Rain (2022 Version)",
+    "artist": "Strummit",
+    "artists": [
+      "Strummit"
+    ],
+    "movie": "Use Your Illusion I",
+    "year": 2022,
+    "decade": "2010s",
+    "duration": 535,
+    "audioUrl": "https://aac.saavncdn.com/333/7b793e489599ea336a4f0992d1bae320_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/333/Use-Your-Illusion-I-English-2022-20221110054320-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "W. Axl Rose, Jeffrey Isbell, Saul Hudson, Duff Mckagan",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-guns-n-roses-mtocsm0c-z0ym",
+    "artistId": "guns-n-roses",
+    "title": "November Rain (Live at Deer Creek, Indiana)",
+    "artist": "Guns N' Roses",
+    "artists": [
+      "Guns N' Roses"
+    ],
+    "movie": "Greatest Hits Live on Air 1989-'91, Vol. 2",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 444,
+    "audioUrl": "https://aac.saavncdn.com/137/3ad676f25c967d9f8b96f1d725a6faf3_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/137/Greatest-Hits-Live-on-Air-1989-91-Vol-2-English-2016-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "W. Axl Rose, Jeffrey Isbell, Saul Hudson, Duff Mckagan",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-guns-n-roses-mtocsm0d-w4r0",
+    "artistId": "guns-n-roses",
+    "title": "November Rain (Acoustic Version / 1986 Sound City Session)",
+    "artist": "Guns N' Roses",
+    "artists": [
+      "Guns N' Roses"
+    ],
+    "movie": "Appetite For Destruction (Super Deluxe Edition)",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 300,
+    "audioUrl": "https://aac.saavncdn.com/705/bb2ebcc619546094119286c807ea623d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/705/Appetite-For-Destruction-Super-Deluxe-Edition--English-1987-20180627230139-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "W. Axl Rose, Jeffrey Isbell, Saul Hudson, Duff Mckagan",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-guns-n-roses-mtocsm0d-lnj7",
+    "artistId": "guns-n-roses",
+    "title": "November Rain (Piano Version / 1986 Sound City Session)",
+    "artist": "Guns N' Roses",
+    "artists": [
+      "Guns N' Roses"
+    ],
+    "movie": "Appetite For Destruction (Super Deluxe Edition)",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 618,
+    "audioUrl": "https://aac.saavncdn.com/705/edb77bbc18b4c2718efe516703a091fa_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/705/Appetite-For-Destruction-Super-Deluxe-Edition--English-1987-20180627230139-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "W. Axl Rose, Jeffrey Isbell, Saul Hudson, Duff Mckagan",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-guns-n-roses-mtocsm7v-96sw",
+    "artistId": "guns-n-roses",
+    "title": "Paradise City",
+    "artist": "Guns N' Roses",
+    "artists": [
+      "Guns N' Roses"
+    ],
+    "movie": "Appetite For Destruction",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 406,
+    "audioUrl": "https://aac.saavncdn.com/743/699f6140c839937cae7aa6a19bbfd5ee_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/743/Appetite-For-Destruction-English-1987-20180627230139-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "W. Axl Rose, Jeffrey Isbell, Saul Hudson, Duff Mckagan, Steven Adler",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-guns-n-roses-mtocsm7w-7zhn",
+    "artistId": "guns-n-roses",
+    "title": "Paradise City (Album Version)",
+    "artist": "Guns N' Roses",
+    "artists": [
+      "Guns N' Roses"
+    ],
+    "movie": "Lies / Appetite For Destruction",
+    "year": 2000,
+    "decade": "2000s",
+    "duration": 406,
+    "audioUrl": "https://aac.saavncdn.com/520/da9bc0760cfb6fff1fbb4bb8c928e319_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/520/Lies-Appetite-For-Destruction-2000-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "W. Axl Rose, Jeffrey Isbell, Saul Hudson, Michael Mckagan, Steven Adler",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-guns-n-roses-mtocsm7w-q3di",
+    "artistId": "guns-n-roses",
+    "title": "Paradise City (Live In Las Vegas / 1992)",
+    "artist": "Guns N' Roses",
+    "artists": [
+      "Guns N' Roses"
+    ],
+    "movie": "Live Era '87-'93",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 441,
+    "audioUrl": "https://aac.saavncdn.com/053/7caeb378566f13339c249c7536791992_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/053/Live-Era-87-93-Live-Deluxe-Edition-English-2025-20251120053305-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "W. Axl Rose, Duff Mckagan, Jeffrey Isbell, Saul Hudson, Steven Adler",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-guns-n-roses-mtocsm7w-y23k",
+    "artistId": "guns-n-roses",
+    "title": "Paradise City (Live)",
+    "artist": "Guns N' Roses",
+    "artists": [
+      "Guns N' Roses"
+    ],
+    "movie": "Live in New York 1988",
+    "year": 1988,
+    "decade": "80s",
+    "duration": 401,
+    "audioUrl": "https://aac.saavncdn.com/867/aa3854bdef7be3a3d8751e4a96e14e90_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/867/Live-in-New-York-1988-English-1988-20250723100630-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Axl Rose, Izzy Stradlin",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-guns-n-roses-mtocsm7w-kpwg",
+    "artistId": "guns-n-roses",
+    "title": "Paradise City (Live at Nakano Sun Plaza)",
+    "artist": "Guns N' Roses",
+    "artists": [
+      "Guns N' Roses"
+    ],
+    "movie": "Greatest Hits Live on Air 1989-'91, Vol. 1",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 391,
+    "audioUrl": "https://aac.saavncdn.com/120/a2b2986a3c4a2232bc3073fe90f2e835_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/120/Greatest-Hits-Live-on-Air-1989-91-Vol-1-English-2016-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Axl Rose, Izzy Stradlin",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-guns-n-roses-mtocsm7x-phjv",
+    "artistId": "guns-n-roses",
+    "title": "Paradise City (Live at Deer Creek, Indiana)",
+    "artist": "Guns N' Roses",
+    "artists": [
+      "Guns N' Roses"
+    ],
+    "movie": "Greatest Hits Live on Air 1989-'91, Vol. 2",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 360,
+    "audioUrl": "https://aac.saavncdn.com/137/0af8e1a5b030b0eacb3db8e1c7e31a1d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/137/Greatest-Hits-Live-on-Air-1989-91-Vol-2-English-2016-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Axl Rose, Izzy Stradlin",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-avril-lavigne-mtocsmdd-95tt",
+    "artistId": "avril-lavigne",
+    "title": "Complicated (Switching Vocals)",
+    "artist": "Fly By Nightcore, KENJICHAN",
+    "artists": [
+      "Fly By Nightcore",
+      "KENJICHAN"
+    ],
+    "movie": "Complicated (Switching Vocals)",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 149,
+    "audioUrl": "https://aac.saavncdn.com/481/fe16328b1bc70d1db8f48d4c28942ea6_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/481/Complicated-Switching-Vocals-English-2026-20260601203205-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Avril Lavigne, Lauren Christy, David Alspach, Graham Edwards",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-avril-lavigne-mtocsmde-0hlj",
+    "artistId": "avril-lavigne",
+    "title": "Complicated (The Voice Performance)",
+    "artist": "Reagan Strange",
+    "artists": [
+      "Reagan Strange"
+    ],
+    "movie": "Complicated (The Voice Performance)",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 1,
+    "audioUrl": "https://aac.saavncdn.com/569/265116a6c7cc2117cc3400407fcc61fc_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/569/Complicated-The-Voice-Performance--English-2019-20190603230615-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Lauren Christy, Scott Spock, Graham Edwards, Avril Lavigne",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-avril-lavigne-mtocsmdf-dwvs",
+    "artistId": "avril-lavigne",
+    "title": "Complicated (triple j Like A Version)",
+    "artist": "GRAACE",
+    "artists": [
+      "GRAACE"
+    ],
+    "movie": "Complicated (triple j Like A Version)",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 196,
+    "audioUrl": "https://aac.saavncdn.com/989/f26c609908ebd8e7e966e399870712c1_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/989/Complicated-triple-j-Like-A-Version--English-2020-20200121034130-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Avril Lavigne, Lauren Christy, Scott Spock, Graham Edwards",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-avril-lavigne-mtocsmim-u1mr",
+    "artistId": "avril-lavigne",
+    "title": "Sk8er Boi",
+    "artist": "Avril Lavigne",
+    "artists": [
+      "Avril Lavigne"
+    ],
+    "movie": "Fox Kids Party",
+    "year": 2004,
+    "decade": "2000s",
+    "duration": 203,
+    "audioUrl": "https://aac.saavncdn.com/327/e75e506817b265b94424d667e0f8b788_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/327/Fox-Kids-Party-English-2004-20251106091347-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Avril Lavigne, The Matrix",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-avril-lavigne-mtocsmin-6myx",
+    "artistId": "avril-lavigne",
+    "title": "Sk8er Boi (Live at The Point, Dublin, Ireland - March 2003)",
+    "artist": "Avril Lavigne",
+    "artists": [
+      "Avril Lavigne"
+    ],
+    "movie": "My World EP",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 249,
+    "audioUrl": "https://aac.saavncdn.com/796/a05a2e0a9789a34bde3b6c9f2c3db96b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/796/My-World-EP-English-2025-20250804220710-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Avril Lavigne, The Matrix",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-avril-lavigne-mtocsmmu-3cck",
+    "artistId": "avril-lavigne",
+    "title": "Girlfriend (German Version - Explicit)",
+    "artist": "Avril Lavigne",
+    "artists": [
+      "Avril Lavigne"
+    ],
+    "movie": "Girlfriend EP",
+    "year": 2010,
+    "decade": "2010s",
+    "duration": 219,
+    "audioUrl": "https://aac.saavncdn.com/767/b5cb6a446f998ed4382c2fa2d193b96d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/767/Girlfriend-EP-2010-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Avril Lavigne, Lukasz \"doctor Luke\" Gottwald",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-avril-lavigne-mtocsmmv-4pjs",
+    "artistId": "avril-lavigne",
+    "title": "Girlfriend (Radio Edit)",
+    "artist": "Avril Lavigne",
+    "artists": [
+      "Avril Lavigne"
+    ],
+    "movie": "Girlfriend EP",
+    "year": 2010,
+    "decade": "2010s",
+    "duration": 217,
+    "audioUrl": "https://aac.saavncdn.com/767/682e753a664e96bb96024ce243746c1c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/767/Girlfriend-EP-2010-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Lukasz \"doctor Luke\" Gottwald, Avril Lavigne",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-avril-lavigne-mtocsmmw-rnhn",
+    "artistId": "avril-lavigne",
+    "title": "Girlfriend (French Version - Clean)",
+    "artist": "Avril Lavigne",
+    "artists": [
+      "Avril Lavigne"
+    ],
+    "movie": "Girlfriend EP",
+    "year": 2010,
+    "decade": "2010s",
+    "duration": 216,
+    "audioUrl": "https://aac.saavncdn.com/767/4d0e2103ebbaf91f0f066de216e3d4bb_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/767/Girlfriend-EP-2010-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Avril Lavigne, Lukasz \"doctor Luke\" Gottwald",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-avril-lavigne-mtocsmmw-a3b2",
+    "artistId": "avril-lavigne",
+    "title": "Girlfriend",
+    "artist": "Avril Lavigne",
+    "artists": [
+      "Avril Lavigne"
+    ],
+    "movie": "Greatest Hits",
+    "year": 2024,
+    "decade": "2010s",
+    "duration": 216,
+    "audioUrl": "https://aac.saavncdn.com/867/257c22f220d1d32d18e0d82741c7b36f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/867/Greatest-Hits-English-2024-20240614112837-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Lukasz \"doctor Luke\" Gottwald, Avril Lavigne",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-avril-lavigne-mtocsmmx-vkuq",
+    "artistId": "avril-lavigne",
+    "title": "Girlfriend (Italian Version - Explicit)",
+    "artist": "Avril Lavigne",
+    "artists": [
+      "Avril Lavigne"
+    ],
+    "movie": "Girlfriend EP",
+    "year": 2010,
+    "decade": "2010s",
+    "duration": 216,
+    "audioUrl": "https://aac.saavncdn.com/767/774f3040d01872684a0ce9c96db061b6_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/767/Girlfriend-EP-2010-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Avril Lavigne, Lukasz \"doctor Luke\" Gottwald",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-avril-lavigne-mtocsmmx-4y8j",
+    "artistId": "avril-lavigne",
+    "title": "Girlfriend (The Submarines' Time Warp '66 Mix - English)",
+    "artist": "Avril Lavigne",
+    "artists": [
+      "Avril Lavigne"
+    ],
+    "movie": "Girlfriend EP",
+    "year": 2010,
+    "decade": "2010s",
+    "duration": 192,
+    "audioUrl": "https://aac.saavncdn.com/767/52682fef45dce8c5ba9ade86b7a089d1_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/767/Girlfriend-EP-2010-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Avril Lavigne, Lukasz \"doctor Luke\" Gottwald",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-avril-lavigne-mtocsmmy-c4go",
+    "artistId": "avril-lavigne",
+    "title": "Girlfriend (German Version - Clean)",
+    "artist": "Lidia Schillaci",
+    "artists": [
+      "Lidia Schillaci"
+    ],
+    "movie": "Girlfriend EP",
+    "year": 2010,
+    "decade": "2010s",
+    "duration": 216,
+    "audioUrl": "https://aac.saavncdn.com/767/36be5880506948c849373c9afa57e360_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/767/Girlfriend-EP-2010-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Avril Lavigne, Lukasz \"doctor Luke\" Gottwald",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-avril-lavigne-mtocsmmz-n4fb",
+    "artistId": "avril-lavigne",
+    "title": "Girlfriend (Live at The Roxy Theatre, Los Angeles, CA - October 2007)",
+    "artist": "Stutter",
+    "artists": [
+      "Stutter"
+    ],
+    "movie": "Control Room - Live EP",
+    "year": 2008,
+    "decade": "2000s",
+    "duration": 246,
+    "audioUrl": "https://aac.saavncdn.com/419/f46a4d9818f68a76aa2af4f0d2e55991_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/419/Control-Room-Live-EP-2008-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Avril Lavigne, Lukasz \"doctor Luke\" Gottwald",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-avril-lavigne-mtocsmmz-b2a1",
+    "artistId": "avril-lavigne",
+    "title": "Girlfriend (Portugese Version - Clean)",
+    "artist": "Stutter",
+    "artists": [
+      "Stutter"
+    ],
+    "movie": "Girlfriend EP",
+    "year": 2010,
+    "decade": "2010s",
+    "duration": 216,
+    "audioUrl": "https://aac.saavncdn.com/767/0bffeb6148146c80f51c2bb95b30f907_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/767/Girlfriend-EP-2010-500x500.jpg",
+    "genre": "English Pop/Rock",
+    "composer": "Avril Lavigne, Lukasz \"doctor Luke\" Gottwald",
+    "lyricist": "Original Lyricist",
+    "language": "english"
+  },
+  {
+    "id": "sg-manna-dey-mtocsmrr-epba",
+    "artistId": "manna-dey",
+    "title": "Yeh Dosti Hum Nahin (Happy Version / From \"Sholay\")",
+    "artist": "Kishore Kumar, Manna Dey, R.D. Burman",
+    "artists": [
+      "Kishore Kumar",
+      "Manna Dey",
+      "R.D. Burman"
+    ],
+    "movie": "Sholay",
+    "year": 2008,
+    "decade": "2000s",
+    "duration": 321,
+    "audioUrl": "https://aac.saavncdn.com/120/e133f841abf48038e54f5c731d028c1b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/120/Sholay-Unknown-2008-20260219175926-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "R.D. Burman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-manna-dey-mtocsmrs-7m8i",
+    "artistId": "manna-dey",
+    "title": "Aaja Sanam Madhur Chandni Me - New Gen Trap",
+    "artist": "Manna Dey",
+    "artists": [
+      "Manna Dey"
+    ],
+    "movie": "Aaja Sanam Madhur Chandni Me - New Gen Trap",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 160,
+    "audioUrl": "https://aac.saavncdn.com/619/0377e762de37ed2da4ab01fd1fb96442_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/619/Aaja-Sanam-Madhur-Chandni-Me-New-Gen-Trap-Hindi-2025-20250117083119-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "The Hrishi, Lata Mangeshkar, Manna Dey, Shankar-Jaikishan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-manna-dey-mtocsmww-h32r",
+    "artistId": "manna-dey",
+    "title": "Aaja Sanam Madhur Chandni",
+    "artist": "Lata Mangeshkar, Manna Dey",
+    "artists": [
+      "Lata Mangeshkar",
+      "Manna Dey"
+    ],
+    "movie": "Classic Revival Jiya Beqarar Hai",
+    "year": 1999,
+    "decade": "90s",
+    "duration": 265,
+    "audioUrl": "https://aac.saavncdn.com/209/fe5d1262efa6de92e69bcbf8e85bae1e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/209/Classic-Revival-Jiya-Beqarar-Hai-Hindi-1999-20201009154046-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Lata Mangeshkar, Manna Dey, Shankar-Jaikishan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-manna-dey-mtocsmwx-dn5z",
+    "artistId": "manna-dey",
+    "title": "Masti Bhara Hai Saman",
+    "artist": "Lata Mangeshkar, Manna Dey",
+    "artists": [
+      "Lata Mangeshkar",
+      "Manna Dey"
+    ],
+    "movie": "Classic Love Songs - Vol. 2",
+    "year": 2012,
+    "decade": "2010s",
+    "duration": 210,
+    "audioUrl": "https://aac.saavncdn.com/196/051603c978f4ee061944898ee358ba33_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/196/Classic-Love-Songs-Vol-2-Hindi-2012-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Dattaram",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-manna-dey-mtocsmwx-bpl4",
+    "artistId": "manna-dey",
+    "title": "Bheegi Chandni Chhai Bekhudi",
+    "artist": "Lata Mangeshkar, Manna Dey",
+    "artists": [
+      "Lata Mangeshkar",
+      "Manna Dey"
+    ],
+    "movie": "Classic Revival Tum Mile Pyar Se",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 210,
+    "audioUrl": "https://aac.saavncdn.com/070/695a84d85ca46e1bec814de1e92f77e9_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/070/Classic-Revival-Tum-Mile-Pyar-Se-Hindi-2005-20201008164040-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Lata Mangeshkar, Manna Dey, Madan Mohan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-manna-dey-mtocsmwy-k84o",
+    "artistId": "manna-dey",
+    "title": "Laga Chunari Men Daag (From \"Dil Hi To Hai\")",
+    "artist": "Manna Dey",
+    "artists": [
+      "Manna Dey"
+    ],
+    "movie": "Classic Songs Of Raj Kapoor",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 387,
+    "audioUrl": "https://aac.saavncdn.com/232/336fe532e47c10a840c3f565b7848874_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/232/Classic-Songs-Of-Raj-Kapoor-Hindi-2019-20191205102605-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Roshan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-manna-dey-mtocsmwy-rlcb",
+    "artistId": "manna-dey",
+    "title": "Jahan Main Jati Hoon (From \"Chori Chori\")",
+    "artist": "Lata Mangeshkar, Manna Dey",
+    "artists": [
+      "Lata Mangeshkar",
+      "Manna Dey"
+    ],
+    "movie": "Classic Songs Of Raj Kapoor",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 245,
+    "audioUrl": "https://aac.saavncdn.com/232/ccea7604d15ef5afafcabdeff6d6e4da_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/232/Classic-Songs-Of-Raj-Kapoor-Hindi-2019-20191205102605-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Jaikishan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-manna-dey-mtocsmwz-a6z7",
+    "artistId": "manna-dey",
+    "title": "Rang Birange Phoolon Ki (From \"Janam Janam Ke Phere\")",
+    "artist": "Geeta Dutt, Manna Dey",
+    "artists": [
+      "Geeta Dutt",
+      "Manna Dey"
+    ],
+    "movie": "Classic Hindi Soundtracks, Jagte Raho (1956), Janam Janam Ke Phere (1957), Jeet (1949), Jhanjhar (1952), Vol. 41",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 230,
+    "audioUrl": "https://aac.saavncdn.com/081/8ae3ea1c207f7f5c4c8a3f269633a31d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/081/Classic-Hindi-Soundtracks-Jagte-Raho-1956-Janam-Janam-Ke-Phere-1957-Jeet-1949-Jhanjhar-1952-Vol-41-Hindi-2015-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "S. N. Tripathi",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-manna-dey-mtocsmwz-8tty",
+    "artistId": "manna-dey",
+    "title": "Mud Mud Ke Na Dekh Mud Mud Ke (From \"Shree 420\")",
+    "artist": "Asha Bhosle, Manna Dey",
+    "artists": [
+      "Asha Bhosle",
+      "Manna Dey"
+    ],
+    "movie": "Classic Songs Of Raj Kapoor",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 349,
+    "audioUrl": "https://aac.saavncdn.com/232/8174704b8aacb7ab196129fd0ea329d3_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/232/Classic-Songs-Of-Raj-Kapoor-Hindi-2019-20191205102605-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Jaikishan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-manna-dey-mtocsmx0-nug0",
+    "artistId": "manna-dey",
+    "title": "Nain Mile Chain Kahan",
+    "artist": "Lata Mangeshkar, Manna Dey",
+    "artists": [
+      "Lata Mangeshkar",
+      "Manna Dey"
+    ],
+    "movie": "Classic Love Songs - Vol. 3",
+    "year": 2012,
+    "decade": "2010s",
+    "duration": 264,
+    "audioUrl": "https://aac.saavncdn.com/197/f0a098f96ee4ca68ea8af5ca0adb421b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/000/default_Saregama-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Jaikishan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-manna-dey-mtocsmx0-nqr8",
+    "artistId": "manna-dey",
+    "title": "Babu Samjho Ishare (From \"Chalti Ka Naam Gaadi\")",
+    "artist": "Kishore Kumar, Manna Dey",
+    "artists": [
+      "Kishore Kumar",
+      "Manna Dey"
+    ],
+    "movie": "Old Skool - Classic Rock",
+    "year": 2018,
+    "decade": "2010s",
+    "duration": 290,
+    "audioUrl": "https://aac.saavncdn.com/279/5c7d52536f8d16dc1a4f8eedba9ef720_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/279/Old-Skool-Classic-Rock-Hindi-2018-20180220-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "S. D. Burman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-manna-dey-mtocsmx0-7fe0",
+    "artistId": "manna-dey",
+    "title": "Aaja Sanam Madhur Chandni Men",
+    "artist": "Lata Mangeshkar, Manna Dey",
+    "artists": [
+      "Lata Mangeshkar",
+      "Manna Dey"
+    ],
+    "movie": "Classic Love Songs - Vol. 2",
+    "year": 2012,
+    "decade": "2010s",
+    "duration": 264,
+    "audioUrl": "https://aac.saavncdn.com/196/a9b8fd5b4ea7729582055d625ad3edb7_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/196/Classic-Love-Songs-Vol-2-Hindi-2012-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Jaikishan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-manna-dey-mtocsmx1-u1tz",
+    "artistId": "manna-dey",
+    "title": "Pyar Hua Ikraar Hua",
+    "artist": "Lata Mangeshkar, Manna Dey",
+    "artists": [
+      "Lata Mangeshkar",
+      "Manna Dey"
+    ],
+    "movie": "Classic Revival Tum Mile Pyar Se",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 285,
+    "audioUrl": "https://aac.saavncdn.com/070/df05988fdb7d7856fc5c69b8c349b110_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/070/Classic-Revival-Tum-Mile-Pyar-Se-Hindi-2005-20201008164040-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Lata Mangeshkar, Manna Dey, Shankar-Jaikishan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-manna-dey-mtocsmx2-2xle",
+    "artistId": "manna-dey",
+    "title": "Aaja Sanam Madhur Chandni Men (From \"Chori Chori\")",
+    "artist": "Lata Mangeshkar, Manna Dey",
+    "artists": [
+      "Lata Mangeshkar",
+      "Manna Dey"
+    ],
+    "movie": "Classic Songs Of Raj Kapoor",
+    "year": 2019,
+    "decade": "2010s",
+    "duration": 265,
+    "audioUrl": "https://aac.saavncdn.com/232/721baeff4e64016e65502e1eafd38b05_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/232/Classic-Songs-Of-Raj-Kapoor-Hindi-2019-20191205102605-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Jaikishan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-manna-dey-mtocsmx3-sq7z",
+    "artistId": "manna-dey",
+    "title": "Jhoomta Mausam Mast Mahina",
+    "artist": "Lata Mangeshkar, Manna Dey",
+    "artists": [
+      "Lata Mangeshkar",
+      "Manna Dey"
+    ],
+    "movie": "Classic Love Songs - Vol. 2",
+    "year": 2012,
+    "decade": "2010s",
+    "duration": 291,
+    "audioUrl": "https://aac.saavncdn.com/196/03e5f9bf8952000a69bc8e6c4201425d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/196/Classic-Love-Songs-Vol-2-Hindi-2012-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Jaikishan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-geeta-dutt-mtocsn2t-i7vo",
+    "artistId": "geeta-dutt",
+    "title": "Yeh Hai Bombay Meri Jaan (Aye Dil Hai Mushkil Jeena Yahan)",
+    "artist": "Mohammed Rafi, Geeta Dutt",
+    "artists": [
+      "Mohammed Rafi",
+      "Geeta Dutt"
+    ],
+    "movie": "C.I.D.",
+    "year": 1956,
+    "decade": "50s",
+    "duration": 248,
+    "audioUrl": "https://aac.saavncdn.com/215/967f94b6727879ea3e8c84c89f4ab6f2_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/215/C-I-D-Hindi-1956-20230509153546-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Mohammed Rafi, Geeta Dutt, O. P. Nayyar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-geeta-dutt-mtocsn2u-5ggx",
+    "artistId": "geeta-dutt",
+    "title": "Rimjhim Ke Tarane Leke Aai Barsaat",
+    "artist": "Geeta Dutt, Mohammed Rafi",
+    "artists": [
+      "Geeta Dutt",
+      "Mohammed Rafi"
+    ],
+    "movie": "Kala Bazar",
+    "year": 1960,
+    "decade": "60s",
+    "duration": 172,
+    "audioUrl": "https://aac.saavncdn.com/538/b820c292621fe1a313386cde191c4a7a_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/538/Kala-Bazar-Hindi-1960-20200901153908-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Geeta Dutt, Mohammed Rafi, S. D. Burman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-geeta-dutt-mtocsn2v-oil3",
+    "artistId": "geeta-dutt",
+    "title": "Ankhon Hi Ankhon Mein",
+    "artist": "Mohammed Rafi, Geeta Dutt",
+    "artists": [
+      "Mohammed Rafi",
+      "Geeta Dutt"
+    ],
+    "movie": "C.I.D.",
+    "year": 1956,
+    "decade": "50s",
+    "duration": 242,
+    "audioUrl": "https://aac.saavncdn.com/215/1bf64f813f828967b0b62397ee4332aa_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/215/C-I-D-Hindi-1956-20230509153546-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "O. P. Nayyar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-geeta-dutt-mtocsn2v-mpk4",
+    "artistId": "geeta-dutt",
+    "title": "Waqt Ne Kiya Kya Haseen Sitam",
+    "artist": "Geeta Dutt, Mohammed Rafi",
+    "artists": [
+      "Geeta Dutt",
+      "Mohammed Rafi"
+    ],
+    "movie": "Kaagaz Ke Phool",
+    "year": 1959,
+    "decade": "50s",
+    "duration": 211,
+    "audioUrl": "https://aac.saavncdn.com/156/4546d693a368226ba570c7ac0671695d_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/156/Kaagaz-Ke-Phool-Hindi-1959-20200901153951-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Geeta Dutt, S. D. Burman",
+    "lyricist": "Dev Anand",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-geeta-dutt-mtocsn2w-8zny",
+    "artistId": "geeta-dutt",
+    "title": "Na Yeh Chand Hoga",
+    "artist": "Hemanta Kumar Mukhopadhyay, Geeta Dutt",
+    "artists": [
+      "Hemanta Kumar Mukhopadhyay",
+      "Geeta Dutt"
+    ],
+    "movie": "Shart",
+    "year": 1954,
+    "decade": "50s",
+    "duration": 193,
+    "audioUrl": "https://aac.saavncdn.com/351/2b45cf71e77f6bfe88a20290d7ca704e_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/351/Shart-Hindi-1954-20260807113806-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Hemant Kumar",
+    "lyricist": "Dev Anand",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-geeta-dutt-mtocsn2x-ghlx",
+    "artistId": "geeta-dutt",
+    "title": "Goonj Uthi Shehnai Medley: Haule Haule Ghunghat Pat Khole / Kah Do Koi Na Kare Yahan Pyar / Ankhiyan Bhul Gayi Hai Sona / Tere Sur Aur Mere Geet / Dil Ka Khilona Haye Toot Gaya / Jeevan Mein Piya Tera Saath Rahe / Dil Ka Khilauna Hay Toot Gaya / Main Ne P",
+    "artist": "Lata Mangeshkar, Geeta Dutt, Mohammed Rafi",
+    "artists": [
+      "Lata Mangeshkar",
+      "Geeta Dutt",
+      "Mohammed Rafi"
+    ],
+    "movie": "Goonj Uthi Shehnai Medley: Haule Haule Ghunghat Pat Khole / Kah Do Koi Na Kare Yahan Pyar / Ankhiyan Bhul Gayi Hai Sona / Tere Sur Aur Mere Geet / Dil Ka Khilona Haye Toot Gaya / Jeevan Mein Piya Tera Saath Rahe / Dil Ka Khilauna Hay Toot Gaya / Main Ne P",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 2557,
+    "audioUrl": "https://aac.saavncdn.com/523/93cc570bc022a0f20845213b73601aa0_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/523/Goonj-Uthi-Shehnai-Medley-Haule-Haule-Ghunghat-Pat-Khole-Kah-Do-Koi-Na-Kare-Yahan-Pyar-Ankhiyan-Bhul-Gayi-Hai-Sona-Tere-Sur-Aur-Mere-Geet-Dil-Ka-Khilona-Haye-Toot-Gaya-Jeevan-Mein-Piya-Ter-English-2016-20160727222846-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Vasant Desai",
+    "lyricist": "Geeta Dutt, Mohammed Rafi",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-geeta-dutt-mtocsn2x-g78a",
+    "artistId": "geeta-dutt",
+    "title": "Tadbeer Se Bigdi Huyi Taqdeer",
+    "artist": "Lata Mangeshkar, Geeta Dutt, Mohammed Rafi",
+    "artists": [
+      "Lata Mangeshkar",
+      "Geeta Dutt",
+      "Mohammed Rafi"
+    ],
+    "movie": "Baazi",
+    "year": 1950,
+    "decade": "50s",
+    "duration": 204,
+    "audioUrl": "https://aac.saavncdn.com/307/771c603bc73c806f453e8e9f58d06580_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/307/Baazi-Hindi-1950-20200831163856-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Geeta Dutt, S. D. Burman",
+    "lyricist": "Geeta Dutt, Mohammed Rafi",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-geeta-dutt-mtocsn2y-xo4x",
+    "artistId": "geeta-dutt",
+    "title": "Piya Aiso Jiya Men Samaya Gayo",
+    "artist": "Lata Mangeshkar, Geeta Dutt, Mohammed Rafi",
+    "artists": [
+      "Lata Mangeshkar",
+      "Geeta Dutt",
+      "Mohammed Rafi"
+    ],
+    "movie": "Sahib Bibi Aur Ghulam",
+    "year": 1962,
+    "decade": "60s",
+    "duration": 255,
+    "audioUrl": "https://aac.saavncdn.com/510/6ca4d26d8689cf6cb148d86edce60ef2_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/510/Sahib-Bibi-Aur-Ghulam-Hindi-1962-20200905113913-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Geeta Dutt, Hemant Kumar",
+    "lyricist": "Geeta Dutt, Mohammed Rafi",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-geeta-dutt-mtocsn2y-2k7o",
+    "artistId": "geeta-dutt",
+    "title": "Jane Kya Tune Kahi",
+    "artist": "Geeta Dutt",
+    "artists": [
+      "Geeta Dutt"
+    ],
+    "movie": "Pyaasa",
+    "year": 2004,
+    "decade": "2000s",
+    "duration": 250,
+    "audioUrl": "https://aac.saavncdn.com/456/f4dd69cdad63d2654e89d4a18cddd6cf_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/456/Pyaasa-2004-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "S. D. Burman",
+    "lyricist": "Geeta Dutt, Mohammed Rafi",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-geeta-dutt-mtocsn2z-ex05",
+    "artistId": "geeta-dutt",
+    "title": "Mera Naam Chin Chin Chu",
+    "artist": "Geeta Dutt",
+    "artists": [
+      "Geeta Dutt"
+    ],
+    "movie": "Howrah Bridge",
+    "year": 1958,
+    "decade": "50s",
+    "duration": 265,
+    "audioUrl": "https://aac.saavncdn.com/398/a391bfd9c033ad709aa836069bf4890c_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/398/Howrah-Bridge-Hindi-1958-20190314-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "O. P. Nayyar",
+    "lyricist": "Geeta Dutt, Mohammed Rafi",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-geeta-dutt-mtocsn2z-ht6f",
+    "artistId": "geeta-dutt",
+    "title": "Jata Kahan Hai Diwane",
+    "artist": "Geeta Dutt",
+    "artists": [
+      "Geeta Dutt"
+    ],
+    "movie": "C.I.D.",
+    "year": 1956,
+    "decade": "50s",
+    "duration": 198,
+    "audioUrl": "https://aac.saavncdn.com/215/cccdaa852473072f1e0657f150c6fe7b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/215/C-I-D-Hindi-1956-20230509153546-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "O. P. Nayyar",
+    "lyricist": "Geeta Dutt, Mohammed Rafi",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-geeta-dutt-mtocsn2z-v1q7",
+    "artistId": "geeta-dutt",
+    "title": "Ankhon Hi Ankhon Mein (Revival)",
+    "artist": "Geeta Dutt, Mohammed Rafi",
+    "artists": [
+      "Geeta Dutt",
+      "Mohammed Rafi"
+    ],
+    "movie": "C.I.D.",
+    "year": 1956,
+    "decade": "50s",
+    "duration": 239,
+    "audioUrl": "https://aac.saavncdn.com/215/8d4baab410fa0451f96e10dae6de2c54_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/215/C-I-D-Hindi-1956-20230509153546-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "O. P. Nayyar",
+    "lyricist": "Geeta Dutt, Mohammed Rafi",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-geeta-dutt-mtocsn30-wx1s",
+    "artistId": "geeta-dutt",
+    "title": "Ae Dil Mujhe Bata De",
+    "artist": "Geeta Dutt, Mohammed Rafi",
+    "artists": [
+      "Geeta Dutt",
+      "Mohammed Rafi"
+    ],
+    "movie": "Bhai Bhai",
+    "year": 1956,
+    "decade": "50s",
+    "duration": 290,
+    "audioUrl": "https://aac.saavncdn.com/059/c24a932cd0daedb1b2d0598f7b5b7db1_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/059/Bhai-Bhai-Hindi-1956-20200919143940-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Geeta Dutt, Madan Mohan",
+    "lyricist": "Geeta Dutt, Mohammed Rafi",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-geeta-dutt-mtocsn31-8pah",
+    "artistId": "geeta-dutt",
+    "title": "Tadbeer Se Bigdi Hui Taqdeer - Destiny Mix",
+    "artist": "Geeta Dutt",
+    "artists": [
+      "Geeta Dutt"
+    ],
+    "movie": "Bluff Master",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 205,
+    "audioUrl": "https://aac.saavncdn.com/042/0171257481dd7e2b74ba482bc97ffaf9_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/042/Bluff-Master-Hindi-2005-20190204125917-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Sameeruddin",
+    "lyricist": "Geeta Dutt, Mohammed Rafi",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-geeta-dutt-mtocsn31-r3i9",
+    "artistId": "geeta-dutt",
+    "title": "Ham Bhi Hain Tum Bhi Ho",
+    "artist": "Lata Mangeshkar, Geeta Dutt, Mukesh, Manna Dey, Mahendra Kapoor",
+    "artists": [
+      "Lata Mangeshkar",
+      "Geeta Dutt",
+      "Mukesh",
+      "Manna Dey",
+      "Mahendra Kapoor"
+    ],
+    "movie": "Jis Desh Men Ganga Behti Hai",
+    "year": 1960,
+    "decade": "60s",
+    "duration": 468,
+    "audioUrl": "https://aac.saavncdn.com/920/ec57dd1872d9dd23e2f932180c3b7264_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/920/Jis-Desh-Men-Ganga-Behti-Hai-Hindi-1960-20190306182841-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Jaikishan",
+    "lyricist": "Geeta Dutt, Mohammed Rafi",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hemant-kumar-mtocsn80-xift",
+    "artistId": "hemant-kumar",
+    "title": "Ye Raat Ye Chandni",
+    "artist": "Lata Mangeshkar",
+    "artists": [
+      "Lata Mangeshkar"
+    ],
+    "movie": "Ye Raat Ye Chandni",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 165,
+    "audioUrl": "https://aac.saavncdn.com/525/bf66d79d265de0df4bcbdd3c65cd8e55_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/525/Ye-Raat-Ye-Chandni-Hindi-2025-20250109103146-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Kazinama, S. D. Burman, Hemant Kumar",
+    "lyricist": "Dev Anand",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hemant-kumar-mtocsn81-5h0h",
+    "artistId": "hemant-kumar",
+    "title": "Beqarar Karke",
+    "artist": "Lata Mangeshkar",
+    "artists": [
+      "Lata Mangeshkar"
+    ],
+    "movie": "Beqarar Karke",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 208,
+    "audioUrl": "https://aac.saavncdn.com/114/f9612239e3ef27045da99c17503752e3_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/114/Beqarar-Karke-Hindi-2026-20260209103204-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Aditya Dev, Hemant Kumar, Shakeel Badayuni",
+    "lyricist": "Dev Anand",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hemant-kumar-mtocsn81-q22z",
+    "artistId": "hemant-kumar",
+    "title": "Brindaban Ka Krishna Kanhaiya",
+    "artist": "Hemant Kumar",
+    "artists": [
+      "Hemant Kumar"
+    ],
+    "movie": "Miss Mary",
+    "year": 1957,
+    "decade": "50s",
+    "duration": 193,
+    "audioUrl": "https://aac.saavncdn.com/291/37a1f8de1217f8b6daf4bac8b3762d89_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/291/Miss-Mary-Hindi-1957-20220429143405-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Lata Mangeshkar, Mohammed Rafi, Hemant Kumar",
+    "lyricist": "Dev Anand",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hemant-kumar-mtocsncr-esj3",
+    "artistId": "hemant-kumar",
+    "title": "Jadugar Saiyan Chhod Mori Baiyan",
+    "artist": "Lata Mangeshkar",
+    "artists": [
+      "Lata Mangeshkar"
+    ],
+    "movie": "Nagin",
+    "year": 1954,
+    "decade": "50s",
+    "duration": 173,
+    "audioUrl": "https://aac.saavncdn.com/692/459492ee3ea9bbf3bdf74284c1db9c01_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/692/Nagin-Hindi-1954-20171109-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Hemant Kumar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hemant-kumar-mtocsncr-zky6",
+    "artistId": "hemant-kumar",
+    "title": "Teri Yaad Mein Jalkar Dekh Liya",
+    "artist": "Lata Mangeshkar",
+    "artists": [
+      "Lata Mangeshkar"
+    ],
+    "movie": "Nagin",
+    "year": 1954,
+    "decade": "50s",
+    "duration": 177,
+    "audioUrl": "https://aac.saavncdn.com/692/0f5e1a553780863ed3b5df0efa89410e_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/692/Nagin-Hindi-1954-20171109-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Hemant Kumar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hemant-kumar-mtocsncs-5d6g",
+    "artistId": "hemant-kumar",
+    "title": "Kashi Dekhi Mathura - Tere Dwar Khada",
+    "artist": "Hemant Kumar",
+    "artists": [
+      "Hemant Kumar"
+    ],
+    "movie": "Nagin",
+    "year": 1954,
+    "decade": "50s",
+    "duration": 155,
+    "audioUrl": "https://aac.saavncdn.com/692/e0e577686f791d4478d93f096ee5f7a3_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/692/Nagin-Hindi-1954-20171109-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Hemant Kumar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hemant-kumar-mtocsnct-tvc9",
+    "artistId": "hemant-kumar",
+    "title": "O Zindegi Ke Denewale",
+    "artist": "Hemanta Kumar Mukhopadhyay",
+    "artists": [
+      "Hemanta Kumar Mukhopadhyay"
+    ],
+    "movie": "Nagin",
+    "year": 1954,
+    "decade": "50s",
+    "duration": 236,
+    "audioUrl": "https://aac.saavncdn.com/692/23faca79ec935b52446946e8dbbac232_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/692/Nagin-Hindi-1954-20171109-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Hemant Kumar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hemant-kumar-mtocsnct-mydm",
+    "artistId": "hemant-kumar",
+    "title": "Ari Chhod De Patang",
+    "artist": "Lata Mangeshkar, Hemant Kumar",
+    "artists": [
+      "Lata Mangeshkar",
+      "Hemant Kumar"
+    ],
+    "movie": "Nagin",
+    "year": 1954,
+    "decade": "50s",
+    "duration": 188,
+    "audioUrl": "https://aac.saavncdn.com/692/a84e6a4c4d199cf431feac787fd1a29b_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/692/Nagin-Hindi-1954-20171109-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Hemant Kumar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hemant-kumar-mtocsncu-gv9l",
+    "artistId": "hemant-kumar",
+    "title": "Been Music",
+    "artist": "Ravi, Kalyanji",
+    "artists": [
+      "Ravi",
+      "Kalyanji"
+    ],
+    "movie": "Nagin",
+    "year": 1954,
+    "decade": "50s",
+    "duration": 242,
+    "audioUrl": "https://aac.saavncdn.com/692/99f6408eb675b4b196f3ca36ced18212_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/692/Nagin-Hindi-1954-20171109-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Hemant Kumar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hemant-kumar-mtocsncv-2391",
+    "artistId": "hemant-kumar",
+    "title": "Teri Yaad Mein And Oonchi Oonchi Duniya",
+    "artist": "Lata Mangeshkar",
+    "artists": [
+      "Lata Mangeshkar"
+    ],
+    "movie": "Nagin",
+    "year": 1954,
+    "decade": "50s",
+    "duration": 460,
+    "audioUrl": "https://aac.saavncdn.com/692/2bcf528aa1e538c58fd0ed71f9a7e0c7_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/692/Nagin-Hindi-1954-20171109-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Hemant Kumar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hemant-kumar-mtocsncw-ye9e",
+    "artistId": "hemant-kumar",
+    "title": "Oonchi Oonchi Duniya Ki Deewaren",
+    "artist": "Lata Mangeshkar",
+    "artists": [
+      "Lata Mangeshkar"
+    ],
+    "movie": "Nagin",
+    "year": 1954,
+    "decade": "50s",
+    "duration": 264,
+    "audioUrl": "https://aac.saavncdn.com/692/a30d0e2ff1931f7db47637c0d958a740_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/692/Nagin-Hindi-1954-20171109-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Hemant Kumar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hemant-kumar-mtocsncw-vszg",
+    "artistId": "hemant-kumar",
+    "title": "Sun Rasiya Man Basiya",
+    "artist": "Lata Mangeshkar",
+    "artists": [
+      "Lata Mangeshkar"
+    ],
+    "movie": "Nagin",
+    "year": 1954,
+    "decade": "50s",
+    "duration": 197,
+    "audioUrl": "https://aac.saavncdn.com/692/1b4c2e1e4c8abb355fb451a44d413849_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/692/Nagin-Hindi-1954-20171109-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Hemant Kumar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hemant-kumar-mtocsncx-cmya",
+    "artistId": "hemant-kumar",
+    "title": "Yaad Rakhna Pyar Ki Nishani",
+    "artist": "Hemant Kumar, Asha Bhosle",
+    "artists": [
+      "Hemant Kumar",
+      "Asha Bhosle"
+    ],
+    "movie": "Nagin",
+    "year": 1954,
+    "decade": "50s",
+    "duration": 183,
+    "audioUrl": "https://aac.saavncdn.com/692/a9e6696f0d100b6dd11088b9b6dae500_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/692/Nagin-Hindi-1954-20171109-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Hemant Kumar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hemant-kumar-mtocsncx-w95n",
+    "artistId": "hemant-kumar",
+    "title": "Nagin Theme (Remix)",
+    "artist": "Nisha",
+    "artists": [
+      "Nisha"
+    ],
+    "movie": "Club Trippin - Faith Fully Loaded",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 261,
+    "audioUrl": "https://aac.saavncdn.com/123/1d69cfbee57d011f6faf8d5b2d86a17b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/123/Club-Trippin-Faith-Fully-Loaded-2009-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Hemant Kumar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hemant-kumar-mtocsncy-9rcp",
+    "artistId": "hemant-kumar",
+    "title": "Man Dole Mera Tan Dole Revival Film - Nagin",
+    "artist": "Nisha",
+    "artists": [
+      "Nisha"
+    ],
+    "movie": "Revival Vol.15 - Main Kya Karoon Ram",
+    "year": 2000,
+    "decade": "2000s",
+    "duration": 250,
+    "audioUrl": "https://aac.saavncdn.com/131/96fdc730c0d383e53cc76526987faeb4_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/131/Revival-Vol-15-Main-Kya-Karoon-Ram-Hindi-2000-20201008164037-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Lata Mangeshkar, Hemant Kumar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hariharan-mtocsnhi-fqhd",
+    "artistId": "hariharan",
+    "title": "Shiv Shankar Ko Jisne Pooja",
+    "artist": "Sonu Nigam, Suresh Wadkar, Anuradha Paudwal, Nitin Mukesh, Hariharan, Ravindra Sathe, Moosa Paaik",
+    "artists": [
+      "Sonu Nigam",
+      "Suresh Wadkar",
+      "Anuradha Paudwal",
+      "Nitin Mukesh",
+      "Hariharan",
+      "Ravindra Sathe",
+      "Moosa Paaik"
+    ],
+    "movie": "Char Dham",
+    "year": 1997,
+    "decade": "90s",
+    "duration": 360,
+    "audioUrl": "https://aac.saavncdn.com/597/8022a558841aa3f2ab45e7653a0971c3_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/519/Char-Dham-Hindi-1997-20221207155011-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Surender Kohli",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hariharan-mtocsnhj-atk2",
+    "artistId": "hariharan",
+    "title": "Chanda Re Chanda Re",
+    "artist": "Hariharan, Sadhana Sargam",
+    "artists": [
+      "Hariharan",
+      "Sadhana Sargam"
+    ],
+    "movie": "Sapnay",
+    "year": 1997,
+    "decade": "90s",
+    "duration": 357,
+    "audioUrl": "https://aac.saavncdn.com/845/768ab98b0dfe7c3e9f171467e5467186_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/845/Sapnay-Hindi-1997-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "A.R. Rahman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hariharan-mtocsnmv-gz09",
+    "artistId": "hariharan",
+    "title": "Ye Kesi Uljhan Hai",
+    "artist": "Hariharan, Rini Dhar",
+    "artists": [
+      "Hariharan",
+      "Rini Dhar"
+    ],
+    "movie": "Rare Romantic Melodies",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 266,
+    "audioUrl": "https://aac.saavncdn.com/839/904c5852c91bc1b2b26f32a916bb8f9b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/839/Rare-Romantic-Melodies-Hindi-2016-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Deepak K. Bajaj",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hariharan-mtocsnmw-o63v",
+    "artistId": "hariharan",
+    "title": "Dhak Dhak Dhadke Ye Dil (From ''Ameer Aadmi Ghareeb Aadmi'')",
+    "artist": "Hariharan, Rini Dhar",
+    "artists": [
+      "Hariharan",
+      "Rini Dhar"
+    ],
+    "movie": "Bollywood Romantic Duet",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 471,
+    "audioUrl": "https://aac.saavncdn.com/823/8a782b200eb82aa8766e4a81f61bc9cf_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/823/Bollywood-Romantic-Duet-Hindi-2026-20260219053641-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "R.D. Burman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hariharan-mtocsnmx-igcm",
+    "artistId": "hariharan",
+    "title": "Tum Ho Meri Nigahon (From \"Kabhi Na Kabhi\")",
+    "artist": "Hariharan, Sujatha Mohan",
+    "artists": [
+      "Hariharan",
+      "Sujatha Mohan"
+    ],
+    "movie": "Romantic Hits of Hariharan",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 330,
+    "audioUrl": "https://aac.saavncdn.com/116/7f26c0716a9088c0e17b126119ddeb02_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/116/Romantic-Hits-of-Hariharan-Hindi-2016-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "A.R. Rahman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hariharan-mtocsnmx-egh6",
+    "artistId": "hariharan",
+    "title": "More Ghar (Apple Mastered)",
+    "artist": "Lalitya Munshaw, Hariharan",
+    "artists": [
+      "Lalitya Munshaw",
+      "Hariharan"
+    ],
+    "movie": "Romantic Songs- Lalitya Munshaw",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 345,
+    "audioUrl": "https://aac.saavncdn.com/244/bfb857a8a5762f6ee360da42c2d854f5_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/244/Romantic-Songs-Lalitya-Munshaw-Hindi-2020-20200526003048-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Lalitya Munshaw",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hariharan-mtocsnmx-2qi5",
+    "artistId": "hariharan",
+    "title": "Ek Duje Ke Vaaste",
+    "artist": "Lata Mangeshkar, Hariharan",
+    "artists": [
+      "Lata Mangeshkar",
+      "Hariharan"
+    ],
+    "movie": "Pyar Kar - Yash Chopra's Romantic Hits",
+    "year": 2022,
+    "decade": "2010s",
+    "duration": 206,
+    "audioUrl": "https://aac.saavncdn.com/483/51f4110f2e14954a461909ec994d21c2_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/483/Pyar-Kar-Yash-Chopra-s-Romantic-Hits-Hindi-2022-20220924122906-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Uttam Singh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hariharan-mtocsnmy-5k6w",
+    "artistId": "hariharan",
+    "title": "Teri Chahat Ke (From \"Crackers\")",
+    "artist": "Hariharan, Dilip Sen",
+    "artists": [
+      "Hariharan",
+      "Dilip Sen"
+    ],
+    "movie": "Romantic Hits of Hariharan",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 294,
+    "audioUrl": "https://aac.saavncdn.com/116/52c6272571995adb86e3d87193c293a2_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/116/Romantic-Hits-of-Hariharan-Hindi-2016-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Dilip Sen",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hariharan-mtocsnmy-b98f",
+    "artistId": "hariharan",
+    "title": "Yeah Ratein [Remix] (From \"Rivaaz\")",
+    "artist": "Reeg Deo, Hariharan",
+    "artists": [
+      "Reeg Deo",
+      "Hariharan"
+    ],
+    "movie": "Romantic Hits of Hariharan",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 213,
+    "audioUrl": "https://aac.saavncdn.com/116/ad73c9eae28c6329eae38cce8a376395_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/116/Romantic-Hits-of-Hariharan-Hindi-2016-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Raj Inder Raj, Reeg Deo",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hariharan-mtocsnmz-lpqz",
+    "artistId": "hariharan",
+    "title": "Yeh Jo Mohabbat Hai Kati Patang",
+    "artist": "Hariharan, Abhijeet, Babul Supriyo",
+    "artists": [
+      "Hariharan",
+      "Abhijeet",
+      "Babul Supriyo"
+    ],
+    "movie": "Dil Vil Pyar Vyar 2 Romantic Songs",
+    "year": 2003,
+    "decade": "2000s",
+    "duration": 315,
+    "audioUrl": "https://aac.saavncdn.com/758/d5b49cf7081e1bfb7883c3e29fa6e3b2_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/758/Dil-Vil-Pyar-Vyar-2-Romantic-Songs-2003-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "R.D. Burman, Babloo Chakravorty",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hariharan-mtocsnmz-j0iy",
+    "artistId": "hariharan",
+    "title": "Tu Maange Dil Main De Doon Jaan (From \"Aflatoon\")",
+    "artist": "Hariharan, K. S. Chithra",
+    "artists": [
+      "Hariharan",
+      "K. S. Chithra"
+    ],
+    "movie": "Flash Back 90'S Romantic Songs",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 338,
+    "audioUrl": "https://aac.saavncdn.com/428/4c549334093e2396a422059deb7a43d6_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/428/Flash-Back-90-S-Romantic-Songs-Hindi-2020-20200325151302-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Dilip Sen-Sameer Sen",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-hariharan-mtocsnn0-d6mz",
+    "artistId": "hariharan",
+    "title": "Goom Hai Kisi Ke Pyar Mein Raampur Ka Lakshman",
+    "artist": "Hariharan, Kavita Krishnamurthy",
+    "artists": [
+      "Hariharan",
+      "Kavita Krishnamurthy"
+    ],
+    "movie": "Dil Vil Pyar Vyar 2 Romantic Songs",
+    "year": 2003,
+    "decade": "2000s",
+    "duration": 350,
+    "audioUrl": "https://aac.saavncdn.com/758/328ebb62146e3c226e2fd084ce7ba07a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/758/Dil-Vil-Pyar-Vyar-2-Romantic-Songs-2003-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "R.D. Burman, Babloo Chakravorty",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sadhana-sargam-mtocsnwd-v3u2",
+    "artistId": "sadhana-sargam",
+    "title": "Pehla Nasha",
+    "artist": "Udit Narayan, Sadhana Sargam",
+    "artists": [
+      "Udit Narayan",
+      "Sadhana Sargam"
+    ],
+    "movie": "Jo Jeeta Wohi Sikandar",
+    "year": 1992,
+    "decade": "90s",
+    "duration": 293,
+    "audioUrl": "https://aac.saavncdn.com/852/9d335ee08b26f171a3d65e11f8819d52_sar_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/852/Jo-Jeeta-Wohi-Sikandar-Hindi-1992-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Jatin-Lalit",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sadhana-sargam-mtocsnwe-jsnw",
+    "artistId": "sadhana-sargam",
+    "title": "Aap Ke Aa Jane Se (From \"Khudgarz\")",
+    "artist": "Mohammed Aziz, Sadhana Sargam",
+    "artists": [
+      "Mohammed Aziz",
+      "Sadhana Sargam"
+    ],
+    "movie": "Best Bollywood Renditions - Rishi Kapoor, Rakesh Roshan & Aditya Pancholi",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 432,
+    "audioUrl": "https://aac.saavncdn.com/415/5deb03748f817177b18f9ba5d1f6a781_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/415/Best-Bollywood-Renditions-Rishi-Kapoor-Rakesh-Roshan-Aditya-Pancholi-Hindi-2016-20260123164451-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Mohammed Aziz, Sadhana Sargam, Rajesh Roshan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sadhana-sargam-mtocsnwe-z75s",
+    "artistId": "sadhana-sargam",
+    "title": "Tujhe Rab Ne Banaya (From \"Yaad Rakhegi Duniya\")",
+    "artist": "Sadhana Sargam, Mohammad Aziz",
+    "artists": [
+      "Sadhana Sargam",
+      "Mohammad Aziz"
+    ],
+    "movie": "Best Bollywood Renditions - Rishi Kapoor, Rakesh Roshan & Aditya Pancholi",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 378,
+    "audioUrl": "https://aac.saavncdn.com/415/336380ce28a1c970b97edd29e574cf3f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/415/Best-Bollywood-Renditions-Rishi-Kapoor-Rakesh-Roshan-Aditya-Pancholi-Hindi-2016-20260123164451-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Mohammed Aziz, Sadhana Sargam, Anand - Milind",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sadhana-sargam-mtocsnwf-opsk",
+    "artistId": "sadhana-sargam",
+    "title": "Saat Samundar Paar - Jhankar Beats",
+    "artist": "Sadhana Sargam, Mohammad Aziz",
+    "artists": [
+      "Sadhana Sargam",
+      "Mohammad Aziz"
+    ],
+    "movie": "Vishwatma - Jhankar Beats",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 389,
+    "audioUrl": "https://aac.saavncdn.com/347/4bddbc5e7253e848398366ebac7d4ac5_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/347/Vishwatma-Jhankar-Beats-Hindi-2023-20250130073157-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Sadhana Sargam, Viju Shah, Hero And King Of Jhankar Studio",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sadhana-sargam-mtocsnwf-kb5l",
+    "artistId": "sadhana-sargam",
+    "title": "Dard Karaara (From \"Dum Laga Ke Haisha\")",
+    "artist": "Anu Malik, Kumar Sanu, Sadhana Sargam, Varun Grover",
+    "artists": [
+      "Anu Malik",
+      "Kumar Sanu",
+      "Sadhana Sargam",
+      "Varun Grover"
+    ],
+    "movie": "Pyaar, Forever and Ever",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 255,
+    "audioUrl": "https://aac.saavncdn.com/347/8300baeb9459bb0161c1f1c454f57521_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/347/Pyaar-Forever-and-Ever-Hindi-2026-20260205082719-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Anu Malik",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sadhana-sargam-mtocsnwg-eo2k",
+    "artistId": "sadhana-sargam",
+    "title": "Dard Karaara",
+    "artist": "Kumar Sanu, Sadhana Sargam",
+    "artists": [
+      "Kumar Sanu",
+      "Sadhana Sargam"
+    ],
+    "movie": "Dum Laga Ke Haisha",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 255,
+    "audioUrl": "https://aac.saavncdn.com/181/6c72f70d3991ef9a34f3b28e414b2566_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/181/Dum-Laga-Ke-Haisha-Hindi-2015-20190329150158-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Anu Malik, Ayushmann Khurrana",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-sadhana-sargam-mtocsnwg-sjyp",
+    "artistId": "sadhana-sargam",
+    "title": "Pyaar Ke Kagaz (Duet) [From \"Jigar\"]",
+    "artist": "Abhijeet, Sadhana Sargam",
+    "artists": [
+      "Abhijeet",
+      "Sadhana Sargam"
+    ],
+    "movie": "Evergreen Beauty - Best Of Karishma Kapoor",
+    "year": 2014,
+    "decade": "2010s",
+    "duration": 425,
+    "audioUrl": "https://aac.saavncdn.com/159/029d7d6e69fec2f83d5f9d4d34607bd1_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/159/Evergreen-Beauty-Best-Of-Karishma-Kapoor-Hindi-2014-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Anand-Milind",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kunal-ganjawala-mtocsobc-pwwl",
+    "artistId": "kunal-ganjawala",
+    "title": "Salaam-E-Ishq",
+    "artist": "Sonu Nigam, Shreya Ghoshal, Kunal Ganjawala, Sadhana Sargam, Shankar Mahadevan",
+    "artists": [
+      "Sonu Nigam",
+      "Shreya Ghoshal",
+      "Kunal Ganjawala",
+      "Sadhana Sargam",
+      "Shankar Mahadevan"
+    ],
+    "movie": "Salaam-E-Ishq",
+    "year": 2007,
+    "decade": "2000s",
+    "duration": 423,
+    "audioUrl": "https://aac.saavncdn.com/440/1049eb2efbc24f32b4c3dde0ca77b6ce_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/082/Salaam-E-Ishq-Hindi-2007-20230922144216-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Ehsaan-Loy",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kunal-ganjawala-mtocsobd-ji0y",
+    "artistId": "kunal-ganjawala",
+    "title": "Dil Keh Reha Ha",
+    "artist": "Kunal Ganjawala",
+    "artists": [
+      "Kunal Ganjawala"
+    ],
+    "movie": "Kyon Ki - It's Fate",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 305,
+    "audioUrl": "https://aac.saavncdn.com/142/4ac8bad4e1595bc94aeacb5b5fe82610_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/142/Kyon-Ki-It-s-Fate-Hindi-2005-20221201183824-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Himesh Reshammiya",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kunal-ganjawala-mtocsobe-lv8j",
+    "artistId": "kunal-ganjawala",
+    "title": "Kaal Dhamaal",
+    "artist": "Salim-Sulaiman, Kunal Ganjawala, Ravi 'rags' Khote, Caralisa Monteiro",
+    "artists": [
+      "Salim-Sulaiman",
+      "Kunal Ganjawala",
+      "Ravi 'rags' Khote",
+      "Caralisa Monteiro"
+    ],
+    "movie": "Kaal",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 282,
+    "audioUrl": "https://aac.saavncdn.com/600/dd4e77959b55ccd1de487e22fb2f6a36_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/600/Kaal-Hindi-2005-20190516150540-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Salim Sadruddin Merchant, Sulaiman Sadruddin Merchant",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kunal-ganjawala-mtocsobe-s6eq",
+    "artistId": "kunal-ganjawala",
+    "title": "Salaam Namaste",
+    "artist": "Kunal Ganjawala, Vasundhara Das",
+    "artists": [
+      "Kunal Ganjawala",
+      "Vasundhara Das"
+    ],
+    "movie": "Salaam Namaste",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 277,
+    "audioUrl": "https://aac.saavncdn.com/439/4b425a73d4b51c9a1d4bbe84d4a702e4_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/439/Salaam-Namaste-Hindi-2005-20190329182826-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Vishal & Shekhar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kunal-ganjawala-mtocsobf-ellg",
+    "artistId": "kunal-ganjawala",
+    "title": "Dil Vich Lagya",
+    "artist": "Sonu Nigam, Kunal Ganjawala, Akriti Kakkar",
+    "artists": [
+      "Sonu Nigam",
+      "Kunal Ganjawala",
+      "Akriti Kakkar"
+    ],
+    "movie": "Chup Chup Ke",
+    "year": 2006,
+    "decade": "2000s",
+    "duration": 325,
+    "audioUrl": "https://aac.saavncdn.com/078/ca25f4f127cb1f8bdf60c76d7dc9cbba_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/078/Chup-Chup-Ke-Hindi-2006-20221122163232-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Himesh Reshammiya",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kunal-ganjawala-mtocsobg-yxd8",
+    "artistId": "kunal-ganjawala",
+    "title": "Ban Jaiye (From \"Silsilay\")",
+    "artist": "Sonu Nigam, Kunal Ganjawala, Akriti Kakkar",
+    "artists": [
+      "Sonu Nigam",
+      "Kunal Ganjawala",
+      "Akriti Kakkar"
+    ],
+    "movie": "Bollywood Addicts",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 306,
+    "audioUrl": "https://aac.saavncdn.com/596/c9f65b4ad3f6ec6e85ab5465a69a1fc9_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/596/Bollywood-Addicts-Hindi-2025-20251106182606-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Himesh Reshammiya, Alka Yagnik, Kunal Ganjawala",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kunal-ganjawala-mtocsobh-a3zi",
+    "artistId": "kunal-ganjawala",
+    "title": "Ban Jaiye",
+    "artist": "Sonu Nigam, Kunal Ganjawala, Akriti Kakkar",
+    "artists": [
+      "Sonu Nigam",
+      "Kunal Ganjawala",
+      "Akriti Kakkar"
+    ],
+    "movie": "Silsiilay",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 306,
+    "audioUrl": "https://aac.saavncdn.com/096/0a4537bbde3c7381c7c0770e26d9a89f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/096/Silsiilay-Hindi-2005-20240905181730-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Himesh Reshammiya, Alka Yagnik, Kunal Ganjawala",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kunal-ganjawala-mtocsobh-xbjh",
+    "artistId": "kunal-ganjawala",
+    "title": "Tere Bin",
+    "artist": "Pritam, Kunal Ganjawala, Sunidhi Chauhan",
+    "artists": [
+      "Pritam",
+      "Kunal Ganjawala",
+      "Sunidhi Chauhan"
+    ],
+    "movie": "Bhagam Bhag",
+    "year": 2006,
+    "decade": "2000s",
+    "duration": 337,
+    "audioUrl": "https://aac.saavncdn.com/075/28aeeb1440a5dfc1184a599682a19189_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/075/Bhagam-Bhag-Hindi-2006-20241223151313-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pritam",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kunal-ganjawala-mtocsobi-r6cm",
+    "artistId": "kunal-ganjawala",
+    "title": "Salaame",
+    "artist": "Kunal Ganjawala, Vasundhara Das",
+    "artists": [
+      "Kunal Ganjawala",
+      "Vasundhara Das"
+    ],
+    "movie": "Dhoom",
+    "year": 2004,
+    "decade": "2000s",
+    "duration": 315,
+    "audioUrl": "https://aac.saavncdn.com/074/6f50b540601cf095763c5045a5233b8b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/074/Dhoom-Hindi-2004-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pritam",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kunal-ganjawala-mtocsobi-bw45",
+    "artistId": "kunal-ganjawala",
+    "title": "Shivji Satya Hai",
+    "artist": "Sonu Nigam, Sukhwinder Singh, Kunal Ganjawala",
+    "artists": [
+      "Sonu Nigam",
+      "Sukhwinder Singh",
+      "Kunal Ganjawala"
+    ],
+    "movie": "Ab Tumhare Hawale Watan Sathiyo",
+    "year": 2004,
+    "decade": "2000s",
+    "duration": 485,
+    "audioUrl": "https://aac.saavncdn.com/255/a2c8c08a422c29c60b23afa7d064acff_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/255/Ab-Tumhare-Hawale-Watan-Sathiyo-Hindi-2004-20221118021108-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Anu Malik",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kunal-ganjawala-mtocsobj-lvo2",
+    "artistId": "kunal-ganjawala",
+    "title": "Mat Maari",
+    "artist": "Pritam, Kunal Ganjawala, Sunidhi Chauhan",
+    "artists": [
+      "Pritam",
+      "Kunal Ganjawala",
+      "Sunidhi Chauhan"
+    ],
+    "movie": "R...Rajkumar",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 261,
+    "audioUrl": "https://aac.saavncdn.com/134/0512b998ca6813cfd8eb164ba9a4bed8_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/134/R-Rajkumar-Hindi-2025-20250930143440-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pritam",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kunal-ganjawala-mtocsobk-d6e0",
+    "artistId": "kunal-ganjawala",
+    "title": "Raat Ke Dhai Baje",
+    "artist": "Sunidhi Chauhan, Kunal Ganjawala, Suresh Wadkar, Rekha Bhardwaj, Earl E.D",
+    "artists": [
+      "Sunidhi Chauhan",
+      "Kunal Ganjawala",
+      "Suresh Wadkar",
+      "Rekha Bhardwaj",
+      "Earl E.D"
+    ],
+    "movie": "Kaminey",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 271,
+    "audioUrl": "https://aac.saavncdn.com/700/e36454397689d2861a1b6b827333b22b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/999/Kaminey-Hindi-2009-20221201031425-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Vishal Bhardwaj",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kunal-ganjawala-mtocsobm-s4ry",
+    "artistId": "kunal-ganjawala",
+    "title": "Tu Hi Toh Hai - Kunal Version",
+    "artist": "Pritam, Kunal Ganjawala",
+    "artists": [
+      "Pritam",
+      "Kunal Ganjawala"
+    ],
+    "movie": "Holiday - A Soldier Is Never Off Duty",
+    "year": 2014,
+    "decade": "2010s",
+    "duration": 243,
+    "audioUrl": "https://aac.saavncdn.com/166/19b1d4b5d35e87aff97d98ffaffcdbf8_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/166/Holiday-A-Soldier-Is-Never-Off-Duty-Hindi-2020-20200606000949-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pritam",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kunal-ganjawala-mtocsobm-a7ty",
+    "artistId": "kunal-ganjawala",
+    "title": "Aaya Re",
+    "artist": "Kunal Ganjawala, Sunidhi Chauhan",
+    "artists": [
+      "Kunal Ganjawala",
+      "Sunidhi Chauhan"
+    ],
+    "movie": "Chup Chup Ke",
+    "year": 2006,
+    "decade": "2000s",
+    "duration": 248,
+    "audioUrl": "https://aac.saavncdn.com/078/e22ab5f16954d5d26a36f2ef62e85a05_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/078/Chup-Chup-Ke-Hindi-2006-20221122163232-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Himesh Reshammiya",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kunal-ganjawala-mtocsobn-h33t",
+    "artistId": "kunal-ganjawala",
+    "title": "What's Going On?",
+    "artist": "Sunidhi Chauhan, Kunal Ganjawala",
+    "artists": [
+      "Sunidhi Chauhan",
+      "Kunal Ganjawala"
+    ],
+    "movie": "Salaam Namaste",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 281,
+    "audioUrl": "https://aac.saavncdn.com/439/ba9cfb53db736d96fe9f3184b595ba7d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/439/Salaam-Namaste-Hindi-2005-20190329182826-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Vishal & Shekhar",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-shafqat-amanat-ali-mtocsojd-8ue1",
+    "artistId": "shafqat-amanat-ali",
+    "title": "Mitwa (From \"Kabhi Alvida Naa Kehna\")",
+    "artist": "Shankar Mahadevan, Shankar-Ehsaan-Loy, Caralisa Monteiro",
+    "artists": [
+      "Shankar Mahadevan",
+      "Shankar-Ehsaan-Loy",
+      "Caralisa Monteiro"
+    ],
+    "movie": "Ishq Bulaava",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 385,
+    "audioUrl": "https://aac.saavncdn.com/798/61c9a7552212dee2f304877a12b6daa8_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/798/Ishq-Bulaava-2014-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar Mahadevan, Loy Mendonsa, Ehsaan Noorani",
+    "lyricist": "Kanha Kamboj",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-shafqat-amanat-ali-mtocsojh-5xx4",
+    "artistId": "shafqat-amanat-ali",
+    "title": "Mitwa (feat. Swaroop Khan)",
+    "artist": "Maati Baani",
+    "artists": [
+      "Maati Baani"
+    ],
+    "movie": "Maati Baani",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 241,
+    "audioUrl": "https://aac.saavncdn.com/054/4fdc51918d43e30038c68ad4c5aa42f6_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/054/Maati-Baani-Hindi-2016-20211015215243-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Lucky Ali",
+    "lyricist": "Swaroop Khan",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-javed-ali-mtocsosa-ee47",
+    "artistId": "javed-ali",
+    "title": "Kun Faaya Kun",
+    "artist": "Javed Ali, Mohit Chauhan, A.R. Rahman",
+    "artists": [
+      "Javed Ali",
+      "Mohit Chauhan",
+      "A.R. Rahman"
+    ],
+    "movie": "Rockstar",
+    "year": 2011,
+    "decade": "2010s",
+    "duration": 473,
+    "audioUrl": "https://aac.saavncdn.com/274/aee250c500588f117ae5343688e12b42_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/408/Rockstar-Hindi-2011-20221212023139-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "A.R. Rahman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-javed-ali-mtocsosa-8rhy",
+    "artistId": "javed-ali",
+    "title": "Kun Faya Kun (From \"Rockstar\")",
+    "artist": "Javed Ali, Mohit Chauhan, A.R. Rahman",
+    "artists": [
+      "Javed Ali",
+      "Mohit Chauhan",
+      "A.R. Rahman"
+    ],
+    "movie": "World Music Day - Best Of Bollywood Hits",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 469,
+    "audioUrl": "https://aac.saavncdn.com/179/53fd6b97b1616b941b115f840e8b1e42_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/179/World-Music-Day-Best-Of-Bollywood-Hits-Hindi-2026-20260622111029-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "A.R. Rahman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-javed-ali-mtocsosc-pkr9",
+    "artistId": "javed-ali",
+    "title": "Kun Faya Kun",
+    "artist": "A.R. Rahman, Javed Ali, Mohit Chauhan, Ranbir Kapoor",
+    "artists": [
+      "A.R. Rahman",
+      "Javed Ali",
+      "Mohit Chauhan",
+      "Ranbir Kapoor"
+    ],
+    "movie": "Many Moods Of Ranbir Kapoor",
+    "year": 2016,
+    "decade": "2010s",
+    "duration": 469,
+    "audioUrl": "https://aac.saavncdn.com/712/9cd2e6bd6d42defc82d7d78dee228a33_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/712/Many-Moods-Of-Ranbir-Kapoor-Hindi-2016-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "A.R. Rahman",
+    "lyricist": "Ranbir Kapoor",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-javed-ali-mtocsp22-g1wm",
+    "artistId": "javed-ali",
+    "title": "Aise Nahi Jiya Lage",
+    "artist": "Shreya Ghoshal, Javed Ali",
+    "artists": [
+      "Shreya Ghoshal",
+      "Javed Ali"
+    ],
+    "movie": "Shreya Ghoshal - Romantic Melodies",
+    "year": 2021,
+    "decade": "2010s",
+    "duration": 303,
+    "audioUrl": "https://aac.saavncdn.com/040/85dbd93998922aa6e7ebb2ee38a87724_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/040/Shreya-Ghoshal-Romantic-Melodies-Hindi-2021-20210313004649-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Laxmi Narayan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-shankar-mahadevan-mtocsp60-lvej",
+    "artistId": "shankar-mahadevan",
+    "title": "Breathless - Epic Mix",
+    "artist": "Shankar Mahadevan",
+    "artists": [
+      "Shankar Mahadevan"
+    ],
+    "movie": "Breathless - Epic Mix",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 88,
+    "audioUrl": "https://aac.saavncdn.com/813/25336deccc48e52ae00cd7dcdcd138d2_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/813/Breathless-Epic-Mix-Hindi-2026-20260116163105-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "The Independeners, Shankar Mahadevan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-shankar-mahadevan-mtocspaf-kwcf",
+    "artistId": "shankar-mahadevan",
+    "title": "Dil Chahta Hai",
+    "artist": "Shankar Mahadevan",
+    "artists": [
+      "Shankar Mahadevan"
+    ],
+    "movie": "Dil Chahta Hai",
+    "year": 2001,
+    "decade": "2000s",
+    "duration": 310,
+    "audioUrl": "https://aac.saavncdn.com/219/e92e9a632990c55bf3f9e1cc41c071c7_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/219/Dil-Chahta-Hai-Hindi-2001-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Ehsaan-Loy",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-shankar-mahadevan-mtocspag-s1jb",
+    "artistId": "shankar-mahadevan",
+    "title": "Dil Chahta Hai(Reprise)",
+    "artist": "Shankar Mahadevan",
+    "artists": [
+      "Shankar Mahadevan"
+    ],
+    "movie": "Dil Chahta Hai",
+    "year": 2001,
+    "decade": "2000s",
+    "duration": 257,
+    "audioUrl": "https://aac.saavncdn.com/219/870c8765d804a77b48afc080fd7c6ec6_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/219/Dil-Chahta-Hai-Hindi-2001-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Ehsaan-Loy",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-shankar-mahadevan-mtocspah-ik9p",
+    "artistId": "shankar-mahadevan",
+    "title": "Koi Kahe Kehta Rahe",
+    "artist": "Shankar Mahadevan, Shaan, KK",
+    "artists": [
+      "Shankar Mahadevan",
+      "Shaan",
+      "KK"
+    ],
+    "movie": "Dil Chahta Hai",
+    "year": 2001,
+    "decade": "2000s",
+    "duration": 347,
+    "audioUrl": "https://aac.saavncdn.com/219/f142042ca8b053e33e63740ad28166b5_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/219/Dil-Chahta-Hai-Hindi-2001-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Ehsaan-Loy",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-shankar-mahadevan-mtocspah-lgba",
+    "artistId": "shankar-mahadevan",
+    "title": "Dil Chahta Hai (From \"Dil Chahta Hai\")",
+    "artist": "Shankar Mahadevan, Shankar-Ehsaan-Loy, Javed Akhtar",
+    "artists": [
+      "Shankar Mahadevan",
+      "Shankar-Ehsaan-Loy",
+      "Javed Akhtar"
+    ],
+    "movie": "Aamir Khan's Iconic Hits",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 310,
+    "audioUrl": "https://aac.saavncdn.com/649/bd7a57b435819dc10ff7550948ee1e1b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/649/Aamir-Khan-s-Iconic-Hits-Hindi-2025-20251220131456-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Ehsaan-Loy",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-shankar-mahadevan-mtocspah-z315",
+    "artistId": "shankar-mahadevan",
+    "title": "Koi Kahe Kehta Rahe (From \"Dil Chahta Hai\")",
+    "artist": "Shankar Mahadevan, Shaan, KK, Shankar-Ehsaan-Loy, Javed Akhtar",
+    "artists": [
+      "Shankar Mahadevan",
+      "Shaan",
+      "KK",
+      "Shankar-Ehsaan-Loy",
+      "Javed Akhtar"
+    ],
+    "movie": "All Time Hits Bollywood Dance Tracks",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 346,
+    "audioUrl": "https://aac.saavncdn.com/932/69ad5eabbfc1d88b759474db2c930c52_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/932/All-Time-Hits-Bollywood-Dance-Tracks-Hindi-2023-20251209182444-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Ehsaan-Loy",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-shankar-mahadevan-mtocspai-tcci",
+    "artistId": "shankar-mahadevan",
+    "title": "Dil Chahta Hai - Berklee Indian Ensemble",
+    "artist": "Shankar Mahadevan, Shankar-Ehsaan-Loy",
+    "artists": [
+      "Shankar Mahadevan",
+      "Shankar-Ehsaan-Loy"
+    ],
+    "movie": "Dil Chahta Hai - Berklee Indian Ensemble",
+    "year": 2020,
+    "decade": "2010s",
+    "duration": 260,
+    "audioUrl": "https://aac.saavncdn.com/146/fca3eed8bb7e3f90638f81f280a2e85e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/146/Dil-Chahta-Hai-Berklee-Indian-Ensemble-Hindi-2020-20200506084007-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Ehsaan-Loy",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-shankar-mahadevan-mtocspej-e8g7",
+    "artistId": "shankar-mahadevan",
+    "title": "Yeh Dil Deewana",
+    "artist": "Shankar Mahadevan, Shreya Ghoshal",
+    "artists": [
+      "Shankar Mahadevan",
+      "Shreya Ghoshal"
+    ],
+    "movie": "Pardes",
+    "year": 1997,
+    "decade": "90s",
+    "duration": 426,
+    "audioUrl": "https://aac.saavncdn.com/386/a53b2ccf1b097919b44e5433d77e896d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/386/Pardes-Hindi-1997-20250711223347-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Sonu Nigam, Hema Sardesai, Shankar Mahadevan, Nadeem-Shravan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-shankar-mahadevan-mtocspej-mfme",
+    "artistId": "shankar-mahadevan",
+    "title": "Chamma Chamma Baaje Re",
+    "artist": "Shankar Mahadevan, Shreya Ghoshal",
+    "artists": [
+      "Shankar Mahadevan",
+      "Shreya Ghoshal"
+    ],
+    "movie": "China - Gate",
+    "year": 1998,
+    "decade": "90s",
+    "duration": 357,
+    "audioUrl": "https://aac.saavncdn.com/380/ba447c04fce1ca06ba3ed30a1bbcb8d0_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/380/China-Gate-Hindi-1998-20240408213735-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Alka Yagnik, Vinod Rathod, Shankar Mahadevan, Anu Malik, Sameer Anjaan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-shankar-mahadevan-mtocspek-ssff",
+    "artistId": "shankar-mahadevan",
+    "title": "Salaam-E-Ishq (From \"Salaam-E-Ishq\")",
+    "artist": "Shankar Mahadevan, Shreya Ghoshal",
+    "artists": [
+      "Shankar Mahadevan",
+      "Shreya Ghoshal"
+    ],
+    "movie": "Groove With Govinda",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 424,
+    "audioUrl": "https://aac.saavncdn.com/095/825abbfea84929faffd424f058b2309f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/095/Groove-With-Govinda-Hindi-2026-20260821181341-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Ehsaan-Loy",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-shankar-mahadevan-mtocspek-7azb",
+    "artistId": "shankar-mahadevan",
+    "title": "Salaam-E-Ishq",
+    "artist": "Sonu Nigam, Shreya Ghoshal, Kunal Ganjawala, Sadhana Sargam, Shankar Mahadevan",
+    "artists": [
+      "Sonu Nigam",
+      "Shreya Ghoshal",
+      "Kunal Ganjawala",
+      "Sadhana Sargam",
+      "Shankar Mahadevan"
+    ],
+    "movie": "Salaam-E-Ishq",
+    "year": 2007,
+    "decade": "2000s",
+    "duration": 423,
+    "audioUrl": "https://aac.saavncdn.com/440/1049eb2efbc24f32b4c3dde0ca77b6ce_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/082/Salaam-E-Ishq-Hindi-2007-20230922144216-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Ehsaan-Loy",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-shankar-mahadevan-mtocspel-3t9b",
+    "artistId": "shankar-mahadevan",
+    "title": "Kal Ho Naa Ho",
+    "artist": "Shankar-Ehsaan-Loy, Sonu Nigam",
+    "artists": [
+      "Shankar-Ehsaan-Loy",
+      "Sonu Nigam"
+    ],
+    "movie": "Kal Ho Naa Ho",
+    "year": 2003,
+    "decade": "2000s",
+    "duration": 321,
+    "audioUrl": "https://aac.saavncdn.com/587/d3bd1ed49eb108d2425e4875cc3ad86e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/587/Kal-Ho-Naa-Ho-Hindi-2003-20190516130956-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Ehsaan-Loy, Shankar Mahadevan, Ehsaan Noorani, Loy Mendonsa",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-shankar-mahadevan-mtocspel-2pj2",
+    "artistId": "shankar-mahadevan",
+    "title": "Gallan Goodiyaan",
+    "artist": "Yashita Sharma, Manish Kumar Tipu, Farhan Akhtar, Shankar Mahadevan, Sukhwinder Singh",
+    "artists": [
+      "Yashita Sharma",
+      "Manish Kumar Tipu",
+      "Farhan Akhtar",
+      "Shankar Mahadevan",
+      "Sukhwinder Singh"
+    ],
+    "movie": "Dil Dhadakne Do",
+    "year": 2015,
+    "decade": "2010s",
+    "duration": 296,
+    "audioUrl": "https://aac.saavncdn.com/240/2a80b5248e85af6a6567011982bc5cfc_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/240/Dil-Dhadakne-Do-Hindi-2015-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Ehsaan-Loy",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-shankar-mahadevan-mtocspem-or64",
+    "artistId": "shankar-mahadevan",
+    "title": "Kajra Re - Bunty Aur Babli",
+    "artist": "Alisha Chinai, Shankar Mahadevan, Javed Ali",
+    "artists": [
+      "Alisha Chinai",
+      "Shankar Mahadevan",
+      "Javed Ali"
+    ],
+    "movie": "Halla Re Dance Tracks 2006",
+    "year": 2006,
+    "decade": "2000s",
+    "duration": 485,
+    "audioUrl": "https://aac.saavncdn.com/017/f2ae938949e1291732d47ec99197589b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/017/Halla-Re-Dance-Tracks-2006-Hindi-2006-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Ehsaan-Loy",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-shankar-mahadevan-mtocspen-nwza",
+    "artistId": "shankar-mahadevan",
+    "title": "Kajra Re",
+    "artist": "Javed Ali, Shankar Mahadevan, Alisha Chinai",
+    "artists": [
+      "Javed Ali",
+      "Shankar Mahadevan",
+      "Alisha Chinai"
+    ],
+    "movie": "Bunty Aur Babli",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 482,
+    "audioUrl": "https://aac.saavncdn.com/018/8eede522a076831509d774b7bb8fa267_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/018/Bunty-Aur-Babli-Hindi-2005-20190329180713-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Ehsaan-Loy",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kailash-kher-mtocspj0-03j9",
+    "artistId": "kailash-kher",
+    "title": "Teri Deewani (Trending Version)",
+    "artist": "Kailash Kher, Paresh Kamath, Naresh Kamath",
+    "artists": [
+      "Kailash Kher",
+      "Paresh Kamath",
+      "Naresh Kamath"
+    ],
+    "movie": "Teri Deewani (Trending Version)",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 76,
+    "audioUrl": "https://aac.saavncdn.com/774/0092efd7aedfe957f6ca5e05ef094815_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/774/Teri-Deewani-Trending-Version-Hindi-2023-20230511151041-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Kailash Kher, Paresh Kamath, Naresh Kamath",
+    "lyricist": "Kanha Kamboj",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kailash-kher-mtocspmy-x2yw",
+    "artistId": "kailash-kher",
+    "title": "Saiyyan (Trending Version)",
+    "artist": "Kailash Kher, Paresh Kamath, Naresh Kamath",
+    "artists": [
+      "Kailash Kher",
+      "Paresh Kamath",
+      "Naresh Kamath"
+    ],
+    "movie": "Saiyyan (Trending Version)",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 60,
+    "audioUrl": "https://aac.saavncdn.com/804/3c8facd5eac0c74751244d044d83cf6e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/804/Saiyyan-Trending-Version-Hindi-2023-20230511151041-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Kailash Kher, Paresh Kamath, Naresh Kamath",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kailash-kher-mtocspmz-ghmx",
+    "artistId": "kailash-kher",
+    "title": "Saiyyan (From \"Kailasa Jhoomo Re\")",
+    "artist": "Paresh Kamath, Kailash Kher, Naresh Kamath",
+    "artists": [
+      "Paresh Kamath",
+      "Kailash Kher",
+      "Naresh Kamath"
+    ],
+    "movie": "Purani Jeans Aur Ek Guitar, Vol. 1",
+    "year": 2014,
+    "decade": "2010s",
+    "duration": 345,
+    "audioUrl": "https://aac.saavncdn.com/701/61db79c808eac15ccaa943810f544828_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/701/Purani-Jeans-Aur-Ek-Guitar-Vol-1-2014-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Paresh Kamath, Kailash Kher, Naresh Kamath",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kailash-kher-mtocspn0-uqkp",
+    "artistId": "kailash-kher",
+    "title": "Saiyyan (Refresh)",
+    "artist": "Sumonto Mukherjee",
+    "artists": [
+      "Sumonto Mukherjee"
+    ],
+    "movie": "Saiyyan (Refresh)",
+    "year": 2023,
+    "decade": "2010s",
+    "duration": 221,
+    "audioUrl": "https://aac.saavncdn.com/896/24ec1fcb4d54b077dd626404a332f286_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/896/Saiyyan-Refresh-Hindi-2023-20230208201939-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Kailash Kher, Naresh Kamath, Paresh Kamath",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kailash-kher-mtocspn1-rym5",
+    "artistId": "kailash-kher",
+    "title": "Saiyyan (Ballad Version)",
+    "artist": "Parinay Jain, Aryan Nabar",
+    "artists": [
+      "Parinay Jain",
+      "Aryan Nabar"
+    ],
+    "movie": "Saiyyan (Ballad Version)",
+    "year": 2025,
+    "decade": "2010s",
+    "duration": 128,
+    "audioUrl": "https://aac.saavncdn.com/416/cd28cb1d38d64f9c9d7f0126a065a759_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/416/Saiyyan-Ballad-Version-Hindi-2025-20250616005813-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Kailash Kher, Naresh Kamath, Paresh Kamath",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kailash-kher-mtocsprm-us4r",
+    "artistId": "kailash-kher",
+    "title": "Tujhe Main Pyar Karu (From \"1920\")",
+    "artist": "Shaan, Kailash Kher",
+    "artists": [
+      "Shaan",
+      "Kailash Kher"
+    ],
+    "movie": "Kailash Kher Hits",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 307,
+    "audioUrl": "https://aac.saavncdn.com/393/5abe08610c2a68891f30294ca3a7c01a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/393/Kailash-Kher-Hits-Hindi-2026-20260827131028-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Adnan Sami",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kailash-kher-mtocsprn-w36k",
+    "artistId": "kailash-kher",
+    "title": "Chak Lein De (From \"Chandni Chowk To China\")",
+    "artist": "Kailash Kher",
+    "artists": [
+      "Kailash Kher"
+    ],
+    "movie": "Kailash Kher Hits",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 262,
+    "audioUrl": "https://aac.saavncdn.com/393/e22472e088cded2431a39313aa45e69c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/393/Kailash-Kher-Hits-Hindi-2026-20260827131028-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Kailash-Paresh-Naresh",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kailash-kher-mtocsprn-fv9q",
+    "artistId": "kailash-kher",
+    "title": "Mere Nishaan (From \"Oh My God\")",
+    "artist": "Kailash Kher",
+    "artists": [
+      "Kailash Kher"
+    ],
+    "movie": "Kailash Kher Hits",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 300,
+    "audioUrl": "https://aac.saavncdn.com/393/990662bdce59395370519ed9d12e520f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/393/Kailash-Kher-Hits-Hindi-2026-20260827131028-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Meet Bros Anjjan",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kailash-kher-mtocspro-x2xj",
+    "artistId": "kailash-kher",
+    "title": "Yun Hi Chala Chal",
+    "artist": "Udit Narayan, Hariharan, Kailash Kher",
+    "artists": [
+      "Udit Narayan",
+      "Hariharan",
+      "Kailash Kher"
+    ],
+    "movie": "Swades",
+    "year": 2004,
+    "decade": "2000s",
+    "duration": 446,
+    "audioUrl": "https://aac.saavncdn.com/262/90b20034954936f0ca3cf77d6b6dc429_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/262/Swades-Hindi-2004-20221206092155-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "A.R. Rahman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kailash-kher-mtocspro-hqqx",
+    "artistId": "kailash-kher",
+    "title": "Yun Hi Chala Chal (From \"Swades\")",
+    "artist": "Udit Narayan, Hariharan, Kailash Kher",
+    "artists": [
+      "Udit Narayan",
+      "Hariharan",
+      "Kailash Kher"
+    ],
+    "movie": "Kailash Kher Hits",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 446,
+    "audioUrl": "https://aac.saavncdn.com/393/385611d5cc6edd1edb5ee2a480ddd97a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/393/Kailash-Kher-Hits-Hindi-2026-20260827131028-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "A.R. Rahman",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kailash-kher-mtocsprp-akgz",
+    "artistId": "kailash-kher",
+    "title": "Tu Jaane Na (Unplugged Version)",
+    "artist": "Udit Narayan, Hariharan, Kailash Kher",
+    "artists": [
+      "Udit Narayan",
+      "Hariharan",
+      "Kailash Kher"
+    ],
+    "movie": "Ajab Prem Ki Ghazab Kahani",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 343,
+    "audioUrl": "https://aac.saavncdn.com/792/6e043f23bab7966afb02f50eda9cbf94_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/792/Ajab-Prem-Ki-Ghazab-Kahani-Hindi-2009-20260123163407-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Pritam",
+    "lyricist": "Original Lyricist",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kailash-kher-mtocsprp-zr54",
+    "artistId": "kailash-kher",
+    "title": "Karpurgauram",
+    "artist": "Kailash Kher, Amitabh Bachchan",
+    "artists": [
+      "Kailash Kher",
+      "Amitabh Bachchan"
+    ],
+    "movie": "Shivoham",
+    "year": 2017,
+    "decade": "2010s",
+    "duration": 85,
+    "audioUrl": "https://aac.saavncdn.com/129/efa6aa1715c0585ee28666ad7e570ab4_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/129/Shivoham-Unknown-2017-20200717063300-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Kailash Kher, Paresh Kamath, Naresh Kamath",
+    "lyricist": "Amitabh Bachchan",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kailash-kher-mtocsprq-yzh0",
+    "artistId": "kailash-kher",
+    "title": "Ya Rabba (From \"Salaam-E-Ishq\")",
+    "artist": "Kailash Kher, Amitabh Bachchan",
+    "artists": [
+      "Kailash Kher",
+      "Amitabh Bachchan"
+    ],
+    "movie": "Kailash Kher Hits",
+    "year": 2026,
+    "decade": "2010s",
+    "duration": 418,
+    "audioUrl": "https://aac.saavncdn.com/393/09957ea20161b736f3b437b1de431f74_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/393/Kailash-Kher-Hits-Hindi-2026-20260827131028-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Ehsaan-Loy",
+    "lyricist": "Amitabh Bachchan",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kailash-kher-mtocsprq-kkbl",
+    "artistId": "kailash-kher",
+    "title": "Ya Rabba",
+    "artist": "Kailash Kher",
+    "artists": [
+      "Kailash Kher"
+    ],
+    "movie": "Salaam-E-Ishq",
+    "year": 2007,
+    "decade": "2000s",
+    "duration": 432,
+    "audioUrl": "https://aac.saavncdn.com/440/fd2da69a5fd7bc1bdbc92ec68bc2e573_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/082/Salaam-E-Ishq-Hindi-2007-20230922144216-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "Shankar-Ehsaan-Loy",
+    "lyricist": "Amitabh Bachchan",
+    "language": "hindi"
+  },
+  {
+    "id": "sg-kailash-kher-mtocsprr-4vtf",
+    "artistId": "kailash-kher",
+    "title": "Arziyan",
+    "artist": "Javed Ali, Kailash Kher",
+    "artists": [
+      "Javed Ali",
+      "Kailash Kher"
+    ],
+    "movie": "Delhi 6",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 521,
+    "audioUrl": "https://aac.saavncdn.com/931/9f5277b57ff29b68dfbab4135c57ba1a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/931/Delhi-6-2009-500x500.jpg",
+    "genre": "Bollywood / Hindi Classic",
+    "composer": "A.R. Rahman",
+    "lyricist": "Amitabh Bachchan",
+    "language": "hindi"
   }
 ];
-
-export const SONGS: Song[] = rawSongs as Song[];
