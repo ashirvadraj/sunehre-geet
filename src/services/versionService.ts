@@ -1,4 +1,4 @@
-﻿export interface VersionConfig {
+export interface VersionConfig {
   min_supported_version: number;
   latest_version: number;
   force_update: boolean;
@@ -7,7 +7,7 @@
   message_english: string;
 }
 
-export const CURRENT_APP_VERSION = 50.0;
+export const CURRENT_APP_VERSION = 51.0;
 
 const CLOUD_GIST_ID = 'a62d2ce04fb2cad264471951a42790da';
 const CLOUD_GIST_TOKEN = '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';
