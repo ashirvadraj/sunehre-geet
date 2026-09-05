@@ -4,6 +4,7 @@ import { SONGS } from '../data/songs';
 import { getOfflineAudioUrl, cacheAudioInBackground } from '../services/offlineService';
 import { fetchLyricsForSong } from '../services/lyricsService';
 import { WrappedService } from '../services/wrappedService';
+import { VersionService } from '../services/versionService';
 
 interface AudioContextType {
   currentSong: Song | null;
@@ -336,6 +337,13 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const playSong = async (song: Song, playlistQueue?: Song[], startTime: number = 0) => {
     if (!song || !singletonAudio) return;
 
+    // Hard Killswitch: If version is locked, permanently block playback
+    if (VersionService.isLocked) {
+      singletonAudio.pause();
+      setIsPlaying(false);
+      return;
+    }
+
     // 1. Immediately pause previous audio without tearing down the pipeline
     singletonAudio.pause();
     setIsPlaying(false);
@@ -361,31 +369,37 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         singletonAudio.src = playbackUrl;
       }
 
-      // DO NOT set singletonAudio.currentTime = 0 on unbuffered audio!
-      // Setting currentTime = 0 causes WebKit/Blink to send an HTTP Range request,
-      // stalling remote audio streams by 3-6 seconds.
       if (startTime > 0) {
         singletonAudio.currentTime = startTime;
       }
 
-      // 5. Start playback immediately
-      await singletonAudio.play();
+      // 5. Start playback immediately (optimistic UI update + non-blocking promise)
       setIsPlaying(true);
       pendingSeekTimeRef.current = 0;
       updateNativeNotification(song, true);
       savePlaybackState(song, startTime, song.duration, playlistQueue || queueRef.current);
 
-      // Cache audio stream in background so future plays load in 0ms
-      cacheAudioInBackground(song.audioUrl);
+      singletonAudio.play()
+        .then(() => {
+          setIsPlaying(true);
+          updateNativeNotification(song, true);
+        })
+        .catch((err) => {
+          console.warn('Play audio error:', err);
+          setIsPlaying(false);
+        });
 
-      // Preload next track in queue in the background
-      if (targetQueue && targetQueue.length > 0) {
-        const curIdx = targetQueue.findIndex((s) => s.id === song.id);
-        const nextSong = targetQueue[(curIdx + 1) % targetQueue.length];
-        if (nextSong && nextSong.id !== song.id) {
-          cacheAudioInBackground(nextSong.audioUrl);
+      // Background caching delayed by 4s to give 100% bandwidth to initial playback
+      setTimeout(() => {
+        cacheAudioInBackground(song.audioUrl);
+        if (targetQueue && targetQueue.length > 0) {
+          const curIdx = targetQueue.findIndex((s) => s.id === song.id);
+          const nextSong = targetQueue[(curIdx + 1) % targetQueue.length];
+          if (nextSong && nextSong.id !== song.id) {
+            cacheAudioInBackground(nextSong.audioUrl);
+          }
         }
-      }
+      }, 4000);
 
       // Record to Recently Played & Wrapped Listening History
       try {
