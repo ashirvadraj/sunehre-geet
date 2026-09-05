@@ -75609,6 +75609,1843 @@ const rawSongs = [
     "genre": "Masterpiece",
     "language": "english"
   }
+,
+  {
+    "id": "sg-VaNhRJHr",
+    "title": "Die With A Smile",
+    "artist": "Lady Gaga, Bruno Mars - Die With A Smile",
+    "movie": "Die With A Smile",
+    "year": 2024,
+    "decade": "2000s",
+    "duration": 250,
+    "audioUrl": "https://aac.saavncdn.com/060/05bb6ae7a01edcbd8e0d859d2fa1d83d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/060/Die-With-A-Smile-English-2024-20240816103634-500x500.jpg",
+    "genre": "english",
+    "composer": "Bruno Mars, Dernst &quot;d'mile&quot; Emile Ii, Lady Gaga, Andrew Watt, James Fauntleroy",
+    "lyricist": "",
+    "artistId": "lady-gaga",
+    "artists": [
+      "Lady Gaga"
+    ]
+  },
+  {
+    "id": "sg-jDIdaYzX",
+    "title": "Die With A Smile",
+    "artist": "Lady Gaga, Bruno Mars - Die With A Smile",
+    "movie": "Die With A Smile",
+    "year": 2024,
+    "decade": "2000s",
+    "duration": 251,
+    "audioUrl": "https://aac.saavncdn.com/584/91c83c541d82aed6472c8ea5460fddc4_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/584/Die-With-A-Smile-English-2024-20241119021400-500x500.jpg",
+    "genre": "english",
+    "composer": "Bruno Mars, Dernst &quot;d'mile&quot; Emile Ii, Lady Gaga, Andrew Watt, James Fauntleroy",
+    "lyricist": "",
+    "artistId": "lady-gaga",
+    "artists": [
+      "Lady Gaga"
+    ]
+  },
+  {
+    "id": "sg-naLcqtDD",
+    "title": "Die With A Smile",
+    "artist": "Bruno Mars, Lady Gaga - MAYHEM",
+    "movie": "MAYHEM",
+    "year": 2025,
+    "decade": "2000s",
+    "duration": 250,
+    "audioUrl": "https://aac.saavncdn.com/767/1e3d03236655b9e4151685f56911c302_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/767/MAYHEM-English-2025-20250903223608-500x500.jpg",
+    "genre": "english",
+    "composer": "Bruno Mars, Dernst &quot;d'mile&quot; Emile Ii, Lady Gaga, Andrew Watt, James Fauntleroy",
+    "lyricist": "",
+    "artistId": "lady-gaga",
+    "artists": [
+      "Lady Gaga"
+    ]
+  },
+  {
+    "id": "sg-02PSMYiH",
+    "title": "Judas",
+    "artist": "Lady Gaga - Girlboss Energy",
+    "movie": "Girlboss Energy",
+    "year": 2025,
+    "decade": "2000s",
+    "duration": 249,
+    "audioUrl": "https://aac.saavncdn.com/703/690bc747654cc012726bb1dc8c7537c8_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/703/Girlboss-Energy-English-2025-20260304023433-500x500.jpg",
+    "genre": "english",
+    "composer": "Lady Gaga, Redone",
+    "lyricist": "",
+    "artistId": "lady-gaga",
+    "artists": [
+      "Lady Gaga"
+    ]
+  },
+  {
+    "id": "sg-f_Zavbdy",
+    "title": "Judas",
+    "artist": "Lady Gaga - Judas",
+    "movie": "Judas",
+    "year": 2011,
+    "decade": "2000s",
+    "duration": 250,
+    "audioUrl": "https://aac.saavncdn.com/630/8e7afd4e066abb27d5a48ca8a8f22029_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/630/Judas-2011-500x500.jpg",
+    "genre": "english",
+    "composer": "Redone, Lady Gaga",
+    "lyricist": "",
+    "artistId": "lady-gaga",
+    "artists": [
+      "Lady Gaga"
+    ]
+  },
+  {
+    "id": "sg-hUYvg16I",
+    "title": "Bloody Mary",
+    "artist": "Lady Gaga - OG Bichotas",
+    "movie": "OG Bichotas",
+    "year": 2023,
+    "decade": "2000s",
+    "duration": 244,
+    "audioUrl": "https://aac.saavncdn.com/641/05be2a87c8142f51e20ecd34c469b465_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/641/OG-Bichotas-Spanish-2023-20260808034021-500x500.jpg",
+    "genre": "english",
+    "composer": "Lady Gaga, Paul Blair, Fernando Garibay, William Grigahcine, C. Sparks",
+    "lyricist": "",
+    "artistId": "lady-gaga",
+    "artists": [
+      "Lady Gaga"
+    ]
+  },
+  {
+    "id": "sg-kkCrBGSk",
+    "title": "hate that i made you love me",
+    "artist": "Ariana Grande - hate that i made you love me",
+    "movie": "hate that i made you love me",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 198,
+    "audioUrl": "https://aac.saavncdn.com/741/08e06539a2706f5da2ed8813ffe68c84_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/741/hate-that-i-made-you-love-me-English-2026-20260529103543-500x500.jpg",
+    "genre": "english",
+    "composer": "Ariana Grande, Max Martin, Ilya Salmanzadeh",
+    "lyricist": "",
+    "artistId": "ariana-grande",
+    "artists": [
+      "Ariana Grande"
+    ]
+  },
+  {
+    "id": "sg-PozZdpLD",
+    "title": "hate that i made you love me",
+    "artist": "Ariana Grande - petal",
+    "movie": "petal",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 197,
+    "audioUrl": "https://aac.saavncdn.com/854/af078bc358ae2a273f896f20e49ab405_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/854/petal-English-2026-20260731103521-500x500.jpg",
+    "genre": "english",
+    "composer": "Ariana Grande, Max Martin, Ilya Salmanzadeh",
+    "lyricist": "",
+    "artistId": "ariana-grande",
+    "artists": [
+      "Ariana Grande"
+    ]
+  },
+  {
+    "id": "sg-Q845e03P",
+    "title": "hate that i made you love me",
+    "artist": "Ariana Grande - petal",
+    "movie": "petal",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 197,
+    "audioUrl": "https://aac.saavncdn.com/830/e2b8e162e0938e0d1a13ea4242819768_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/830/petal-English-2026-20260731103520-500x500.jpg",
+    "genre": "english",
+    "composer": "Ariana Grande, Max Martin, Ilya Salmanzadeh",
+    "lyricist": "",
+    "artistId": "ariana-grande",
+    "artists": [
+      "Ariana Grande"
+    ]
+  },
+  {
+    "id": "sg-92wE6Utk",
+    "title": "hate that i made you love me",
+    "artist": "Ariana Grande - hate that i made you love me",
+    "movie": "hate that i made you love me",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 198,
+    "audioUrl": "https://aac.saavncdn.com/537/71568dfff8cf68fc41f6019fdc900639_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/537/hate-that-i-made-you-love-me-English-2026-20260626063611-500x500.jpg",
+    "genre": "english",
+    "composer": "Ariana Grande, Max Martin, Ilya Salmanzadeh",
+    "lyricist": "",
+    "artistId": "ariana-grande",
+    "artists": [
+      "Ariana Grande"
+    ]
+  },
+  {
+    "id": "sg-_jfkwDR2",
+    "title": "hate that i made you love me",
+    "artist": "Ariana Grande - hate that i made you love me",
+    "movie": "hate that i made you love me",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 198,
+    "audioUrl": "https://aac.saavncdn.com/551/ac30e0953110b391a7dd7245c343b148_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/551/hate-that-i-made-you-love-me-English-2026-20260626063608-500x500.jpg",
+    "genre": "english",
+    "composer": "Ariana Grande, Max Martin, Ilya Salmanzadeh",
+    "lyricist": "",
+    "artistId": "ariana-grande",
+    "artists": [
+      "Ariana Grande"
+    ]
+  },
+  {
+    "id": "sg-Kk0_FnkK",
+    "title": "7 rings",
+    "artist": "Ariana Grande - thank u, next",
+    "movie": "thank u, next",
+    "year": 2019,
+    "decade": "2000s",
+    "duration": 178,
+    "audioUrl": "https://aac.saavncdn.com/980/9c2084c1be9efbfdc598f7ea142a1ce4_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/980/thank-u-next-English-2019-20260407070510-500x500.jpg",
+    "genre": "english",
+    "composer": "Tommy Brown, Charles Anderson, Michael Foster, Victoria Monet, Tayla Parx, Ariana Grande, Njomza Vitia, Richard Rogers, Oscar Hammerstein Ii, Kimberly Krysiuk",
+    "lyricist": "",
+    "artistId": "ariana-grande",
+    "artists": [
+      "Ariana Grande"
+    ]
+  },
+  {
+    "id": "sg-IF2UR2N2",
+    "title": "Sunflower (Spider-Man: Into the Spider-Verse)",
+    "artist": "Post Malone, Swae Lee - The Diamond Collection",
+    "movie": "The Diamond Collection",
+    "year": 2023,
+    "decade": "2000s",
+    "duration": 158,
+    "audioUrl": "https://aac.saavncdn.com/504/b3bc79be82cb12784fd3f8835bd22bf5_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/504/The-Diamond-Collection-English-2023-20240201105640-500x500.jpg",
+    "genre": "english",
+    "composer": "Carter Lang, Khalif Malik Ibn Shaman Brown, Louis Russel Bell, Austin Post, William Walsh, Carl Rosen",
+    "lyricist": "",
+    "artistId": "post-malone",
+    "artists": [
+      "Post Malone"
+    ]
+  },
+  {
+    "id": "sg-w8KLqFb0",
+    "title": "Sunflower (Spider-Man: Into the Spider-Verse)",
+    "artist": "Post Malone, Swae Lee - Hollywood's Bleeding",
+    "movie": "Hollywood's Bleeding",
+    "year": 2019,
+    "decade": "2000s",
+    "duration": 158,
+    "audioUrl": "https://aac.saavncdn.com/150/393039740818a71a6925367713f2b899_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/150/Hollywood-s-Bleeding-English-2019-20240201111157-500x500.jpg",
+    "genre": "english",
+    "composer": "Carter Lang, Khalif Malik Ibn Shaman Brown, Louis Russel Bell, Austin Post, William Walsh, Carl Rosen",
+    "lyricist": "",
+    "artistId": "post-malone",
+    "artists": [
+      "Post Malone"
+    ]
+  },
+  {
+    "id": "sg-SEtIZIJu",
+    "title": "rockstar",
+    "artist": "Post Malone ft. 21 Savage - beerbongs & bentleys",
+    "movie": "beerbongs & bentleys",
+    "year": 2018,
+    "decade": "2000s",
+    "duration": 219,
+    "audioUrl": "https://aac.saavncdn.com/454/19c6b38d8a59f9999e4797ab72a81a38_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/454/beerbongs-bentleys-English-2018-20180426031217-500x500.jpg",
+    "genre": "english",
+    "composer": "Louis Bell, Austin Post, Olufunmibi Awoshiley, Jo-Vaughn Virginie, Shéyaa Bin Abraham-Joseph, Carl Austin Rosen",
+    "lyricist": "",
+    "artistId": "post-malone",
+    "artists": [
+      "Post Malone"
+    ]
+  },
+  {
+    "id": "sg-zi3T8TWY",
+    "title": "rockstar",
+    "artist": "Post Malone ft. 21 Savage - The Diamond Collection",
+    "movie": "The Diamond Collection",
+    "year": 2023,
+    "decade": "2000s",
+    "duration": 219,
+    "audioUrl": "https://aac.saavncdn.com/504/c489db34befd3af76674a7a834cd038d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/504/The-Diamond-Collection-English-2023-20240201105640-500x500.jpg",
+    "genre": "english",
+    "composer": "Louis Bell, Austin Post, Olufunmibi Awoshiley, Jo-Vaughn Virginie, Shéyaa Bin Abraham-Joseph, Carl Austin Rosen",
+    "lyricist": "",
+    "artistId": "post-malone",
+    "artists": [
+      "Post Malone"
+    ]
+  },
+  {
+    "id": "sg-BKR_Vk9u",
+    "title": "Circles",
+    "artist": "Post Malone - Hollywood's Bleeding",
+    "movie": "Hollywood's Bleeding",
+    "year": 2019,
+    "decade": "2000s",
+    "duration": 215,
+    "audioUrl": "https://aac.saavncdn.com/150/6b3ee769db0b03165446cd02bb8acf8e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/150/Hollywood-s-Bleeding-English-2019-20240201111157-500x500.jpg",
+    "genre": "english",
+    "composer": "Louis Bell, Austin Post, Kaan Gunesberk, Adam Feeney, Billy Walsh",
+    "lyricist": "",
+    "artistId": "post-malone",
+    "artists": [
+      "Post Malone"
+    ]
+  },
+  {
+    "id": "sg-uYSO2Zqc",
+    "title": "Circles",
+    "artist": "Post Malone - The Diamond Collection",
+    "movie": "The Diamond Collection",
+    "year": 2023,
+    "decade": "2000s",
+    "duration": 215,
+    "audioUrl": "https://aac.saavncdn.com/504/59fa4b7f8951ed13383b5f8579b34186_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/504/The-Diamond-Collection-English-2023-20240201105640-500x500.jpg",
+    "genre": "english",
+    "composer": "Louis Bell, Austin Post, Kaan Gunesberk, Adam Feeney, Billy Walsh",
+    "lyricist": "",
+    "artistId": "post-malone",
+    "artists": [
+      "Post Malone"
+    ]
+  },
+  {
+    "id": "sg-xKlnh38y",
+    "title": "One Dance",
+    "artist": "Drake ft. Wizkid, Kyla - Views",
+    "movie": "Views",
+    "year": 2016,
+    "decade": "2000s",
+    "duration": 174,
+    "audioUrl": "https://aac.saavncdn.com/521/d027519787725d447dc66ad347722617_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/521/Views-English-2016-20240201113111-500x500.jpg",
+    "genre": "english",
+    "composer": "Paul Jefferies, Aubrey Graham, Ayodeji Balogun, Kyla Smith, Errol Reid, N. Shebib, LUKE PATRICK REID, Corey Bruce Johnson",
+    "lyricist": "",
+    "artistId": "drake",
+    "artists": [
+      "Drake"
+    ]
+  },
+  {
+    "id": "sg-ufIKv01V",
+    "title": "Janice STFU",
+    "artist": "Drake - ICEMAN",
+    "movie": "ICEMAN",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 237,
+    "audioUrl": "https://aac.saavncdn.com/992/c9fc4c727fae366ca86069967f5515b0_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/992/ICEMAN-English-2026-20260524030434-500x500.jpg",
+    "genre": "english",
+    "composer": "Aubrey Graham",
+    "lyricist": "",
+    "artistId": "drake",
+    "artists": [
+      "Drake"
+    ]
+  },
+  {
+    "id": "sg-TY9AiNdp",
+    "title": "God's Plan",
+    "artist": "Drake - Scorpion",
+    "movie": "Scorpion",
+    "year": 2018,
+    "decade": "2000s",
+    "duration": 198,
+    "audioUrl": "https://aac.saavncdn.com/152/ff77c15a4e8d258ce599e29d3e81991d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/152/Scorpion-English-2018-20180701062706-500x500.jpg",
+    "genre": "english",
+    "composer": "Ronald Latour, Daveon Jackson, Matthew Samuels, Aubrey Graham, N. Shebib, Brock Korsan",
+    "lyricist": "",
+    "artistId": "drake",
+    "artists": [
+      "Drake"
+    ]
+  },
+  {
+    "id": "sg-9cP0csMY",
+    "title": "National Treasures",
+    "artist": "Drake - ICEMAN",
+    "movie": "ICEMAN",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 200,
+    "audioUrl": "https://aac.saavncdn.com/992/fc5f0ae6d402c222b6a38e96f48ceea3_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/992/ICEMAN-English-2026-20260524030434-500x500.jpg",
+    "genre": "english",
+    "composer": "Aubrey Graham",
+    "lyricist": "",
+    "artistId": "drake",
+    "artists": [
+      "Drake"
+    ]
+  },
+  {
+    "id": "sg-76bC4aac",
+    "title": "Janice STFU",
+    "artist": "Drake ft. Wizkid, Kyla - ICEMAN",
+    "movie": "ICEMAN",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 237,
+    "audioUrl": "https://aac.saavncdn.com/142/1b52fc99cd62e54b8987c54ecfa97d4f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/142/ICEMAN-English-2026-20260515101012-500x500.jpg",
+    "genre": "english",
+    "composer": "Aubrey Graham",
+    "lyricist": "",
+    "artistId": "drake",
+    "artists": [
+      "Drake"
+    ]
+  },
+  {
+    "id": "sg-_wBHAYYk",
+    "title": "NOKIA",
+    "artist": "Drake - $ome $exy $ongs 4 U",
+    "movie": "$ome $exy $ongs 4 U",
+    "year": 2025,
+    "decade": "2000s",
+    "duration": 241,
+    "audioUrl": "https://aac.saavncdn.com/897/702b06a9edbb8ed1318bae2d75a51e08_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/897/ome-exy-ongs-4-U-English-2025-20250325013922-500x500.jpg",
+    "genre": "english",
+    "composer": "A. Graham",
+    "lyricist": "",
+    "artistId": "drake",
+    "artists": [
+      "Drake"
+    ]
+  },
+  {
+    "id": "sg-lTL17P6t",
+    "title": "MORNING DEW (DONK)",
+    "artist": "Beyoncé - MORNING DEW (DONK)",
+    "movie": "MORNING DEW (DONK)",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 243,
+    "audioUrl": "https://aac.saavncdn.com/721/13d63e882c64438243336343b0d3fde9_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/721/MORNING-DEW-DONK-English-2026-20260704202751-500x500.jpg",
+    "genre": "english",
+    "composer": "Beyoncé, P. Williams, Terius &quot;The-Dream&quot; Gesteelde-Diamant, Darius Dixson, Angela Sherrie Woods",
+    "lyricist": "",
+    "artistId": "beyonce",
+    "artists": [
+      "Beyoncé"
+    ]
+  },
+  {
+    "id": "sg-mVRDuiE_",
+    "title": "Perfect Duet (with Beyoncé)",
+    "artist": "Ed Sheeran ft. Beyoncé - Perfect Duet (with Beyoncé)",
+    "movie": "Perfect Duet (with Beyoncé)",
+    "year": 2017,
+    "decade": "2000s",
+    "duration": 259,
+    "audioUrl": "https://aac.saavncdn.com/975/123e242d66d98d29d46f4a09d613ada5_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/975/Perfect-with-Beyonc--English-2017-20190607042911-500x500.jpg",
+    "genre": "english",
+    "composer": "Beyonce Knowles, Ed Sheeran",
+    "lyricist": "",
+    "artistId": "beyonce",
+    "artists": [
+      "Beyoncé"
+    ]
+  },
+  {
+    "id": "sg-8Brq4kIV",
+    "title": "Diva",
+    "artist": "Beyoncé - I AM...SASHA FIERCE - Platinum Edition",
+    "movie": "I AM...SASHA FIERCE - Platinum Edition",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 201,
+    "audioUrl": "https://aac.saavncdn.com/991/1a660607ad9bc073b1ac551ff1799ad4_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/991/I-AM-SASHA-FIERCE-Platinum-Edition-2009-500x500.jpg",
+    "genre": "english",
+    "composer": "Beyonce Knowles, Shondraé &quot;mr. Bangladesh&quot; Crawford, Sean Garrett",
+    "lyricist": "",
+    "artistId": "beyonce",
+    "artists": [
+      "Beyoncé"
+    ]
+  },
+  {
+    "id": "sg-3KWp7WEo",
+    "title": "Diva",
+    "artist": "Beyoncé - I AM...SASHA FIERCE",
+    "movie": "I AM...SASHA FIERCE",
+    "year": 2008,
+    "decade": "2000s",
+    "duration": 201,
+    "audioUrl": "https://aac.saavncdn.com/937/47683ecb47cbcb57bc3cf06915cae8b7_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/937/I-AM-SASHA-FIERCE-2008-500x500.jpg",
+    "genre": "english",
+    "composer": "Beyonce Knowles, Shondraé &quot;mr. Bangladesh&quot; Crawford, Sean Garrett",
+    "lyricist": "",
+    "artistId": "beyonce",
+    "artists": [
+      "Beyoncé"
+    ]
+  },
+  {
+    "id": "sg-MVBMw-f5",
+    "title": "Beautiful Liar",
+    "artist": "Shakira, Beyoncé - Beautiful Liar",
+    "movie": "Beautiful Liar",
+    "year": 2007,
+    "decade": "2000s",
+    "duration": 199,
+    "audioUrl": "https://aac.saavncdn.com/426/74cb26ad2cea777275cbefed1f4da3cd_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/426/Beautiful-Liar-English-2007-20200820060021-500x500.jpg",
+    "genre": "english",
+    "composer": "Mikkel Storleer Eriksen, Tor Erik Hermansen, Beyonce Knowles, Amanda Ghost, Ian Dench",
+    "lyricist": "",
+    "artistId": "beyonce",
+    "artists": [
+      "Beyoncé"
+    ]
+  },
+  {
+    "id": "sg-77BB6RPa",
+    "title": "Beautiful Liar",
+    "artist": "Shakira, Beyoncé - Beautiful Liar",
+    "movie": "Beautiful Liar",
+    "year": 2007,
+    "decade": "2000s",
+    "duration": 199,
+    "audioUrl": "https://aac.saavncdn.com/468/a7472570ad42af4546eb4404e8390d36_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/468/Beautiful-Liar-English-2007-20180504074221-500x500.jpg",
+    "genre": "english",
+    "composer": "Mikkel Storleer Eriksen, Tor Erik Hermansen, Beyonce Knowles, Amanda Ghost, Ian Dench",
+    "lyricist": "",
+    "artistId": "beyonce",
+    "artists": [
+      "Beyoncé"
+    ]
+  },
+  {
+    "id": "sg-UF6tbTyG",
+    "title": "Popular (From The Idol Vol. 1 (Music from the HBO Original Series))",
+    "artist": "The Weeknd, Madonna ft. Playboi Carti - Popular (Music from the HBO Original Series)",
+    "movie": "Popular (Music from the HBO Original Series)",
+    "year": 2023,
+    "decade": "2000s",
+    "duration": 215,
+    "audioUrl": "https://aac.saavncdn.com/802/d7c16bb24e5eabd97c13a741f07ee82b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/802/Popular-From-The-Idol-Vol-1-Music-from-the-HBO-Original-Series-English-2023-20230610103407-500x500.jpg",
+    "genre": "english",
+    "composer": "Mike Dean, Thomas Mikailin, Leland Wayne, Abel Tesfaye, Sam Levinson, Jordan Carter, Johnny Flippin, Michael Walker",
+    "lyricist": "",
+    "artistId": "madonna",
+    "artists": [
+      "Madonna"
+    ]
+  },
+  {
+    "id": "sg-LP87L8jT",
+    "title": "Popular (From The Idol Vol. 1 (Music from the HBO Original Series))",
+    "artist": "The Weeknd, Madonna ft. Playboi Carti - Popular",
+    "movie": "Popular",
+    "year": 2024,
+    "decade": "2000s",
+    "duration": 215,
+    "audioUrl": "https://aac.saavncdn.com/934/fb2fea181c234adcb9b5ca9b7b3d43f6_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/934/Popular-English-2024-20240126143623-500x500.jpg",
+    "genre": "english",
+    "composer": "Mike Dean, Thomas Mikailin, Leland Wayne, Abel Tesfaye, Sam Levinson, Jordan Carter, Johnny Flippin, Michael Walker",
+    "lyricist": "",
+    "artistId": "madonna",
+    "artists": [
+      "Madonna"
+    ]
+  },
+  {
+    "id": "sg-Nzzg7PV7",
+    "title": "La Isla Bonita",
+    "artist": "Madonna - La Isla Bonita",
+    "movie": "La Isla Bonita",
+    "year": 1987,
+    "decade": "80s",
+    "duration": 244,
+    "audioUrl": "https://aac.saavncdn.com/477/d8f66f1d0642a5260a8c10c245f7bad0_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/477/La-Isla-Bonita-English-1987-20230221122832-500x500.jpg",
+    "genre": "english",
+    "composer": "Mike Dean, Thomas Mikailin, Leland Wayne, Abel Tesfaye, Sam Levinson, Jordan Carter, Johnny Flippin, Michael Walker",
+    "lyricist": "",
+    "artistId": "madonna",
+    "artists": [
+      "Madonna"
+    ]
+  },
+  {
+    "id": "sg-WTOOD9M7",
+    "title": "La Isla Bonita",
+    "artist": "Madonna - True Blue",
+    "movie": "True Blue",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 242,
+    "audioUrl": "https://aac.saavncdn.com/266/425b3d936f81968e166fc26f6db55048_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/266/True-Blue-English-1986-20241105014950-500x500.jpg",
+    "genre": "english",
+    "composer": "Mike Dean, Thomas Mikailin, Leland Wayne, Abel Tesfaye, Sam Levinson, Jordan Carter, Johnny Flippin, Michael Walker",
+    "lyricist": "",
+    "artistId": "madonna",
+    "artists": [
+      "Madonna"
+    ]
+  },
+  {
+    "id": "sg-9lyR9gug",
+    "title": "La Isla Bonita",
+    "artist": "Madonna - Celebration (Deluxe Version)",
+    "movie": "Celebration (Deluxe Version)",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 242,
+    "audioUrl": "https://aac.saavncdn.com/955/5cbbadb5eb01770f0260e86227d6010d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/955/Celebration-Deluxe-Version-English-2009-20260210120725-500x500.jpg",
+    "genre": "english",
+    "composer": "Mike Dean, Thomas Mikailin, Leland Wayne, Abel Tesfaye, Sam Levinson, Jordan Carter, Johnny Flippin, Michael Walker",
+    "lyricist": "",
+    "artistId": "madonna",
+    "artists": [
+      "Madonna"
+    ]
+  },
+  {
+    "id": "sg-fdg78JwC",
+    "title": "Hung Up",
+    "artist": "Madonna - Confessions On A Dance Floor (Twenty Years Edition)",
+    "movie": "Confessions On A Dance Floor (Twenty Years Edition)",
+    "year": 2025,
+    "decade": "2000s",
+    "duration": 336,
+    "audioUrl": "https://aac.saavncdn.com/840/93ed4c61ea7a82de48d873614360584c_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/840/Confessions-On-A-Dance-Floor-Twenty-Years-Edition-English-2005-20251106081722-500x500.jpg",
+    "genre": "english",
+    "composer": "Madonna Ciccone, Stuart Price, Benny Andersson, Bjorn Ulvaeus",
+    "lyricist": "",
+    "artistId": "madonna",
+    "artists": [
+      "Madonna"
+    ]
+  },
+  {
+    "id": "sg-Dia1C1t1",
+    "title": "Vibez",
+    "artist": "Zayn Malik - Vibez",
+    "movie": "Vibez",
+    "year": 2021,
+    "decade": "2000s",
+    "duration": 163,
+    "audioUrl": "https://aac.saavncdn.com/257/5f929252d0465fc571035e24592d402d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/257/Vibez-English-2021-20210106225626-500x500.jpg",
+    "genre": "english",
+    "composer": "Zayn Malik, Mike &quot;Scribz&quot; Riley, Roget Chahayed, Nija Charles, Darnell Donohue",
+    "lyricist": "",
+    "artistId": "zayn-malik",
+    "artists": [
+      "Zayn Malik"
+    ]
+  },
+  {
+    "id": "sg-cHPaH9UC",
+    "title": "Gotta Be You (2012 US Version)",
+    "artist": "Zain Malik, Niall Horan, Louis Tomlinson, Liam Payne, Harry Styles, One Direction - Up All Night",
+    "movie": "Up All Night",
+    "year": 2012,
+    "decade": "2000s",
+    "duration": 244,
+    "audioUrl": "https://aac.saavncdn.com/880/c6634896d9c72676b40a54daa58ef192_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/880/Up-All-Night-English-2012-500x500.jpg",
+    "genre": "english",
+    "composer": "August Rigo, Steve Mac",
+    "lyricist": "",
+    "artistId": "zayn-malik",
+    "artists": [
+      "Zayn Malik"
+    ]
+  },
+  {
+    "id": "sg-2XaxlkH1",
+    "title": "I Should Have Kissed You",
+    "artist": "Harry Styles, Liam Payne, Louis Tomlinson, Niall Horan, One Direction, Zayn Malik - Up All Night",
+    "movie": "Up All Night",
+    "year": 2012,
+    "decade": "2000s",
+    "duration": 217,
+    "audioUrl": "https://aac.saavncdn.com/880/34b7b2fcb809b7c66f59132fe4c30b07_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/880/Up-All-Night-English-2012-500x500.jpg",
+    "genre": "english",
+    "composer": "Ina Wroldsen, Steve Robson",
+    "lyricist": "",
+    "artistId": "zayn-malik",
+    "artists": [
+      "Zayn Malik"
+    ]
+  },
+  {
+    "id": "sg-BJ1T28Eo",
+    "title": "To Begin Again",
+    "artist": "Ingrid Michaelson, Zayn Malik - To Begin Again",
+    "movie": "To Begin Again",
+    "year": 2021,
+    "decade": "2000s",
+    "duration": 210,
+    "audioUrl": "https://aac.saavncdn.com/490/8cd2ab1d73d1ec987f02708b66ba2fc8_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/490/To-Begin-Again-English-2021-20210218222542-500x500.jpg",
+    "genre": "english",
+    "composer": "Ingrid Michaelson, Zayn Malik, Sarah Aarons",
+    "lyricist": "",
+    "artistId": "zayn-malik",
+    "artists": [
+      "Zayn Malik"
+    ]
+  },
+  {
+    "id": "sg-42ubIosR",
+    "title": "You And I",
+    "artist": "Zayn Malik, T3tRiC - My Eyes EP",
+    "movie": "My Eyes EP",
+    "year": 2017,
+    "decade": "2000s",
+    "duration": 215,
+    "audioUrl": "https://aac.saavncdn.com/659/7ae252b5947de32483d16bd194ab5de4_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/659/My-Eyes-EP-English-2017-20170621004926-500x500.jpg",
+    "genre": "english",
+    "composer": "Ingrid Michaelson, Zayn Malik, Sarah Aarons",
+    "lyricist": "",
+    "artistId": "zayn-malik",
+    "artists": [
+      "Zayn Malik"
+    ]
+  },
+  {
+    "id": "sg-K1bVEVrx",
+    "title": "Unconditional Love",
+    "artist": "Zayn Malik - Unconditional Love (Dance Version)",
+    "movie": "Unconditional Love (Dance Version)",
+    "year": 2015,
+    "decade": "2000s",
+    "duration": 320,
+    "audioUrl": "https://aac.saavncdn.com/173/244114badeebee445d886d6a097b4df7_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/173/Unconditional-Love-Dance-Version-English-2015-500x500.jpg",
+    "genre": "english",
+    "composer": "Ingrid Michaelson, Zayn Malik, Sarah Aarons",
+    "lyricist": "",
+    "artistId": "zayn-malik",
+    "artists": [
+      "Zayn Malik"
+    ]
+  },
+  {
+    "id": "sg-It96yG1r",
+    "title": "As It Was",
+    "artist": "Harry Styles - Harry's House",
+    "movie": "Harry's House",
+    "year": 2022,
+    "decade": "2000s",
+    "duration": 167,
+    "audioUrl": "https://aac.saavncdn.com/061/3cd80564e24ad83245334f8a0e7fb126_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/061/Harry-s-House-English-2022-20220518224913-500x500.jpg",
+    "genre": "english",
+    "composer": "Kid Harpoon, Harry Styles, Tyler Johnson",
+    "lyricist": "",
+    "artistId": "harry-styles",
+    "artists": [
+      "Harry Styles"
+    ]
+  },
+  {
+    "id": "sg-n3D96OBP",
+    "title": "As It Was",
+    "artist": "Harry Styles - As It Was",
+    "movie": "As It Was",
+    "year": 2022,
+    "decade": "2000s",
+    "duration": 167,
+    "audioUrl": "https://aac.saavncdn.com/720/ae1594f81fac092f502317bc4e25a5b2_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/720/As-It-Was-English-2022-20220401035858-500x500.jpg",
+    "genre": "english",
+    "composer": "Kid Harpoon, Harry Styles, Tyler Johnson",
+    "lyricist": "",
+    "artistId": "harry-styles",
+    "artists": [
+      "Harry Styles"
+    ]
+  },
+  {
+    "id": "sg-FKxcUXFT",
+    "title": "As It Was",
+    "artist": "Harry Styles - Mundial 2026: Copa de Fútbol del Mundo 2026",
+    "movie": "Mundial 2026: Copa de Fútbol del Mundo 2026",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 167,
+    "audioUrl": "https://aac.saavncdn.com/798/d05a7404f5bba5c3a8077ad3f36d546a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/798/Mundial-2026-Copa-de-F-tbol-del-Mundo-2026-English-2026-20260714021441-500x500.jpg",
+    "genre": "english",
+    "composer": "Kid Harpoon, Harry Styles, Tyler Johnson",
+    "lyricist": "",
+    "artistId": "harry-styles",
+    "artists": [
+      "Harry Styles"
+    ]
+  },
+  {
+    "id": "sg-N34NxTO9",
+    "title": "Watermelon Sugar",
+    "artist": "Harry Styles - Fine Line",
+    "movie": "Fine Line",
+    "year": 2019,
+    "decade": "2000s",
+    "duration": 173,
+    "audioUrl": "https://aac.saavncdn.com/213/b65310797c4153ff708343a8ee4af9de_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/213/Fine-Line-English-2019-20191211223631-500x500.jpg",
+    "genre": "english",
+    "composer": "Mitch Rowland, Thomas Hull, Tyler Johnson",
+    "lyricist": "",
+    "artistId": "harry-styles",
+    "artists": [
+      "Harry Styles"
+    ]
+  },
+  {
+    "id": "sg-aWteYLQM",
+    "title": "Aperture",
+    "artist": "Harry Styles - Aperture",
+    "movie": "Aperture",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 311,
+    "audioUrl": "https://aac.saavncdn.com/387/4d3dab65edf5fd4fb65f7394addd5f6f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/387/Aperture-English-2026-20260123052336-500x500.jpg",
+    "genre": "english",
+    "composer": "Harry Styles, Kid Harpoon",
+    "lyricist": "",
+    "artistId": "harry-styles",
+    "artists": [
+      "Harry Styles"
+    ]
+  },
+  {
+    "id": "sg-H6A6L20W",
+    "title": "Sign of the Times",
+    "artist": "Harry Styles - Harry Styles",
+    "movie": "Harry Styles",
+    "year": 2017,
+    "decade": "2000s",
+    "duration": 340,
+    "audioUrl": "https://aac.saavncdn.com/985/1ac57034b93b335ece0a1256afb759b0_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/985/Harry-Styles-English-2017-500x500.jpg",
+    "genre": "english",
+    "composer": "Jeff Bhasker, Mitch Rowland, Ryan Nasci, Alex Salibian, Tyler Johnson",
+    "lyricist": "",
+    "artistId": "harry-styles",
+    "artists": [
+      "Harry Styles"
+    ]
+  },
+  {
+    "id": "sg-OrqK0Yx5",
+    "title": "Unholy",
+    "artist": "Sam Smith, Kim Petras - Feed The Beast",
+    "movie": "Feed The Beast",
+    "year": 2023,
+    "decade": "2000s",
+    "duration": 157,
+    "audioUrl": "https://aac.saavncdn.com/744/7c2f4c442cfae4fa20274fa0c97e187b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/744/Feed-The-Beast-English-2023-20230623063712-500x500.jpg",
+    "genre": "english",
+    "composer": "Blake Slatkin, Omer Fedi, Sam Smith, Kim Petras, James Napier, Ilya Salmanzadeh, Henry Walter",
+    "lyricist": "",
+    "artistId": "sam-smith",
+    "artists": [
+      "Sam Smith"
+    ]
+  },
+  {
+    "id": "sg-Qu612MlN",
+    "title": "Unholy",
+    "artist": "Sam Smith, Kim Petras - Hot Girl Gym",
+    "movie": "Hot Girl Gym",
+    "year": 2025,
+    "decade": "2000s",
+    "duration": 156,
+    "audioUrl": "https://aac.saavncdn.com/921/6052f687b11c474055430c10c46751b8_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/921/Hot-Girl-Gym-English-2025-20260613033031-500x500.jpg",
+    "genre": "english",
+    "composer": "Blake Slatkin, Omer Fedi, Sam Smith, Kim Petras, James Napier, Ilya Salmanzadeh, Henry Walter",
+    "lyricist": "",
+    "artistId": "sam-smith",
+    "artists": [
+      "Sam Smith"
+    ]
+  },
+  {
+    "id": "sg-RfohprcX",
+    "title": "Unholy",
+    "artist": "Sam Smith, Kim Petras - vampire vibes",
+    "movie": "vampire vibes",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 157,
+    "audioUrl": "https://aac.saavncdn.com/835/dbde17efee6bc367b89b6c3cc79fe654_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/835/vampire-vibes-English-2026-20260807202017-500x500.jpg",
+    "genre": "english",
+    "composer": "Blake Slatkin, Omer Fedi, Sam Smith, Kim Petras, James Napier, Ilya Salmanzadeh, Henry Walter",
+    "lyricist": "",
+    "artistId": "sam-smith",
+    "artists": [
+      "Sam Smith"
+    ]
+  },
+  {
+    "id": "sg-cV0-Xvlf",
+    "title": "Unholy",
+    "artist": "Sam Smith, Kim Petras - Evil Psychopath Dance",
+    "movie": "Evil Psychopath Dance",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 156,
+    "audioUrl": "https://aac.saavncdn.com/945/d67955e6a3d6578c2c39241c0f3cbb98_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/945/Evil-Psychopath-Dance-English-2026-20260713225021-500x500.jpg",
+    "genre": "english",
+    "composer": "Blake Slatkin, Omer Fedi, Sam Smith, Kim Petras, James Napier, Ilya Salmanzadeh, Henry Walter",
+    "lyricist": "",
+    "artistId": "sam-smith",
+    "artists": [
+      "Sam Smith"
+    ]
+  },
+  {
+    "id": "sg-sF0Mqb81",
+    "title": "Unholy",
+    "artist": "Sam Smith, Kim Petras ft. Rihanna, Rihanna & Bryson Tiller, Bryson Tiller - Wild Songs",
+    "movie": "Wild Songs",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 157,
+    "audioUrl": "https://aac.saavncdn.com/636/e045ab3a93d139a208984c9be1150ab2_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/636/Wild-Songs-English-2026-20260416072459-500x500.jpg",
+    "genre": "english",
+    "composer": "Blake Slatkin, Omer Fedi, Sam Smith, Kim Petras, James Napier, Ilya Salmanzadeh, Henry Walter",
+    "lyricist": "",
+    "artistId": "sam-smith",
+    "artists": [
+      "Sam Smith"
+    ]
+  },
+  {
+    "id": "sg-Gs10WPEn",
+    "title": "Unholy",
+    "artist": "Sam Smith, Kim Petras - Serving Diva",
+    "movie": "Serving Diva",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 157,
+    "audioUrl": "https://aac.saavncdn.com/667/2526d5a0e693748ebe960ea8df4df4c0_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/667/Serving-Diva-English-2026-20260619094609-500x500.jpg",
+    "genre": "english",
+    "composer": "Blake Slatkin, Omer Fedi, Sam Smith, Kim Petras, James Napier, Ilya Salmanzadeh, Henry Walter",
+    "lyricist": "",
+    "artistId": "sam-smith",
+    "artists": [
+      "Sam Smith"
+    ]
+  },
+  {
+    "id": "sg-84BZPMVk",
+    "title": "Ranjha",
+    "artist": "Diljit Dosanjh, Sia, David Guetta - Ranjha",
+    "movie": "Ranjha",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 184,
+    "audioUrl": "https://aac.saavncdn.com/488/3d642ff2ade872561e1130723a8e514e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/488/Ranjha-Punjabi-2026-20260309193221-500x500.jpg",
+    "genre": "punjabi",
+    "composer": "Johnny Goldstein, Diljit Dosanjh, Sia, David Guetta, Raj Ranjodh, Bebe Rexha, Jake Torrey",
+    "lyricist": "",
+    "artistId": "david-guetta",
+    "artists": [
+      "David Guetta"
+    ]
+  },
+  {
+    "id": "sg-0zvIT8G6",
+    "title": "I'm Good (Blue)",
+    "artist": "David Guetta, Bebe Rexha - Bebe",
+    "movie": "Bebe",
+    "year": 2023,
+    "decade": "2000s",
+    "duration": 175,
+    "audioUrl": "https://aac.saavncdn.com/555/ec8c47545425684ff4e77db5765a6ada_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/555/Bebe-English-2023-20230429015101-500x500.jpg",
+    "genre": "english",
+    "composer": "Johnny Goldstein, Diljit Dosanjh, Sia, David Guetta, Raj Ranjodh, Bebe Rexha, Jake Torrey",
+    "lyricist": "",
+    "artistId": "david-guetta",
+    "artists": [
+      "David Guetta"
+    ]
+  },
+  {
+    "id": "sg-ZSbAzFTm",
+    "title": "I'm Good (Blue)",
+    "artist": "David Guetta, Bebe Rexha - I'm Good (Blue)",
+    "movie": "I'm Good (Blue)",
+    "year": 2022,
+    "decade": "2000s",
+    "duration": 175,
+    "audioUrl": "https://aac.saavncdn.com/338/f898bffdd1ed08c7e3eb512c382b9bde_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/338/I-m-Good-Blue-English-2022-20220831102635-500x500.jpg",
+    "genre": "english",
+    "composer": "Johnny Goldstein, Diljit Dosanjh, Sia, David Guetta, Raj Ranjodh, Bebe Rexha, Jake Torrey",
+    "lyricist": "",
+    "artistId": "david-guetta",
+    "artists": [
+      "David Guetta"
+    ]
+  },
+  {
+    "id": "sg-fM8Jm54m",
+    "title": "Hey Mama (feat. Nicki Minaj, Bebe Rexha & Afrojack)",
+    "artist": "David Guetta ft. Afrojack, Bebe Rexha, Nicki Minaj - Listen",
+    "movie": "Listen",
+    "year": 2014,
+    "decade": "2000s",
+    "duration": 192,
+    "audioUrl": "https://aac.saavncdn.com/308/c78e0d00c80ee54802d3bfd4db93787d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/308/Listen-English-2014-20260302224440-500x500.jpg",
+    "genre": "english",
+    "composer": "Johnny Goldstein, Diljit Dosanjh, Sia, David Guetta, Raj Ranjodh, Bebe Rexha, Jake Torrey",
+    "lyricist": "",
+    "artistId": "david-guetta",
+    "artists": [
+      "David Guetta"
+    ]
+  },
+  {
+    "id": "sg-LBD3LQnG",
+    "title": "Hey Mama (feat. Nicki Minaj, Bebe Rexha & Afrojack)",
+    "artist": "David Guetta ft. Afrojack, Bebe Rexha, Nicki Minaj - Listen Again",
+    "movie": "Listen Again",
+    "year": 2015,
+    "decade": "2000s",
+    "duration": 192,
+    "audioUrl": "https://aac.saavncdn.com/540/a53e0c1a2ee77716e41a5f1eaef468d7_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/540/Listen-Again-English-2015-20260302224443-500x500.jpg",
+    "genre": "english",
+    "composer": "Johnny Goldstein, Diljit Dosanjh, Sia, David Guetta, Raj Ranjodh, Bebe Rexha, Jake Torrey",
+    "lyricist": "",
+    "artistId": "david-guetta",
+    "artists": [
+      "David Guetta"
+    ]
+  },
+  {
+    "id": "sg-Ckrw3AZS",
+    "title": "Sexy Bitch (feat. Akon)",
+    "artist": "David Guetta ft. Further Ado - Sexy Bitch",
+    "movie": "Sexy Bitch",
+    "year": 2009,
+    "decade": "2000s",
+    "duration": 196,
+    "audioUrl": "https://aac.saavncdn.com/957/ac1b6825b614e90af3a69d75bea2da0e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/957/Sexy-Bitch-English-2009-500x500.jpg",
+    "genre": "english",
+    "composer": "Johnny Goldstein, Diljit Dosanjh, Sia, David Guetta, Raj Ranjodh, Bebe Rexha, Jake Torrey",
+    "lyricist": "",
+    "artistId": "david-guetta",
+    "artists": [
+      "David Guetta"
+    ]
+  },
+  {
+    "id": "sg-sIK0DHYF",
+    "title": "FRIENDS",
+    "artist": "Marshmello, Anne-Marie - FRIENDS",
+    "movie": "FRIENDS",
+    "year": 2018,
+    "decade": "2000s",
+    "duration": 201,
+    "audioUrl": "https://aac.saavncdn.com/197/27b24ca18b14ce38003921a35d483108_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/197/FRIENDS-English-2018-20250217230423-500x500.jpg",
+    "genre": "english",
+    "composer": "",
+    "lyricist": "",
+    "artistId": "marshmello",
+    "artists": [
+      "Marshmello"
+    ]
+  },
+  {
+    "id": "sg-WoWxpDoI",
+    "title": "FRIENDS (Acoustic)",
+    "artist": "Marshmello, Anne-Marie - FRIENDS (Acoustic)",
+    "movie": "FRIENDS (Acoustic)",
+    "year": 2018,
+    "decade": "2000s",
+    "duration": 209,
+    "audioUrl": "https://aac.saavncdn.com/647/99765f1c3470ce8a589531cb6e390158_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/647/FRIENDS-Acoustic-English-2018-20250528155603-500x500.jpg",
+    "genre": "english",
+    "composer": "",
+    "lyricist": "",
+    "artistId": "marshmello",
+    "artists": [
+      "Marshmello"
+    ]
+  },
+  {
+    "id": "sg-aqI04aHE",
+    "title": "FRIENDS",
+    "artist": "Marshmello, Anne-Marie - Speak Your Mind",
+    "movie": "Speak Your Mind",
+    "year": 2018,
+    "decade": "2000s",
+    "duration": 204,
+    "audioUrl": "https://aac.saavncdn.com/534/c74ad0c55066baf8b82ea72e9301c783_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/534/Speak-Your-Mind-English-2018-20180419180227-500x500.jpg",
+    "genre": "english",
+    "composer": "",
+    "lyricist": "",
+    "artistId": "marshmello",
+    "artists": [
+      "Marshmello"
+    ]
+  },
+  {
+    "id": "sg-2oWa2CKB",
+    "title": "Wolves",
+    "artist": "Selena Gomez, Marshmello - Wolves",
+    "movie": "Wolves",
+    "year": 2017,
+    "decade": "2000s",
+    "duration": 198,
+    "audioUrl": "https://aac.saavncdn.com/404/c7e379821ecf4a227935d08af4e69605_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/404/Wolves-English-2017-20251009152047-500x500.jpg",
+    "genre": "english",
+    "composer": "Marshmello, Selena Gomez, Andrew Wotman, Alexandra Tamposi, Brian D. Lee, Louis Bell, Carl Rosen",
+    "lyricist": "",
+    "artistId": "marshmello",
+    "artists": [
+      "Marshmello"
+    ]
+  },
+  {
+    "id": "sg-WTayZCYB",
+    "title": "BIBA",
+    "artist": "Marshmello, Pritam - BIBA",
+    "movie": "BIBA",
+    "year": 2019,
+    "decade": "2000s",
+    "duration": 175,
+    "audioUrl": "https://aac.saavncdn.com/987/e2ebc8bfe464a038b55447ee0681d8d5_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/987/BIBA-Hindi-2019-20260814173245-500x500.jpg",
+    "genre": "hindi",
+    "composer": "Pritam, Marshmello",
+    "lyricist": "",
+    "artistId": "marshmello",
+    "artists": [
+      "Marshmello"
+    ]
+  },
+  {
+    "id": "sg-PIzj75J8",
+    "title": "BIBA",
+    "artist": "Marshmello, Pritam, Shirley Setia, Pardeep Singh Sran, Dev Negi - BIBA",
+    "movie": "BIBA",
+    "year": 2019,
+    "decade": "2000s",
+    "duration": 175,
+    "audioUrl": "https://aac.saavncdn.com/987/03f9cd50555cbf24f251b195afaceb92_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/987/BIBA-Unknown-2019-20200813225958-500x500.jpg",
+    "genre": "hindi",
+    "composer": "Pritam, Marshmello",
+    "lyricist": "",
+    "artistId": "marshmello",
+    "artists": [
+      "Marshmello"
+    ]
+  },
+  {
+    "id": "sg-kpY_C-zm",
+    "title": "It's My Life",
+    "artist": "Bon Jovi ft. Kunal Ganjawala - Universal Beast Mode",
+    "movie": "Universal Beast Mode",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 224,
+    "audioUrl": "https://aac.saavncdn.com/836/e4abe37e070b89552442cdf20d31701f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/836/Universal-Beast-Mode-English-2026-20260731053552-500x500.jpg",
+    "genre": "english",
+    "composer": "Jon Bon Jovi, Richie Sambora, Max Martin",
+    "lyricist": "",
+    "artistId": "bon-jovi",
+    "artists": [
+      "Bon Jovi"
+    ]
+  },
+  {
+    "id": "sg-wheUg7Qu",
+    "title": "It's My Life",
+    "artist": "Bon Jovi ft. Kunal Ganjawala - Best Hockey Songs Ever",
+    "movie": "Best Hockey Songs Ever",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 224,
+    "audioUrl": "https://aac.saavncdn.com/191/e4ed2f2d8c36b5cd4a2f28d6f5f7212e_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/191/Best-Hockey-Songs-Ever-English-2026-20260723011025-500x500.jpg",
+    "genre": "english",
+    "composer": "Jon Bon Jovi, Richie Sambora, Max Martin",
+    "lyricist": "",
+    "artistId": "bon-jovi",
+    "artists": [
+      "Bon Jovi"
+    ]
+  },
+  {
+    "id": "sg-VTaazhtd",
+    "title": "It's My Life",
+    "artist": "Bon Jovi ft. Kunal Ganjawala - Viagem de Carro",
+    "movie": "Viagem de Carro",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 224,
+    "audioUrl": "https://aac.saavncdn.com/121/0a1a4e44860ec9d17a341c117e94bf89_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/121/Viagem-de-Carro-English-2026-20260728213017-500x500.jpg",
+    "genre": "english",
+    "composer": "Jon Bon Jovi, Richie Sambora, Max Martin",
+    "lyricist": "",
+    "artistId": "bon-jovi",
+    "artists": [
+      "Bon Jovi"
+    ]
+  },
+  {
+    "id": "sg-n0mPVAxy",
+    "title": "It's My Life",
+    "artist": "Bon Jovi ft. Kunal Ganjawala - Rock Legends",
+    "movie": "Rock Legends",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 224,
+    "audioUrl": "https://aac.saavncdn.com/188/7a6ff20ca2c52f4c669ecce604a78a41_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/188/Rock-Legends-English-2026-20260826182037-500x500.jpg",
+    "genre": "english",
+    "composer": "Jon Bon Jovi, Richie Sambora, Max Martin",
+    "lyricist": "",
+    "artistId": "bon-jovi",
+    "artists": [
+      "Bon Jovi"
+    ]
+  },
+  {
+    "id": "sg-Ioo2Eimw",
+    "title": "It's My Life",
+    "artist": "Bon Jovi ft. Kunal Ganjawala - Bon Jovi Greatest Hits",
+    "movie": "Bon Jovi Greatest Hits",
+    "year": 2010,
+    "decade": "2000s",
+    "duration": 224,
+    "audioUrl": "https://aac.saavncdn.com/361/00adaa07b948634f5f179c321a363e10_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/361/Bon-Jovi-Greatest-Hits-2010-500x500.jpg",
+    "genre": "english",
+    "composer": "Jon Bon Jovi, Richie Sambora, Max Martin",
+    "lyricist": "",
+    "artistId": "bon-jovi",
+    "artists": [
+      "Bon Jovi"
+    ]
+  },
+  {
+    "id": "sg-i62mHYRc",
+    "title": "It's My Life",
+    "artist": "Bon Jovi - Vision Board Frequencies 2026",
+    "movie": "Vision Board Frequencies 2026",
+    "year": 2025,
+    "decade": "2000s",
+    "duration": 224,
+    "audioUrl": "https://aac.saavncdn.com/430/39e3b9a940e59fa82e88814f931a519d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/430/Vision-Board-Frequencies-2026-English-2025-20260811115511-500x500.jpg",
+    "genre": "english",
+    "composer": "Jon Bon Jovi, Richie Sambora, Max Martin",
+    "lyricist": "",
+    "artistId": "bon-jovi",
+    "artists": [
+      "Bon Jovi"
+    ]
+  },
+  {
+    "id": "sg-h22m6LBp",
+    "title": "Sweet Child O' Mine",
+    "artist": "Guns N' Roses - Greatest Hits",
+    "movie": "Greatest Hits",
+    "year": 2020,
+    "decade": "2000s",
+    "duration": 355,
+    "audioUrl": "https://aac.saavncdn.com/120/f5fa4526795049b2ed8da352ed81989b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/120/Greatest-Hits-English-2020-20200925061407-500x500.jpg",
+    "genre": "english",
+    "composer": "W. Axl Rose, Duff Mckagan, Steven Adler, Jeffrey Isbell, Saul Hudson",
+    "lyricist": "",
+    "artistId": "guns-n-roses",
+    "artists": [
+      "Guns N' Roses"
+    ]
+  },
+  {
+    "id": "sg-duaCo6Do",
+    "title": "Sweet Child O' Mine (Album Version)",
+    "artist": "Guns N' Roses - Appetite For Destruction / G N'R Lies / The Spaghetti Incident",
+    "movie": "Appetite For Destruction / G N'R Lies / The Spaghetti Incident",
+    "year": 1999,
+    "decade": "90s",
+    "duration": 356,
+    "audioUrl": "https://aac.saavncdn.com/625/8e50545945ee20b75c5f2e7c721197f5_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/625/Appetite-For-Destruction-G-N-R-Lies-The-Spaghetti-Incident-1999-500x500.jpg",
+    "genre": "english",
+    "composer": "W. Axl Rose, Jeffrey Isbell, Saul Hudson, Michael Mckagan, Steven Adler",
+    "lyricist": "",
+    "artistId": "guns-n-roses",
+    "artists": [
+      "Guns N' Roses"
+    ]
+  },
+  {
+    "id": "sg-yRo2tTGx",
+    "title": "Sweet Child O' Mine (Album Version)",
+    "artist": "Guns N' Roses - Lies / Appetite For Destruction",
+    "movie": "Lies / Appetite For Destruction",
+    "year": 2000,
+    "decade": "2000s",
+    "duration": 356,
+    "audioUrl": "https://aac.saavncdn.com/520/1d42e5575a8591bd6f653cbb6efc192d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/520/Lies-Appetite-For-Destruction-2000-500x500.jpg",
+    "genre": "english",
+    "composer": "W. Axl Rose, Jeffrey Isbell, Saul Hudson, Michael Mckagan, Steven Adler",
+    "lyricist": "",
+    "artistId": "guns-n-roses",
+    "artists": [
+      "Guns N' Roses"
+    ]
+  },
+  {
+    "id": "sg-8h5iZMxD",
+    "title": "Sweet Child O' Mine (Album Version)",
+    "artist": "Guns N' Roses - Greatest Hits (U.S. Version; WW Excluding Europe)",
+    "movie": "Greatest Hits (U.S. Version; WW Excluding Europe)",
+    "year": 2005,
+    "decade": "2000s",
+    "duration": 355,
+    "audioUrl": "https://aac.saavncdn.com/696/db25c9c2e1778e13ad7ce70d93ce11ad_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/696/Greatest-Hits-U-S-Version-WW-Excluding-Europe-2005-500x500.jpg",
+    "genre": "english",
+    "composer": "W. Axl Rose, Jeffrey Isbell, Saul Hudson, Michael Mckagan, Steven Adler",
+    "lyricist": "",
+    "artistId": "guns-n-roses",
+    "artists": [
+      "Guns N' Roses"
+    ]
+  },
+  {
+    "id": "sg-3fSpiZKv",
+    "title": "Sweet Child O' Mine",
+    "artist": "Guns N' Roses - Appetite For Destruction",
+    "movie": "Appetite For Destruction",
+    "year": 2018,
+    "decade": "2000s",
+    "duration": 355,
+    "audioUrl": "https://aac.saavncdn.com/743/25d4b06fb97dc30559f0105d8383c9bd_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/743/Appetite-For-Destruction-English-1987-20180627230139-500x500.jpg",
+    "genre": "english",
+    "composer": "W. Axl Rose, Duff Mckagan, Steven Adler, Jeffrey Isbell, Saul Hudson",
+    "lyricist": "",
+    "artistId": "guns-n-roses",
+    "artists": [
+      "Guns N' Roses"
+    ]
+  },
+  {
+    "id": "sg-k9jl-x5y",
+    "title": "November Rain",
+    "artist": "Guns N' Roses - Use Your Illusion I",
+    "movie": "Use Your Illusion I",
+    "year": 1991,
+    "decade": "90s",
+    "duration": 533,
+    "audioUrl": "https://aac.saavncdn.com/527/3fd33a551124d53abb04864f1fc092dc_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/527/Use-Your-Illusion-I-English-1991-20180704023004-500x500.jpg",
+    "genre": "english",
+    "composer": "W. Axl Rose, Jeffrey Isbell, Saul Hudson, Duff Mckagan",
+    "lyricist": "",
+    "artistId": "guns-n-roses",
+    "artists": [
+      "Guns N' Roses"
+    ]
+  },
+  {
+    "id": "sg-iOWVL_K3",
+    "title": "Complicated",
+    "artist": "Avril Lavigne - Nu Divas Vol.2",
+    "movie": "Nu Divas Vol.2",
+    "year": 2003,
+    "decade": "2000s",
+    "duration": 245,
+    "audioUrl": "https://aac.saavncdn.com/726/d622c539bfc59a9ab6b740ffe7ed425d_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/726/Nu-Divas-Vol-2-English-2003-20200820044554-500x500.jpg",
+    "genre": "english",
+    "composer": "Avril Lavigne, Lauren Christy, David Alspach, Graham Edwards",
+    "lyricist": "",
+    "artistId": "avril-lavigne",
+    "artists": [
+      "Avril Lavigne"
+    ]
+  },
+  {
+    "id": "sg-NCQjm6ay",
+    "title": "Complicated",
+    "artist": "Avril Lavigne - Let Go",
+    "movie": "Let Go",
+    "year": 2015,
+    "decade": "2000s",
+    "duration": 245,
+    "audioUrl": "https://aac.saavncdn.com/069/48b26faae9e8981be783df8a643b0a11_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/069/Let-Go-English-2015-20190219193409-500x500.jpg",
+    "genre": "english",
+    "composer": "Avril Lavigne, Lauren Christy, David Alspach, Graham Edwards",
+    "lyricist": "",
+    "artistId": "avril-lavigne",
+    "artists": [
+      "Avril Lavigne"
+    ]
+  },
+  {
+    "id": "sg-2h-R1i-s",
+    "title": "I'm with You",
+    "artist": "Avril Lavigne - Let Go",
+    "movie": "Let Go",
+    "year": 2015,
+    "decade": "2000s",
+    "duration": 224,
+    "audioUrl": "https://aac.saavncdn.com/069/9f0505b4ec0b6ba9d410d3eb75b40bc9_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/069/Let-Go-English-2015-20190219193409-500x500.jpg",
+    "genre": "english",
+    "composer": "Avril Lavigne, The Matrix",
+    "lyricist": "",
+    "artistId": "avril-lavigne",
+    "artists": [
+      "Avril Lavigne"
+    ]
+  },
+  {
+    "id": "sg-XpIzxV3b",
+    "title": "I'm with You",
+    "artist": "Avril Lavigne - Greatest Hits",
+    "movie": "Greatest Hits",
+    "year": 2024,
+    "decade": "2000s",
+    "duration": 224,
+    "audioUrl": "https://aac.saavncdn.com/867/e0ef50f026dff6b097cd467ccacd68e5_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/867/Greatest-Hits-English-2024-20240614112837-500x500.jpg",
+    "genre": "english",
+    "composer": "Avril Lavigne, The Matrix",
+    "lyricist": "",
+    "artistId": "avril-lavigne",
+    "artists": [
+      "Avril Lavigne"
+    ]
+  },
+  {
+    "id": "sg-9GsIqRqp",
+    "title": "I'm with You",
+    "artist": "Avril Lavigne - New Divas 2004",
+    "movie": "New Divas 2004",
+    "year": 2004,
+    "decade": "2000s",
+    "duration": 224,
+    "audioUrl": "https://aac.saavncdn.com/426/32746116785c00ce6c93531e7fde4509_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/426/New-Divas-2004-English-2004-20251106091333-500x500.jpg",
+    "genre": "english",
+    "composer": "Avril Lavigne, The Matrix",
+    "lyricist": "",
+    "artistId": "avril-lavigne",
+    "artists": [
+      "Avril Lavigne"
+    ]
+  },
+  {
+    "id": "sg-SEIZ26Bk",
+    "title": "Girlfriend (French Version - Explicit)",
+    "artist": "Avril Lavigne - Girlfriend EP",
+    "movie": "Girlfriend EP",
+    "year": 2010,
+    "decade": "2000s",
+    "duration": 216,
+    "audioUrl": "https://aac.saavncdn.com/767/b386fb0ba1766332b796b79fd4eee517_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/767/Girlfriend-EP-2010-500x500.jpg",
+    "genre": "english",
+    "composer": "Avril Lavigne, Lukasz &quot;doctor Luke&quot; Gottwald",
+    "lyricist": "",
+    "artistId": "avril-lavigne",
+    "artists": [
+      "Avril Lavigne"
+    ]
+  },
+  {
+    "id": "sg-P3qdsetQ",
+    "title": "Bol Do Na Zara",
+    "artist": "Armaan Malik - Azhar",
+    "movie": "Azhar",
+    "year": 2016,
+    "decade": "2000s",
+    "duration": 293,
+    "audioUrl": "https://aac.saavncdn.com/633/2fddfdf78b3c810d561b594d15a9456b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/633/Azhar-1-Hindi-2016-500x500.jpg",
+    "genre": "hindi",
+    "composer": "Amaal Mallik",
+    "lyricist": "",
+    "artistId": "armaan-malik",
+    "artists": [
+      "Armaan Malik"
+    ]
+  },
+  {
+    "id": "sg-SM-rvz75",
+    "title": "Jab Tak",
+    "artist": "Armaan Malik - M.S. Dhoni - The Untold Story",
+    "movie": "M.S. Dhoni - The Untold Story",
+    "year": 2016,
+    "decade": "2000s",
+    "duration": 174,
+    "audioUrl": "https://aac.saavncdn.com/569/007b8edcbbaba8c5e68a71dbc8c04496_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/569/M-S-Dhoni-The-Untold-Story-3-Hindi-2016-500x500.jpg",
+    "genre": "hindi",
+    "composer": "Amaal Mallik",
+    "lyricist": "",
+    "artistId": "armaan-malik",
+    "artists": [
+      "Armaan Malik"
+    ]
+  },
+  {
+    "id": "sg-UuGteRjX",
+    "title": "Main Rahoon Ya Na Rahoon",
+    "artist": "Armaan Malik - Main Rahoon Ya Na Rahoon",
+    "movie": "Main Rahoon Ya Na Rahoon",
+    "year": 2015,
+    "decade": "2000s",
+    "duration": 310,
+    "audioUrl": "https://aac.saavncdn.com/395/1e3c94b9a575aa2887f47bd38e9dc3ac_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/395/Main-Rahoon-Ya-Na-Rahoon-Hindi-2015-500x500.jpg",
+    "genre": "hindi",
+    "composer": "Amaal Mallik",
+    "lyricist": "",
+    "artistId": "armaan-malik",
+    "artists": [
+      "Armaan Malik"
+    ]
+  },
+  {
+    "id": "sg-fme85vQj",
+    "title": "Sab Tera",
+    "artist": "Armaan Malik, Shraddha Kapoor - Baaghi",
+    "movie": "Baaghi",
+    "year": 2016,
+    "decade": "2000s",
+    "duration": 228,
+    "audioUrl": "https://aac.saavncdn.com/944/86c88d3dcd317bc854fdc0925c6c845a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/944/Baaghi-Hindi-2016-20220420171003-500x500.jpg",
+    "genre": "hindi",
+    "composer": "Amaal Mallik",
+    "lyricist": "",
+    "artistId": "armaan-malik",
+    "artists": [
+      "Armaan Malik"
+    ]
+  },
+  {
+    "id": "sg-ClWk-SLl",
+    "title": "Vibe Undi (From \"Mirai\") [Telugu]",
+    "artist": "Krishna Kanth, GowraHari, Armaan Malik - Vibe Undi (From &quot;Mirai&quot;) [Telugu]",
+    "movie": "Vibe Undi (From &quot;Mirai&quot;) [Telugu]",
+    "year": 2025,
+    "decade": "2000s",
+    "duration": 202,
+    "audioUrl": "https://aac.saavncdn.com/551/8a714f98cbcb955ac0ab17def8378cc6_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/551/Vibe-Undi-From-Mirai-Telugu-Telugu-2025-20250725170803-500x500.jpg",
+    "genre": "telugu",
+    "composer": "GowraHari, Armaan Malik, Krishna Kanth",
+    "lyricist": "",
+    "artistId": "armaan-malik",
+    "artists": [
+      "Armaan Malik"
+    ]
+  },
+  {
+    "id": "sg-uhohkyxE",
+    "title": "Mujhko Barsaat Bana Lo",
+    "artist": "Armaan Malik, Jeet Gannguli - Junooniyat",
+    "movie": "Junooniyat",
+    "year": 2016,
+    "decade": "2000s",
+    "duration": 263,
+    "audioUrl": "https://aac.saavncdn.com/432/b5f3c6292c24eb6f3aee4a54ff46f2c4_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/432/Junooniyat-2-Hindi-2016-500x500.jpg",
+    "genre": "hindi",
+    "composer": "Jeet Gannguli",
+    "lyricist": "",
+    "artistId": "armaan-malik",
+    "artists": [
+      "Armaan Malik"
+    ]
+  },
+  {
+    "id": "sg-zg0PHndH",
+    "title": "Ishq Mubarak",
+    "artist": "Arijit Singh - Tum Bin 2",
+    "movie": "Tum Bin 2",
+    "year": 2016,
+    "decade": "2000s",
+    "duration": 297,
+    "audioUrl": "https://aac.saavncdn.com/737/3d99949b3e7e70a1014b40e7fdc702c6_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/737/Tum-Bin-2-Full-Hindi-2016-500x500.jpg",
+    "genre": "hindi",
+    "composer": "Ankit Tiwari",
+    "lyricist": "",
+    "artistId": "ankit-tiwari",
+    "artists": [
+      "Ankit Tiwari"
+    ]
+  },
+  {
+    "id": "sg-NC_D7z-C",
+    "title": "Ishq Mubarak (From \"Tum Bin 2\")",
+    "artist": "Manoj Muntashir, Ankit Tiwari, Arijit Singh - World Music Day - Best Of Bollywood Hits",
+    "movie": "World Music Day - Best Of Bollywood Hits",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 296,
+    "audioUrl": "https://aac.saavncdn.com/179/bddfc062cba84759d4a58a01ac220d9a_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/179/World-Music-Day-Best-Of-Bollywood-Hits-Hindi-2026-20260622111029-500x500.jpg",
+    "genre": "hindi",
+    "composer": "Ankit Tiwari",
+    "lyricist": "",
+    "artistId": "ankit-tiwari",
+    "artists": [
+      "Ankit Tiwari"
+    ]
+  },
+  {
+    "id": "sg-LW77_zJn",
+    "title": "Tu Jo Hain",
+    "artist": "Ankit Tiwari - Mr. X",
+    "movie": "Mr. X",
+    "year": 2015,
+    "decade": "2000s",
+    "duration": 295,
+    "audioUrl": "https://aac.saavncdn.com/931/92bf53bb60b34aa90c569a90c4e0b1a0_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/931/Mr-X-Hindi-2015-20190516131941-500x500.jpg",
+    "genre": "hindi",
+    "composer": "Ankit Tiwari",
+    "lyricist": "",
+    "artistId": "ankit-tiwari",
+    "artists": [
+      "Ankit Tiwari"
+    ]
+  },
+  {
+    "id": "sg-hvTEqHoh",
+    "title": "Sanam Teri Kasam",
+    "artist": "Himesh Reshammiya, Ankit Tiwari, Palak Muchhal - Sanam Teri Kasam",
+    "movie": "Sanam Teri Kasam",
+    "year": 2025,
+    "decade": "2000s",
+    "duration": 314,
+    "audioUrl": "https://aac.saavncdn.com/150/459cf049f5cad9677640e6cda6a2e265_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/150/Sanam-Teri-Kasam-Hindi-2025-20260404111304-500x500.jpg",
+    "genre": "hindi",
+    "composer": "Himesh Reshammiya",
+    "lyricist": "",
+    "artistId": "ankit-tiwari",
+    "artists": [
+      "Ankit Tiwari"
+    ]
+  },
+  {
+    "id": "sg-f8mUyKki",
+    "title": "Sunn Raha Hai (Male)",
+    "artist": "Ankit Tiwari - Aashiqui 2",
+    "movie": "Aashiqui 2",
+    "year": 2013,
+    "decade": "2000s",
+    "duration": 390,
+    "audioUrl": "https://aac.saavncdn.com/430/4e7afc316526ec0080992ca335ebd5da_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/430/Aashiqui-2-Hindi-2013-500x500.jpg",
+    "genre": "hindi",
+    "composer": "Ankit Tiwari",
+    "lyricist": "",
+    "artistId": "ankit-tiwari",
+    "artists": [
+      "Ankit Tiwari"
+    ]
+  },
+  {
+    "id": "sg-0ysoGSOr",
+    "title": "Sunn Raha Hai (From \"Aashiqui 2\")",
+    "artist": "Sandeep Nath, Ankit Tiwari - World Music Day - Best Of Bollywood Hits",
+    "movie": "World Music Day - Best Of Bollywood Hits",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 390,
+    "audioUrl": "https://aac.saavncdn.com/179/3e8a6d8f5afa2cf56dc692d1b0ba4d18_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/179/World-Music-Day-Best-Of-Bollywood-Hits-Hindi-2026-20260622111029-500x500.jpg",
+    "genre": "hindi",
+    "composer": "Ankit Tiwari",
+    "lyricist": "",
+    "artistId": "ankit-tiwari",
+    "artists": [
+      "Ankit Tiwari"
+    ]
+  },
+  {
+    "id": "sg-TY2Jg1eC",
+    "title": "Señorita",
+    "artist": "Shawn Mendes, Camila Cabello - Hit Collaborations",
+    "movie": "Hit Collaborations",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 191,
+    "audioUrl": "https://aac.saavncdn.com/414/235cf433045512df61168abc55b52f5b_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/414/Hit-Collaborations-English-2026-20260513160203-500x500.jpg",
+    "genre": "english",
+    "composer": "Shawn Mendes, Camila Cabello, Andrew Wotman, Benjamin Levin, Ali Tamposi, Charlotte Aitchison, Jack Patterson, MAGNUS HOIBERG",
+    "lyricist": "",
+    "artistId": "shawn-mendes",
+    "artists": [
+      "Shawn Mendes"
+    ]
+  },
+  {
+    "id": "sg-TD2pCV6N",
+    "title": "Señorita",
+    "artist": "Shawn Mendes, Camila Cabello - Vibras Otoñales",
+    "movie": "Vibras Otoñales",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 191,
+    "audioUrl": "https://aac.saavncdn.com/783/a4a71848d0f589880bfb179757360aed_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/783/Vibras-Oto-ales-English-2026-20260513135523-500x500.jpg",
+    "genre": "english",
+    "composer": "Shawn Mendes, Camila Cabello, Andrew Wotman, Benjamin Levin, Ali Tamposi, Charlotte Aitchison, Jack Patterson, MAGNUS HOIBERG",
+    "lyricist": "",
+    "artistId": "shawn-mendes",
+    "artists": [
+      "Shawn Mendes"
+    ]
+  },
+  {
+    "id": "sg-HslR2WOF",
+    "title": "Señorita",
+    "artist": "Shawn Mendes, Camila Cabello - Pop 2010",
+    "movie": "Pop 2010",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 191,
+    "audioUrl": "https://aac.saavncdn.com/971/4f0b2b54249a59f20752829a4bf550f2_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/971/Pop-2010-English-2026-20260605161027-500x500.jpg",
+    "genre": "english",
+    "composer": "Shawn Mendes, Camila Cabello, Andrew Wotman, Benjamin Levin, Ali Tamposi, Charlotte Aitchison, Jack Patterson, MAGNUS HOIBERG",
+    "lyricist": "",
+    "artistId": "shawn-mendes",
+    "artists": [
+      "Shawn Mendes"
+    ]
+  },
+  {
+    "id": "sg-HSFOMXox",
+    "title": "Señorita",
+    "artist": "Shawn Mendes, Camila Cabello - Mood été 2K26 Megamix",
+    "movie": "Mood été 2K26 Megamix",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 191,
+    "audioUrl": "https://aac.saavncdn.com/814/6dd6f298d1e2bc26a4a5dba58a4e6462_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/814/Mood-t-2K26-Megamix-French-2026-20260618010716-500x500.jpg",
+    "genre": "english",
+    "composer": "Shawn Mendes, Camila Cabello, Andrew Wotman, Benjamin Levin, Ali Tamposi, Charlotte Aitchison, Jack Patterson, MAGNUS HOIBERG",
+    "lyricist": "",
+    "artistId": "shawn-mendes",
+    "artists": [
+      "Shawn Mendes"
+    ]
+  },
+  {
+    "id": "sg-8vtWd2tF",
+    "title": "Señorita",
+    "artist": "Shawn Mendes, Camila Cabello - Feel Good Morning",
+    "movie": "Feel Good Morning",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 191,
+    "audioUrl": "https://aac.saavncdn.com/231/f8556c4dcfb6259c8d10db570987124f_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/231/Feel-Good-Morning-English-2026-20260827053620-500x500.jpg",
+    "genre": "english",
+    "composer": "Shawn Mendes, Camila Cabello, Andrew Wotman, Benjamin Levin, Ali Tamposi, Charlotte Aitchison, Jack Patterson, MAGNUS HOIBERG",
+    "lyricist": "",
+    "artistId": "shawn-mendes",
+    "artists": [
+      "Shawn Mendes"
+    ]
+  },
+  {
+    "id": "sg-JrNXtwWk",
+    "title": "Señorita",
+    "artist": "Shawn Mendes, Camila Cabello - POV: YOU'RE A DANCER",
+    "movie": "POV: YOU'RE A DANCER",
+    "year": 2026,
+    "decade": "2000s",
+    "duration": 191,
+    "audioUrl": "https://aac.saavncdn.com/991/a55a4f888887629a7684a4babc2f3ebc_320.mp4",
+    "coverUrl": "https://c.saavncdn.com/991/POV-YOU-RE-A-DANCER-English-2026-20260728213018-500x500.jpg",
+    "genre": "english",
+    "composer": "Shawn Mendes, Camila Cabello, Andrew Wotman, Benjamin Levin, Ali Tamposi, Charlotte Aitchison, Jack Patterson, MAGNUS HOIBERG",
+    "lyricist": "",
+    "artistId": "shawn-mendes",
+    "artists": [
+      "Shawn Mendes"
+    ]
+  }
 ];
 
 export const SONGS: Song[] = rawSongs as Song[];
