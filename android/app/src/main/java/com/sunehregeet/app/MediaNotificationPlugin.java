@@ -391,10 +391,10 @@ public class MediaNotificationPlugin extends Plugin {
         try {
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "hi-IN");
-            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE, "hi-IN");
-            intent.putExtra(RecognizerIntent.EXTRA_ONLY_RETURN_LANGUAGE_PREFERENCE, false);
-            intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "गाने का नाम या गायक बोलिए... (Speak song or singer)");
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "en-IN");
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE, "en-IN");
+            intent.putExtra(RecognizerIntent.EXTRA_ONLY_RETURN_LANGUAGE_PREFERENCE, true);
+            intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak song or artist name (e.g. Kishore Kumar, Lag Ja Gale)...");
             startActivityForResult(call, intent, "handleSpeechResult");
         } catch (Exception e) {
             JSObject ret = new JSObject();

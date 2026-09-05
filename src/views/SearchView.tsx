@@ -198,6 +198,55 @@ export const SearchView: React.FC<SearchViewProps> = ({ onOpenCreatePlaylist, on
 
   const [isListening, setIsListening] = useState(false);
 
+  const devanagariToEnglish = (str: string): string => {
+    if (!/[\u0900-\u097F]/.test(str)) return str;
+    const vowels: Record<string, string> = {
+      'अ': 'a', 'आ': 'aa', 'इ': 'i', 'ई': 'ee', 'उ': 'u', 'ऊ': 'oo', 'ऋ': 'ri',
+      'ए': 'e', 'ऐ': 'ai', 'ओ': 'o', 'औ': 'au', 'अं': 'an', 'अः': 'ah'
+    };
+    const matras: Record<string, string> = {
+      'ा': 'a', 'ि': 'i', 'ी': 'ee', 'ु': 'u', 'ू': 'oo', 'ृ': 'ri',
+      'े': 'e', 'ै': 'ai', 'ो': 'o', 'ौ': 'au', 'ं': 'n', 'ँ': 'n', 'ः': 'h'
+    };
+    const consonants: Record<string, string> = {
+      'क': 'k', 'ख': 'kh', 'ग': 'g', 'घ': 'gh', 'ङ': 'ng',
+      'च': 'ch', 'छ': 'chh', 'ज': 'j', 'झ': 'jh', 'ञ': 'ny',
+      'ट': 't', 'ठ': 'th', 'ड': 'd', 'ढ': 'dh', 'ण': 'n',
+      'त': 't', 'थ': 'th', 'द': 'd', 'ध': 'dh', 'न': 'n',
+      'प': 'p', 'फ': 'ph', 'ब': 'b', 'भ': 'bh', 'म': 'm',
+      'य': 'y', 'र': 'r', 'ल': 'l', 'व': 'v', 'श': 'sh', 'ष': 'sh', 'स': 's', 'ह': 'h',
+      'क़': 'q', 'ख़': 'kh', 'ग़': 'gh', 'ज़': 'z', 'ड़': 'd', 'ढ़': 'dh', 'फ़': 'f'
+    };
+
+    let res = '';
+    const chars = Array.from(str);
+    for (let i = 0; i < chars.length; i++) {
+      const c = chars[i];
+      const next = chars[i + 1];
+      if (consonants[c]) {
+        const cons = consonants[c];
+        if (next === '्') {
+          res += cons;
+          i++;
+        } else if (matras[next]) {
+          res += cons + matras[next];
+          i++;
+        } else if (consonants[next] || vowels[next] || next === ' ' || !next) {
+          res += cons + 'a';
+        } else {
+          res += cons;
+        }
+      } else if (vowels[c]) {
+        res += vowels[c];
+      } else if (matras[c]) {
+        res += matras[c];
+      } else {
+        res += c;
+      }
+    }
+    return res.replace(/aa+/g, 'a').replace(/ee+/g, 'ee').trim();
+  };
+
   const handleVoiceSearch = async () => {
     // 1. Try Native Android Speech Recognition via MediaNotificationPlugin
     try {
@@ -207,7 +256,7 @@ export const SearchView: React.FC<SearchViewProps> = ({ onOpenCreatePlaylist, on
         const res = await cap.Plugins.MediaNotificationPlugin.startSpeechRecognition();
         setIsListening(false);
         if (res?.success && res.text) {
-          const spokenText = res.text.trim();
+          const spokenText = devanagariToEnglish(res.text.trim());
           if (spokenText) {
             handleSearchSubmit(spokenText);
           }
@@ -219,12 +268,12 @@ export const SearchView: React.FC<SearchViewProps> = ({ onOpenCreatePlaylist, on
       setIsListening(false);
     }
 
-    // 2. Web Speech API fallback
+    // 2. Web Speech API fallback (Set to English - India for Hindi songs in English script)
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (SpeechRecognition) {
       try {
         const recognition = new SpeechRecognition();
-        recognition.lang = 'hi-IN';
+        recognition.lang = 'en-IN';
         recognition.interimResults = false;
         recognition.maxAlternatives = 1;
 
@@ -234,9 +283,10 @@ export const SearchView: React.FC<SearchViewProps> = ({ onOpenCreatePlaylist, on
 
         recognition.onresult = (event: any) => {
           setIsListening(false);
-          const transcript = event.results[0]?.[0]?.transcript;
-          if (transcript && transcript.trim()) {
-            handleSearchSubmit(transcript.trim());
+          const raw = event.results[0]?.[0]?.transcript;
+          if (raw && raw.trim()) {
+            const transcript = devanagariToEnglish(raw.trim());
+            handleSearchSubmit(transcript);
           }
         };
 
