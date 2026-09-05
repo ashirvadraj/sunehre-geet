@@ -7,7 +7,7 @@ export interface VersionConfig {
   message_english: string;
 }
 
-export const CURRENT_APP_VERSION = 54.0;
+export const CURRENT_APP_VERSION = 55.0;
 
 const CLOUD_GIST_ID = 'a62d2ce04fb2cad264471951a42790da';
 const CLOUD_GIST_TOKEN = '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';

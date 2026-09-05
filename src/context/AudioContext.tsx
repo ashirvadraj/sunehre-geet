@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 import { Song } from '../types';
 import { SONGS } from '../data/songs';
-import { getOfflineAudioUrl } from '../services/offlineService';
+import { getOfflineAudioUrl, cacheAudioInBackground } from '../services/offlineService';
 import { fetchLyricsForSong } from '../services/lyricsService';
 
 interface AudioContextType {
@@ -35,7 +35,7 @@ const LAST_PLAYBACK_KEY = 'sunehre_geet_last_playback_session';
 // SINGLETON AUDIO INSTANCE
 const singletonAudio: HTMLAudioElement = typeof window !== 'undefined' ? new Audio() : (null as any);
 if (singletonAudio) {
-  singletonAudio.preload = 'metadata';
+  singletonAudio.preload = 'auto';
 }
 
 export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -335,10 +335,8 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const playSong = async (song: Song, playlistQueue?: Song[], startTime: number = 0) => {
     if (!song || !singletonAudio) return;
 
-    // 1. Immediately pause and unhook previous audio
+    // 1. Immediately pause previous audio without tearing down the pipeline
     singletonAudio.pause();
-    singletonAudio.removeAttribute('src');
-    singletonAudio.load();
     setIsPlaying(false);
 
     // 2. Set UI state
@@ -347,30 +345,46 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     pendingSeekTimeRef.current = startTime;
     setIsFullPlayerOpen(true);
 
+    const targetQueue = playlistQueue && playlistQueue.length > 0 ? playlistQueue : queueRef.current;
     if (playlistQueue && playlistQueue.length > 0) {
       setQueue(playlistQueue);
     }
 
     try {
-      // 3. Fetch direct audio URL
+      // 3. Fetch direct audio URL (or cached offline blob)
       const playbackUrl = await getOfflineAudioUrl(song.audioUrl);
 
       // 4. Assign new URL to singleton audio
-      singletonAudio.src = playbackUrl;
-      singletonAudio.load();
-
-      if (startTime > 0) {
-        singletonAudio.currentTime = startTime;
-      } else {
-        singletonAudio.currentTime = 0;
+      singletonAudio.preload = 'auto';
+      if (singletonAudio.src !== playbackUrl) {
+        singletonAudio.src = playbackUrl;
       }
 
-      // 5. Start playback
+      // DO NOT set singletonAudio.currentTime = 0 on unbuffered audio!
+      // Setting currentTime = 0 causes WebKit/Blink to send an HTTP Range request,
+      // stalling remote audio streams by 3-6 seconds.
+      if (startTime > 0) {
+        singletonAudio.currentTime = startTime;
+      }
+
+      // 5. Start playback immediately
       await singletonAudio.play();
       setIsPlaying(true);
       pendingSeekTimeRef.current = 0;
       updateNativeNotification(song, true);
       savePlaybackState(song, startTime, song.duration, playlistQueue || queueRef.current);
+
+      // Cache audio stream in background so future plays load in 0ms
+      cacheAudioInBackground(song.audioUrl);
+
+      // Preload next track in queue in the background
+      if (targetQueue && targetQueue.length > 0) {
+        const curIdx = targetQueue.findIndex((s) => s.id === song.id);
+        const nextSong = targetQueue[(curIdx + 1) % targetQueue.length];
+        if (nextSong && nextSong.id !== song.id) {
+          cacheAudioInBackground(nextSong.audioUrl);
+        }
+      }
 
       // Record to Recently Played
       try {

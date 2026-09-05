@@ -81,6 +81,22 @@ export const getOfflineAudioUrl = async (audioUrl: string): Promise<string> => {
   return audioUrl;
 };
 
+export const cacheAudioInBackground = async (audioUrl: string): Promise<void> => {
+  if (!audioUrl || !audioUrl.startsWith('http')) return;
+  try {
+    const cache = await caches.open(CACHE_NAME);
+    const cached = await cache.match(audioUrl);
+    if (!cached) {
+      const res = await fetch(audioUrl, { mode: 'cors' });
+      if (res.ok) {
+        await cache.put(audioUrl, res);
+      }
+    }
+  } catch {
+    // Non-blocking background caching
+  }
+};
+
 export const removeOfflineSong = async (songId: string): Promise<void> => {
   try {
     const songs = getDownloadedSongs();
