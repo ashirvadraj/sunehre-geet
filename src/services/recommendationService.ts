@@ -189,12 +189,62 @@ export const RecommendationService = {
   },
 
   /**
+   * Check and send monthly Sunehre Geet Wrapped notification between 1st and 5th of each month
+   */
+  async checkAndSendWrappedNotification(): Promise<boolean> {
+    try {
+      const now = new Date();
+      const day = now.getDate();
+      const month = now.getMonth(); // 0-11
+      const year = now.getFullYear();
+
+      // Strictly only between 1st and 5th of the month
+      if (day < 1 || day > 5) {
+        return false;
+      }
+
+      const notifKey = `sunehre_wrapped_notif_${year}_${month}`;
+      if (localStorage.getItem(notifKey)) {
+        // Already notified this month
+        return false;
+      }
+
+      const HINDI_MONTHS = [
+        'जनवरी', 'फ़रवरी', 'मार्च', 'अप्रैल', 'मई', 'जून',
+        'जुलाई', 'अगस्त', 'सितंबर', 'अक्टूबर', 'नवंबर', 'दिसंबर'
+      ];
+      const monthHindi = HINDI_MONTHS[month] || '';
+
+      const cap = (window as any).Capacitor;
+      if (cap?.Plugins?.MediaNotificationPlugin?.sendSongRecommendation) {
+        await cap.Plugins.MediaNotificationPlugin.sendSongRecommendation({
+          phrase: '✨ सुनहरे गीत रैप्ड (Sunehre Geet Wrapped)',
+          songTitle: `${monthHindi} का आपका संगीत सफ़र तैयार है!`,
+          songArtist: 'टैप करें और देखें आपने इस महीने कौनसे गीत सुने 📻',
+          songId: 'open_wrapped',
+          coverUrl: '',
+        });
+
+        try {
+          localStorage.setItem(notifKey, Date.now().toString());
+        } catch {}
+        return true;
+      }
+    } catch (e) {
+      console.warn('Could not dispatch monthly wrapped notification:', e);
+    }
+    return false;
+  },
+
+  /**
    * Start periodic timer to check every 45 minutes
    */
   startScheduler(): () => void {
     this.checkAndSendPeriodicRecommendation();
+    this.checkAndSendWrappedNotification();
     const interval = setInterval(() => {
       this.checkAndSendPeriodicRecommendation();
+      this.checkAndSendWrappedNotification();
     }, 45 * 60 * 1000);
 
     return () => clearInterval(interval);

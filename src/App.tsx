@@ -76,6 +76,15 @@ export const MainApp: React.FC = () => {
     return () => window.removeEventListener('playRecommendedSong', handlePlayRecommended);
   }, [playSong, setIsFullPlayerOpen]);
 
+  // Listen for Wrapped notification clicks to open Sunehre Geet Wrapped modal
+  useEffect(() => {
+    const handleOpenWrapped = () => {
+      setIsWrappedOpen(true);
+    };
+    window.addEventListener('openWrappedModal', handleOpenWrapped);
+    return () => window.removeEventListener('openWrappedModal', handleOpenWrapped);
+  }, []);
+
   // Auto-dismiss Exit Toast after exactly 4 seconds
   useEffect(() => {
     if (showExitToast) {
@@ -193,10 +202,9 @@ export const MainApp: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#0c0817] text-[#FFF4E0] flex flex-col antialiased select-none font-sans relative">
-      {/* Header with Account & Wrapped Buttons */}
+      {/* Header with Account Button */}
       <Header
         onOpenSleepTimer={() => setIsSleepTimerOpen(true)}
-        onOpenWrapped={() => setIsWrappedOpen(true)}
       />
 
       {/* Main View Area */}
@@ -268,7 +276,7 @@ export const MainApp: React.FC = () => {
         onClose={() => setIsAccountModalOpen(false)}
       />
 
-      {/* Spotify-style Wrapped Modal */}
+      {/* Sunehre Geet Wrapped Modal */}
       <WrappedModal
         isOpen={isWrappedOpen}
         onClose={() => setIsWrappedOpen(false)}

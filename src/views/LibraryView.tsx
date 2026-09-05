@@ -132,11 +132,6 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onOpenCreatePlaylist, 
         </div>
       )}
 
-      {/* Spotify Wrapped Banner */}
-      {onOpenWrapped && (
-        <WrappedBanner onOpenWrapped={onOpenWrapped} />
-      )}
-
       {/* Tabs */}
       <div className="grid grid-cols-4 gap-1 p-1 bg-[#18112b] rounded-2xl border border-white/10">
         <button
@@ -199,6 +194,22 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onOpenCreatePlaylist, 
           <span>Offline</span>
         </button>
       </div>
+
+      {/* Sunehre Geet Wrapped Banner: Only visible 1st-5th of each month (Monthly) or Dec 25-31 (Yearly) */}
+      {onOpenWrapped && (() => {
+        const now = new Date();
+        const day = now.getDate();
+        const month = now.getMonth();
+        const isMonthly = day >= 1 && day <= 5;
+        const isYearEnd = month === 11 && day >= 25 && day <= 31;
+        if (!isMonthly && !isYearEnd) return null;
+        return (
+          <WrappedBanner
+            onOpenWrapped={onOpenWrapped}
+            periodType={isYearEnd ? 'yearly' : 'monthly'}
+          />
+        );
+      })()}
 
       {/* TAB 1: Liked Songs */}
       {activeTab === 'favorites' && (

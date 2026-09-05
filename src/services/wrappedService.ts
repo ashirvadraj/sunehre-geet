@@ -109,8 +109,8 @@ export const WrappedService = {
 
     const periodLabel =
       periodType === 'yearly'
-        ? `${targetYear} Wrapped`
-        : `${monthNames[targetMonth]} ${targetYear} Wrapped`;
+        ? `${targetYear} Sunehre Geet Wrapped`
+        : `${monthNames[targetMonth]} ${targetYear} Sunehre Geet Wrapped`;
 
     const allHistory = this.getRawHistory();
 

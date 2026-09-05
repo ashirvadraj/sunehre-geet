@@ -109,10 +109,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* Spotify Wrapped Banner */}
-      {onOpenWrapped && (
-        <WrappedBanner onOpenWrapped={onOpenWrapped} />
-      )}
+      {/* Sunehre Geet Wrapped Banner: Strictly for the last 7 days of the year (Dec 25 - Dec 31) */}
+      {onOpenWrapped && (() => {
+        const now = new Date();
+        const isYearEnd = now.getMonth() === 11 && now.getDate() >= 25 && now.getDate() <= 31;
+        return isYearEnd ? <WrappedBanner onOpenWrapped={onOpenWrapped} periodType="yearly" /> : null;
+      })()}
 
       {/* 2. Mood & Ras (भाव) Curated Categories */}
       <section className="space-y-2.5">

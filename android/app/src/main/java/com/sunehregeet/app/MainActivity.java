@@ -79,10 +79,17 @@ public class MainActivity extends BridgeActivity {
             if (songId != null && !songId.isEmpty()) {
                 if (getBridge() != null && getBridge().getWebView() != null) {
                     getBridge().getWebView().postDelayed(() -> {
-                        getBridge().getWebView().evaluateJavascript(
-                            "window.dispatchEvent(new CustomEvent('playRecommendedSong', { detail: { songId: '" + songId + "' } }));",
-                            null
-                        );
+                        if ("open_wrapped".equals(songId)) {
+                            getBridge().getWebView().evaluateJavascript(
+                                "window.dispatchEvent(new CustomEvent('openWrappedModal'));",
+                                null
+                            );
+                        } else {
+                            getBridge().getWebView().evaluateJavascript(
+                                "window.dispatchEvent(new CustomEvent('playRecommendedSong', { detail: { songId: '" + songId + "' } }));",
+                                null
+                            );
+                        }
                     }, 500);
                 }
             }
