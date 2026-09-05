@@ -21,6 +21,8 @@ import { LibraryView } from './views/LibraryView';
 import { Artist, Decade } from './types';
 import { Disc3 } from 'lucide-react';
 import { RecommendationService } from './services/recommendationService';
+import { VersionService, VersionConfig } from './services/versionService';
+import { UpdateRequiredModal } from './components/UpdateRequiredModal';
 import { SONGS } from './data/songs';
 
 export const MainApp: React.FC = () => {
@@ -34,10 +36,21 @@ export const MainApp: React.FC = () => {
   }>({ isOpen: false });
 
   const [showExitToast, setShowExitToast] = useState(false);
+  const [updateConfig, setUpdateConfig] = useState<VersionConfig | null>(null);
   const lastBackPressRef = useRef<number>(0);
 
   const { isFullPlayerOpen, setIsFullPlayerOpen, pause, playSong } = useAudio();
   const { isAccountModalOpen, setIsAccountModalOpen } = useAuth();
+
+  // Check remote minimum required version on app launch
+  useEffect(() => {
+    VersionService.checkVersion().then((res) => {
+      if (res.isUpdateRequired && res.config) {
+        setUpdateConfig(res.config);
+        pause();
+      }
+    });
+  }, [pause]);
 
   // Start periodic smart song recommendation notifications (with different nostalgic phrases)
   useEffect(() => {
@@ -246,6 +259,9 @@ export const MainApp: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Mandatory Remote Version Gate Modal */}
+      {updateConfig && <UpdateRequiredModal config={updateConfig} />}
     </div>
   );
 };
