@@ -90,6 +90,11 @@ export const MainApp: React.FC = () => {
 
     const setupBackButton = async () => {
       listener = await CapApp.addListener('backButton', () => {
+        // 0. If Update Required is active, completely lock down
+        if (updateConfig) {
+          return;
+        }
+
         // 1. If Full Screen Player is open, close it
         if (isFullPlayerOpen) {
           setIsFullPlayerOpen(false);
