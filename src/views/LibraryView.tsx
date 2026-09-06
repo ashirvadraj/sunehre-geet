@@ -195,12 +195,12 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onOpenCreatePlaylist, 
         </button>
       </div>
 
-      {/* Sunehre Geet Wrapped Banner: Only visible 1st-5th of each month (Monthly) or Dec 25-31 (Yearly) */}
+      {/* Sunehre Geet Wrapped Banner: Only visible 1st-7th of each month (Monthly) or Dec 25-31 (Yearly) */}
       {onOpenWrapped && (() => {
         const now = new Date();
         const day = now.getDate();
         const month = now.getMonth();
-        const isMonthly = day >= 1 && day <= 5;
+        const isMonthly = day >= 1 && day <= 7;
         const isYearEnd = month === 11 && day >= 25 && day <= 31;
         if (!isMonthly && !isYearEnd) return null;
         return (

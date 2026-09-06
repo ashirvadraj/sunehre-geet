@@ -189,7 +189,7 @@ export const RecommendationService = {
   },
 
   /**
-   * Check and send monthly Sunehre Geet Wrapped notification between 1st and 5th of each month
+   * Check and send monthly Sunehre Geet Wrapped notification between 1st and 7th of each month
    */
   async checkAndSendWrappedNotification(): Promise<boolean> {
     try {
@@ -198,8 +198,8 @@ export const RecommendationService = {
       const month = now.getMonth(); // 0-11
       const year = now.getFullYear();
 
-      // Strictly only between 1st and 5th of the month
-      if (day < 1 || day > 5) {
+      // Strictly only between 1st and 7th of the month
+      if (day < 1 || day > 7) {
         return false;
       }
 
