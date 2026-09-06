@@ -44,14 +44,44 @@ export const MainApp: React.FC = () => {
   const { isFullPlayerOpen, setIsFullPlayerOpen, pause, playSong } = useAudio();
   const { isAccountModalOpen, setIsAccountModalOpen } = useAuth();
 
-  // Check remote minimum required version on app launch
+  // Check remote minimum required version on app launch, on resume, and periodically every 30s
   useEffect(() => {
-    VersionService.checkVersion().then((res) => {
-      if (res.isUpdateRequired && res.config) {
-        setUpdateConfig(res.config);
+    const handleCheck = () => {
+      VersionService.checkVersion().then((res) => {
+        if (res.isUpdateRequired && res.config) {
+          setUpdateConfig(res.config);
+          pause();
+        }
+      });
+    };
+
+    handleCheck();
+
+    // Re-check periodically every 30 seconds
+    const interval = setInterval(handleCheck, 30000);
+
+    // Re-check on app resume / visibility change
+    const onVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        handleCheck();
+      }
+    };
+    document.addEventListener('visibilitychange', onVisibility);
+
+    const onLocked = (e: any) => {
+      const config = e.detail?.config || VersionService.cachedConfig;
+      if (config) {
+        setUpdateConfig(config);
         pause();
       }
-    });
+    };
+    window.addEventListener('sunehreVersionLocked', onLocked);
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener('visibilitychange', onVisibility);
+      window.removeEventListener('sunehreVersionLocked', onLocked);
+    };
   }, [pause]);
 
   // Start periodic smart song recommendation notifications (with different nostalgic phrases)

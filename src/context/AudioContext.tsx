@@ -216,6 +216,14 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       const action = event.detail?.action;
       if (!singletonAudio) return;
 
+      if (VersionService.isLocked || localStorage.getItem('sunehre_app_locked') === 'true') {
+        singletonAudio.pause();
+        singletonAudio.src = '';
+        setIsPlaying(false);
+        updateNativeNotification(null, false);
+        return;
+      }
+
       if (action === 'com.sunehregeet.app.ACTION_PLAY') {
         if (singletonAudio.paused) {
           singletonAudio.play().then(() => {
@@ -258,6 +266,16 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     };
     window.addEventListener('nativeMediaAction', onNativeMediaAction);
 
+    const onVersionLocked = () => {
+      if (singletonAudio) {
+        singletonAudio.pause();
+        singletonAudio.src = '';
+      }
+      setIsPlaying(false);
+      updateNativeNotification(null, false);
+    };
+    window.addEventListener('sunehreVersionLocked', onVersionLocked);
+
     const onStalled = () => {
       if (singletonAudio && currentSongRef.current) {
         // Auto-resume if Android WebView paused or stalled the buffer in background
@@ -279,6 +297,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       singletonAudio.removeEventListener('waiting', onStalled);
       document.removeEventListener('visibilitychange', onVisibilityChange);
       window.removeEventListener('nativeMediaAction', onNativeMediaAction);
+      window.removeEventListener('sunehreVersionLocked', onVersionLocked);
     };
   }, []);
 
@@ -338,9 +357,11 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     if (!song || !singletonAudio) return;
 
     // Hard Killswitch: If version is locked, permanently block playback
-    if (VersionService.isLocked) {
+    if (VersionService.isLocked || localStorage.getItem('sunehre_app_locked') === 'true') {
       singletonAudio.pause();
+      singletonAudio.src = '';
       setIsPlaying(false);
+      updateNativeNotification(null, false);
       return;
     }
 
@@ -422,6 +443,14 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const togglePlay = () => {
     if (!singletonAudio) return;
+
+    if (VersionService.isLocked || localStorage.getItem('sunehre_app_locked') === 'true') {
+      singletonAudio.pause();
+      singletonAudio.src = '';
+      setIsPlaying(false);
+      updateNativeNotification(null, false);
+      return;
+    }
 
     if (isPlaying) {
       singletonAudio.pause();
