@@ -199,7 +199,7 @@ export const RecommendationService = {
       const year = now.getFullYear();
 
       // Strictly only between 1st and 7th of the month
-      if (day < 1 || day > 7) {
+      if (day < 1 || day > 8) {
         return false;
       }
 

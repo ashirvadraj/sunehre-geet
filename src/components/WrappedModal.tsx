@@ -46,11 +46,18 @@ export const WrappedModal: React.FC<WrappedModalProps> = ({ isOpen, onClose }) =
   // View mode: 'story' or 'summary'
   const [viewMode, setViewMode] = useState<'story' | 'summary'>('story');
 
-  // Story slides state (0 to 7)
+  // Story slides state (0 to 9 — 10 slides total)
   const [currentSlide, setCurrentSlide] = useState(0);
-  const TOTAL_SLIDES = 8;
+  const TOTAL_SLIDES = 10;
   const [isPaused, setIsPaused] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
+
+  // Auto-play music state
+  const [wrappedMusicStarted, setWrappedMusicStarted] = useState(false);
+  const [highlightReelIndex, setHighlightReelIndex] = useState(0);
+
+  // Slide transition direction
+  const [slideDirection, setSlideDirection] = useState<'right' | 'left'>('right');
 
   // Recalculate stats whenever period changes
   useEffect(() => {
@@ -59,24 +66,67 @@ export const WrappedModal: React.FC<WrappedModalProps> = ({ isOpen, onClose }) =
     setCurrentSlide(0);
   }, [periodType, selectedYear, selectedMonth]);
 
-  // Story Auto-advance Timer
+  // Story Auto-advance Timer (variable timing per slide)
   useEffect(() => {
     if (!isOpen || viewMode !== 'story' || isPaused) return;
 
+    // Highlight reel gets more time, genre gets a bit more too
+    const slideDuration = currentSlide === 4 ? 10000 : currentSlide === 7 ? 8000 : 6500;
+
     const timer = setTimeout(() => {
       if (currentSlide < TOTAL_SLIDES - 1) {
+        setSlideDirection('right');
         setCurrentSlide((prev) => prev + 1);
       }
-    }, 6500); // 6.5s per slide
+    }, slideDuration);
 
     return () => clearTimeout(timer);
   }, [isOpen, viewMode, currentSlide, isPaused, TOTAL_SLIDES]);
+
+  // Auto-play #1 song when entering slide 1
+  useEffect(() => {
+    if (!isOpen || viewMode !== 'story') return;
+    if (currentSlide === 1 && !wrappedMusicStarted && stats.topSong) {
+      const playlist = WrappedService.getWrappedPlaylist(stats);
+      playSong(stats.topSong, playlist.length > 0 ? playlist : [stats.topSong]);
+      setWrappedMusicStarted(true);
+    }
+  }, [currentSlide, isOpen, viewMode, wrappedMusicStarted]);
+
+  // Highlight Reel auto-cycle (slide 4): cycle through top 3 songs with 3s each
+  useEffect(() => {
+    if (!isOpen || viewMode !== 'story' || currentSlide !== 4 || isPaused) return;
+    setHighlightReelIndex(0);
+
+    const interval = setInterval(() => {
+      setHighlightReelIndex((prev) => {
+        const next = prev + 1;
+        if (next < Math.min(3, stats.topSongs.length)) {
+          // Play the next snippet
+          const nextSong = stats.topSongs[next]?.song;
+          if (nextSong) {
+            playSong(nextSong, stats.topSongs.map(s => s.song));
+          }
+          return next;
+        }
+        return prev;
+      });
+    }, 3000);
+
+    // Play first song of highlight reel immediately
+    if (stats.topSongs[0]?.song) {
+      playSong(stats.topSongs[0].song, stats.topSongs.map(s => s.song));
+    }
+
+    return () => clearInterval(interval);
+  }, [currentSlide, isOpen, viewMode, isPaused]);
 
   if (!isOpen) return null;
 
   const nextSlide = (e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
     if (currentSlide < TOTAL_SLIDES - 1) {
+      setSlideDirection('right');
       setCurrentSlide((prev) => prev + 1);
     }
   };
@@ -84,6 +134,7 @@ export const WrappedModal: React.FC<WrappedModalProps> = ({ isOpen, onClose }) =
   const prevSlide = (e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
     if (currentSlide > 0) {
+      setSlideDirection('left');
       setCurrentSlide((prev) => prev - 1);
     }
   };
@@ -268,7 +319,9 @@ export const WrappedModal: React.FC<WrappedModalProps> = ({ isOpen, onClose }) =
             />
 
             {/* Slide Container */}
-            <div className="relative flex-1 p-6 flex flex-col justify-between overflow-y-auto">
+            <div key={currentSlide} className={`relative flex-1 p-6 flex flex-col justify-between overflow-y-auto ${
+              slideDirection === 'right' ? 'animate-slide-in-right' : 'animate-slide-in-left'
+            }`}>
               
               {/* SLIDE 0: INTRO */}
               {currentSlide === 0 && (
@@ -303,9 +356,9 @@ export const WrappedModal: React.FC<WrappedModalProps> = ({ isOpen, onClose }) =
                 </div>
               )}
 
-              {/* SLIDE 1: TOTAL MINUTES & SONGS */}
+              {/* SLIDE 1: TOTAL MINUTES & SONGS + ENHANCED STATS */}
               {currentSlide === 1 && (
-                <div className="flex-1 flex flex-col justify-center space-y-6 animate-fade-in">
+                <div className="flex-1 flex flex-col justify-center space-y-5 animate-fade-in">
                   <div className="space-y-1">
                     <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">
                       Listening Time
@@ -315,32 +368,56 @@ export const WrappedModal: React.FC<WrappedModalProps> = ({ isOpen, onClose }) =
                     </h2>
                   </div>
 
-                  <div className="p-6 rounded-3xl bg-gradient-to-br from-[#2a1340] to-[#120722] border border-amber-500/30 shadow-2xl relative overflow-hidden space-y-4">
+                  <div className="p-5 rounded-3xl bg-gradient-to-br from-[#2a1340] to-[#120722] border border-amber-500/30 shadow-2xl relative overflow-hidden space-y-3">
                     <div className="absolute -right-8 -bottom-8 w-40 h-40 bg-amber-500/15 rounded-full blur-2xl pointer-events-none" />
                     
                     <div className="flex items-center gap-3 text-amber-400">
-                      <Clock className="w-6 h-6" />
+                      <Clock className="w-5 h-5" />
                       <span className="text-xs uppercase tracking-wider font-bold">Total Time Streamed</span>
                     </div>
 
-                    <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-rose-300 to-purple-300 font-mono">
+                    <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-rose-300 to-purple-300 font-mono">
                       {stats.totalMinutes.toLocaleString()}
-                      <span className="text-lg font-bold text-amber-200 ml-2">Minutes</span>
+                      <span className="text-base font-bold text-amber-200 ml-2">Minutes</span>
                     </div>
 
-                    <p className="text-xs text-retro-cream/80 leading-relaxed">
-                      That is roughly <strong className="text-amber-300">{Math.round(stats.totalMinutes / 60)} hours</strong> spent with timeless retro voices and immortal melodies.
+                    <p className="text-[11px] text-retro-cream/80 leading-relaxed">
+                      That is roughly <strong className="text-amber-300">{Math.round(stats.totalMinutes / 60)} hours</strong> spent with timeless melodies.
                     </p>
 
-                    <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs">
-                      <span className="text-white/60">Total Tracks Streamed:</span>
-                      <span className="font-bold text-amber-400 text-sm">{stats.totalSongsCount} Songs</span>
+                    <div className="pt-2 border-t border-white/10 grid grid-cols-2 gap-2 text-[11px]">
+                      <div className="flex flex-col">
+                        <span className="text-white/50">Tracks Played</span>
+                        <span className="font-bold text-amber-400">{stats.totalSongsCount} Songs</span>
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-white/50">Unique Songs</span>
+                        <span className="font-bold text-cyan-400">{stats.uniqueSongsCount} Tracks</span>
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-white/50">🔥 Listening Streak</span>
+                        <span className="font-bold text-rose-400">{stats.longestStreak} Day{stats.longestStreak !== 1 ? 's' : ''}</span>
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-white/50">Most Active Day</span>
+                        <span className="font-bold text-purple-400">{stats.mostActiveDay}</span>
+                      </div>
                     </div>
 
-                    <div className="pt-2 flex items-center justify-between text-xs">
-                      <span className="text-white/60">Peak Listening Vibe:</span>
-                      <span className="font-semibold text-rose-300 text-right">{stats.peakHourDescription}</span>
+                    <div className="pt-2 border-t border-white/10 text-[11px]">
+                      <span className="text-white/50">Peak Listening Vibe:</span>
+                      <span className="font-semibold text-rose-300 ml-1">{stats.peakHourDescription}</span>
                     </div>
+
+                    {stats.firstSongPlayed && (
+                      <div className="pt-2 border-t border-white/10 flex items-center gap-2">
+                        <img src={stats.firstSongPlayed.coverUrl} alt="" className="w-8 h-8 rounded-lg object-cover flex-shrink-0" />
+                        <div className="min-w-0 text-[11px]">
+                          <span className="text-white/50">First Song of the Period: </span>
+                          <span className="font-bold text-amber-300 truncate block">{stats.firstSongPlayed.title}</span>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               )}
@@ -453,8 +530,100 @@ export const WrappedModal: React.FC<WrappedModalProps> = ({ isOpen, onClose }) =
                 </div>
               )}
 
-              {/* SLIDE 4: TOP ARTISTS / LEGENDS */}
+              {/* SLIDE 4: HIGHLIGHT REEL MASHUP (NEW) */}
               {currentSlide === 4 && (
+                <div className="flex-1 flex flex-col justify-center space-y-5 animate-fade-in">
+                  <div className="space-y-1 text-center">
+                    <span className="text-xs font-bold text-rose-400 uppercase tracking-widest flex items-center justify-center gap-1.5">
+                      <Flame className="w-3.5 h-3.5" />
+                      <span>Your Highlight Reel</span>
+                    </span>
+                    <h2 className="text-2xl font-bold text-white font-serif">
+                      Top 3 Hits Mashup
+                    </h2>
+                    <p className="text-[11px] text-white/60">
+                      Rapid-fire previews of your most-played songs
+                    </p>
+                  </div>
+
+                  <div className="relative p-5 rounded-3xl bg-gradient-to-br from-[#2a0f3a] via-[#1a0826] to-[#0f0518] border border-rose-500/40 shadow-2xl overflow-hidden">
+                    {/* Animated background glow */}
+                    <div className="absolute inset-0 opacity-30">
+                      <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-rose-500 rounded-full blur-3xl animate-pulse" />
+                      <div className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-amber-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+                    </div>
+
+                    {/* Active song display */}
+                    <div className="relative z-10 flex flex-col items-center space-y-4">
+                      {stats.topSongs.slice(0, 3).map((item, idx) => (
+                        <div
+                          key={item.song.id}
+                          className={`flex items-center gap-4 w-full p-3 rounded-2xl transition-all duration-500 ${
+                            idx === highlightReelIndex
+                              ? 'bg-white/15 border border-rose-400/50 scale-105 shadow-lg shadow-rose-500/20'
+                              : 'bg-white/5 border border-white/10 opacity-50 scale-95'
+                          }`}
+                        >
+                          <div className={`relative flex-shrink-0 ${idx === highlightReelIndex ? 'animate-pulse' : ''}`}>
+                            <img
+                              src={item.song.coverUrl}
+                              alt={item.song.title}
+                              className="w-14 h-14 rounded-xl object-cover border-2 border-white/20"
+                            />
+                            {idx === highlightReelIndex && (
+                              <div className="absolute inset-0 rounded-xl border-2 border-rose-400 animate-ping opacity-40" />
+                            )}
+                            <div className={`absolute -top-1 -left-1 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black ${
+                              idx === 0 ? 'bg-amber-400 text-black' : idx === 1 ? 'bg-rose-400 text-white' : 'bg-purple-400 text-white'
+                            }`}>
+                              #{idx + 1}
+                            </div>
+                          </div>
+
+                          <div className="flex-1 min-w-0">
+                            <h4 className="text-sm font-bold text-white truncate">{item.song.title}</h4>
+                            <p className="text-[11px] text-white/70 truncate">{item.song.artist.split(',')[0]}</p>
+                          </div>
+
+                          {idx === highlightReelIndex && (
+                            <div className="flex items-center gap-1 flex-shrink-0">
+                              <Volume2 className="w-4 h-4 text-rose-400 animate-pulse" />
+                              <div className="flex gap-0.5">
+                                {[1, 2, 3, 4].map(bar => (
+                                  <div
+                                    key={bar}
+                                    className="w-0.5 bg-rose-400 rounded-full animate-bounce"
+                                    style={{
+                                      height: `${8 + Math.random() * 12}px`,
+                                      animationDelay: `${bar * 0.15}s`,
+                                      animationDuration: '0.6s'
+                                    }}
+                                  />
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Progress dots */}
+                    <div className="relative z-10 flex justify-center gap-2 mt-4">
+                      {stats.topSongs.slice(0, 3).map((_, idx) => (
+                        <div
+                          key={idx}
+                          className={`h-1.5 rounded-full transition-all duration-300 ${
+                            idx === highlightReelIndex ? 'w-6 bg-rose-400' : 'w-1.5 bg-white/30'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* SLIDE 5: TOP ARTISTS / LEGENDS */}
+              {currentSlide === 5 && (
                 <div className="flex-1 flex flex-col justify-center space-y-4 animate-fade-in">
                   <div className="space-y-1">
                     <span className="text-xs font-bold text-purple-400 uppercase tracking-widest">
@@ -514,8 +683,8 @@ export const WrappedModal: React.FC<WrappedModalProps> = ({ isOpen, onClose }) =
                 </div>
               )}
 
-              {/* SLIDE 5: DECADES & ERAS */}
-              {currentSlide === 5 && (
+              {/* SLIDE 6: DECADES & ERAS */}
+              {currentSlide === 6 && (
                 <div className="flex-1 flex flex-col justify-center space-y-5 animate-fade-in">
                   <div className="space-y-1">
                     <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">
@@ -551,8 +720,64 @@ export const WrappedModal: React.FC<WrappedModalProps> = ({ isOpen, onClose }) =
                 </div>
               )}
 
-              {/* SLIDE 6: MUSICAL PERSONALITY REVEAL */}
-              {currentSlide === 6 && (
+              {/* SLIDE 7: GENRE / MOOD BREAKDOWN (NEW) */}
+              {currentSlide === 7 && (
+                <div className="flex-1 flex flex-col justify-center space-y-5 animate-fade-in">
+                  <div className="space-y-1">
+                    <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest flex items-center gap-1.5">
+                      <Radio className="w-3.5 h-3.5" />
+                      <span>Your Music Mood</span>
+                    </span>
+                    <h2 className="text-2xl font-bold text-white font-serif">
+                      Genre & Mood Map
+                    </h2>
+                  </div>
+
+                  <div className="p-5 rounded-3xl bg-gradient-to-br from-[#0f1e3a] via-[#0d1528] to-[#0a0b18] border border-cyan-500/30 space-y-3">
+                    <p className="text-[11px] text-white/70">
+                      The moods and genres that colored your listening:
+                    </p>
+
+                    <div className="space-y-3">
+                      {stats.genreBreakdown.map((item, idx) => (
+                        <div key={item.genre} className="space-y-1">
+                          <div className="flex justify-between items-center text-xs">
+                            <span className="font-semibold text-white flex items-center gap-1.5">
+                              <span className="text-base">{item.emoji}</span>
+                              <span>{item.genre}</span>
+                            </span>
+                            <span className={`font-bold font-mono ${
+                              idx === 0 ? 'text-cyan-400' : idx === 1 ? 'text-purple-400' : 'text-white/70'
+                            }`}>{item.percentage}%</span>
+                          </div>
+                          <div className="h-2.5 w-full bg-white/10 rounded-full overflow-hidden">
+                            <div
+                              className={`h-full rounded-full transition-all duration-1000 ${
+                                idx === 0 ? 'bg-gradient-to-r from-cyan-400 to-blue-500'
+                                : idx === 1 ? 'bg-gradient-to-r from-purple-400 to-pink-500'
+                                : idx === 2 ? 'bg-gradient-to-r from-amber-400 to-orange-500'
+                                : 'bg-gradient-to-r from-white/40 to-white/20'
+                              }`}
+                              style={{ width: `${item.percentage}%` }}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {stats.genreBreakdown[0] && (
+                      <div className="pt-3 border-t border-white/10 text-center">
+                        <p className="text-[11px] text-white/60">
+                          Your dominant mood is <strong className="text-cyan-300">{stats.genreBreakdown[0].emoji} {stats.genreBreakdown[0].genre}</strong>
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* SLIDE 8: MUSICAL PERSONALITY REVEAL */}
+              {currentSlide === 8 && (
                 <div className="flex-1 flex flex-col justify-center space-y-5 animate-fade-in">
                   <div className="space-y-1 text-center">
                     <span className="text-xs font-bold text-rose-400 uppercase tracking-widest">
@@ -584,8 +809,8 @@ export const WrappedModal: React.FC<WrappedModalProps> = ({ isOpen, onClose }) =
                 </div>
               )}
 
-              {/* SLIDE 7: COMPLETE SUMMARY CARD / SHAREABLE POSTER */}
-              {currentSlide === 7 && (
+              {/* SLIDE 9: COMPLETE SUMMARY CARD / SHAREABLE POSTER */}
+              {currentSlide === 9 && (
                 <div className="flex-1 flex flex-col justify-between space-y-4 animate-fade-in">
                   <div className="space-y-1 text-center">
                     <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">

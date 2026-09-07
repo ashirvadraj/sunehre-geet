@@ -12,7 +12,7 @@ export interface LyricsData {
   plainText: string;
 }
 
-const LYRICS_CACHE_PREFIX = 'sunehre_geet_lyrics_v2_';
+const LYRICS_CACHE_PREFIX = 'sunehre_geet_lyrics_v3_';
 
 function cleanTrackName(name: string): string {
   if (!name) return '';
@@ -117,20 +117,29 @@ async function nativeFetchText(targetUrl: string, timeoutMs: number = 1800): Pro
 
 const IN_MEMORY_LYRICS_CACHE = new Map<string, LyricsData>();
 
-async function fetchLrclibExact(cleanTitle: string, cleanArtist: string): Promise<LyricsData | null> {
+async function fetchLrclibExact(cleanTitle: string, cleanArtist: string, songDuration: number): Promise<LyricsData | null> {
   try {
     const lrcUrl = `https://lrclib.net/api/search?track_name=${encodeURIComponent(cleanTitle)}&artist_name=${encodeURIComponent(cleanArtist)}`;
     const text = await nativeFetchText(lrcUrl, 1800);
     if (text) {
       const data = JSON.parse(text);
       if (Array.isArray(data) && data.length > 0) {
+        const matchesArtist = (d: any) => {
+          if (!d.artistName || !cleanArtist) return true;
+          const lower = d.artistName.toLowerCase();
+          const target = cleanArtist.toLowerCase();
+          return lower.includes(target) || target.includes(lower.split(',')[0].trim());
+        };
+        const matchesDuration = (d: any) => !d.duration || !songDuration || Math.abs(d.duration - songDuration) <= 30;
+        const isValid = (d: any) => matchesArtist(d) && matchesDuration(d);
+
         // Strongly prefer synced lyrics over plain text
-        const syncedItem = data.find((d: any) => d.syncedLyrics && d.syncedLyrics.length > 20);
+        const syncedItem = data.find((d: any) => d.syncedLyrics && d.syncedLyrics.length > 20 && isValid(d));
         if (syncedItem) {
           return parseLrcString(syncedItem.syncedLyrics);
         }
         // Fallback to plain lyrics
-        const plainItem = data.find((d: any) => d.plainLyrics && d.plainLyrics.length > 20);
+        const plainItem = data.find((d: any) => d.plainLyrics && d.plainLyrics.length > 20 && isValid(d));
         if (plainItem) {
           return parseLrcString(plainItem.plainLyrics);
         }
@@ -140,14 +149,28 @@ async function fetchLrclibExact(cleanTitle: string, cleanArtist: string): Promis
   return null;
 }
 
-async function fetchLrclibQuery(cleanTitle: string): Promise<LyricsData | null> {
+async function fetchLrclibQuery(cleanTitle: string, cleanArtist: string, songDuration: number): Promise<LyricsData | null> {
   try {
-    const lrcUrl = `https://lrclib.net/api/search?q=${encodeURIComponent(cleanTitle)}`;
+    const lrcUrl = `https://lrclib.net/api/search?q=${encodeURIComponent(cleanTitle + ' ' + cleanArtist)}`;
     const text = await nativeFetchText(lrcUrl, 1800);
     if (text) {
       const data = JSON.parse(text);
       if (Array.isArray(data) && data.length > 0) {
-        const item = data.find((d: any) => d.syncedLyrics) || data[0];
+        const matchesArtist = (d: any) => {
+          if (!d.artistName || !cleanArtist) return true;
+          const lower = d.artistName.toLowerCase();
+          const target = cleanArtist.toLowerCase();
+          return lower.includes(target) || target.includes(lower.split(',')[0].trim());
+        };
+        const matchesDuration = (d: any) => !d.duration || !songDuration || Math.abs(d.duration - songDuration) <= 30;
+        const isValid = (d: any) => matchesArtist(d) && matchesDuration(d);
+
+        // Prefer synced lyrics from a validated match
+        const item = data.find((d: any) => d.syncedLyrics && isValid(d)) 
+          || data.find((d: any) => isValid(d) && (d.syncedLyrics || d.plainLyrics))
+          || null;
+        if (!item) return null;
+
         const rawLrc = item.syncedLyrics || item.plainLyrics;
         if (rawLrc && rawLrc.length > 20) {
           return parseLrcString(rawLrc);
@@ -160,7 +183,10 @@ async function fetchLrclibQuery(cleanTitle: string): Promise<LyricsData | null> 
 
 async function fetchJioSaavnDirect(songId: string): Promise<LyricsData | null> {
   try {
-    const jioId = songId.startsWith('sg-') ? songId.replace('sg-', '') : (songId.startsWith('online-') ? songId.replace('online-', '') : null);
+    const jioId = songId.startsWith('sg-') ? songId.replace('sg-', '') 
+      : songId.startsWith('online-') ? songId.replace('online-', '') 
+      : songId.startsWith('saavn-') ? songId.replace('saavn-', '') 
+      : null;
     if (!jioId) return null;
     const jioUrl = `https://www.jiosaavn.com/api.php?__call=lyrics.getLyrics&_format=json&_marker=0&api_version=4&ctx=web6dot0&lyrics_id=${jioId}`;
     const text = await nativeFetchText(jioUrl, 1800);
@@ -291,13 +317,13 @@ export async function fetchLyricsForSong(song: Song): Promise<LyricsData | null>
   } catch {}
 
   const cleanTitle = cleanTrackName(song.title);
-  const cleanArtist = (song.artist || '').split(',')[0].split('ft.')[0].split('-')[0].trim();
+  const cleanArtist = (song.artist || '').split(',')[0].split(/\s+ft\.?\s+/i)[0].split(/\s+feat\.?\s+/i)[0].split(' - ')[0].split(' & ')[0].trim();
 
   // 4. PARALLEL Fast Race across All Sources simultaneously
   try {
     const promises: Promise<LyricsData | null>[] = [
-      fetchLrclibExact(cleanTitle, cleanArtist),
-      fetchLrclibQuery(cleanTitle),
+      fetchLrclibExact(cleanTitle, cleanArtist, song.duration || 0),
+      fetchLrclibQuery(cleanTitle, cleanArtist, song.duration || 0),
       fetchJioSaavnDirect(song.id),
       fetchJioSaavnBySearch(cleanTitle, cleanArtist),
     ];

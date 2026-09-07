@@ -200,7 +200,7 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onOpenCreatePlaylist, 
         const now = new Date();
         const day = now.getDate();
         const month = now.getMonth();
-        const isMonthly = day >= 1 && day <= 7;
+        const isMonthly = day >= 1 && day <= 8;
         const isYearEnd = month === 11 && day >= 25 && day <= 31;
         if (!isMonthly && !isYearEnd) return null;
         return (

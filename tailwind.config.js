@@ -24,6 +24,27 @@ export default {
       },
       animation: {
         'spin-slow': 'spin 18s linear infinite',
+        'fade-in': 'fadeIn 0.4s ease-out forwards',
+        'slide-in-right': 'slideInRight 0.35s ease-out forwards',
+        'slide-in-left': 'slideInLeft 0.35s ease-out forwards',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'scale(0.97)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        slideInRight: {
+          '0%': { opacity: '0', transform: 'translateX(40px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        slideInLeft: {
+          '0%': { opacity: '0', transform: 'translateX(-40px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        progress: {
+          '0%': { width: '0%' },
+          '100%': { width: '100%' },
+        },
       }
     },
   },

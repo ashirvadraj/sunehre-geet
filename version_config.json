@@ -1,8 +1,8 @@
 {
-  "min_supported_version": 59,
-  "latest_version": 59,
+  "min_supported_version": 60,
+  "latest_version": 60,
   "force_update": true,
-  "update_url": "https://github.com/ashirvadraj/sunehre-geet/releases/tag/v59.0",
-  "message_hindi": "सुनहरे गीत का नया वर्ज़न 59.0 उपलब्ध है! सुनहरे गीत रैप्ड अब महीने की 1 से 7 तारीख तक उपलब्ध रहेगा। कृपया अभी अपडेट करें।",
-  "message_english": "Sunehre Geet v59.0 is available! Sunehre Geet Wrapped active from 1st to 7th of each month. Please update to continue."
+  "update_url": "https://github.com/ashirvadraj/sunehre-geet/releases/tag/v60.0",
+  "message_hindi": "सुनहरे गीत का नया वर्ज़न 60.0 उपलब्ध है! Enhanced Wrapped अनुभव और बेहतर lyrics। कृपया अभी अपडेट करें।",
+  "message_english": "Sunehre Geet v60.0 is available! Enhanced Wrapped experience and improved lyrics matching. Please update to continue."
 }

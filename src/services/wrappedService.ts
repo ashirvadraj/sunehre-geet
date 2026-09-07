@@ -29,6 +29,12 @@ export interface WrappedStats {
   };
   topSong: Song | null;
   topArtist: string;
+  // Enhanced Wrapped v60 stats
+  longestStreak: number; // consecutive days with at least 1 play
+  uniqueSongsCount: number; // total unique songs listened
+  firstSongPlayed: Song | null; // first song played in this period
+  mostActiveDay: string; // day of week name (e.g. "Saturday")
+  genreBreakdown: { genre: string; percentage: number; emoji: string }[];
 }
 
 const STORAGE_KEY = 'sunehre_listening_history_v1';
@@ -131,8 +137,13 @@ export const WrappedService = {
     const songPlayCounts = new Map<string, number>();
     const artistPlayCounts = new Map<string, number>();
     const decadeCounts = new Map<string, number>();
+    const genreCounts = new Map<string, number>();
     const hourCounts = new Array(24).fill(0);
+    const dayCounts = new Array(7).fill(0); // 0=Sunday ... 6=Saturday
+    const uniqueDates = new Set<string>(); // YYYY-MM-DD strings for streak calc
     let totalSeconds = 0;
+    let firstSongId: string | null = null;
+    let firstSongTimestamp = Infinity;
 
     for (const entry of filteredHistory) {
       const song = songMap.get(entry.songId);
@@ -146,8 +157,31 @@ export const WrappedService = {
       const dec = song.decade || '70s';
       decadeCounts.set(dec, (decadeCounts.get(dec) || 0) + 1);
 
-      const hour = new Date(entry.timestamp).getHours();
+      // Genre tracking
+      const genre = (song.genre || 'bollywood').toLowerCase();
+      const normalizedGenre = genre.includes('romantic') || genre.includes('romance') ? 'romantic'
+        : genre.includes('sad') || genre.includes('heartbreak') ? 'sad'
+        : genre.includes('dance') || genre.includes('party') || genre.includes('disco') ? 'dance'
+        : genre.includes('devotional') || genre.includes('bhajan') ? 'devotional'
+        : genre.includes('ghazal') ? 'ghazal'
+        : genre.includes('sufi') ? 'sufi'
+        : genre.includes('rock') || genre.includes('pop') ? 'pop-rock'
+        : genre.includes('classical') || genre.includes('raga') ? 'classical'
+        : genre.includes('retro') || genre.includes('old') ? 'retro'
+        : 'bollywood';
+      genreCounts.set(normalizedGenre, (genreCounts.get(normalizedGenre) || 0) + 1);
+
+      const entryDate = new Date(entry.timestamp);
+      const hour = entryDate.getHours();
       hourCounts[hour]++;
+      dayCounts[entryDate.getDay()]++;
+      uniqueDates.add(entryDate.toISOString().split('T')[0]);
+
+      // Track first song played
+      if (entry.timestamp < firstSongTimestamp) {
+        firstSongTimestamp = entry.timestamp;
+        firstSongId = entry.songId;
+      }
 
       totalSeconds += entry.duration || (song.duration ? song.duration * 0.8 : 180);
     }
@@ -311,6 +345,81 @@ export const WrappedService = {
     const totalMinutes = Math.max(28, Math.round(totalSeconds / 60));
     const totalSongsCount = Math.max(12, Array.from(songPlayCounts.values()).reduce((a, b) => a + b, 0));
 
+    // Compute Listening Streak (consecutive days with at least 1 play)
+    let longestStreak = 0;
+    if (uniqueDates.size > 0) {
+      const sortedDates = Array.from(uniqueDates).sort();
+      let currentStreak = 1;
+      longestStreak = 1;
+      for (let i = 1; i < sortedDates.length; i++) {
+        const prev = new Date(sortedDates[i - 1]);
+        const curr = new Date(sortedDates[i]);
+        const diffMs = curr.getTime() - prev.getTime();
+        const diffDays = Math.round(diffMs / (1000 * 60 * 60 * 24));
+        if (diffDays === 1) {
+          currentStreak++;
+          longestStreak = Math.max(longestStreak, currentStreak);
+        } else if (diffDays > 1) {
+          currentStreak = 1;
+        }
+      }
+    }
+    // Floor streak at 1 if user has any listening data
+    longestStreak = Math.max(longestStreak, filteredHistory.length > 0 ? 1 : 0);
+
+    // Unique songs count
+    const uniqueSongsCount = songPlayCounts.size;
+
+    // First song played in this period
+    const firstSongPlayed = firstSongId ? (songMap.get(firstSongId) || null) : null;
+
+    // Most active day of week
+    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    let maxDayIdx = 0;
+    let maxDayCount = -1;
+    dayCounts.forEach((count: number, idx: number) => {
+      if (count > maxDayCount) {
+        maxDayCount = count;
+        maxDayIdx = idx;
+      }
+    });
+    const mostActiveDay = filteredHistory.length > 0 ? dayNames[maxDayIdx] : 'Saturday';
+
+    // Genre/Mood Breakdown
+    const genreEmojis: Record<string, string> = {
+      'romantic': '💕',
+      'sad': '😢',
+      'dance': '💃',
+      'devotional': '🙏',
+      'ghazal': '🕯️',
+      'sufi': '🌙',
+      'pop-rock': '🎸',
+      'classical': '🎻',
+      'retro': '📻',
+      'bollywood': '🎬',
+    };
+    const genreLabels: Record<string, string> = {
+      'romantic': 'Romantic',
+      'sad': 'Sad & Emotional',
+      'dance': 'Dance & Party',
+      'devotional': 'Devotional',
+      'ghazal': 'Ghazal',
+      'sufi': 'Sufi',
+      'pop-rock': 'Pop & Rock',
+      'classical': 'Classical',
+      'retro': 'Retro Hits',
+      'bollywood': 'Bollywood',
+    };
+    const totalGenrePlays = Array.from(genreCounts.values()).reduce((a, b) => a + b, 0) || 1;
+    const genreBreakdown = Array.from(genreCounts.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5)
+      .map(([genre, count]) => ({
+        genre: genreLabels[genre] || genre,
+        percentage: Math.round((count / totalGenrePlays) * 100),
+        emoji: genreEmojis[genre] || '🎵',
+      }));
+
     return {
       periodType,
       periodLabel,
@@ -325,6 +434,11 @@ export const WrappedService = {
       personality,
       topSong,
       topArtist: topArtistName,
+      longestStreak,
+      uniqueSongsCount,
+      firstSongPlayed,
+      mostActiveDay,
+      genreBreakdown,
     };
   },
 
