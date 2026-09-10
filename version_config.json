@@ -1,8 +1,8 @@
 {
-  "min_supported_version": 62,
-  "latest_version": 62,
+  "min_supported_version": 63,
+  "latest_version": 63,
   "force_update": true,
-  "update_url": "https://github.com/ashirvadraj/sunehre-geet/releases/tag/v62.0",
-  "message_hindi": "सुनहरे गीत का नया वर्ज़न 62.0 उपलब्ध है! अब शुद्ध सिनेमाई HD वीडियो प्लेयर बिना किसी बाहरी रीडायरेक्शन के। कृपया अभी अपडेट करें।",
-  "message_english": "Sunehre Geet v62.0 is available! Pure cinema-grade HD Video Player with zero external redirection. Please update to continue."
+  "update_url": "https://github.com/ashirvadraj/sunehre-geet/releases/tag/v63.0",
+  "message_hindi": "सुनहरे गीत का नया वर्ज़न 63.0 उपलब्ध है! शुद्ध सिनेमाई HD वीडियो प्लेयर, जीरो यूट्यूब ब्रांडिंग, और ऑटो-रोटेशन फुलस्क्रीन सपोर्ट। कृपया अभी अपडेट करें।",
+  "message_english": "Sunehre Geet v63.0 is available! Pure cinema-grade HD Video Player, zero third-party branding, and full auto-rotation theater mode. Please update to continue."
 }

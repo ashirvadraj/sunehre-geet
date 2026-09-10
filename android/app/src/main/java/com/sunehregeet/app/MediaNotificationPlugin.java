@@ -944,4 +944,26 @@ public class MediaNotificationPlugin extends Plugin {
             }
         }).start();
     }
+
+    @PluginMethod
+    public void setScreenOrientation(PluginCall call) {
+        String orientation = call.getString("orientation", "unspecified");
+        Activity activity = getActivity();
+        if (activity != null) {
+            activity.runOnUiThread(() -> {
+                try {
+                    if ("landscape".equals(orientation)) {
+                        activity.setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+                    } else if ("portrait".equals(orientation)) {
+                        activity.setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                    } else {
+                        activity.setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+                    }
+                } catch (Exception ignored) {}
+                call.resolve();
+            });
+        } else {
+            call.resolve();
+        }
+    }
 }

@@ -82,6 +82,12 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
   const [videoDuration, setVideoDuration] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isLandscape, setIsLandscape] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth > window.innerHeight;
+    }
+    return false;
+  });
   const [showControls, setShowControls] = useState(true);
 
   const videoIframeRef = useRef<HTMLIFrameElement | null>(null);
@@ -90,6 +96,44 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
 
   const lyricsContainerRef = useRef<HTMLDivElement | null>(null);
   const activeLineRef = useRef<HTMLDivElement | null>(null);
+
+  // Auto-detect screen orientation (portrait vs landscape rotation)
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLandscape(window.innerWidth > window.innerHeight);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
+    if (window.screen?.orientation) {
+      window.screen.orientation.addEventListener('change', handleResize);
+    }
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+      if (window.screen?.orientation) {
+        window.screen.orientation.removeEventListener('change', handleResize);
+      }
+    };
+  }, []);
+
+  // Restore portrait orientation if user switches away from video view or closes player
+  useEffect(() => {
+    if (activeView !== 'video' || !isFullPlayerOpen) {
+      if (isFullscreen) {
+        setIsFullscreen(false);
+      }
+      try {
+        const cap = (window as any).Capacitor;
+        if (cap?.Plugins?.MediaNotificationPlugin?.setScreenOrientation) {
+          cap.Plugins.MediaNotificationPlugin.setScreenOrientation({ orientation: 'portrait' });
+        }
+        if (document.fullscreenElement && document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        }
+      } catch {}
+    }
+  }, [activeView, isFullPlayerOpen, isFullscreen]);
 
   // Load lyrics & video whenever current song changes
   useEffect(() => {
@@ -168,15 +212,26 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
   };
 
   const toggleVideoFullscreen = () => {
-    if (videoContainerRef.current) {
-      if (!document.fullscreenElement) {
-        videoContainerRef.current.requestFullscreen?.().catch(() => {});
+    try {
+      const cap = (window as any).Capacitor;
+      if (!isFullscreen && !isLandscape) {
         setIsFullscreen(true);
+        if (cap?.Plugins?.MediaNotificationPlugin?.setScreenOrientation) {
+          cap.Plugins.MediaNotificationPlugin.setScreenOrientation({ orientation: 'landscape' });
+        }
+        if (document.documentElement.requestFullscreen) {
+          document.documentElement.requestFullscreen().catch(() => {});
+        }
       } else {
-        document.exitFullscreen?.().catch(() => {});
         setIsFullscreen(false);
+        if (cap?.Plugins?.MediaNotificationPlugin?.setScreenOrientation) {
+          cap.Plugins.MediaNotificationPlugin.setScreenOrientation({ orientation: 'portrait' });
+        }
+        if (document.fullscreenElement && document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        }
       }
-    }
+    } catch {}
     handleUserActivity();
   };
 
@@ -251,85 +306,97 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
     setLyricsFontSize((prev) => (prev === 'sm' ? 'base' : prev === 'base' ? 'lg' : 'sm'));
   };
 
+  const isCinemaFullscreen = activeView === 'video' && (isFullscreen || isLandscape);
+
   return (
-    <div className="fixed inset-0 z-50 bg-gradient-to-b from-[#1b1033] via-[#0e071e] to-[#06030c] flex flex-col justify-between p-5 overflow-hidden animate-fade-in">
-      {/* Background Ambient Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-retro-gold/10 rounded-full blur-3xl pointer-events-none" />
+    <div
+      className={`fixed inset-0 z-50 flex flex-col justify-between overflow-hidden animate-fade-in ${
+        isCinemaFullscreen
+          ? 'p-0 bg-black'
+          : 'p-5 bg-gradient-to-b from-[#1b1033] via-[#0e071e] to-[#06030c]'
+      }`}
+    >
+      {/* Background Ambient Glow (only in normal mode) */}
+      {!isCinemaFullscreen && (
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-retro-gold/10 rounded-full blur-3xl pointer-events-none" />
+      )}
 
-      {/* Top Header Bar */}
-      <div className="relative z-10 flex items-center justify-between">
-        <button
-          onClick={() => setIsFullPlayerOpen(false)}
-          className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-retro-cream hover:bg-white/10 active:scale-95 transition-all"
-        >
-          <ChevronDown className="w-6 h-6" />
-        </button>
+      {/* Top Header Bar (hidden in cinema fullscreen) */}
+      {!isCinemaFullscreen && (
+        <div className="relative z-10 flex items-center justify-between">
+          <button
+            onClick={() => setIsFullPlayerOpen(false)}
+            className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-retro-cream hover:bg-white/10 active:scale-95 transition-all"
+          >
+            <ChevronDown className="w-6 h-6" />
+          </button>
 
-        {/* View Switcher: Turntable Record vs Lyrics vs Video */}
-        <div className="flex items-center p-1 rounded-full bg-black/60 border border-retro-gold/30 shadow-lg">
+          {/* View Switcher: Turntable Record vs Lyrics vs Video */}
+          <div className="flex items-center p-1 rounded-full bg-black/60 border border-retro-gold/30 shadow-lg">
+            <button
+              onClick={() => setActiveView('turntable')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+                activeView === 'turntable'
+                  ? 'bg-gradient-to-r from-retro-gold to-amber-500 text-retro-dark shadow-md'
+                  : 'text-white/60 hover:text-white'
+              }`}
+            >
+              <Disc className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">रिकॉर्ड</span>
+              <span>Record</span>
+            </button>
+            <button
+              onClick={() => {
+                setActiveView('lyrics');
+                if (!lyricsData && !isLoadingLyrics) loadLyrics();
+              }}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+                activeView === 'lyrics'
+                  ? 'bg-gradient-to-r from-retro-gold to-amber-500 text-retro-dark shadow-md'
+                  : 'text-retro-gold/90 hover:text-retro-gold hover:bg-white/5'
+              }`}
+            >
+              <FileText className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">बोल</span>
+              <span>Lyrics</span>
+              {lyricsData?.isSynced && (
+                <Sparkles className="w-3 h-3 text-amber-300 animate-pulse" />
+              )}
+            </button>
+            <button
+              onClick={() => {
+                setActiveView('video');
+                if (isPlaying) pause();
+                if (!videoData && !isLoadingVideo) loadVideo();
+              }}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+                activeView === 'video'
+                  ? 'bg-gradient-to-r from-rose-500 via-amber-500 to-retro-gold text-retro-dark shadow-md'
+                  : 'text-rose-300/90 hover:text-rose-300 hover:bg-white/5'
+              }`}
+            >
+              <Tv className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">वीडियो</span>
+              <span>Video</span>
+              {videoData && (
+                <span className="text-[9px] px-1 py-0.2 rounded bg-rose-400/30 text-rose-200 font-black">HD</span>
+              )}
+            </button>
+          </div>
+
           <button
-            onClick={() => setActiveView('turntable')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
-              activeView === 'turntable'
-                ? 'bg-gradient-to-r from-retro-gold to-amber-500 text-retro-dark shadow-md'
-                : 'text-white/60 hover:text-white'
+            onClick={onOpenSleepTimer}
+            className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
+              sleepTimer !== null
+                ? 'bg-retro-gold text-retro-dark'
+                : 'bg-white/5 text-retro-cream hover:bg-white/10'
             }`}
+            title="Sleep Timer"
           >
-            <Disc className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">रिकॉर्ड</span>
-            <span>Record</span>
-          </button>
-          <button
-            onClick={() => {
-              setActiveView('lyrics');
-              if (!lyricsData && !isLoadingLyrics) loadLyrics();
-            }}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
-              activeView === 'lyrics'
-                ? 'bg-gradient-to-r from-retro-gold to-amber-500 text-retro-dark shadow-md'
-                : 'text-retro-gold/90 hover:text-retro-gold hover:bg-white/5'
-            }`}
-          >
-            <FileText className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">बोल</span>
-            <span>Lyrics</span>
-            {lyricsData?.isSynced && (
-              <Sparkles className="w-3 h-3 text-amber-300 animate-pulse" />
-            )}
-          </button>
-          <button
-            onClick={() => {
-              setActiveView('video');
-              if (isPlaying) pause();
-              if (!videoData && !isLoadingVideo) loadVideo();
-            }}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
-              activeView === 'video'
-                ? 'bg-gradient-to-r from-rose-500 via-amber-500 to-retro-gold text-retro-dark shadow-md'
-                : 'text-rose-300/90 hover:text-rose-300 hover:bg-white/5'
-            }`}
-          >
-            <Tv className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">वीडियो</span>
-            <span>Video</span>
-            {videoData && (
-              <span className="text-[9px] px-1 py-0.2 rounded bg-rose-400/30 text-rose-200 font-black">HD</span>
-            )}
+            <Moon className="w-5 h-5" />
           </button>
         </div>
-
-        <button
-          onClick={onOpenSleepTimer}
-          className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
-            sleepTimer !== null
-              ? 'bg-retro-gold text-retro-dark'
-              : 'bg-white/5 text-retro-cream hover:bg-white/10'
-          }`}
-          title="Sleep Timer"
-        >
-          <Moon className="w-5 h-5" />
-        </button>
-      </div>
+      )}
 
       {/* Center View: Turntable OR Synced Lyrics OR HD Music Video */}
       {activeView === 'turntable' ? (
@@ -504,64 +571,74 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
           ref={videoContainerRef}
           onMouseMove={handleUserActivity}
           onTouchStart={handleUserActivity}
-          className={`relative z-10 flex-1 flex flex-col my-2 overflow-hidden animate-fade-in bg-black/80 rounded-3xl border border-retro-gold/40 p-3 sm:p-4 backdrop-blur-md shadow-2xl justify-between ${
-            isFullscreen ? 'fixed inset-0 z-[100] m-0 rounded-none border-0 p-2' : ''
+          className={`relative z-10 flex flex-col overflow-hidden animate-fade-in ${
+            isCinemaFullscreen
+              ? 'fixed inset-0 w-screen h-screen z-50 bg-black flex-1 items-center justify-center p-0 m-0'
+              : 'flex-1 my-2 bg-black/80 rounded-3xl border border-retro-gold/40 p-3 sm:p-4 backdrop-blur-md shadow-2xl justify-center items-center'
           }`}
         >
-          {/* Cinema Header */}
-          <div className="flex items-center justify-between pb-2 border-b border-white/10 z-30">
-            <div className="flex items-center gap-2 min-w-0">
-              <div className="w-7 h-7 rounded-lg bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-rose-300 flex-shrink-0">
-                <Film className="w-4 h-4" />
-              </div>
-              <div className="min-w-0">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-xs font-bold text-retro-cream truncate block font-serif">
-                    सुनहरे गीत सिनेमा
-                  </span>
-                  <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-gradient-to-r from-amber-500/30 to-rose-500/30 text-amber-300 border border-amber-500/40 font-black">
-                    HD CINEMA
+          {/* Cinema Header (shown only in portrait mode) */}
+          {!isCinemaFullscreen && (
+            <div className="w-full flex items-center justify-between pb-2 mb-2 border-b border-white/10 z-30">
+              <div className="flex items-center gap-2 min-w-0">
+                <div className="w-7 h-7 rounded-lg bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-rose-300 flex-shrink-0">
+                  <Film className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-bold text-retro-cream truncate block font-serif">
+                      सुनहरे गीत सिनेमा
+                    </span>
+                    <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-gradient-to-r from-amber-500/30 to-rose-500/30 text-amber-300 border border-amber-500/40 font-black">
+                      HD CINEMA
+                    </span>
+                  </div>
+                  <span className="text-[10px] text-white/60 font-medium truncate block">
+                    {currentSong.title} • {currentSong.artist}
                   </span>
                 </div>
-                <span className="text-[10px] text-white/60 font-medium truncate block">
-                  {currentSong.title} • {currentSong.artist}
-                </span>
+              </div>
+
+              <div className="flex items-center gap-1.5 flex-shrink-0">
+                <button
+                  onClick={toggleVideoFullscreen}
+                  className="p-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/10 transition-all"
+                  title={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+                >
+                  {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+                </button>
+                <button
+                  onClick={loadVideo}
+                  disabled={isLoadingVideo}
+                  className="p-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/10 transition-all"
+                  title="Refresh Video Stream"
+                >
+                  <RefreshCw className={`w-3.5 h-3.5 ${isLoadingVideo ? 'animate-spin' : ''}`} />
+                </button>
               </div>
             </div>
+          )}
 
-            <div className="flex items-center gap-1.5 flex-shrink-0">
-              <button
-                onClick={toggleVideoFullscreen}
-                className="p-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/10 transition-all"
-                title={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
-              >
-                {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
-              </button>
-              <button
-                onClick={loadVideo}
-                disabled={isLoadingVideo}
-                className="p-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/10 transition-all"
-                title="Refresh Video Stream"
-              >
-                <RefreshCw className={`w-3.5 h-3.5 ${isLoadingVideo ? 'animate-spin' : ''}`} />
-              </button>
-            </div>
-          </div>
-
-          {/* Video Player Display Container */}
-          <div className="flex-1 flex flex-col items-center justify-center my-2 relative rounded-2xl overflow-hidden bg-black border border-white/10 shadow-2xl group">
-            {isLoadingVideo ? (
-              <div className="flex flex-col items-center justify-center space-y-3 p-6 text-center">
-                <div className="relative">
-                  <div className="w-12 h-12 rounded-full border-2 border-retro-gold/30 border-t-retro-gold animate-spin" />
-                  <Tv className="w-5 h-5 text-retro-gold absolute inset-0 m-auto" />
-                </div>
-                <p className="text-xs font-semibold text-retro-cream">सिनेमा वीडियो लोड हो रहा है...</p>
-                <p className="text-[10px] text-white/50">Streaming High-Definition Classic...</p>
+          {/* Video Frame Display */}
+          {isLoadingVideo ? (
+            <div className="flex-1 flex flex-col items-center justify-center space-y-3 p-6 text-center">
+              <div className="relative">
+                <div className="w-12 h-12 rounded-full border-2 border-retro-gold/30 border-t-retro-gold animate-spin" />
+                <Tv className="w-5 h-5 text-retro-gold absolute inset-0 m-auto" />
               </div>
-            ) : videoData ? (
-              <div className="w-full h-full relative aspect-video max-h-[58vh] flex items-center justify-center bg-black">
-                {/* 1. Sandboxed Iframe with NO top navigation or popups */}
+              <p className="text-xs font-semibold text-retro-cream">सिनेमा वीडियो लोड हो रहा है...</p>
+              <p className="text-[10px] text-white/50">Streaming High-Definition Classic...</p>
+            </div>
+          ) : videoData ? (
+            <div
+              className={`relative flex items-center justify-center bg-black overflow-hidden shadow-2xl ${
+                isCinemaFullscreen
+                  ? 'w-full h-full max-w-full max-h-screen'
+                  : 'w-full aspect-video max-w-md mx-auto rounded-2xl border border-white/15'
+              }`}
+            >
+              {/* 1. Precision Cinema Viewport Cropper (Shifts YouTube top bar & bottom watermark out of view) */}
+              <div className="absolute -top-[14%] -left-[8%] w-[116%] h-[128%] overflow-hidden pointer-events-auto">
                 <iframe
                   ref={videoIframeRef}
                   src={`${videoData.embedUrl}&start=${Math.max(0, Math.floor(currentTime))}`}
@@ -569,133 +646,174 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
                   sandbox="allow-scripts allow-same-origin allow-presentation"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  className="w-full h-full rounded-2xl border-0 shadow-2xl pointer-events-auto"
+                  className="w-full h-full border-0 pointer-events-auto"
                 />
+              </div>
 
-                {/* 2. Top Redirection Shield: Blocks and absorbs any clicks on top YouTube title/avatar links */}
-                <div
-                  className="absolute top-0 left-0 right-0 h-16 z-30 cursor-pointer"
-                  onClick={handleUserActivity}
-                  title="Sunehre Geet HD Stream"
-                />
+              {/* 2. Top Anti-Watermark Cinema Gradient Shield */}
+              <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-black/95 via-black/50 to-transparent pointer-events-none z-10" />
 
-                {/* 3. Bottom Brand Shield: Blocks bottom-right YouTube logo/links */}
-                <div
-                  className="absolute bottom-0 right-0 w-36 h-12 z-30 cursor-pointer"
-                  onClick={handleUserActivity}
-                />
+              {/* 3. Bottom Anti-Watermark Cinema Gradient Shield */}
+              <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/95 via-black/50 to-transparent pointer-events-none z-10" />
 
-                {/* 4. Custom Cinema Floating Control Overlay (Auto-hiding) */}
-                <div
-                  className={`absolute inset-0 z-20 flex flex-col justify-between p-3 bg-gradient-to-t from-black/85 via-transparent to-black/60 transition-opacity duration-300 pointer-events-none ${
-                    showControls ? 'opacity-100' : 'opacity-0'
-                  }`}
-                >
-                  {/* Top Bar Title */}
-                  <div className="flex items-center justify-between text-retro-cream">
-                    <span className="text-xs font-bold drop-shadow-md truncate max-w-[80%]">
+              {/* 4. Touch Barrier Shield (Captures clicks, toggles controls, prevents external redirects) */}
+              <div
+                className="absolute inset-0 z-20 cursor-pointer"
+                onClick={() => {
+                  toggleVideoPlay();
+                  handleUserActivity();
+                }}
+                title="Tap to Play/Pause"
+              />
+
+              {/* 5. Custom Cinema Floating Control Overlay (Auto-hiding on activity) */}
+              <div
+                className={`absolute inset-0 z-30 flex flex-col justify-between p-3 sm:p-5 transition-opacity duration-300 pointer-events-none ${
+                  showControls ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                {/* Top Bar in Cinema */}
+                <div className="flex items-center justify-between text-retro-cream pointer-events-auto">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold drop-shadow-md truncate max-w-[60vw]">
                       {currentSong.title}
                     </span>
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-black/60 text-retro-gold border border-retro-gold/30 font-bold backdrop-blur-md">
-                      HD Stream
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-black/70 text-retro-gold border border-retro-gold/30 font-bold backdrop-blur-md">
+                      HD Cinema
                     </span>
                   </div>
 
-                  {/* Center Playback & Skip Controls */}
-                  <div className="flex items-center justify-center gap-6 pointer-events-auto">
+                  {isCinemaFullscreen && (
                     <button
-                      onClick={() => seekVideo(videoCurrentTime - 10)}
-                      className="w-10 h-10 rounded-full bg-black/60 border border-white/20 text-white hover:text-retro-gold hover:scale-110 active:scale-95 transition-all flex items-center justify-center backdrop-blur-md shadow-lg"
-                      title="Rewind 10s"
+                      onClick={toggleVideoFullscreen}
+                      className="px-3 py-1 rounded-full bg-black/80 text-white hover:text-retro-gold border border-white/20 text-xs font-bold flex items-center gap-1.5 backdrop-blur-md"
                     >
-                      <RotateCcw className="w-5 h-5" />
+                      <Minimize2 className="w-3.5 h-3.5" />
+                      <span>Exit Fullscreen</span>
                     </button>
+                  )}
+                </div>
 
-                    <button
-                      onClick={toggleVideoPlay}
-                      className="w-14 h-14 rounded-full bg-gradient-to-tr from-retro-gold via-amber-400 to-amber-600 text-retro-dark flex items-center justify-center shadow-2xl shadow-retro-gold/40 hover:scale-105 active:scale-95 transition-all"
-                      title={isVideoPlaying ? 'Pause' : 'Play'}
-                    >
-                      {isVideoPlaying ? (
-                        <Pause className="w-6 h-6 fill-current" />
-                      ) : (
-                        <Play className="w-6 h-6 fill-current ml-0.5" />
-                      )}
-                    </button>
+                {/* Center Playback & Skip Controls */}
+                <div className="flex items-center justify-center gap-6 sm:gap-10 pointer-events-auto">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      seekVideo(videoCurrentTime - 10);
+                    }}
+                    className="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/70 border border-white/20 text-white hover:text-retro-gold hover:scale-110 active:scale-95 transition-all flex items-center justify-center backdrop-blur-md shadow-lg"
+                    title="Rewind 10s"
+                  >
+                    <RotateCcw className="w-5 h-5 sm:w-6 sm:h-6" />
+                  </button>
 
-                    <button
-                      onClick={() => seekVideo(videoCurrentTime + 10)}
-                      className="w-10 h-10 rounded-full bg-black/60 border border-white/20 text-white hover:text-retro-gold hover:scale-110 active:scale-95 transition-all flex items-center justify-center backdrop-blur-md shadow-lg"
-                      title="Forward 10s"
-                    >
-                      <RotateCw className="w-5 h-5" />
-                    </button>
-                  </div>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleVideoPlay();
+                    }}
+                    className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-retro-gold via-amber-400 to-amber-600 text-retro-dark flex items-center justify-center shadow-2xl shadow-retro-gold/40 hover:scale-105 active:scale-95 transition-all"
+                    title={isVideoPlaying ? 'Pause' : 'Play'}
+                  >
+                    {isVideoPlaying ? (
+                      <Pause className="w-7 h-7 fill-current" />
+                    ) : (
+                      <Play className="w-7 h-7 fill-current ml-0.5" />
+                    )}
+                  </button>
 
-                  {/* Bottom Cinema Scrub Bar & Audio/Fullscreen Buttons */}
-                  <div className="space-y-1.5 pointer-events-auto bg-black/60 p-2.5 rounded-2xl border border-white/10 backdrop-blur-md">
-                    {/* Scrub Slider */}
-                    <input
-                      type="range"
-                      min="0"
-                      max={videoDuration || duration || 300}
-                      value={videoCurrentTime}
-                      onChange={(e) => seekVideo(parseFloat(e.target.value))}
-                      className="w-full h-1 bg-white/20 rounded-lg appearance-none cursor-pointer accent-retro-gold"
-                    />
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      seekVideo(videoCurrentTime + 10);
+                    }}
+                    className="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/70 border border-white/20 text-white hover:text-retro-gold hover:scale-110 active:scale-95 transition-all flex items-center justify-center backdrop-blur-md shadow-lg"
+                    title="Forward 10s"
+                  >
+                    <RotateCw className="w-5 h-5 sm:w-6 sm:h-6" />
+                  </button>
+                </div>
 
-                    <div className="flex items-center justify-between text-[11px] text-white/80">
-                      <div className="font-mono text-retro-gold font-bold">
-                        <span>{formatTime(videoCurrentTime)}</span>
-                        <span className="text-white/40 mx-1">/</span>
-                        <span className="text-white/60">{formatTime(videoDuration || duration || 0)}</span>
-                      </div>
+                {/* Bottom Cinema Scrub Bar & Audio/Fullscreen Buttons */}
+                <div className="space-y-1.5 pointer-events-auto bg-black/80 p-2.5 sm:p-3 rounded-2xl border border-white/10 backdrop-blur-md max-w-3xl w-full mx-auto">
+                  {/* Scrub Slider */}
+                  <input
+                    type="range"
+                    min="0"
+                    max={videoDuration || duration || 300}
+                    value={videoCurrentTime}
+                    onChange={(e) => seekVideo(parseFloat(e.target.value))}
+                    className="w-full h-1 sm:h-1.5 bg-white/20 rounded-lg appearance-none cursor-pointer accent-retro-gold"
+                  />
 
-                      <div className="flex items-center gap-3">
-                        <button
-                          onClick={toggleVideoMute}
-                          className="text-white/80 hover:text-retro-gold transition-colors"
-                          title={isMuted ? 'Unmute' : 'Mute'}
-                        >
-                          {isMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4" />}
-                        </button>
-                        <button
-                          onClick={toggleVideoFullscreen}
-                          className="text-white/80 hover:text-retro-gold transition-colors"
-                          title={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
-                        >
-                          {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
-                        </button>
-                      </div>
+                  <div className="flex items-center justify-between text-[11px] sm:text-xs text-white/80">
+                    <div className="font-mono text-retro-gold font-bold">
+                      <span>{formatTime(videoCurrentTime)}</span>
+                      <span className="text-white/40 mx-1">/</span>
+                      <span className="text-white/60">{formatTime(videoDuration || duration || 0)}</span>
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleVideoMute();
+                        }}
+                        className="text-white/80 hover:text-retro-gold transition-colors flex items-center gap-1 text-xs"
+                        title={isMuted ? 'Unmute' : 'Mute'}
+                      >
+                        {isMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4" />}
+                        <span className="hidden sm:inline">{isMuted ? 'Muted' : 'Sound'}</span>
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleVideoFullscreen();
+                        }}
+                        className="text-white/80 hover:text-retro-gold transition-colors flex items-center gap-1 text-xs font-semibold"
+                        title={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+                      >
+                        {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+                        <span className="hidden sm:inline">{isFullscreen ? 'Exit' : 'Full'}</span>
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
-            ) : (
-              <div className="flex flex-col items-center justify-center space-y-2.5 p-6 text-center max-w-sm">
-                <div className="w-14 h-14 rounded-full bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 mb-1">
-                  <Tv className="w-7 h-7" />
-                </div>
-                <h4 className="font-serif font-bold text-sm text-retro-gold">
-                  इस गीत का वीडियो उपलब्ध नहीं है
-                </h4>
-                <p className="text-xs text-white/70 leading-relaxed">
-                  यह एक दुर्लभ स्टूडियो रिकॉर्डिंग है। मूल उच्च-गुणवत्ता ऑडियो का आनंद लें।
-                </p>
-                <button
-                  onClick={() => setActiveView('turntable')}
-                  className="mt-2 px-4 py-1.5 rounded-full bg-retro-gold/20 text-retro-gold text-xs font-bold border border-retro-gold/30 hover:bg-retro-gold/30 transition-all"
-                >
-                  रिकॉर्ड मोड पर लौटें (Back to Record)
-                </button>
+            </div>
+          ) : (
+            <div className="flex-1 flex flex-col items-center justify-center space-y-2.5 p-6 text-center max-w-sm">
+              <div className="w-14 h-14 rounded-full bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 mb-1">
+                <Tv className="w-7 h-7" />
               </div>
-            )}
-          </div>
+              <h4 className="font-serif font-bold text-sm text-retro-gold">
+                इस गीत का वीडियो उपलब्ध नहीं है
+              </h4>
+              <p className="text-xs text-white/70 leading-relaxed">
+                यह एक दुर्लभ स्टूडियो रिकॉर्डिंग है। मूल उच्च-गुणवत्ता ऑडियो का आनंद लें।
+              </p>
+              <button
+                onClick={() => setActiveView('turntable')}
+                className="mt-2 px-4 py-1.5 rounded-full bg-retro-gold/20 text-retro-gold text-xs font-bold border border-retro-gold/30 hover:bg-retro-gold/30 transition-all"
+              >
+                रिकॉर्ड मोड पर लौटें (Back to Record)
+              </button>
+            </div>
+          )}
+
+          {/* Portrait Subtext Hint */}
+          {!isCinemaFullscreen && videoData && (
+            <div className="mt-2.5 flex items-center justify-center gap-2 text-[11px] text-white/50">
+              <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
+              <span>पूरा स्क्रीन देखने के लिए फोन घुमाएं (Rotate for Fullscreen Cinema)</span>
+            </div>
+          )}
         </div>
       )}
 
-      {/* Song Details & Actions */}
-      <div className="relative z-10 space-y-3 pt-2">
+      {/* Song Details & Actions (hidden in cinema fullscreen) */}
+      {!isCinemaFullscreen && (
+        <div className="relative z-10 space-y-3 pt-2">
         <div className="flex items-center justify-between">
           <div className="min-w-0 flex-1 mr-3">
             <h2 className="text-lg sm:text-xl font-bold font-serif text-retro-cream truncate leading-tight">
@@ -828,6 +946,7 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
           </button>
         </div>
       </div>
+      )}
     </div>
   );
 };
