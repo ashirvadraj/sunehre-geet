@@ -40,6 +40,7 @@ captures/
 *.apk
 *.aab
 *.keystore
+!android/app/sunehre-geet.keystore
 *.jks
 
 # Temporary Scratch Scripts & Data
