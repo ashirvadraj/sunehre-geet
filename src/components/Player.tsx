@@ -18,12 +18,18 @@ import {
   RefreshCw,
   Type,
   Music2,
-  Sparkles
+  Sparkles,
+  Tv,
+  Film,
+  Maximize2,
+  ExternalLink,
+  Video
 } from 'lucide-react';
 import { useAudio } from '../context/AudioContext';
 import { usePlaylists } from '../context/PlaylistContext';
 import { useDownload } from '../context/DownloadContext';
 import { fetchLyricsForSong, LyricsData } from '../services/lyricsService';
+import { fetchVideoForSong, VideoData } from '../services/videoService';
 
 interface PlayerProps {
   onOpenSleepTimer: () => void;
@@ -47,6 +53,7 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
     isFullPlayerOpen,
     sleepTimer,
     togglePlay,
+    pause,
     playNext,
     playPrevious,
     seek,
@@ -58,19 +65,24 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
   const { isFavorite, toggleFavorite } = usePlaylists();
   const { isDownloaded, downloadSong, deleteDownload, downloadingId } = useDownload();
 
-  const [activeView, setActiveView] = useState<'turntable' | 'lyrics'>('turntable');
+  const [activeView, setActiveView] = useState<'turntable' | 'lyrics' | 'video'>('turntable');
   const [lyricsData, setLyricsData] = useState<LyricsData | null>(null);
   const [isLoadingLyrics, setIsLoadingLyrics] = useState(false);
   const [lyricsFontSize, setLyricsFontSize] = useState<'sm' | 'base' | 'lg'>('base');
 
+  const [videoData, setVideoData] = useState<VideoData | null>(null);
+  const [isLoadingVideo, setIsLoadingVideo] = useState(false);
+
   const lyricsContainerRef = useRef<HTMLDivElement | null>(null);
   const activeLineRef = useRef<HTMLDivElement | null>(null);
 
-  // Load lyrics whenever current song changes
+  // Load lyrics & video whenever current song changes
   useEffect(() => {
     if (currentSong) {
       setLyricsData(null);
+      setVideoData(null);
       loadLyrics();
+      loadVideo();
     }
   }, [currentSong?.id]);
 
@@ -84,6 +96,18 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
       setLyricsData(null);
     }
     setIsLoadingLyrics(false);
+  };
+
+  const loadVideo = async () => {
+    if (!currentSong) return;
+    setIsLoadingVideo(true);
+    try {
+      const data = await fetchVideoForSong(currentSong);
+      setVideoData(data);
+    } catch {
+      setVideoData(null);
+    }
+    setIsLoadingVideo(false);
   };
 
   // Find active line index based on current playback timestamp with 350ms anticipation offset (ONLY for genuine synced lyrics)
@@ -141,34 +165,55 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
           <ChevronDown className="w-6 h-6" />
         </button>
 
-        {/* View Switcher: Turntable Record vs Lyrics */}
+        {/* View Switcher: Turntable Record vs Lyrics vs Video */}
         <div className="flex items-center p-1 rounded-full bg-black/60 border border-retro-gold/30 shadow-lg">
           <button
             onClick={() => setActiveView('turntable')}
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
               activeView === 'turntable'
                 ? 'bg-gradient-to-r from-retro-gold to-amber-500 text-retro-dark shadow-md'
                 : 'text-white/60 hover:text-white'
             }`}
           >
             <Disc className="w-3.5 h-3.5" />
-            <span>रिकॉर्ड (Record)</span>
+            <span className="hidden sm:inline">रिकॉर्ड</span>
+            <span>Record</span>
           </button>
           <button
             onClick={() => {
               setActiveView('lyrics');
               if (!lyricsData && !isLoadingLyrics) loadLyrics();
             }}
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
               activeView === 'lyrics'
                 ? 'bg-gradient-to-r from-retro-gold to-amber-500 text-retro-dark shadow-md'
                 : 'text-retro-gold/90 hover:text-retro-gold hover:bg-white/5'
             }`}
           >
             <FileText className="w-3.5 h-3.5" />
-            <span>गीत के बोल (Lyrics)</span>
+            <span className="hidden sm:inline">बोल</span>
+            <span>Lyrics</span>
             {lyricsData?.isSynced && (
               <Sparkles className="w-3 h-3 text-amber-300 animate-pulse" />
+            )}
+          </button>
+          <button
+            onClick={() => {
+              setActiveView('video');
+              if (isPlaying) pause();
+              if (!videoData && !isLoadingVideo) loadVideo();
+            }}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+              activeView === 'video'
+                ? 'bg-gradient-to-r from-rose-500 via-amber-500 to-retro-gold text-retro-dark shadow-md'
+                : 'text-rose-300/90 hover:text-rose-300 hover:bg-white/5'
+            }`}
+          >
+            <Tv className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">वीडियो</span>
+            <span>Video</span>
+            {videoData && (
+              <span className="text-[9px] px-1 py-0.2 rounded bg-rose-400/30 text-rose-200 font-black">HD</span>
             )}
           </button>
         </div>
@@ -186,11 +231,11 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
         </button>
       </div>
 
-      {/* Center View: Turntable OR Real-Time Synced Karaoke Lyrics */}
+      {/* Center View: Turntable OR Synced Lyrics OR HD Music Video */}
       {activeView === 'turntable' ? (
         <div className="relative z-10 flex-1 flex flex-col items-center justify-center my-2 animate-fade-in">
           {/* Full Edge-to-Edge Rotating CD Album Disc */}
-          <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center my-3">
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center my-2 sm:my-3">
             {/* Ambient Dynamic Glow */}
             <div className="absolute inset-0 rounded-full bg-retro-gold/25 blur-3xl pointer-events-none" />
 
@@ -223,19 +268,36 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
             </div>
           </div>
 
-          {/* Quick Lyrics Banner Button */}
-          <button
-            onClick={() => {
-              setActiveView('lyrics');
-              if (!lyricsData && !isLoadingLyrics) loadLyrics();
-            }}
-            className="mt-6 px-4 py-2 rounded-full bg-[#1e1338]/90 border border-retro-gold/30 hover:border-retro-gold text-retro-gold text-xs font-semibold flex items-center gap-2 shadow-lg backdrop-blur-md active:scale-95 transition-all"
-          >
-            <FileText className="w-3.5 h-3.5" />
-            <span>गीत के बोल देखें (View Live Lyrics)</span>
-          </button>
+          {/* Quick Switch Action Pills */}
+          <div className="mt-4 flex items-center gap-2.5">
+            <button
+              onClick={() => {
+                setActiveView('lyrics');
+                if (!lyricsData && !isLoadingLyrics) loadLyrics();
+              }}
+              className="px-3.5 py-1.5 rounded-full bg-[#1e1338]/90 border border-retro-gold/30 hover:border-retro-gold text-retro-gold text-xs font-semibold flex items-center gap-1.5 shadow-lg backdrop-blur-md active:scale-95 transition-all"
+            >
+              <FileText className="w-3.5 h-3.5" />
+              <span>गीत के बोल (Lyrics)</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setActiveView('video');
+                if (isPlaying) pause();
+                if (!videoData && !isLoadingVideo) loadVideo();
+              }}
+              className="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-rose-900/60 to-purple-900/60 border border-rose-500/40 hover:border-rose-400 text-rose-200 text-xs font-semibold flex items-center gap-1.5 shadow-lg backdrop-blur-md active:scale-95 transition-all"
+            >
+              <Tv className="w-3.5 h-3.5 text-rose-400" />
+              <span>वीडियो देखें (Watch Video)</span>
+              {videoData && (
+                <span className="text-[9px] px-1 py-0.2 rounded bg-rose-400/30 text-rose-200 font-extrabold">HD</span>
+              )}
+            </button>
+          </div>
         </div>
-      ) : (
+      ) : activeView === 'lyrics' ? (
         /* REAL-TIME SYNCED KARAOKE LYRICS VIEW */
         <div className="relative z-10 flex-1 flex flex-col my-2 overflow-hidden animate-fade-in bg-black/30 rounded-3xl border border-white/10 p-4 backdrop-blur-md">
           <div className="flex items-center justify-between pb-3 border-b border-white/10">
@@ -332,6 +394,81 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
                     Lyrics are currently being archived. Enjoy the music!
                   </p>
                 </div>
+              </div>
+            )}
+          </div>
+        </div>
+      ) : (
+        /* HIGH DEFINITION OFFICIAL MUSIC VIDEO VIEW */
+        <div className="relative z-10 flex-1 flex flex-col my-2 overflow-hidden animate-fade-in bg-black/60 rounded-3xl border border-retro-gold/30 p-3 sm:p-4 backdrop-blur-md shadow-2xl justify-between">
+          <div className="flex items-center justify-between pb-2.5 border-b border-white/10">
+            <div className="flex items-center gap-2 min-w-0">
+              <Film className="w-4 h-4 text-rose-400 flex-shrink-0" />
+              <div className="min-w-0">
+                <span className="text-xs font-bold text-retro-cream truncate block">
+                  {videoData ? videoData.title : 'आधिकारिक संगीत वीडियो (Official Video)'}
+                </span>
+                <span className="text-[10px] text-amber-300/80 font-medium truncate block">
+                  {currentSong.artist} • {currentSong.title}
+                </span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-1.5 flex-shrink-0">
+              {videoData && (
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-extrabold border border-rose-500/30">
+                  HD VIDEO
+                </span>
+              )}
+              <button
+                onClick={loadVideo}
+                disabled={isLoadingVideo}
+                className="p-1.5 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all"
+                title="Refresh Video"
+              >
+                <RefreshCw className={`w-3.5 h-3.5 ${isLoadingVideo ? 'animate-spin' : ''}`} />
+              </button>
+            </div>
+          </div>
+
+          {/* Video Player Display Container */}
+          <div className="flex-1 flex flex-col items-center justify-center my-2 relative rounded-2xl overflow-hidden bg-black/90 border border-white/10 shadow-inner">
+            {isLoadingVideo ? (
+              <div className="flex flex-col items-center justify-center space-y-3 p-6 text-center">
+                <div className="relative">
+                  <div className="w-12 h-12 rounded-full border-2 border-rose-400/30 border-t-rose-400 animate-spin" />
+                  <Tv className="w-5 h-5 text-retro-gold absolute inset-0 m-auto" />
+                </div>
+                <p className="text-xs font-semibold text-retro-cream">वीडियो लोड हो रहा है...</p>
+                <p className="text-[10px] text-white/50">Finding official music video...</p>
+              </div>
+            ) : videoData ? (
+              <div className="w-full h-full relative aspect-video max-h-[58vh] flex items-center justify-center">
+                <iframe
+                  src={`${videoData.embedUrl}&start=${Math.max(0, Math.floor(currentTime))}`}
+                  title={videoData.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full rounded-2xl border-0 shadow-2xl"
+                />
+              </div>
+            ) : (
+              <div className="flex flex-col items-center justify-center space-y-2.5 p-6 text-center max-w-sm">
+                <div className="w-14 h-14 rounded-full bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 mb-1">
+                  <Tv className="w-7 h-7" />
+                </div>
+                <h4 className="font-serif font-bold text-sm text-retro-gold">
+                  इस गीत का वीडियो उपलब्ध नहीं है
+                </h4>
+                <p className="text-xs text-white/70 leading-relaxed">
+                  यह एक अनमोल स्टूडियो रिकॉर्डिंग है। मूल उच्च-गुणवत्ता ऑडियो का आनंद लें।
+                </p>
+                <button
+                  onClick={() => setActiveView('turntable')}
+                  className="mt-2 px-4 py-1.5 rounded-full bg-retro-gold/20 text-retro-gold text-xs font-bold border border-retro-gold/30 hover:bg-retro-gold/30 transition-all"
+                >
+                  रिकॉर्ड मोड पर लौटें (Back to Record)
+                </button>
               </div>
             )}
           </div>

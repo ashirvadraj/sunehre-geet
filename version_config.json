@@ -1,8 +1,8 @@
 {
-  "min_supported_version": 60,
-  "latest_version": 60,
+  "min_supported_version": 61,
+  "latest_version": 61,
   "force_update": true,
-  "update_url": "https://github.com/ashirvadraj/sunehre-geet/releases/tag/v60.0",
-  "message_hindi": "सुनहरे गीत का नया वर्ज़न 60.0 उपलब्ध है! Enhanced Wrapped अनुभव और बेहतर lyrics। कृपया अभी अपडेट करें।",
-  "message_english": "Sunehre Geet v60.0 is available! Enhanced Wrapped experience and improved lyrics matching. Please update to continue."
+  "update_url": "https://github.com/ashirvadraj/sunehre-geet/releases/tag/v61.0",
+  "message_hindi": "सुनहरे गीत का नया वर्ज़न 61.0 उपलब्ध है! अब किसी भी गीत का आधिकारिक HD संगीत वीडियो देखें। कृपया अभी अपडेट करें।",
+  "message_english": "Sunehre Geet v61.0 is available! Watch official HD music videos for your favorite songs with Video Mode. Please update to continue."
 }
