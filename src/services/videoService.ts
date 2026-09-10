@@ -130,7 +130,7 @@ export async function fetchVideoForSong(song: Song): Promise<VideoData | null> {
             videoId,
             title: videoTitle,
             thumbnailUrl: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
-            embedUrl: `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&enablejsapi=1&playsinline=1&rel=0&iv_load_policy=3&modestbranding=1`,
+            embedUrl: `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&enablejsapi=1&fs=0&disablekb=1`,
           };
 
           // Cache result
