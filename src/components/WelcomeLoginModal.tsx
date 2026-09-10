@@ -14,7 +14,7 @@ export const WelcomeLoginModal: React.FC = () => {
     isSyncing,
   } = useAuth();
 
-  const { likedSongIds, favorites, playlists, recentSongIds, restoreUserData } = usePlaylist();
+  const { likedSongIds, favorites, playlists, recentSongIds, restoreUserData, restoreFromCloud } = usePlaylist();
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   if (!isWelcomeModalOpen || isLoggedIn) return null;
@@ -23,10 +23,10 @@ export const WelcomeLoginModal: React.FC = () => {
     setErrorMsg(null);
     const res = await loginWithGoogle();
     if (res.success) {
-      if (res.cloudData) {
+      if (res.cloudData && res.cloudData.likedSongIds.length > 0) {
         restoreUserData(res.cloudData.likedSongIds, res.cloudData.playlists, res.cloudData.recentSongIds, res.cloudData.likedSongs);
       } else {
-        await syncNow({ likedSongIds, playlists, recentSongIds, likedSongs: favorites });
+        await restoreFromCloud(res.cloudData?.user?.email);
       }
     } else {
       setErrorMsg(res.error || 'Google Authentication failed. Please try again.');

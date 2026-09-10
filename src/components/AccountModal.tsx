@@ -26,7 +26,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) =
     logout,
   } = useAuth();
 
-  const { likedSongIds, favorites, playlists, recentSongIds, restoreUserData } = usePlaylist();
+  const { likedSongIds, favorites, playlists, recentSongIds, restoreUserData, restoreFromCloud } = usePlaylist();
   const [statusMsg, setStatusMsg] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
 
   if (!isOpen) return null;
@@ -39,15 +39,29 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) =
   const handleGoogleLogin = async () => {
     const res = await loginWithGoogle();
     if (res.success) {
-      if (res.cloudData) {
+      if (res.cloudData && res.cloudData.likedSongIds.length > 0) {
         restoreUserData(res.cloudData.likedSongIds, res.cloudData.playlists, res.cloudData.recentSongIds, res.cloudData.likedSongs);
-        showMsg(`Welcome, ${res.cloudData.user?.name || 'User'}! Data synced with Google Cloud.`, 'success');
+        showMsg(`Welcome, ${res.cloudData.user?.name || 'User'}! ${res.cloudData.likedSongIds.length} songs restored from Cloud.`, 'success');
       } else {
-        await syncNow({ likedSongIds, playlists, recentSongIds, likedSongs: favorites });
-        showMsg('Google Account connected & cloud backup active.', 'success');
+        const cloudRes = await restoreFromCloud(res.cloudData?.user?.email || user?.email);
+        if (cloudRes.success && cloudRes.count > 0) {
+          showMsg(`Welcome! ${cloudRes.count} songs restored from Cloud.`, 'success');
+        } else {
+          showMsg('Google Account connected & cloud backup active.', 'success');
+        }
       }
     } else {
       showMsg(res.error || 'Google login failed.', 'error');
+    }
+  };
+
+  const handleRestoreClick = async () => {
+    showMsg('क्लाउड से गीत रीस्टोर किए जा रहे हैं...', 'success');
+    const res = await restoreFromCloud(user?.email);
+    if (res.success && res.count > 0) {
+      showMsg(`✅ ${res.count} पसंदीदा गीत रीस्टोर हो गए!`, 'success');
+    } else {
+      showMsg('ℹ️ कोई बैकअप नहीं मिला।', 'error');
     }
   };
 
@@ -145,15 +159,26 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) =
                 </div>
               </div>
 
-              {/* Sync Now Button */}
-              <button
-                onClick={() => syncNow({ likedSongIds, playlists, recentSongIds })}
-                disabled={isSyncing}
-                className="w-full py-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-retro-gold/40 text-retro-gold text-xs font-bold transition-all flex items-center justify-center gap-2 active:scale-95 shadow-md"
-              >
-                <RefreshCw className={`w-4 h-4 ${isSyncing ? 'animate-spin' : ''}`} />
-                <span>{isSyncing ? 'Syncing with Google Cloud...' : 'Backup & Sync Now'}</span>
-              </button>
+              {/* Action Buttons: Backup Now & Restore from Cloud */}
+              <div className="grid grid-cols-2 gap-2.5">
+                <button
+                  onClick={() => syncNow({ likedSongIds, playlists, recentSongIds, likedSongs: favorites })}
+                  disabled={isSyncing}
+                  className="py-3 px-2 rounded-2xl bg-white/5 hover:bg-white/10 border border-retro-gold/40 text-retro-gold text-xs font-bold transition-all flex items-center justify-center gap-1.5 active:scale-95 shadow-md"
+                >
+                  <RefreshCw className={`w-3.5 h-3.5 ${isSyncing ? 'animate-spin' : ''}`} />
+                  <span>{isSyncing ? 'Syncing...' : 'Backup Now'}</span>
+                </button>
+
+                <button
+                  onClick={handleRestoreClick}
+                  disabled={isSyncing}
+                  className="py-3 px-2 rounded-2xl bg-gradient-to-r from-retro-gold/20 via-amber-500/20 to-retro-gold/20 hover:bg-retro-gold/30 border border-retro-gold/60 text-retro-gold text-xs font-bold transition-all flex items-center justify-center gap-1.5 active:scale-95 shadow-md"
+                >
+                  <Cloud className="w-3.5 h-3.5" />
+                  <span>रीस्टोर (Restore)</span>
+                </button>
+              </div>
 
               {/* Google User ID Metadata */}
               <div className="px-3 py-2 rounded-xl bg-black/40 border border-white/5 text-[10px] text-white/40 space-y-1 font-mono">
