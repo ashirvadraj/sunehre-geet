@@ -7,7 +7,7 @@ export interface VideoData {
   embedUrl: string;
 }
 
-const VIDEO_CACHE_PREFIX = 'sunehre_geet_video_v1_';
+const VIDEO_CACHE_PREFIX = 'sunehre_geet_video_v2_';
 const IN_MEMORY_VIDEO_CACHE = new Map<string, VideoData>();
 
 function cleanTrackName(name: string): string {
@@ -130,7 +130,7 @@ export async function fetchVideoForSong(song: Song): Promise<VideoData | null> {
             videoId,
             title: videoTitle,
             thumbnailUrl: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
-            embedUrl: `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&enablejsapi=1&fs=0&disablekb=1&showinfo=0&origin=${encodeURIComponent(typeof window !== 'undefined' && window.location.origin ? window.location.origin : 'http://localhost')}`,
+            embedUrl: `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&enablejsapi=1&fs=0&disablekb=1&showinfo=0&autohide=1&cc_load_policy=0&widget_referrer=${encodeURIComponent(typeof window !== 'undefined' && window.location.origin ? window.location.origin : 'http://localhost')}&origin=${encodeURIComponent(typeof window !== 'undefined' && window.location.origin ? window.location.origin : 'http://localhost')}`,
           };
 
           // Cache result

@@ -78,6 +78,7 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
   const [videoData, setVideoData] = useState<VideoData | null>(null);
   const [isLoadingVideo, setIsLoadingVideo] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [isVideoStreamActive, setIsVideoStreamActive] = useState(false);
   const [videoCurrentTime, setVideoCurrentTime] = useState(0);
   const [videoDuration, setVideoDuration] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
@@ -143,6 +144,7 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
       setVideoCurrentTime(0);
       setVideoDuration(currentSong.duration || 180);
       setIsVideoPlaying(true);
+      setIsVideoStreamActive(false);
       loadLyrics();
       loadVideo();
       if (activeView === 'video') {
@@ -166,6 +168,7 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
   const loadVideo = async () => {
     if (!currentSong) return;
     setIsLoadingVideo(true);
+    setIsVideoStreamActive(false);
     try {
       const data = await fetchVideoForSong(currentSong);
       setVideoData(data);
@@ -273,7 +276,11 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
               setVideoDuration(data.info.duration);
             }
             if (typeof data.info.playerState === 'number') {
-              setIsVideoPlaying(data.info.playerState === 1);
+              const isPlayingState = data.info.playerState === 1;
+              setIsVideoPlaying(isPlayingState);
+              if (isPlayingState) {
+                setIsVideoStreamActive(true);
+              }
               if (data.info.playerState === 0) {
                 // Video ended -> auto advance to next song in playlist
                 playNext();
@@ -653,8 +660,39 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
                   : 'w-full aspect-video max-w-md mx-auto rounded-2xl border border-white/15'
               }`}
             >
+              {/* 0. Native Poster Shield (Fades out when video is actually streaming, immediately covers on pause/buffer) */}
+              <div
+                className={`absolute inset-0 z-15 flex flex-col items-center justify-center transition-opacity duration-300 pointer-events-none ${
+                  isVideoStreamActive && isVideoPlaying ? 'opacity-0' : 'opacity-100'
+                }`}
+                style={{
+                  backgroundImage: `url(${videoData.thumbnailUrl || currentSong.coverUrl})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              >
+                <div className="absolute inset-0 bg-black/60 backdrop-blur-md" />
+                <div className="relative z-10 flex flex-col items-center justify-center p-4 text-center">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-retro-gold via-amber-400 to-amber-600 text-retro-dark flex items-center justify-center shadow-2xl shadow-retro-gold/50 mb-3">
+                    <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-current ml-1 text-black" />
+                  </div>
+                  <span className="text-sm sm:text-base font-serif font-bold text-retro-gold">
+                    सुनहरे गीत सिनेमा HD
+                  </span>
+                  <span className="text-xs text-white/70 mt-0.5 max-w-xs truncate">
+                    {currentSong.title} • {currentSong.artist}
+                  </span>
+                </div>
+              </div>
+
               {/* 1. Precision Cinema Viewport Cropper (Shifts YouTube top bar & bottom watermark out of view) */}
-              <div className="absolute -top-[14%] -left-[8%] w-[116%] h-[128%] overflow-hidden pointer-events-auto">
+              <div
+                className={`absolute overflow-hidden pointer-events-none ${
+                  isCinemaFullscreen
+                    ? 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[136vw] min-h-[136vh] w-[136%] h-[136%] aspect-video'
+                    : '-top-[16%] -left-[16%] w-[132%] h-[132%]'
+                }`}
+              >
                 <iframe
                   ref={videoIframeRef}
                   src={`${videoData.embedUrl}&start=${Math.max(0, Math.floor(currentTime))}`}
@@ -662,17 +700,23 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
                   sandbox="allow-scripts allow-same-origin allow-presentation"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  className="w-full h-full border-0 pointer-events-auto"
+                  className="w-full h-full border-0 pointer-events-none"
                 />
               </div>
 
               {/* 2. Top Anti-Watermark Cinema Gradient Shield */}
-              <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-black/95 via-black/50 to-transparent pointer-events-none z-10" />
+              <div className="absolute top-0 left-0 right-0 h-14 bg-gradient-to-b from-black/95 via-black/60 to-transparent pointer-events-none z-10" />
 
               {/* 3. Bottom Anti-Watermark Cinema Gradient Shield */}
-              <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/95 via-black/50 to-transparent pointer-events-none z-10" />
+              <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none z-10" />
 
-              {/* 4. Touch Barrier Shield (Captures clicks, toggles controls, prevents external redirects) */}
+              {/* 4. Bottom-Right Anti-Watermark Corner Shield */}
+              <div className="absolute bottom-0 right-0 w-32 h-16 bg-gradient-to-tl from-black via-black/90 to-transparent pointer-events-none z-12" />
+
+              {/* 5. Top-Left Anti-Watermark Corner Shield */}
+              <div className="absolute top-0 left-0 w-36 h-16 bg-gradient-to-br from-black via-black/90 to-transparent pointer-events-none z-12" />
+
+              {/* 6. Touch Barrier Shield (Captures clicks, toggles controls, prevents external redirects) */}
               <div
                 className="absolute inset-0 z-20 cursor-pointer"
                 onClick={() => {
