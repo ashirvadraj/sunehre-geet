@@ -7,7 +7,7 @@ export interface VideoData {
   embedUrl: string;
 }
 
-const VIDEO_CACHE_PREFIX = 'sunehre_geet_video_v2_';
+const VIDEO_CACHE_PREFIX = 'sunehre_geet_video_v3_';
 const IN_MEMORY_VIDEO_CACHE = new Map<string, VideoData>();
 
 function cleanTrackName(name: string): string {
@@ -93,9 +93,12 @@ export async function fetchVideoForSong(song: Song): Promise<VideoData | null> {
   const cleanArtist = cleanArtistName(song.artist);
   const cleanMovie = cleanMovieName(song.movie);
 
-  // Search queries to try in order
+  // Search queries ordered by highest resolution & official video quality
   const queries = [
-    `${cleanTitle} ${cleanArtist} ${cleanMovie ? cleanMovie : ''} official video`.trim(),
+    `${cleanTitle} ${cleanMovie ? cleanMovie : ''} ${cleanArtist} 4K video song`.trim(),
+    `${cleanTitle} ${cleanMovie ? cleanMovie : ''} 1080p 4K official video`.trim(),
+    `${cleanTitle} ${cleanArtist} 4K official video`.trim(),
+    `${cleanTitle} ${cleanArtist} official video HD`.trim(),
     `${cleanTitle} ${cleanArtist} video song`.trim(),
   ];
 
@@ -115,7 +118,7 @@ export async function fetchVideoForSong(song: Song): Promise<VideoData | null> {
           }
         }
 
-        // Extract title if available
+        // Extract titles if available
         const titleRegex = /"title":\{"runs":\[\{"text":"([^"]+)"\}\]/g;
         const titles: string[] = [];
         let t: RegExpExecArray | null;
@@ -124,13 +127,23 @@ export async function fetchVideoForSong(song: Song): Promise<VideoData | null> {
         }
 
         if (matches.length > 0) {
-          const videoId = matches[0];
-          const videoTitle = titles[0] || `${cleanTitle} - ${cleanArtist}`;
+          // Prefer official 4k/1080p/video song title match if available
+          let selectedIdx = 0;
+          for (let i = 0; i < Math.min(titles.length, matches.length); i++) {
+            const lower = titles[i].toLowerCase();
+            if (lower.includes('4k') || lower.includes('1080p') || lower.includes('official') || lower.includes('video song') || lower.includes('full video')) {
+              selectedIdx = i;
+              break;
+            }
+          }
+
+          const videoId = matches[selectedIdx] || matches[0];
+          const videoTitle = titles[selectedIdx] || titles[0] || `${cleanTitle} - ${cleanArtist}`;
           const videoData: VideoData = {
             videoId,
             title: videoTitle,
             thumbnailUrl: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
-            embedUrl: `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&enablejsapi=1&fs=0&disablekb=1&showinfo=0&autohide=1&cc_load_policy=0&widget_referrer=${encodeURIComponent(typeof window !== 'undefined' && window.location.origin ? window.location.origin : 'http://localhost')}&origin=${encodeURIComponent(typeof window !== 'undefined' && window.location.origin ? window.location.origin : 'http://localhost')}`,
+            embedUrl: `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&enablejsapi=1&fs=0&disablekb=1&showinfo=0&autohide=1&cc_load_policy=0&vq=hd1080&hd=1&high_res=1&widget_referrer=${encodeURIComponent(typeof window !== 'undefined' && window.location.origin ? window.location.origin : 'http://localhost')}&origin=${encodeURIComponent(typeof window !== 'undefined' && window.location.origin ? window.location.origin : 'http://localhost')}`,
           };
 
           // Cache result
