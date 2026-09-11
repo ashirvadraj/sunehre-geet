@@ -140,7 +140,7 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
     if (currentSong) {
       setLyricsData(null);
       setVideoData(null);
-      setVideoCurrentTime(0);
+      setVideoCurrentTime(Math.max(0, Math.floor(currentTime)));
       setVideoDuration(currentSong.duration || 180);
       setIsVideoPlaying(true);
       loadLyrics();
@@ -190,6 +190,15 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
     }
   };
 
+  const switchToVideoView = () => {
+    setActiveView('video');
+    if (currentTime > 0) {
+      setVideoCurrentTime(Math.floor(currentTime));
+    }
+    if (isPlaying) pause();
+    if (!videoData && !isLoadingVideo) loadVideo();
+  };
+
   // Video postMessage commander
   const sendIframeCommand = (command: string, args: any = '') => {
     if (videoIframeRef.current?.contentWindow) {
@@ -212,7 +221,7 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
   };
 
   const seekVideo = (seconds: number) => {
-    const clamped = Math.max(0, Math.min(videoDuration || duration || 300, seconds));
+    const clamped = Math.max(0, Math.min(videoDuration || duration || currentSong?.duration || 300, seconds));
     sendIframeCommand('seekTo', [clamped, true]);
     setVideoCurrentTime(clamped);
     handleUserActivity();
@@ -259,18 +268,45 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
     controlsTimeoutRef.current = setTimeout(() => setShowControls(false), 3500);
   };
 
-  // Listen to video postMessage status updates
+  // Real-time Video Timer Ticker (ensures timer & scrubber update every second with 100% reliability)
+  useEffect(() => {
+    let timer: any = null;
+    if (activeView === 'video' && isVideoPlaying && videoData) {
+      // Send handshake listening event to iframe
+      if (videoIframeRef.current?.contentWindow) {
+        try {
+          videoIframeRef.current.contentWindow.postMessage(JSON.stringify({ event: 'listening' }), '*');
+        } catch {}
+      }
+
+      timer = setInterval(() => {
+        setVideoCurrentTime((prev) => {
+          const maxDur = videoDuration || duration || currentSong?.duration || 300;
+          if (prev >= maxDur && maxDur > 10) {
+            playNext();
+            return prev;
+          }
+          return prev + 1;
+        });
+      }, 1000);
+    }
+    return () => {
+      if (timer) clearInterval(timer);
+    };
+  }, [activeView, isVideoPlaying, videoData, videoDuration, duration, currentSong?.duration, playNext]);
+
+  // Listen to video postMessage status updates (syncs exact timestamp whenever delivered)
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
       try {
         if (typeof event.data === 'string') {
           const data = JSON.parse(event.data);
           if (data.event === 'infoDelivery' && data.info) {
-            if (typeof data.info.currentTime === 'number') {
-              setVideoCurrentTime(data.info.currentTime);
+            if (typeof data.info.currentTime === 'number' && data.info.currentTime > 0) {
+              setVideoCurrentTime(Math.floor(data.info.currentTime));
             }
             if (typeof data.info.duration === 'number' && data.info.duration > 0) {
-              setVideoDuration(data.info.duration);
+              setVideoDuration(Math.floor(data.info.duration));
             }
             if (typeof data.info.playerState === 'number') {
               setIsVideoPlaying(data.info.playerState === 1);
@@ -383,11 +419,7 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
               )}
             </button>
             <button
-              onClick={() => {
-                setActiveView('video');
-                if (isPlaying) pause();
-                if (!videoData && !isLoadingVideo) loadVideo();
-              }}
+              onClick={switchToVideoView}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
                 activeView === 'video'
                   ? 'bg-gradient-to-r from-rose-500 via-amber-500 to-retro-gold text-retro-dark shadow-md'
@@ -465,11 +497,7 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
             </button>
 
             <button
-              onClick={() => {
-                setActiveView('video');
-                if (isPlaying) pause();
-                if (!videoData && !isLoadingVideo) loadVideo();
-              }}
+              onClick={switchToVideoView}
               className="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-rose-900/60 to-purple-900/60 border border-rose-500/40 hover:border-rose-400 text-rose-200 text-xs font-semibold flex items-center gap-1.5 shadow-lg backdrop-blur-md active:scale-95 transition-all"
             >
               <Tv className="w-3.5 h-3.5 text-rose-400" />
