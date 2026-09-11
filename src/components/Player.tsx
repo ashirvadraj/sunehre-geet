@@ -196,7 +196,14 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
       setVideoCurrentTime(Math.floor(currentTime));
     }
     if (isPlaying) pause();
-    if (!videoData && !isLoadingVideo) loadVideo();
+    setIsVideoPlaying(true);
+    if (!videoData && !isLoadingVideo) {
+      loadVideo();
+    } else if (videoData) {
+      setTimeout(() => {
+        sendIframeCommand('playVideo');
+      }, 300);
+    }
   };
 
   // Video postMessage commander
@@ -696,6 +703,10 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
                   sandbox="allow-scripts allow-same-origin allow-presentation"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
+                  onLoad={() => {
+                    sendIframeCommand('listening');
+                    sendIframeCommand('playVideo');
+                  }}
                   className="w-full h-full border-0 pointer-events-none"
                 />
               </div>
@@ -706,7 +717,16 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
               {/* 3. Bottom Anti-Watermark Cinema Gradient Shield */}
               <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-10" />
 
-              {/* 4. Touch Barrier Shield (Captures clicks, toggles controls, prevents external redirects) */}
+              {/* Instant 1-Tap Play Center Indicator (visible when paused or unstarted) */}
+              {!isVideoPlaying && (
+                <div className="absolute inset-0 z-15 flex items-center justify-center pointer-events-none">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-black/75 border-2 border-retro-gold/90 flex items-center justify-center text-retro-gold shadow-2xl backdrop-blur-md transition-transform active:scale-95 animate-pulse">
+                    <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-current ml-1" />
+                  </div>
+                </div>
+              )}
+
+              {/* 4. Touch Barrier Shield (Captures single-tap play/pause, prevents external redirects) */}
               <div
                 className="absolute inset-0 z-20 cursor-pointer"
                 onClick={() => {
