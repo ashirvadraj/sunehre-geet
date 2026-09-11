@@ -145,6 +145,9 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
       setIsVideoPlaying(true);
       loadLyrics();
       loadVideo();
+      if (activeView === 'video') {
+        pause();
+      }
     }
   }, [currentSong?.id]);
 
@@ -170,6 +173,21 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
       setVideoData(null);
     }
     setIsLoadingVideo(false);
+  };
+
+  const switchToAudioView = (view: 'turntable' | 'lyrics') => {
+    if (activeView === 'video') {
+      if (videoCurrentTime > 0) {
+        seek(videoCurrentTime);
+      }
+      if (!isPlaying) {
+        togglePlay();
+      }
+    }
+    setActiveView(view);
+    if (view === 'lyrics' && !lyricsData && !isLoadingLyrics) {
+      loadLyrics();
+    }
   };
 
   // Video postMessage commander
@@ -256,6 +274,10 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
             }
             if (typeof data.info.playerState === 'number') {
               setIsVideoPlaying(data.info.playerState === 1);
+              if (data.info.playerState === 0) {
+                // Video ended -> auto advance to next song in playlist
+                playNext();
+              }
             }
           }
         }
@@ -263,7 +285,7 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
     };
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
-  }, []);
+  }, [playNext]);
 
   // Find active line index based on current playback timestamp with 350ms anticipation offset (ONLY for genuine synced lyrics)
   let activeLineIndex = -1;
@@ -334,7 +356,7 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
           {/* View Switcher: Turntable Record vs Lyrics vs Video */}
           <div className="flex items-center p-1 rounded-full bg-black/60 border border-retro-gold/30 shadow-lg">
             <button
-              onClick={() => setActiveView('turntable')}
+              onClick={() => switchToAudioView('turntable')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
                 activeView === 'turntable'
                   ? 'bg-gradient-to-r from-retro-gold to-amber-500 text-retro-dark shadow-md'
@@ -346,10 +368,7 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
               <span>Record</span>
             </button>
             <button
-              onClick={() => {
-                setActiveView('lyrics');
-                if (!lyricsData && !isLoadingLyrics) loadLyrics();
-              }}
+              onClick={() => switchToAudioView('lyrics')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
                 activeView === 'lyrics'
                   ? 'bg-gradient-to-r from-retro-gold to-amber-500 text-retro-dark shadow-md'
@@ -438,10 +457,7 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
           {/* Quick Switch Action Pills */}
           <div className="mt-4 flex items-center gap-2.5">
             <button
-              onClick={() => {
-                setActiveView('lyrics');
-                if (!lyricsData && !isLoadingLyrics) loadLyrics();
-              }}
+              onClick={() => switchToAudioView('lyrics')}
               className="px-3.5 py-1.5 rounded-full bg-[#1e1338]/90 border border-retro-gold/30 hover:border-retro-gold text-retro-gold text-xs font-semibold flex items-center gap-1.5 shadow-lg backdrop-blur-md active:scale-95 transition-all"
             >
               <FileText className="w-3.5 h-3.5" />
@@ -695,16 +711,27 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
                 </div>
 
                 {/* Center Playback & Skip Controls */}
-                <div className="flex items-center justify-center gap-6 sm:gap-10 pointer-events-auto">
+                <div className="flex items-center justify-center gap-3 sm:gap-6 md:gap-8 pointer-events-auto">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      playPrevious();
+                    }}
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/70 border border-white/20 text-white hover:text-retro-gold hover:scale-110 active:scale-95 transition-all flex items-center justify-center backdrop-blur-md shadow-lg"
+                    title="Previous Track"
+                  >
+                    <SkipBack className="w-5 h-5 sm:w-6 sm:h-6 fill-current" />
+                  </button>
+
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       seekVideo(videoCurrentTime - 10);
                     }}
-                    className="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/70 border border-white/20 text-white hover:text-retro-gold hover:scale-110 active:scale-95 transition-all flex items-center justify-center backdrop-blur-md shadow-lg"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/70 border border-white/20 text-white hover:text-retro-gold hover:scale-110 active:scale-95 transition-all flex items-center justify-center backdrop-blur-md shadow-lg"
                     title="Rewind 10s"
                   >
-                    <RotateCcw className="w-5 h-5 sm:w-6 sm:h-6" />
+                    <RotateCcw className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
 
                   <button
@@ -727,10 +754,21 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
                       e.stopPropagation();
                       seekVideo(videoCurrentTime + 10);
                     }}
-                    className="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/70 border border-white/20 text-white hover:text-retro-gold hover:scale-110 active:scale-95 transition-all flex items-center justify-center backdrop-blur-md shadow-lg"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/70 border border-white/20 text-white hover:text-retro-gold hover:scale-110 active:scale-95 transition-all flex items-center justify-center backdrop-blur-md shadow-lg"
                     title="Forward 10s"
                   >
-                    <RotateCw className="w-5 h-5 sm:w-6 sm:h-6" />
+                    <RotateCw className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </button>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      playNext();
+                    }}
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/70 border border-white/20 text-white hover:text-retro-gold hover:scale-110 active:scale-95 transition-all flex items-center justify-center backdrop-blur-md shadow-lg"
+                    title="Next Track"
+                  >
+                    <SkipForward className="w-5 h-5 sm:w-6 sm:h-6 fill-current" />
                   </button>
                 </div>
 
@@ -793,7 +831,7 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
                 यह एक दुर्लभ स्टूडियो रिकॉर्डिंग है। मूल उच्च-गुणवत्ता ऑडियो का आनंद लें।
               </p>
               <button
-                onClick={() => setActiveView('turntable')}
+                onClick={() => switchToAudioView('turntable')}
                 className="mt-2 px-4 py-1.5 rounded-full bg-retro-gold/20 text-retro-gold text-xs font-bold border border-retro-gold/30 hover:bg-retro-gold/30 transition-all"
               >
                 रिकॉर्ड मोड पर लौटें (Back to Record)
