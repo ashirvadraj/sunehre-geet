@@ -1,8 +1,8 @@
 {
-  "min_supported_version": 68,
-  "latest_version": 68,
+  "min_supported_version": 69,
+  "latest_version": 69,
   "force_update": true,
-  "update_url": "https://github.com/ashirvadraj/sunehre-geet/releases/download/v68.0/sunehre-geet-v68.0.apk",
-  "message_hindi": "सुनहरे गीत का नया वर्ज़न 68.0 उपलब्ध है! केवल प्रामाणिक और असली ऑफिशियल वीडियो मैचिंग (फेक/कवर वीडियो पूरी तरह बंद), 1-टैप इंस्टेंट प्लेबैक और बिना किसी ब्लैक स्क्रीन के स्मूथ अनुभव। कृपया अभी अपडेट करें।",
-  "message_english": "Sunehre Geet v68.0 is available! Pure authentic official videos only (no fake/cover videos), instant 1-tap playback with zero black screens, and seamless cinema mode. Please update to continue."
+  "update_url": "https://github.com/ashirvadraj/sunehre-geet/releases/download/v69.0/sunehre-geet-v69.0.apk",
+  "message_hindi": "सुनहरे गीत का नया वर्ज़न 69.0 उपलब्ध है! Apple Music की तरह वर्ड-बाय-वर्ड लाइव सिंक लिरिक्स (Karaoke Word Highlight), 60fps स्मूथ एनिमेशन और बेहतर म्यूज़िक अनुभव। कृपया अभी अपडेट करें।",
+  "message_english": "Sunehre Geet v69.0 is available! Apple Music-style word-by-word synced karaoke lyrics highlighting, buttery smooth 60fps animations, and enhanced music experience. Please update to continue."
 }

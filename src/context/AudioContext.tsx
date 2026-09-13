@@ -35,7 +35,7 @@ const AudioContext = createContext<AudioContextType | undefined>(undefined);
 const LAST_PLAYBACK_KEY = 'sunehre_geet_last_playback_session';
 
 // SINGLETON AUDIO INSTANCE
-const singletonAudio: HTMLAudioElement = typeof window !== 'undefined' ? new Audio() : (null as any);
+export const singletonAudio: HTMLAudioElement = typeof window !== 'undefined' ? new Audio() : (null as any);
 if (singletonAudio) {
   singletonAudio.preload = 'auto';
 }

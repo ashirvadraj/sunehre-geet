@@ -6,10 +6,53 @@ export interface LyricLine {
   text: string;
 }
 
+export interface WordSpan {
+  word: string;
+  startTime: number;
+  endTime: number;
+  duration: number;
+}
+
 export interface LyricsData {
   isSynced: boolean;
   lines: LyricLine[];
   plainText: string;
+}
+
+/**
+ * Splits a lyrical line into character-weighted timed word spans for Apple Music karaoke animation
+ */
+export function calculateLineWords(line: LyricLine, nextLine?: LyricLine): WordSpan[] {
+  const text = (line?.text || '').trim();
+  if (!text) return [];
+
+  const wordsOnly = text.split(/\s+/).filter((w) => w.length > 0);
+  if (wordsOnly.length === 0) return [];
+
+  const lineStart = line.time;
+  const rawDuration = nextLine ? Math.max(0.8, nextLine.time - lineStart) : 4.5;
+  const effectiveDuration = Math.min(rawDuration, 7.5);
+
+  const totalWeight = wordsOnly.reduce((acc, w) => acc + Math.max(1, w.length), 0);
+
+  let currentOffset = 0;
+  const wordSpans: WordSpan[] = [];
+
+  for (const word of wordsOnly) {
+    const wordWeight = Math.max(1, word.length);
+    const wordDuration = (wordWeight / totalWeight) * effectiveDuration;
+    const start = lineStart + currentOffset;
+    const end = start + wordDuration;
+    wordSpans.push({
+      word,
+      startTime: Number(start.toFixed(2)),
+      endTime: Number(end.toFixed(2)),
+      duration: Number(wordDuration.toFixed(2)),
+    });
+    currentOffset += wordDuration;
+  }
+
+  return wordSpans;
 }
 
 const LYRICS_CACHE_PREFIX = 'sunehre_geet_lyrics_v3_';

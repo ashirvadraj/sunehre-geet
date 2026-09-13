@@ -30,10 +30,10 @@ import {
   RotateCcw,
   RotateCw
 } from 'lucide-react';
-import { useAudio } from '../context/AudioContext';
+import { useAudio, singletonAudio } from '../context/AudioContext';
 import { usePlaylists } from '../context/PlaylistContext';
 import { useDownload } from '../context/DownloadContext';
-import { fetchLyricsForSong, LyricsData } from '../services/lyricsService';
+import { fetchLyricsForSong, LyricsData, calculateLineWords } from '../services/lyricsService';
 import { fetchVideoForSong, VideoData } from '../services/videoService';
 
 interface PlayerProps {
@@ -96,6 +96,27 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
 
   const lyricsContainerRef = useRef<HTMLDivElement | null>(null);
   const activeLineRef = useRef<HTMLDivElement | null>(null);
+  const [lyricsCurrentTime, setLyricsCurrentTime] = useState<number>(currentTime);
+
+  // High-frequency 60fps ticker for Apple Music word-by-word karaoke synchronization
+  useEffect(() => {
+    if (activeView !== 'lyrics' || !isPlaying) {
+      setLyricsCurrentTime(currentTime);
+      return;
+    }
+
+    let animFrameId: number;
+    const tick = () => {
+      if (singletonAudio && !singletonAudio.paused) {
+        setLyricsCurrentTime(singletonAudio.currentTime);
+      }
+      animFrameId = requestAnimationFrame(tick);
+    };
+    animFrameId = requestAnimationFrame(tick);
+    return () => {
+      if (animFrameId) cancelAnimationFrame(animFrameId);
+    };
+  }, [activeView, isPlaying, currentTime]);
 
   // Auto-detect screen orientation (portrait vs landscape rotation)
   useEffect(() => {
@@ -330,10 +351,11 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
     return () => window.removeEventListener('message', handleMessage);
   }, [playNext]);
 
-  // Find active line index based on current playback timestamp with 350ms anticipation offset (ONLY for genuine synced lyrics)
+  // Find active line index based on real-time playback timestamp with 250ms vocal anticipation offset (ONLY for genuine synced lyrics)
   let activeLineIndex = -1;
+  const effectiveLyricsTime = activeView === 'lyrics' && isPlaying ? lyricsCurrentTime : currentTime;
   if (lyricsData?.isSynced && lyricsData.lines.length > 0) {
-    const calibratedTime = currentTime + 0.35; // 350ms offset aligns visual highlight precisely with vocal onset
+    const calibratedTime = effectiveLyricsTime + 0.25; // 250ms offset aligns visual highlight precisely with vocal onset
     for (let i = 0; i < lyricsData.lines.length; i++) {
       if (calibratedTime >= lyricsData.lines[i].time) {
         activeLineIndex = i;
@@ -525,8 +547,9 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
                 {lyricsData?.isSynced ? 'लाइव सिंक बोल (Live Synced Lyrics)' : 'गीत के बोल (Lyrics)'}
               </span>
               {lyricsData?.isSynced && (
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold border border-amber-500/30">
-                  Karaoke
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-500/25 to-retro-gold/30 text-amber-300 font-bold border border-amber-500/40 flex items-center gap-1">
+                  <Sparkles className="w-3 h-3 text-amber-300 animate-pulse" />
+                  Apple Music Karaoke
                 </span>
               )}
             </div>
@@ -572,21 +595,55 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
                     ? 'text-xl'
                     : 'text-base sm:text-lg';
 
+                if (isSynced && isActive) {
+                  const words = calculateLineWords(line, lyricsData.lines[idx + 1]);
+                  return (
+                    <div
+                      key={idx}
+                      ref={activeLineRef}
+                      onClick={() => seek(line.time)}
+                      className="transition-all duration-300 cursor-pointer px-4 py-3 sm:py-4 rounded-2xl bg-gradient-to-r from-amber-500/20 via-retro-gold/25 to-amber-500/20 border border-amber-400/50 shadow-xl shadow-amber-500/15 scale-105 my-3 backdrop-blur-md"
+                    >
+                      <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5 leading-relaxed">
+                        {words.length > 0 ? (
+                          words.map((w, wIdx) => {
+                            const isWordPast = effectiveLyricsTime >= w.endTime;
+                            const isWordCurrent = effectiveLyricsTime >= w.startTime && effectiveLyricsTime < w.endTime;
+                            return (
+                              <span
+                                key={wIdx}
+                                className={`transition-all duration-150 inline-block ${
+                                  isWordCurrent
+                                    ? `${sizeClass} font-black text-amber-200 scale-110 drop-shadow-[0_0_18px_rgba(251,191,36,0.95)] animate-pulse`
+                                    : isWordPast
+                                    ? `${sizeClass} font-bold text-amber-300 drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]`
+                                    : `${sizeClass} font-medium text-white/45`
+                                }`}
+                              >
+                                {w.word}
+                              </span>
+                            );
+                          })
+                        ) : (
+                          <span className={`${sizeClass} font-bold text-amber-300`}>{line.text}</span>
+                        )}
+                      </div>
+                    </div>
+                  );
+                }
+
                 return (
                   <div
                     key={idx}
-                    ref={isActive ? activeLineRef : null}
                     onClick={() => {
                       if (isSynced) {
                         seek(line.time);
                       }
                     }}
                     className={`transition-all duration-300 ${isSynced ? 'cursor-pointer' : ''} px-3 py-1.5 rounded-2xl ${
-                      isActive
-                        ? `${sizeClass} font-bold text-amber-300 scale-105 bg-retro-gold/15 shadow-md shadow-retro-gold/10`
-                        : isPast
-                        ? `${sizeClass} font-medium text-white/40 hover:text-white/60`
-                        : `${sizeClass} font-medium text-white/80 hover:text-white`
+                      isPast
+                        ? `${sizeClass} font-medium text-white/40 hover:text-white/70`
+                        : `${sizeClass} font-medium text-white/75 hover:text-white`
                     }`}
                   >
                     {line.text}
