@@ -20,18 +20,34 @@ export interface LyricsData {
 }
 
 /**
- * Splits a lyrical line into character-weighted timed word spans for Apple Music karaoke animation
+ * Splits a lyrical line into natural cadence timed word spans for Apple Music karaoke animation
  */
 export function calculateLineWords(line: LyricLine, nextLine?: LyricLine): WordSpan[] {
   const text = (line?.text || '').trim();
   if (!text) return [];
 
   const wordsOnly = text.split(/\s+/).filter((w) => w.length > 0);
-  if (wordsOnly.length === 0) return [];
+  const numWords = wordsOnly.length;
+  if (numWords === 0) return [];
 
   const lineStart = line.time;
-  const rawDuration = nextLine ? Math.max(0.8, nextLine.time - lineStart) : 4.5;
-  const effectiveDuration = Math.min(rawDuration, 7.5);
+  const rawGap = nextLine ? Math.max(0.6, nextLine.time - lineStart) : numWords * 0.65;
+
+  // Realistic human vocal cadence:
+  // In songs with instrumental trailing pauses or interludes, vocals typically occupy
+  // ~65-80% of the gap, capped at ~0.55s - 0.75s per word.
+  const estimatedVocalDuration = Math.max(1.4, numWords * 0.62);
+
+  let effectiveDuration: number;
+  if (rawGap <= estimatedVocalDuration * 1.15) {
+    // Tight line spacing -> vocals take almost the entire line
+    effectiveDuration = rawGap * 0.92;
+  } else {
+    // Generous gap -> vocals finish naturally, leaving room for trailing melody
+    effectiveDuration = Math.min(rawGap * 0.75, estimatedVocalDuration * 1.1);
+  }
+
+  effectiveDuration = Math.max(1.0, Math.min(effectiveDuration, 8.5));
 
   const totalWeight = wordsOnly.reduce((acc, w) => acc + Math.max(1, w.length), 0);
 
@@ -55,7 +71,7 @@ export function calculateLineWords(line: LyricLine, nextLine?: LyricLine): WordS
   return wordSpans;
 }
 
-const LYRICS_CACHE_PREFIX = 'sunehre_geet_lyrics_v3_';
+const LYRICS_CACHE_PREFIX = 'sunehre_geet_lyrics_v4_';
 
 function cleanTrackName(name: string): string {
   if (!name) return '';
@@ -160,6 +176,74 @@ async function nativeFetchText(targetUrl: string, timeoutMs: number = 1800): Pro
 
 const IN_MEMORY_LYRICS_CACHE = new Map<string, LyricsData>();
 
+function scoreLrcCandidate(item: any, title: string, artist: string, duration: number): number {
+  if (!item) return -1000;
+  const synced = item.syncedLyrics || '';
+  const plain = item.plainLyrics || '';
+  const lrc = (synced || plain).toLowerCase();
+  if (!lrc || lrc.length < 20) return -1000;
+
+  let score = 0;
+  const track = (item.trackName || '').toLowerCase();
+  const art = (item.artistName || '').toLowerCase();
+  const cleanTitleLower = title.toLowerCase();
+  const cleanArtistLower = artist.toLowerCase();
+
+  // 1. Synced Lyrics Preference
+  if (synced && synced.length > 20) {
+    score += 80;
+  }
+
+  // 2. Track Title Exact / Partial Match
+  if (track === cleanTitleLower) {
+    score += 50;
+  } else if (track.includes(cleanTitleLower) || cleanTitleLower.includes(track)) {
+    score += 30;
+  }
+
+  // 3. Artist Match
+  if (art.includes(cleanArtistLower) || cleanArtistLower.includes(art.split(',')[0].trim())) {
+    score += 40;
+  }
+
+  // 4. Duration Match
+  if (item.duration && duration > 0) {
+    const diff = Math.abs(item.duration - duration);
+    if (diff <= 5) score += 35;
+    else if (diff <= 15) score += 20;
+    else if (diff <= 30) score += 10;
+    else if (diff > 45) score -= 60;
+  }
+
+  // 5. Title Keywords Presence in Lyrics (genuine song matching)
+  const titleWords = cleanTitleLower.split(/\s+/).filter((w) => w.length > 2);
+  let titleWordsFound = 0;
+  for (const tw of titleWords) {
+    if (lrc.includes(tw)) titleWordsFound++;
+  }
+  if (titleWordsFound > 0) {
+    score += Math.min(40, titleWordsFound * 20);
+  }
+
+  // 6. Anti-Troll / Anti-Rap filter for Indian classic songs
+  const firstLines = lrc.split('\n').slice(0, 5).join(' ');
+  const trollPatterns = [
+    'girl, i still remember',
+    'private galaxy',
+    'come on, man',
+    'remix',
+    'dj mix',
+    'unauthorized',
+  ];
+  for (const pattern of trollPatterns) {
+    if (firstLines.includes(pattern)) {
+      score -= 250;
+    }
+  }
+
+  return score;
+}
+
 async function fetchLrclibExact(cleanTitle: string, cleanArtist: string, songDuration: number): Promise<LyricsData | null> {
   try {
     const lrcUrl = `https://lrclib.net/api/search?track_name=${encodeURIComponent(cleanTitle)}&artist_name=${encodeURIComponent(cleanArtist)}`;
@@ -167,24 +251,17 @@ async function fetchLrclibExact(cleanTitle: string, cleanArtist: string, songDur
     if (text) {
       const data = JSON.parse(text);
       if (Array.isArray(data) && data.length > 0) {
-        const matchesArtist = (d: any) => {
-          if (!d.artistName || !cleanArtist) return true;
-          const lower = d.artistName.toLowerCase();
-          const target = cleanArtist.toLowerCase();
-          return lower.includes(target) || target.includes(lower.split(',')[0].trim());
-        };
-        const matchesDuration = (d: any) => !d.duration || !songDuration || Math.abs(d.duration - songDuration) <= 30;
-        const isValid = (d: any) => matchesArtist(d) && matchesDuration(d);
+        const scored = data
+          .map((d: any) => ({ item: d, score: scoreLrcCandidate(d, cleanTitle, cleanArtist, songDuration) }))
+          .filter((s) => s.score > 50)
+          .sort((a, b) => b.score - a.score);
 
-        // Strongly prefer synced lyrics over plain text
-        const syncedItem = data.find((d: any) => d.syncedLyrics && d.syncedLyrics.length > 20 && isValid(d));
-        if (syncedItem) {
-          return parseLrcString(syncedItem.syncedLyrics);
-        }
-        // Fallback to plain lyrics
-        const plainItem = data.find((d: any) => d.plainLyrics && d.plainLyrics.length > 20 && isValid(d));
-        if (plainItem) {
-          return parseLrcString(plainItem.plainLyrics);
+        if (scored.length > 0) {
+          const best = scored[0].item;
+          const rawLrc = best.syncedLyrics || best.plainLyrics;
+          if (rawLrc && rawLrc.length > 20) {
+            return parseLrcString(rawLrc);
+          }
         }
       }
     }
@@ -199,24 +276,17 @@ async function fetchLrclibQuery(cleanTitle: string, cleanArtist: string, songDur
     if (text) {
       const data = JSON.parse(text);
       if (Array.isArray(data) && data.length > 0) {
-        const matchesArtist = (d: any) => {
-          if (!d.artistName || !cleanArtist) return true;
-          const lower = d.artistName.toLowerCase();
-          const target = cleanArtist.toLowerCase();
-          return lower.includes(target) || target.includes(lower.split(',')[0].trim());
-        };
-        const matchesDuration = (d: any) => !d.duration || !songDuration || Math.abs(d.duration - songDuration) <= 30;
-        const isValid = (d: any) => matchesArtist(d) && matchesDuration(d);
+        const scored = data
+          .map((d: any) => ({ item: d, score: scoreLrcCandidate(d, cleanTitle, cleanArtist, songDuration) }))
+          .filter((s) => s.score > 50)
+          .sort((a, b) => b.score - a.score);
 
-        // Prefer synced lyrics from a validated match
-        const item = data.find((d: any) => d.syncedLyrics && isValid(d)) 
-          || data.find((d: any) => isValid(d) && (d.syncedLyrics || d.plainLyrics))
-          || null;
-        if (!item) return null;
-
-        const rawLrc = item.syncedLyrics || item.plainLyrics;
-        if (rawLrc && rawLrc.length > 20) {
-          return parseLrcString(rawLrc);
+        if (scored.length > 0) {
+          const best = scored[0].item;
+          const rawLrc = best.syncedLyrics || best.plainLyrics;
+          if (rawLrc && rawLrc.length > 20) {
+            return parseLrcString(rawLrc);
+          }
         }
       }
     }
@@ -362,10 +432,19 @@ export async function fetchLyricsForSong(song: Song): Promise<LyricsData | null>
   const cleanTitle = cleanTrackName(song.title);
   const cleanArtist = (song.artist || '').split(',')[0].split(/\s+ft\.?\s+/i)[0].split(/\s+feat\.?\s+/i)[0].split(' - ')[0].split(' & ')[0].trim();
 
-  // 4. PARALLEL Fast Race across All Sources simultaneously
+  // 4. Try high-precision exact track+artist search first
+  try {
+    const exactResult = await fetchLrclibExact(cleanTitle, cleanArtist, song.duration || 0);
+    if (exactResult && exactResult.isSynced && exactResult.lines.length > 0) {
+      IN_MEMORY_LYRICS_CACHE.set(song.id, exactResult);
+      try { localStorage.setItem(cacheKey, JSON.stringify(exactResult)); } catch {}
+      return exactResult;
+    }
+  } catch {}
+
+  // 5. Fallback race across remaining sources (query search + JioSaavn)
   try {
     const promises: Promise<LyricsData | null>[] = [
-      fetchLrclibExact(cleanTitle, cleanArtist, song.duration || 0),
       fetchLrclibQuery(cleanTitle, cleanArtist, song.duration || 0),
       fetchJioSaavnDirect(song.id),
       fetchJioSaavnBySearch(cleanTitle, cleanArtist),

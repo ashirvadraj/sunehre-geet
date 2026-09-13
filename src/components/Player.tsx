@@ -351,13 +351,14 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
     return () => window.removeEventListener('message', handleMessage);
   }, [playNext]);
 
-  // Find active line index based on real-time playback timestamp with 250ms vocal anticipation offset (ONLY for genuine synced lyrics)
+  // Find active line index based on real-time playback timestamp with 200ms vocal lead alignment
   let activeLineIndex = -1;
   const effectiveLyricsTime = activeView === 'lyrics' && isPlaying ? lyricsCurrentTime : currentTime;
+  const calibratedLyricsTime = effectiveLyricsTime + 0.20; // 200ms vocal lead alignment for both line and word highlights
+
   if (lyricsData?.isSynced && lyricsData.lines.length > 0) {
-    const calibratedTime = effectiveLyricsTime + 0.25; // 250ms offset aligns visual highlight precisely with vocal onset
     for (let i = 0; i < lyricsData.lines.length; i++) {
-      if (calibratedTime >= lyricsData.lines[i].time) {
+      if (calibratedLyricsTime >= lyricsData.lines[i].time) {
         activeLineIndex = i;
       } else {
         break;
@@ -607,8 +608,8 @@ export const Player: React.FC<PlayerProps> = ({ onOpenSleepTimer }) => {
                       <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5 leading-relaxed">
                         {words.length > 0 ? (
                           words.map((w, wIdx) => {
-                            const isWordPast = effectiveLyricsTime >= w.endTime;
-                            const isWordCurrent = effectiveLyricsTime >= w.startTime && effectiveLyricsTime < w.endTime;
+                            const isWordPast = calibratedLyricsTime >= w.endTime;
+                            const isWordCurrent = calibratedLyricsTime >= w.startTime && calibratedLyricsTime < w.endTime;
                             return (
                               <span
                                 key={wIdx}
